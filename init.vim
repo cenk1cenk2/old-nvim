@@ -71,6 +71,7 @@ else
   source $HOME/.config/nvim/plug-config/fugitive.vim
   source $HOME/.config/nvim/plug-config/vim-go.vim
   source $HOME/.config/nvim/plug-config/vim-bookmarks.vim
+  source $HOME/.config/nvim/plug-config/vim-mergetool.vim
 endif
 
 " Add paths to node and python here

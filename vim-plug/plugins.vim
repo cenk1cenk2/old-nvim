@@ -158,6 +158,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Plug 'vim-scripts/ConflictMotions'
     " Plug 'inkarkat/vim-CountJump'
     " Plug 'inkarkat/vim-ingo-library'
+
+    " vim-mergetool
+    Plug 'samoshkin/vim-mergetool'
   endif
 
 call plug#end()
