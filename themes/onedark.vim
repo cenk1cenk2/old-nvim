@@ -106,3 +106,4 @@ hi TSTagDelimiter guifg=#b0b0b0
 hi TSDelimiter guifg=#b0b0b0
 hi TSPunctBracket guifg=#FFD700
 hi TSVariableBuiltin guifg=#e5c07b
+hi TSTag guifg=#e06c75

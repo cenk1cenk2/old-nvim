@@ -113,10 +113,10 @@ else
   nmap <silent> Ä /{<CR>:let @/ = ""<CR>zz
 
   " run through function parantheses
-  nmap <silent> ' /)<CR>:let @/ = ""<CR>zz
-  nmap <silent> + ?)<CR>:let @/ = ""<CR>zz
   nmap <silent> # /(<CR>:let @/ = ""<CR>zz
-  nmap <silent> * ?(<CR>:let @/ = ""<CR>zz
+  nmap <silent> + ?(<CR>:let @/ = ""<CR>zz
+  nmap <silent> ' /)<CR>:let @/ = ""<CR>zz
+  nmap <silent> * ?)<CR>:let @/ = ""<CR>zz
 
   " copy last clipboard register
   nmap <silent> po "_diw"*P
