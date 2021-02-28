@@ -161,6 +161,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " vim-mergetool
     Plug 'samoshkin/vim-mergetool'
+
+    " tailwinds
+    Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
   endif
 
 call plug#end()

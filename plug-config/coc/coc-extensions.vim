@@ -38,7 +38,6 @@ let g:coc_global_extensions = [
 \ 'coc-github',
 \ 'coc-react-refactor',
 \ 'coc-docthis',
-\ 'coc-vetur',
-\ 'https://github.com/rodrigore/coc-tailwind-intellisense' ]
+\ 'coc-vetur', ]
 " \ 'coc-highlight',
 
