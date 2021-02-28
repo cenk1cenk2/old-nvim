@@ -164,6 +164,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " tailwinds
     Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
+
+    " skylight peak under the cursor for files
+    Plug 'voldikss/vim-skylight'
   endif
 
 call plug#end()
