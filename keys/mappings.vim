@@ -97,8 +97,8 @@ else
   endif
 
   " create space on top and bottom
-  nmap <silent> ü o<ESC>k
-  nmap <silent> Ü O<ESC>j
+  nmap <silent> Ü o<ESC>k
+  nmap <silent> ü O<ESC>j
 
   " jump between gaps
   nmap <silent> ö {zz
@@ -113,16 +113,16 @@ else
   nmap <silent> Ä /{<CR>:let @/ = ""<CR>zz
 
   " run through function parantheses
-  nmap <silent> + /)<CR>:let @/ = ""<CR>zz
-  nmap <silent> * ?)<CR>:let @/ = ""<CR>zz
+  nmap <silent> ' /)<CR>:let @/ = ""<CR>zz
+  nmap <silent> + ?)<CR>:let @/ = ""<CR>zz
   nmap <silent> # /(<CR>:let @/ = ""<CR>zz
-  nmap <silent> ' ?(<CR>:let @/ = ""<CR>zz
+  nmap <silent> * ?(<CR>:let @/ = ""<CR>zz
 
   " copy last clipboard register
-  nmap <silent> po diw"*P
+  nmap <silent> po "_diw"*P
 
   " copy last yank register
-  nmap <silent> pü diw"0P
+  nmap <silent> pü "_diw"0P
 
 
   " x to blackhole
