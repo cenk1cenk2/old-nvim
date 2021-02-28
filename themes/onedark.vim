@@ -84,7 +84,6 @@ hi diffOldFile guifg=#e06c75 ctermfg=168 guibg=NONE ctermbg=NONE gui=NONE cterm=
 hi debugPc guifg=NONE ctermfg=NONE guibg=#56b6c2 ctermbg=73 gui=NONE cterm=NONE
 hi debugBreakpoint guifg=#e06c75 ctermfg=168 guibg=NONE ctermbg=NONE gui=reverse cterm=reverse
 
-
 hi TSType guifg=#e5c07b
 hi TSNamespace guifg=#e06c75
 hi TSTypeBuiltin guifg=#e5c07b

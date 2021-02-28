@@ -35,6 +35,9 @@ let g:rainbow_conf = {
 \			'parentheses': ['start=/{/ end=/}/ fold contains=@colorableGroup'],
 \		},
 \		'css': 0,
+\		'vue': {
+\			'parentheses': ['start=/{/ end=/}/ fold contains=@javaScript containedin=@javaScript', 'start=/(/ end=/)/ fold contains=@javaScript containedin=@javaScript', 'start=/\v\<((script|style|area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+\		},
 \	}
 \}
 
