@@ -73,6 +73,8 @@ else
   source $HOME/.config/nvim/plug-config/vim-bookmarks.vim
   source $HOME/.config/nvim/plug-config/vim-mergetool.vim
   source $HOME/.config/nvim/plug-config/skylight.vim
+  source $HOME/.config/nvim/plug-config/easy-align.vim
+  source $HOME/.config/nvim/plug-config/indent-guides.vim
 endif
 
 " Add paths to node and python here

@@ -38,6 +38,8 @@ let g:coc_global_extensions = [
 \ 'coc-github',
 \ 'coc-react-refactor',
 \ 'coc-docthis',
-\ 'coc-vetur', ]
+\ 'coc-vetur',
+\ 'coc-graphql',
+\ ]
 " \ 'coc-highlight',
 

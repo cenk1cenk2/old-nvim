@@ -167,6 +167,18 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " skylight peak under the cursor for files
     Plug 'voldikss/vim-skylight'
+
+    " easy align with keybinds
+    Plug 'junegunn/vim-easy-align'
+
+    " indent guidelines
+    Plug 'nathanaelkane/vim-indent-guides'
+
+    " for graphql coc
+    Plug 'jparise/vim-graphql'
+
+    " move plugin
+    Plug 'matze/vim-move'
   endif
 
 call plug#end()
