@@ -198,6 +198,7 @@
   "coc.source.around.priority": 40,
   "coc.source.buffer.priority": 50,
   "tabnine.priority": 70,
+  "floaterm.completion.enable": false,
 
   "tsserver.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
