@@ -36,6 +36,7 @@ else
   " TAB in general mode will move to text buffer
   nnoremap <silent> <Leader><Left> :BufferPrevious<CR>
   nnoremap <silent> <Leader><Up> :BufferMovePrevious<CR>
+
   " SHIFT-TAB will go back
   nnoremap <silent> <Leader><Right> :BufferNext<CR>
   nnoremap <silent> <Leader><Down> :BufferMoveNext<CR>
@@ -77,10 +78,10 @@ else
   tnoremap <Esc> <C-\><C-n>
 
   " Use alt + hjkl to resize windows
-  nnoremap <silent> <M-j>    :resize -2<CR>
-  nnoremap <silent> <M-k>    :resize +2<CR>
-  nnoremap <silent> <M-h>    :vertical resize -2<CR>
-  nnoremap <silent> <M-l>    :vertical resize +2<CR>
+  nnoremap <silent> <M-u>    :resize -2<CR>
+  nnoremap <silent> <M-i>    :resize +2<CR>
+  nnoremap <silent> <M-p>    :vertical resize -2<CR>
+  nnoremap <silent> <M-ü>    :vertical resize +2<CR>
 
   " nnoremap <C-ü> :resize -2<CR>
   " nnoremap <C-ö> :resize +2<CR>
@@ -123,7 +124,6 @@ else
 
   " copy last yank register
   nmap <silent> pü "_diw"0P
-
 
   " x to blackhole
   noremap  x "_x
