@@ -103,7 +103,7 @@ let g:which_key_map.d = {
       \ 'i' : ['<Plug>VimspectorStepInto',                    'step into'],
       \ 'p' : ['<Plug>VimspectorPause',                       'pause'],
       \ 'r' : ['<Plug>VimspectorRestart',                     'restart'],
-      \ 'R' : ['<Plug>VimspectorReset',                       'reset'],
+      \ 'R' : [':VimspectorReset',                            'reset'],
       \ 's' : ['<Plug>VimspectorStop',                        'stop'],
       \ }
 
