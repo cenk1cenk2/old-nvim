@@ -97,7 +97,7 @@ let g:which_key_map.d = {
       \ 'B' : ['<Plug>VimspectorToggleConditionalBreakpoint',                      'conditional breakpoint'],
       \ 'c' : ['<Plug>VimspectorRunToCursor',                                      'run to cursor'],
       \ 'd' : ['<Plug>VimspectorContinue',                                         'continue'],
-      \ 'f' : [':lua require("telescope").extensions.vimspector.configurations()', 'configurations'],
+      \ 'f' : [':Telescope vimspector configurations', 'configurations'],
       \ 'o' : ['<Plug>VimspectorStepOver',                                         'step over'],
       \ 'O' : ['<Plug>VimspectorStepOut',                                          'step out'],
       \ 'i' : ['<Plug>VimspectorStepInto',                                         'step into'],
