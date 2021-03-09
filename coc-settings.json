@@ -23,7 +23,7 @@
     "reference": "  ",
     "keyword": "  ",
     "file": "  ",
-    "folder": " ﱮ",
+    "folder": " ﱮ ",
     "color": "  ",
     "unit": " 塞 ",
     "snippet": "  ",
@@ -90,9 +90,6 @@
   "python.linting.pydocstyleEnabled": false,
   "python.linting.pylamaEnabled": false,
   "python.linting.pylintEnabled": false,
-  "pyright.disableCompletion": false,
-  "pyright.disableLanguageServices": false,
-  "pyright.disableOrganizeImports": false,
 
   "yaml.validate": false,
   "yaml.format.singleQuote": true,

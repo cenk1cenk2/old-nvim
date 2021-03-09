@@ -109,7 +109,7 @@ let g:which_key_map.d = {
       \ }
 
 " f is for find and replace
-let g:which_key_map.s = {
+let g:which_key_map.F = {
       \ 'name' : '+find & replace' ,
       \ 'f' : [':Farf --source=vimgrep --file-mask="%:p"'                        , 'find in buffer'],
       \ 'F' : [':Farf --source=rgnvim'                                         , 'find in workspace'],
@@ -144,7 +144,6 @@ let g:which_key_map.m = {
       \ 'f'  :[':CocCommand fzf-preview.Bookmarks', 'list bookmarks']
       \ }
 
-" s is for search
 let g:which_key_map.f = {
       \ 'name' : '+search' ,
       \ ';' : [':FzfPreviewCommandPalette' , 'commands'],
@@ -175,6 +174,45 @@ let g:which_key_map.f = {
       \ 'w' : [':Windows'               , 'search windows'],
       \ 'Y' : [':Filetypes'             , 'file types'],
       \ }
+
+let g:which_key_map.s = {
+      \ 'name' : '+telescope' ,
+      \ '.' : [':Telescope filetypes'                   , 'filetypes'],
+      \ ';' : [':Telescope commands'                    , 'commands'],
+      \ 'a' : [':Telescope lsp_code_actions'            , 'code_actions'],
+      \ 'A' : [':Telescope builtin'                     , 'all'],
+      \ 'b' : [':Telescope buffers'                     , 'buffers'],
+      \ 'B' : [':Telescope git_branches'                , 'git_branches'],
+      \ 'd' : [':Telescope lsp_document_diagnostics'    , 'document_diagnostics'],
+      \ 'D' : [':Telescope lsp_workspace_diagnostics'   , 'workspace_diagnostics'],
+      \ 'c' : [':Telescope git_bcommits'                , 'git_bcommits'],
+      \ 'C' : [':Telescope git_bcommits'                , 'git_bcommits'],
+      \ 'f' : [':Telescope find_files'                  , 'files'],
+      \ 'F' : [':Telescope git_files'                   , 'git_files'],
+      \ 'g' : [':Telescope tags'                        , 'tags'],
+      \ 'G' : [':Telescope current_buffer_tags'         , 'buffer_tags'],
+      \ 'h' : [':Telescope command_history'             , 'history'],
+      \ 'H' : [':Telescope help_tags'                   , 'help_tags'],
+      \ 'k' : [':Telescope keymaps'                     , 'keymaps'],
+      \ 'l' : [':Telescope loclist'                     , 'loclist'],
+      \ 'm' : [':Telescope marks'                       , 'marks'],
+      \ 'o' : [':Telescope vim_options'                 , 'vim_options'],
+      \ 'O' : [':Telescope oldfiles'                    , 'oldfiles'],
+      \ 'M' : [':Telescope man_pages'                   , 'man_pages'],
+      \ 'p' : [':Telescope fd'                          , 'fd'],
+      \ 'P' : [':Telescope spell_suggest'               , 'spell_suggest'],
+      \ 's' : [':Telescope git_status'                  , 'git_status'],
+      \ 'S' : [':Telescope grep_string'                 , 'grep_string'],
+      \ 't' : [':Telescope live_grep'                   , 'text'],
+      \ 'y' : [':Telescope symbols'                     , 'symbols'],
+      \ 'Y' : [':Telescope lsp_workspace_symbols'       , 'lsp_workspace_symbols'],
+      \ 'r' : [':Telescope registers'                   , 'registers'],
+      \ 'R' : [':Telescope reloader'                    , 'reloader'],
+      \ 'w' : [':Telescope file_browser'                , 'buf_fuz_find'],
+      \ 'u' : [':Telescope colorscheme'                 , 'colorschemes'],
+      \ 'z' : [':Telescope current_buffer_fuzzy_find'   , 'buf_fuz_find'],
+      \ }
+
 "
 let g:which_key_map.w = {
       \ 'name' : '+Session' ,
