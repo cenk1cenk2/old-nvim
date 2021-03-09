@@ -12,13 +12,13 @@ require('telescope').setup{
       '--column',
       '--smart-case'
     },
-    prompt_position = "bottom",
+    prompt_position = "top",
     prompt_prefix = " ",
     selection_caret = " ",
     entry_prefix = "  ",
     initial_mode = "insert",
     selection_strategy = "reset",
-    sorting_strategy = "descending",
+    sorting_strategy = "ascending",
     layout_strategy = "horizontal",
     layout_defaults = {
       horizontal = {
@@ -74,3 +74,29 @@ require('telescope').setup{
     },
   }
 }
+
+-- extensions
+require('telescope').load_extension('ultisnips')
+require('telescope').load_extension('gh')
+require('telescope').load_extension('node_modules')
+
+local action_state = require('telescope.actions.state')
+local actions = require('telescope.actions')
+
+-- add close buffer
+telescope_custom_buffers = function()
+  require('telescope.builtin').buffers({
+      attach_mappings = function(prompt_bufnr, map)
+      local delete_buf = function()
+        local selection = action_state.get_selected_entry()
+        actions.close(prompt_bufnr)
+        vim.api.nvim_buf_delete(selection.bufnr, { force = true })
+      end
+
+      map('i', '<c-q>', delete_buf)
+
+      return true
+    end
+  })
+end
+

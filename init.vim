@@ -25,11 +25,9 @@ else
   " Themes
   source $HOME/.config/nvim/themes/syntax.vim
   source $HOME/.config/nvim/themes/onedark.vim
-  " source $HOME/.config/nvim/themes/onedark-buddy.vim
 
   " Plugin Configuration
   source $HOME/.config/nvim/keys/which-key.vim
-  " source $HOME/.config/nvim/plug-config/vim-commentary.vim
   source $HOME/.config/nvim/plug-config/rnvimr.vim
   source $HOME/.config/nvim/plug-config/better-whitespace.vim
   source $HOME/.config/nvim/plug-config/fzf.vim
@@ -76,6 +74,7 @@ else
   source $HOME/.config/nvim/plug-config/skylight.vim
   source $HOME/.config/nvim/plug-config/easy-align.vim
   source $HOME/.config/nvim/plug-config/indent-guides.vim
+  source $HOME/.config/nvim/plug-config/quickscope.vim
 endif
 
 " Add paths to node and python here

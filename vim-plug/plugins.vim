@@ -64,7 +64,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'kevinhwang91/rnvimr'
     " FZF
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
+    Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'main', 'do': ':UpdateRemotePlugins' }
     Plug 'junegunn/fzf.vim'
     " Git
     Plug 'airblade/vim-gitgutter'
@@ -79,7 +79,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Vista
     Plug 'liuchengxu/vista.vim'
     " Zen mode
-    Plug 'junegunn/goyo.vim'
+    " Plug 'junegunn/goyo.vim'
     " Interactive code
     Plug 'metakirby5/codi.vim'
     " Better tabline
@@ -127,10 +127,22 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'junegunn/vim-peekaboo'
     " shell format
     Plug 'z0mbix/vim-shfmt', { 'for': 'sh', 'do': 'GO111MODULE=on go get mvdan.cc/sh/v3/cmd/shfmt' }
+
     " Telescope
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+
+    " telescope extensions
+    Plug 'nvim-telescope/telescope-github.nvim'
+    Plug 'nvim-telescope/telescope-node-modules.nvim'
+    Plug 'fhill2/telescope-ultisnips.nvim'
+    Plug 'nvim-telescope/telescope-vimspector.nvim'
+    Plug 'GustavoKatel/telescope-asynctasks.nvim'
+
+    " quick scope
+    Plug 'unblevable/quick-scope'
+
     " Multiple Cursors
     Plug 'terryma/vim-multiple-cursors'
     " Rainbow parenthesis
@@ -145,9 +157,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " snippet engines
     Plug 'SirVer/ultisnips'
-    " Plug 'MarcWeber/vim-addon-mw-utils'
-    " Plug 'tomtom/tlib_vim'
-    " Plug 'garbas/vim-snipmate'
 
     " snippets themselves
     Plug 'mattn/emmet-vim'
@@ -155,9 +164,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " go lang
     Plug 'fatih/vim-go', { 'do': 'GO111MODULE=on go get golang.org/x/tools/gopls@latest' }
-
-    " bookmarks
-    Plug 'MattesGroeger/vim-bookmarks'
 
     " conflict motions for git conflicts
     " Plug 'vim-scripts/ConflictMotions'

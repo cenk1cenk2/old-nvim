@@ -14,8 +14,8 @@ autocmd User EasyMotionPromptEnd silent! CocEnable
 " nmap s <Plug>(easymotion-s2)
 " nmap t <Plug>(easymotion-t2)
 
-nmap s <Plug>(easymotion-f2)
-nmap S <Plug>(easymotion-F2)
+" nmap s <Plug>(easymotion-f2)
+" nmap S <Plug>(easymotion-F2)
 " s{char}{char} to move to {char}{char}
 " if exists('g:vscode')
 "   " VSCode extension
@@ -27,10 +27,10 @@ nmap S <Plug>(easymotion-F2)
 "   nmap G <Plug>(easymotion-overwin-F2)
 " endif
 
-nmap f <Plug>(easymotion-f)
-nmap F <Plug>(easymotion-F)
-nmap t <Plug>(easymotion-t)
-nmap T <Plug>(easymotion-T)
+" nmap f <Plug>(easymotion-f)
+" nmap F <Plug>(easymotion-F)
+" nmap t <Plug>(easymotion-t)
+" nmap T <Plug>(easymotion-T)
 
 " Move to line
 if exists('g:vscode')

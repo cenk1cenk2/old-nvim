@@ -10,6 +10,7 @@ let g:far#window_width=150
 let g:far#file_mask_favorites=['%:p', '**/*.*', '**/README.md', '**/package.json' , '**/*.js', '**/*.ts', '**/*.tsx', '**/*.py', '**/*.css', '**/*.html', '**/*.vim', ]
 let g:far#window_min_content_width=50
 let g:far#enable_undo=1
+let g:far#open_in_parent_window=1
 
 set wildignore+=**/node_modules/**,yarn.lock,package-lock.json,**/dist/**
 
