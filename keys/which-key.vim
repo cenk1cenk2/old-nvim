@@ -92,18 +92,19 @@ let g:which_key_map.b = {
 " d is for debug
 let g:which_key_map.d = {
       \ 'name' : '+debug',
-      \ 'a' : ['<Plug>VimspectorAddFunctionBreakpoint',                            'function breakpoint'],
-      \ 'b' : ['<Plug>VimspectorToggleBreakpoint',                                 'breakpoint'],
-      \ 'B' : ['<Plug>VimspectorToggleConditionalBreakpoint',                      'conditional breakpoint'],
-      \ 'c' : ['<Plug>VimspectorRunToCursor',                                      'run to cursor'],
-      \ 'd' : ['<Plug>VimspectorContinue',                                         'continue'],
-      \ 'f' : [':Telescope vimspector configurations', 'configurations'],
-      \ 'o' : ['<Plug>VimspectorStepOver',                                         'step over'],
-      \ 'O' : ['<Plug>VimspectorStepOut',                                          'step out'],
-      \ 'i' : ['<Plug>VimspectorStepInto',                                         'step into'],
-      \ 'p' : ['<Plug>VimspectorPause',                                            'pause'],
-      \ 'r' : ['<Plug>VimspectorRestart',                                          'restart'],
-      \ 's' : ['<Plug>VimspectorStop',                                             'stop'],
+      \ 'a' : ['<Plug>VimspectorAddFunctionBreakpoint',       'function breakpoint'],
+      \ 'b' : ['<Plug>VimspectorToggleBreakpoint',            'breakpoint'],
+      \ 'B' : ['<Plug>VimspectorToggleConditionalBreakpoint', 'conditional breakpoint'],
+      \ 'c' : ['<Plug>VimspectorRunToCursor',                 'run to cursor'],
+      \ 'd' : ['<Plug>VimspectorContinue',                    'continue'],
+      \ 'f' : [':Telescope vimspector configurations',        'configurations'],
+      \ 'o' : ['<Plug>VimspectorStepOver',                    'step over'],
+      \ 'O' : ['<Plug>VimspectorStepOut',                     'step out'],
+      \ 'i' : ['<Plug>VimspectorStepInto',                    'step into'],
+      \ 'p' : ['<Plug>VimspectorPause',                       'pause'],
+      \ 'r' : ['<Plug>VimspectorRestart',                     'restart'],
+      \ 'R' : ['<Plug>VimspectorReset',                       'reset'],
+      \ 's' : ['<Plug>VimspectorStop',                        'stop'],
       \ }
 
 " m is for mark
