@@ -101,6 +101,7 @@ let g:which_key_map.d = {
       \ 'o' : ['<Plug>VimspectorStepOver',                    'step over'],
       \ 'O' : ['<Plug>VimspectorStepOut',                     'step out'],
       \ 'i' : ['<Plug>VimspectorStepInto',                    'step into'],
+      \ 'k' : ['<Plug>VimspectorBalloonEval',                 'this'],
       \ 'p' : ['<Plug>VimspectorPause',                       'pause'],
       \ 'r' : ['<Plug>VimspectorRestart',                     'restart'],
       \ 'R' : [':VimspectorReset',                            'reset'],
