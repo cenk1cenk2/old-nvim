@@ -82,10 +82,10 @@ else
   nnoremap <silent> <M-i> :resize +2<CR>
   nnoremap <silent> <M-z> :vertical resize -2<CR>
   nnoremap <silent> <M-o> :vertical resize +2<CR>
-  inoremap <silent> <M-u> :resize -2<CR>
-  inoremap <silent> <M-i> :resize +2<CR>
-  inoremap <silent> <M-z> :vertical resize -2<CR>
-  inoremap <silent> <M-o> :vertical resize +2<CR>
+  vnoremap <silent> <M-u> :resize -2<CR>
+  vnoremap <silent> <M-i> :resize +2<CR>
+  vnoremap <silent> <M-z> :vertical resize -2<CR>
+  vnoremap <silent> <M-o> :vertical resize +2<CR>
 
   " nnoremap <C-ü> :resize -2<CR>
   " nnoremap <C-ö> :resize +2<CR>

@@ -96,6 +96,7 @@ let g:which_key_map.d = {
       \ 'b' : ['<Plug>VimspectorToggleBreakpoint',            'breakpoint'],
       \ 'B' : ['<Plug>VimspectorToggleConditionalBreakpoint', 'conditional breakpoint'],
       \ 'c' : ['<Plug>VimspectorRunToCursor',                 'run to cursor'],
+      \ 'C' : [':call vimspector#ClearBreakpoints()',         'clear all breakpoints'],
       \ 'd' : ['<Plug>VimspectorContinue',                    'continue'],
       \ 'f' : [':Telescope vimspector configurations',        'configurations'],
       \ 'o' : ['<Plug>VimspectorStepOver',                    'step over'],
