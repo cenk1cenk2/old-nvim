@@ -78,10 +78,14 @@ else
   tnoremap <Esc> <C-\><C-n>
 
   " Use alt + hjkl to resize windows
-  nnoremap <silent> <M-u>    :resize -2<CR>
-  nnoremap <silent> <M-i>    :resize +2<CR>
-  nnoremap <silent> <M-z>    :vertical resize -2<CR>
-  nnoremap <silent> <M-o>    :vertical resize +2<CR>
+  nnoremap <silent> <M-u> :resize -2<CR>
+  nnoremap <silent> <M-i> :resize +2<CR>
+  nnoremap <silent> <M-z> :vertical resize -2<CR>
+  nnoremap <silent> <M-o> :vertical resize +2<CR>
+  inoremap <silent> <M-u> :resize -2<CR>
+  inoremap <silent> <M-i> :resize +2<CR>
+  inoremap <silent> <M-z> :vertical resize -2<CR>
+  inoremap <silent> <M-o> :vertical resize +2<CR>
 
   " nnoremap <C-ü> :resize -2<CR>
   " nnoremap <C-ö> :resize +2<CR>
