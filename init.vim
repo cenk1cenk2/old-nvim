@@ -4,9 +4,8 @@
 " _/ // / / / / /__| |/ / / / / / / /
 "/___/_/ /_/_/\__(_)___/_/_/ /_/ /_/
 
-" load first for errors
 if !exists('g:vscode')
-  source $HOME/.config/nvim/plug-config/polyglot.vim
+  source ~/.config/nvim/plug-config/polyglot.vim
 endif
 
 " General Settings
@@ -14,6 +13,8 @@ source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/general/functions.vim
 source $HOME/.config/nvim/keys/mappings.vim
+
+" general plugins
 source $HOME/.config/nvim/plug-config/easymotion.vim
 source $HOME/.config/nvim/plug-config/highlightyank.vim
 source $HOME/.config/nvim/plug-config/surround.vim
@@ -27,6 +28,7 @@ else
   source $HOME/.config/nvim/themes/onedark.vim
 
   " Plugin Configuration
+<<<<<<< HEAD
   source $HOME/.config/nvim/keys/which-key.vim
   source $HOME/.config/nvim/plug-config/rnvimr.vim
   source $HOME/.config/nvim/plug-config/better-whitespace.vim
@@ -75,14 +77,35 @@ else
   source $HOME/.config/nvim/plug-config/easy-align.vim
   source $HOME/.config/nvim/plug-config/indent-guides.vim
   source $HOME/.config/nvim/plug-config/quickscope.vim
+  source ~/.config/nvim/plug-config/nvimtree-config.vim
+  source ~/.config/nvim/plug-config/lsp-saga.vim
+  source ~/.config/nvim/plug-config/lightbulb.vim
+  source ~/.config/nvim/lua/lsp-wrapper.vim
+  luafile ~/.config/nvim/lua/plugins/galaxyline-config.lua
+  luafile ~/.config/nvim/lua/plugins/nvimtree-config.lua
+  luafile ~/.config/nvim/lua/plugins/treesitter-config.lua
+  luafile ~/.config/nvim/lua/plugins/colorizer-config.lua
+  luafile ~/.config/nvim/lua/plugins/telescope-config.lua
+  luafile ~/.config/nvim/lua/lsp/lsp-kind.lua
+  luafile ~/.config/nvim/lua/plugins/compe-config.lua
+  luafile ~/.config/nvim/lua/plugins/lspsaga-config.lua
+  " LSP: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
+  source ~/.config/nvim/plug-config/lsp-config.vim
+  luafile ~/.config/nvim/lua/lsp/lsp-config.lua
+  luafile ~/.config/nvim/lua/lsp/lua-ls.lua
+  luafile ~/.config/nvim/lua/lsp/python-ls.lua
+  luafile ~/.config/nvim/lua/lsp/bash-ls.lua
+  luafile ~/.config/nvim/lua/lsp/css-ls.lua
+  luafile ~/.config/nvim/lua/lsp/docker-ls.lua
+  luafile ~/.config/nvim/lua/lsp/graphql-ls.lua
+  luafile ~/.config/nvim/lua/lsp/html-ls.lua
+  luafile ~/.config/nvim/lua/lsp/javascript-ls.lua
+  luafile ~/.config/nvim/lua/lsp/json-ls.lua
+  luafile ~/.config/nvim/lua/lsp/vim-ls.lua
+  luafile ~/.config/nvim/lua/lsp/yaml-ls.lua
 endif
 
 " Add paths to node and python here
 if !empty(glob("~/.config/nvim/paths.vim"))
   source $HOME/.config/nvim/paths.vim
 endif
-
-
-" Better nav for omnicomplete TODO figure out why this is being overridden
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
