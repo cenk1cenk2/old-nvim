@@ -1,5 +1,4 @@
 local lsp_wrapper = {}
-
 -- buf
 
 function lsp_wrapper.add_to_workspace_folder()
@@ -41,7 +40,7 @@ function lsp_wrapper.formatting_sync()
 end
 
 function lsp_wrapper.hover()
-  vim.lsp.buf.hover()
+  require('lspsaga.hover').render_hover_doc()
 end
 
 function lsp_wrapper.implementation()
@@ -69,7 +68,7 @@ function lsp_wrapper.range_formatting()
 end
 
 function lsp_wrapper.references()
-  vim.lsp.buf.references()
+  require('telescope.builtin').lsp_references()
   vim.lsp.buf.clear_references()
 end
 
@@ -78,11 +77,13 @@ function lsp_wrapper.remove_workspace_folder()
 end
 
 function lsp_wrapper.rename()
-  vim.lsp.buf.rename()
+  -- vim.lsp.buf.rename()
+  require('lspsaga.rename').rename()
 end
 
 function lsp_wrapper.signature_help()
-  vim.lsp.buf.signature_help()
+  -- vim.lsp.buf.signature_help()
+  require('lspsaga.signaturehelp').signature_help()
 end
 
 function lsp_wrapper.type_definition()
@@ -108,11 +109,13 @@ function lsp_wrapper.get_prev()
 end
 
 function lsp_wrapper.goto_next()
-  vim.lsp.diagnostic.goto_next()
+  -- vim.lsp.diagnostic.goto_next()
+  require('lspsaga.diagnostic').lsp_jump_diagnostic_next()
 end
 
 function lsp_wrapper.goto_prev()
-  vim.lsp.diagnostic.goto_prev()
+  -- vim.lsp.diagnostic.goto_prev()
+  require('lspsaga.diagnostic').lsp_jump_diagnostic_prev()
 end
 
 function lsp_wrapper.show_line_diagnostics()

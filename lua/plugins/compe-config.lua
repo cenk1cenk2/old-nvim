@@ -2,7 +2,6 @@
 
 
 vim.cmd [[set shortmess+=c]]
-vim.o.completeopt = "menuone,noselect"
 
 require'compe'.setup {
   enabled = true;

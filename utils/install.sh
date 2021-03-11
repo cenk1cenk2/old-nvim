@@ -72,21 +72,21 @@ cloneconfig() {
 
 moveoldnvim() {
   echo "Moving your config to nvim.old"
-  mv $HOME/.config/nvim $HOME/.config/nvim.old
+  mv ~/.config/nvim ~/g.config/nvim.old
 }
 
 moveoldcoc() {
   echo "Moving your coc to coc.old"
-  mv $HOME/.config/coc $HOME/.config/coc.old
+  mv ~/.config/coc ~/g.config/coc.old
 }
 
 installplugins() {
-  mv $HOME/.config/nvim/init.vim $HOME/.config/nvim/init.vim.tmp
-  mv $HOME/.config/nvim/utils/init.vim $HOME/.config/nvim/init.vim
+  mv ~/.config/nvim/init.vim ~/g.config/nvim/init.vim.tmp
+  mv ~/.config/nvim/utils/init.vim ~/g.config/nvim/init.vim
   echo "Installing plugins..."
   nvim --headless +PlugInstall +qall >/dev/null 2>&1
-  mv $HOME/.config/nvim/init.vim $HOME/.config/nvim/utils/init.vim
-  mv $HOME/.config/nvim/init.vim.tmp $HOME/.config/nvim/init.vim
+  mv ~/.config/nvim/init.vim ~/g.config/nvim/utils/init.vim
+  mv ~/.config/nvim/init.vim.tmp ~/g.config/nvim/init.vim
 }
 
 asktoinstallnode() {
@@ -140,10 +140,10 @@ echo 'Installing Nvim configuration.'
 pip3 list | grep pynvim >/dev/null && echo "pynvim installed, moving on..." || installpynvim
 
 # move old nvim directory if it exists
-[ -d "$HOME/.config/nvim" ] && moveoldnvim
+[ -d "~/.config/nvim" ] && moveoldnvim
 
 # move old nvim directory if it exists
-[ -d "$HOME/.config/coc" ] && moveoldcoc
+[ -d "~/.config/coc" ] && moveoldcoc
 
 # clone config down
 cloneconfig

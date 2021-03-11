@@ -12,4 +12,4 @@ wiki/
 pack/
 utils/java/*
 lua-language-server/
-
+lsp-servers/

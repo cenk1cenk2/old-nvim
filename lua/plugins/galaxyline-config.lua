@@ -25,29 +25,6 @@ local buffer_not_empty = function()
   return false
 end
 
--- gls.left[1] = {
---   FirstElement = {
---     -- provider = function() return '▋' end,
---     provider = function() return ' ' end,
---     highlight = {colors.bg,colors.bg}
---   },
--- }
--- gls.left[2] = {
---   ViMode = {
---     provider = function()
---       local alias = {n = 'NORMAL',i = 'INSERT',c= 'COMMAND',V= 'VISUAL', [''] = 'VISUAL'}
---       return alias[vim.fn.mode()]
---     end,
---     separator = ' ',
---     separator_highlight = {colors.yellow,function()
---       if not buffer_not_empty() then
---         return colors.purple
---       end
---       return colors.purple
---     end},
---     highlight = {colors.grey,colors.purple,'bold'},
---   },
--- }
 gls.left[2] = {
   ViMode = {
     provider = function()
@@ -106,24 +83,6 @@ gls.left[2] = {
     highlight = {colors.grey,colors.bg,'bold'},
   },
 }
--- gls.left[3] ={
---   FileIcon = {
---     separator = ' ',
---     provider = 'FileIcon',
---     condition = buffer_not_empty,
---     highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg},
---   },
--- }
--- gls.left[4] = {
---   FileName = {
---     provider = {'FileSize'},
---     condition = buffer_not_empty,
---     separator = ' ',
---     separator_highlight = {colors.purple,colors.bg},
---     highlight = {colors.magenta,colors.bg}
---   }
--- }
-
 gls.left[3] = {
   GitIcon = {
     provider = function() return ' ' end,
@@ -247,7 +206,7 @@ gls.right[3] = {
 gls.right[4] = {
   ScrollBar = {
     provider = 'ScrollBar',
-    highlight = {colors.yellow,colors.purple},
+    highlight = {colors.yellow,colors.darkblue},
   }
 }
 

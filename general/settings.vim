@@ -38,6 +38,7 @@ set clipboard=unnamedplus               " Copy paste between vim and everything 
 set incsearch
 set guifont="Consolas NF"
 set wrap linebreak nolist
+set completeopt=menuone,noselect
 
 " New stuff
 " set notimeout nottimeout
