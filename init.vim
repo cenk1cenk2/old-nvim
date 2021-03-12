@@ -67,7 +67,6 @@ else
   source ~/.config/nvim/plug-config/lightbulb.vim
   source ~/.config/nvim/lua/lsp-wrapper.vim
   source ~/.config/nvim/plug-config/lsp-config.vim
-  luafile ~/.config/nvim/lua/lsp/general-ls.lua
   luafile ~/.config/nvim/lua/plugins/galaxyline-config.lua
   luafile ~/.config/nvim/lua/plugins/nvimtree-config.lua
   luafile ~/.config/nvim/lua/plugins/treesitter-config.lua
@@ -87,15 +86,14 @@ else
   luafile ~/.config/nvim/lua/lsp/json.lua
   luafile ~/.config/nvim/lua/lsp/vim.lua
   luafile ~/.config/nvim/lua/lsp/bash.lua
+  luafile ~/.config/nvim/lua/lsp/yaml.lua
+  luafile ~/.config/nvim/lua/lsp/python.lua
+  luafile ~/.config/nvim/lua/lsp/html.lua
+  luafile ~/.config/nvim/lua/lsp/graphql.lua
+  luafile ~/.config/nvim/lua/lsp/docker.lua
+  luafile ~/.config/nvim/lua/lsp/css.lua
 
   " luafile ~/.config/nvim/lua/plugins/rainbow-config.lua
-  " luafile ~/.config/nvim/lua/lsp/python-ls.lua
-  " luafile ~/.config/nvim/lua/lsp/css-ls.lua
-  " luafile ~/.config/nvim/lua/lsp/docker-ls.lua
-  " luafile ~/.config/nvim/lua/lsp/graphql-ls.lua
-  " luafile ~/.config/nvim/lua/lsp/html-ls.lua
-  " luafile ~/.config/nvim/lua/lsp/javascript-ls.lua
-  " luafile ~/.config/nvim/lua/lsp/yaml-ls.lua
 endif
 
 " Add paths to node and python here

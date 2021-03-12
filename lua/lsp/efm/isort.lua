@@ -1,4 +1,4 @@
 return {
-    formatCommand = "isort --stdout --profile black -",
+    formatCommand =vim.g.lsp_settings_servers_dir ..   "isort --stdout --profile black -",
     formatStdin = true
 }

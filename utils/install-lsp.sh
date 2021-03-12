@@ -9,6 +9,13 @@ NPM_EXTENSIONS=(
 	"prettier"
 	"vscode-json-languageserver"
 	"vim-language-server"
+	"yaml-language-server"
+	"pyright;pyright-langserver"
+	"vscode-html-languageserver-bin;html-languageserver"
+	"graphql-language-service-cli;graphql-lsp"
+	"dockerfile-language-server-nodejs;docker-langserver"
+	"vscode-css-languageserver-bin;css-languageserver"
+	"markdownlint-cli;markdownlint"
 )
 GO_EXTENSIONS=(
 	"github.com/mattn/efm-langserver@latest"
@@ -17,6 +24,10 @@ GO_EXTENSIONS=(
 )
 PYTHON_EXTENSIONS=(
 	"vim-vint;vint"
+	"black"
+	"isort"
+	"flake8"
+	"mypy"
 )
 
 echo "LSP Folder: ${LSP_FOLDER}"
@@ -59,7 +70,12 @@ if [ ${#ALL_NPM_EXTENSIONS[@]} -gt 0 ]; then
 		if [[ -L $e && -f $e ]]; then
 			rm ${e}
 		fi
-		ln -s "./node_modules/.bin/${e}" .
+		if [ ! -f "./node_modules/.bin/${e}" ]; then
+			echo "${e} is not a NPM binary."
+			exit 127
+		else
+			ln -s "./node_modules/.bin/${e}" .
+		fi
 	done
 else
 	echo "No NPM extensions. Skipping..."
@@ -95,7 +111,13 @@ if [ ${#ALL_PYTHON_EXTENSIONS[@]} -gt 0 ]; then
 		if [[ -L $e && -f $e ]]; then
 			rm ${e}
 		fi
-		ln -s "./venv/bin/${e}" .
+
+		if [ ! -f "./venv/bin/${e}" ]; then
+			echo "${e} is not a Python binary."
+			exit 127
+		else
+			ln -s "./venv/bin/${e}" .
+		fi
 	done
 else
 	echo "No Python extensions. Skipping..."
