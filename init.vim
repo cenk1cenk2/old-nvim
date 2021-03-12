@@ -92,8 +92,8 @@ else
   luafile ~/.config/nvim/lua/lsp/graphql.lua
   luafile ~/.config/nvim/lua/lsp/docker.lua
   luafile ~/.config/nvim/lua/lsp/css.lua
-
-  " luafile ~/.config/nvim/lua/plugins/rainbow-config.lua
+  luafile ~/.config/nvim/lua/lsp/go.lua
+  luafile ~/.config/nvim/lua/lsp/vue.lua
 endif
 
 " Add paths to node and python here

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+SECONDS=0
+
+source <(curl -s "https://gist.githubusercontent.com/cenk1cenk2/e03d8610534a9c78f755c1c1ed93a293/raw/3d61dc3718f3a3687d5990b9b5dc951198d29427/logger.sh")
+
 LSP_FOLDER=~/.config/nvim/lsp-servers
 NPM_EXTENSIONS=(
 	"typescript;tsserver"
@@ -16,11 +20,15 @@ NPM_EXTENSIONS=(
 	"dockerfile-language-server-nodejs;docker-langserver"
 	"vscode-css-languageserver-bin;css-languageserver"
 	"markdownlint-cli;markdownlint"
+	"vls"
 )
 GO_EXTENSIONS=(
 	"github.com/mattn/efm-langserver@latest"
 	"github.com/client9/misspell/cmd/misspell@latest"
 	"mvdan.cc/sh/v3/cmd/shfmt@latest"
+	"golang.org/x/tools/gopls@latest"
+	"golang.org/x/lint/golint@latest"
+	"golang.org/x/tools/cmd/goimports"
 )
 PYTHON_EXTENSIONS=(
 	"vim-vint;vint"
@@ -30,7 +38,9 @@ PYTHON_EXTENSIONS=(
 	"mypy"
 )
 
-echo "LSP Folder: ${LSP_FOLDER}"
+log_this "[install-lsp]" "false" "lifetime" "bottom"
+
+log_info "LSP Folder: ${LSP_FOLDER}"
 mkdir -p ${LSP_FOLDER}
 cd ${LSP_FOLDER} || exit 127
 
@@ -59,27 +69,32 @@ function install_and_link_binaries() {
 	ALL_EXTENSIONS=($4)
 	ALL_BINARIES=($5)
 
+	log_start "Installing $TYPE packages..." "top"
+
 	if [ ${#ALL_EXTENSIONS[@]} -gt 0 ]; then
-		echo "Installing $TYPE packages: ${ALL_EXTENSIONS[*]}"
+		log_this "${ALL_EXTENSIONS[*]}" "${CYAN}PACKAGE${RESET}" "INFO"
+
 		eval "${INSTALL_COMMAND} ${ALL_EXTENSIONS[*]}"
 
-		echo "Linking binaries: ${ALL_BINARIES[*]}"
+		log_info "Linking binaries: ${ALL_BINARIES[*]}"
 		for e in "${ALL_BINARIES[@]}"; do
 			if [[ -L "$LSP_FOLDER/$e" ]]; then
-				echo "Link already exists for $e, deleting it first."
+				log_warn "Link already exists for $e, deleting it first."
 				rm "$LSP_FOLDER/${e}"
 			fi
 
 			if [ ! -f "${BASE_DIR}/${e}" ]; then
-				echo "${e} is not a $TYPE binary."
+				log_error "${e} is not a $TYPE binary."
 				exit 127
 			else
-				ln -s "${BASE_DIR}/.bin/${e}" .
+				ln -s "${BASE_DIR}/${e}" .
 			fi
 		done
 	else
-		echo "No $TYPE extensions to install. Skipping..."
+		log_warn "No $TYPE extensions to install. Skipping..."
 	fi
+
+	log_finish "Finished installing $TYPE packages."
 
 }
 
@@ -92,10 +107,10 @@ function download_asset() {
 	TMP_DOWNLOAD_PATH="/tmp/${ASSET}"
 	TMP_UNZIPPED_FOLDER="/tmp/$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 32)"
 
-	echo "Downloading binary: $2 from $1"
+	log_start "Downloading binary: $2 from $1" "top"
 	curl -L "$URL" -o "$TMP_DOWNLOAD_PATH" -q
 
-	echo "Unzipping binary: $2 as $3"
+	log_info "Unzipping binary: $2 as $3"
 	if [ "${COMPRESSION}" == "tar_xz" ]; then
 		mkdir -p "${TMP_UNZIPPED_FOLDER}"
 		tar xf "$TMP_DOWNLOAD_PATH" -C "${TMP_UNZIPPED_FOLDER}"
@@ -112,10 +127,12 @@ function download_asset() {
 		ASSET_NAME=$(basename -- "$ASSET_TO_COPY")
 		chmod +x "${LSP_FOLDER}/${ASSET_NAME}"
 
-		echo "Asset copied to lsp folder: ${ASSET_NAME}"
+		log_info "Asset copied to lsp folder: ${ASSET_NAME}"
 	done
 
 	rm "${TMP_UNZIPPED_FOLDER}" -r
+
+	log_finish "Installed binary: ${ASSET_NAME}"
 }
 
 # for npm based extensions
@@ -131,12 +148,14 @@ install_and_link_binaries "NPM" "./node_modules/.bin/" "yarn add --prod" "${ALL_
 
 # for go based extensions
 for e in "${GO_EXTENSIONS[@]}"; do
-	echo "Installing GO package: ${e}"
+	log_start "Installing GO package: ${e}" "top"
 	split_string ${e}
 
 	GOPATH=$(pwd) GOBIN=$(pwd) GO111MODULE=on go get -v "${PACKAGE_NAME}"
 	GOPATH=$(pwd) GO111MODULE=on go clean -modcache
 	rm -rf src pkg 2>/dev/null
+
+	log_finish "Installed GO package: ${e}"
 done
 
 # for python based extensions
@@ -150,13 +169,15 @@ for e in "${PYTHON_EXTENSIONS[@]}"; do
 	ALL_PYTHON_BINARIES+=("${BIN_NAME}")
 done
 
-install_and_link_binaries "Python" "./venv/bin/" "./vent/bin/pip3 install" "${ALL_PYTHON_EXTENSIONS[*]}" "${ALL_PYTHON_BINARIES[*]}"
+install_and_link_binaries "Python" "./venv/bin/" "./venv/bin/pip3 install" "${ALL_PYTHON_EXTENSIONS[*]}" "${ALL_PYTHON_BINARIES[*]}"
 
 ## install custom stuff with curl, for compiled binaries mostly
 
-echo "Installing custom assets with curl..."
+log_start "Installing custom assets with curl..."
 
 # install shell-check here
-echo "Will install shellcheck..."
 VERSION=v0.7.1
 download_asset "https://github.com/koalaman/shellcheck/releases/download/${VERSION}/shellcheck-${VERSION}.linux.x86_64.tar.xz" "shellcheck-${VERSION}/shellcheck" "tar_xz"
+
+log_finish "Installed lsp dependencies." "top"
+log_info "$((SECONDS / 60)) minutes and $((SECONDS % 60)) seconds elapsed."

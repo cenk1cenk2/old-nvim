@@ -1,7 +1,7 @@
 local vint = require "lsp/efm/vint"
 -- local luafmt = require "efm/luafmt"
--- local golint = require "efm/golint"
--- local goimports = require "efm/goimports"
+local golint = require "lsp/efm/golint"
+local goimports = require "lsp/efm/goimports"
 local markdownlint = require "lsp/efm/markdownlint"
 local black = require "lsp/efm/black"
 local isort = require "lsp/efm/isort"
@@ -20,12 +20,12 @@ require('lspconfig').efm.setup{
         if client.resolved_capabilities.document_formatting then
             vim.api.nvim_command [[augroup Format]]
             vim.api.nvim_command [[autocmd! * <buffer>]]
-            vim.api.nvim_command [[autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting_sync(nill, 1000)]]
+            vim.api.nvim_command [[autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()]]
             vim.api.nvim_command [[augroup END]]
         end
     end,
     init_options = {documentFormatting = true, codeAction = true},
-    filetypes = {'=','sh','vim','python','typescript', 'javascript','typescriptreact' ,'javascriptreact','yaml','json', 'html', 'scss', 'css', 'markdown'},
+    filetypes = {'=','sh','vim','go','python','typescript', 'javascript','typescriptreact' ,'javascriptreact','vue','yaml','json', 'html', 'scss', 'css', 'markdown'},
     settings = {
         rootMarkers = {'.git/'},
         languages = {
@@ -39,6 +39,7 @@ require('lspconfig').efm.setup{
             javascript = {prettier, eslint},
             typescriptreact = {prettier, eslint},
             javascriptreact = {prettier, eslint},
+            vue = {prettier, eslint},
             yaml = {prettier},
             json = {prettier},
             html = {prettier},
