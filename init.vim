@@ -52,7 +52,6 @@ else
   source ~/.config/nvim/plug-config/anyfold.vim
   source ~/.config/nvim/plug-config/maximizer.vim
   source ~/.config/nvim/plug-config/peekaboo.vim
-  source ~/.config/nvim/plug-config/shellfmt.vim
   source ~/.config/nvim/plug-config/auto-pairs.vim
   " source ~/.config/nvim/plug-config/rainbow.vim
   source ~/.config/nvim/plug-config/fzf-preview.vim
@@ -87,10 +86,10 @@ else
   luafile ~/.config/nvim/lua/lsp/tsserver.lua
   luafile ~/.config/nvim/lua/lsp/json.lua
   luafile ~/.config/nvim/lua/lsp/vim.lua
+  luafile ~/.config/nvim/lua/lsp/bash.lua
 
   " luafile ~/.config/nvim/lua/plugins/rainbow-config.lua
   " luafile ~/.config/nvim/lua/lsp/python-ls.lua
-  " luafile ~/.config/nvim/lua/lsp/bash-ls.lua
   " luafile ~/.config/nvim/lua/lsp/css-ls.lua
   " luafile ~/.config/nvim/lua/lsp/docker-ls.lua
   " luafile ~/.config/nvim/lua/lsp/graphql-ls.lua

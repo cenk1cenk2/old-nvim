@@ -121,9 +121,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " show yank macro stuff on "
     Plug 'junegunn/vim-peekaboo'
 
-    " shell format
-    Plug 'z0mbix/vim-shfmt', { 'for': 'sh', 'do': 'GO111MODULE=on go get mvdan.cc/sh/v3/cmd/shfmt' }
-
     " async tasks
     Plug 'skywind3000/asynctasks.vim'
     Plug 'skywind3000/asyncrun.vim'

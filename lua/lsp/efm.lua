@@ -8,8 +8,9 @@ local vint = require "lsp/efm/vint"
 -- local mypy = require "efm/mypy"
 local prettier = require 'lsp/efm/prettier'
 local eslint = require 'lsp/efm/eslint'
--- local shellcheck = require "efm/shellcheck"
--- local misspell = require "efm/misspell"
+local shellcheck = require "lsp/efm/shellcheck"
+local shfmt = require "lsp/efm/shfmt"
+local misspell = require "lsp/efm/misspell"
 
 -- https://github.com/mattn/efm-langserver
 require('lspconfig').efm.setup{
@@ -23,11 +24,12 @@ require('lspconfig').efm.setup{
         end
     end,
     init_options = {documentFormatting = true, codeAction = true},
-    filetypes = {'vim','typescript', 'javascript','typescriptreact' ,'javascriptreact','json'},
+    filetypes = {'=','sh','vim','typescript', 'javascript','typescriptreact' ,'javascriptreact','json'},
     settings = {
         rootMarkers = {'.git/'},
         languages = {
-            -- ["="] = {misspell},
+            ["="] = {misspell},
+            sh = {shfmt, shellcheck},
             vim = {vint},
             -- lua = {luafmt},
             -- go = {golint, goimports},
@@ -42,7 +44,6 @@ require('lspconfig').efm.setup{
             -- scss = {prettier},
             -- css = {prettier},
             -- markdown = {prettier},
-            -- sh = {shellcheck},
         }
     }
 }
