@@ -15,6 +15,18 @@ require('lspconfig').tsserver.setup{
           }
           vim.lsp.buf.execute_command(params)
         end
+    },
+
+    TypescriptRenameFile = {
+      function ()
+          local newName = vim.api.nvim_input()
+          local params = {
+            command = "_typescript.applyRenameFile",
+            arguments = {vim.api.nvim_buf_get_name(0), name},
+            title = ""
+          }
+          vim.lsp.buf.execute_command(params)
+        end
     }
   }
 }
