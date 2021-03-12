@@ -21,6 +21,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " highlight yanks
     Plug 'machakann/vim-highlightedyank'
 
+    " Text Navigation
+    Plug 'unblevable/quick-scope'
+
   if exists('g:vscode')
     " highlight yank
     Plug 'ChristianChiarulli/vscode-easymotion'
@@ -137,9 +140,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-telescope/telescope-vimspector.nvim'
     Plug 'GustavoKatel/telescope-asynctasks.nvim'
 
-    " quick scope
-    Plug 'unblevable/quick-scope'
-
     " Multiple Cursors
     Plug 'terryma/vim-multiple-cursors'
 
@@ -196,6 +196,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'mbbill/undotree'
 
     " lsp
+    Plug 'nvim-telescope/telescope-media-files.nvim'
+    " Intellisense
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-compe'
     Plug 'glepnir/lspsaga.nvim'
@@ -210,6 +212,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " File Explorer
     Plug 'kyazdani42/nvim-tree.lua'
+
+    " Better quickfix
+    Plug 'kevinhwang91/nvim-bqf'
   endif
 
 call plug#end()

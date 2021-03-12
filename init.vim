@@ -67,6 +67,8 @@ else
   source ~/.config/nvim/plug-config/lsp-saga.vim
   source ~/.config/nvim/plug-config/lightbulb.vim
   source ~/.config/nvim/lua/lsp-wrapper.vim
+  source ~/.config/nvim/plug-config/lsp-config.vim
+  luafile ~/.config/nvim/lua/lsp/general-ls.lua
   luafile ~/.config/nvim/lua/plugins/galaxyline-config.lua
   luafile ~/.config/nvim/lua/plugins/nvimtree-config.lua
   luafile ~/.config/nvim/lua/plugins/treesitter-config.lua

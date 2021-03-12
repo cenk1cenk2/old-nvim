@@ -104,6 +104,14 @@ let g:which_key_map.d = {
       \ 's' : ['<Plug>VimspectorStop',                        'stop'],
       \ }
 
+" f is for find and replace
+      " \ 'f' : [':Farr'                     , 'file'],
+let g:which_key_map.f = {
+      \ 'name' : '+find & replace' ,
+      \ 'f' : [':Farr --source=vimgrep'    , 'file'],
+      \ 'p' : [':Farr --source=rgnvim'     , 'project'],
+      \ }
+
 " m is for mark
 let g:which_key_map.m = {
       \ 'name' : '+mark' ,
@@ -220,7 +228,30 @@ let g:which_key_map.G = {
       \ 'p' : [':CocCommand gist.create', 'post gist '],
       \ }
 
-
+" l is for language server protocol
+let g:which_key_map.l = {
+      \ 'name' : '+lsp' ,
+      \ 'a' : [':Lspsaga code_action'                , 'code action'],
+      \ 'A' : [':Lspsaga range_code_action'          , 'selected action'],
+      \ 'd' : [':Telescope lsp_document_diagnostics' , 'document diagnostics'],
+      \ 'D' : [':Telescope lsp_workspace_diagnostics', 'workspace diagnostics'],
+      \ 'f' : [':LspFormatting'                      , 'format'],
+      \ 'H' : [':Lspsaga signature_help'             , 'signature_help'],
+      \ 'i' : [':LspImplementation'                  , 'lsp_info'],
+      \ 'I' : [':LspInfo'                            , 'lsp_info'],
+      \ 'l' : [':Lspsaga lsp_finder'                 , 'lsp_finder'],
+      \ 'L' : [':Lspsaga show_line_diagnostics'      , 'line_diagnostics'],
+      \ 'n' : [':Lspsaga diagnostic_jump_next'       , 'next_diagnostic'],
+      \ 'o' : [':Vista!!'                            , 'outline'],
+      \ 'p' : [':Lspsaga diagnostic_jump_prev'       , 'prev diagnostic'],
+      \ 'q' : [':Lspsaga code_action'                , 'quickfix'],
+      \ 'r' : [':LspReferences'                      , 'references'],
+      \ 'R' : [':LspRename'                          , 'rename'],
+      \ 'T' : [':LspTypeDefinition'                  , 'type defintion'],
+      \ 'q' : [':Telescope quickfix'                 , 'quickfix'],
+      \ 's' : [':Telescope lsp_document_symbols'     , 'document symbols'],
+      \ 'S' : [':Telescope lsp_workspace_symbols'    , 'workspace symbols'],
+      \ }
 " t is for terminal
 let g:which_key_map.t = {
       \ 'name' : '+terminal',
@@ -253,5 +284,4 @@ let g:which_key_map.T = {
       \ }
 
 
-" Register which key map
 call which_key#register('<Space>', "g:which_key_map")
