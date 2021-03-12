@@ -32,13 +32,13 @@ PYTHON_EXTENSIONS=(
 
 echo "LSP Folder: ${LSP_FOLDER}"
 mkdir -p ${LSP_FOLDER}
-cd ${LSP_FOLDER}
+cd ${LSP_FOLDER} || exit 127
 
 function split_string() {
 	unset PACKAGE_NAME
 	unset BIN_NAME
 	i=0
-	for data in $(echo $1 | tr ";" "\n"); do
+	for data in $(echo "$1" | tr ";" "\n"); do
 		if [ $i -eq 0 ]; then
 			PACKAGE_NAME=$data
 		elif [ $i -eq 1 ]; then
@@ -47,7 +47,7 @@ function split_string() {
 		i=$((i + 1))
 	done
 
-	if [ -z $BIN_NAME ]; then
+	if [ -z "$BIN_NAME" ]; then
 		BIN_NAME=$PACKAGE_NAME
 	fi
 }
@@ -56,16 +56,16 @@ function split_string() {
 ALL_NPM_EXTENSIONS=()
 ALL_NPM_BINARIES=()
 for e in "${NPM_EXTENSIONS[@]}"; do
-	split_string ${e}
+	split_string "${e}"
 	ALL_NPM_EXTENSIONS+=("${PACKAGE_NAME}")
 	ALL_NPM_BINARIES+=("${BIN_NAME}")
 done
-echo "Installing NPM packages: ${ALL_NPM_EXTENSIONS[@]}"
+echo "Installing NPM packages: ${ALL_NPM_EXTENSIONS[*]}"
 
 if [ ${#ALL_NPM_EXTENSIONS[@]} -gt 0 ]; then
 	yarn add ${ALL_NPM_EXTENSIONS[@]} --prod
 
-	echo "Linking NPM binaries: ${ALL_NPM_BINARIES[@]}"
+	echo "Linking NPM binaries: ${ALL_NPM_BINARIES[*]}"
 	for e in "${ALL_NPM_BINARIES[@]}"; do
 		if [[ -L $e && -f $e ]]; then
 			rm ${e}
@@ -103,10 +103,10 @@ for e in "${PYTHON_EXTENSIONS[@]}"; do
 done
 
 if [ ${#ALL_PYTHON_EXTENSIONS[@]} -gt 0 ]; then
-	echo "Installing Python package: ${ALL_PYTHON_EXTENSIONS[@]}"
+	echo "Installing Python package: ${ALL_PYTHON_EXTENSIONS[*]}"
 	./venv/bin/pip3 install ${ALL_PYTHON_EXTENSIONS[@]}
 
-	echo "Linking Python binaries: ${ALL_PYTHON_BINARIES[@]}"
+	echo "Linking Python binaries: ${ALL_PYTHON_BINARIES[*]}"
 	for e in "${ALL_PYTHON_BINARIES[@]}"; do
 		if [[ -L $e && -f $e ]]; then
 			rm ${e}
@@ -138,13 +138,13 @@ function download_asset() {
 
 	echo "Unzipping binary: $2 as $3"
 	if [ "${COMPRESSION}" == "tar_xz" ]; then
-		mkdir -p ${TMP_UNZIPPED_FOLDER}
-		tar xf "$TMP_DOWNLOAD_PATH" -C ${TMP_UNZIPPED_FOLDER}
+		mkdir -p "${TMP_UNZIPPED_FOLDER}"
+		tar xf "$TMP_DOWNLOAD_PATH" -C "${TMP_UNZIPPED_FOLDER}"
 	elif [ "${COMPRESSION}" == "zip" ]; then
-		unzip "$TMP_DOWNLOAD_PATH" -d ${TMP_UNZIPPED_FOLDER}
+		unzip "$TMP_DOWNLOAD_PATH" -d "${TMP_UNZIPPED_FOLDER}"
 	fi
 
-	rm ${TMP_DOWNLOAD_PATH}
+	rm "${TMP_DOWNLOAD_PATH}"
 
 	for e in "${BINARY[@]}"; do
 		ASSET_TO_COPY="${TMP_UNZIPPED_FOLDER}/${e}"
@@ -156,12 +156,12 @@ function download_asset() {
 		echo "Asset copied to lsp folder: ${ASSET_NAME}"
 	done
 
-	rm ${TMP_UNZIPPED_FOLDER} -r
+	rm "${TMP_UNZIPPED_FOLDER}" -r
 }
 
 echo "Installing custom assets with curl..."
 
-# shellcheck
+# install shell-check here
 echo "Will install shellcheck."
 VERSION=v0.7.1
 download_asset "https://github.com/koalaman/shellcheck/releases/download/${VERSION}/shellcheck-${VERSION}.linux.x86_64.tar.xz" "shellcheck-${VERSION}/shellcheck" "tar_xz"
