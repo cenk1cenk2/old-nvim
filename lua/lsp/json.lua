@@ -1,5 +1,6 @@
 -- npm install -g vscode-json-languageserver
-require'lspconfig'.jsonls.setup {
+require('lspconfig').jsonls.setup {
+    cmd = {vim.g.lsp_settings_servers_dir .. 'vscode-json-languageserver', "--stdio"},
     commands = {
       Format = {
         function()
@@ -8,4 +9,3 @@ require'lspconfig'.jsonls.setup {
       }
     }
 }
-

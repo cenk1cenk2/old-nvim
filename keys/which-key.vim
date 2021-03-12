@@ -157,9 +157,10 @@ let g:which_key_map.l = {
       \ 'name' : '+lsp',
       \ 'a' : [':Lspsaga code_action',                                'code action'],
       \ 'A' : [':Lspsaga range_code_action',                          'selected action'],
-      \ 'd' : [':lua require"lspsaga.provider".preview_definition()', 'preview definition'],
-      \ 'D' : [':LspDeclaration',                                     'workspace diagnostics'],
+      \ 'd' : [':Telescope lsp_document_diagnostics',                 'document diagnostics'],
+      \ 'D' : [':Telescope lsp_workspace_diagnostics',                'workspace diagnostics'],
       \ 'f' : [':LspFormatting',                                      'format'],
+      \ 'h' : [':lua require"lspsaga.provider".preview_definition()', 'preview definition'],
       \ 'H' : [':Lspsaga signature_help',                             'signature help'],
       \ 'g' : [':TypescriptOrganizeImports',                          'organize imports'],
       \ 'K' : [':LspHover',                                           'hover'],
@@ -170,13 +171,12 @@ let g:which_key_map.l = {
       \ 'n' : [':Lspsaga diagnostic_jump_next',                       'next diagnostic'],
       \ 'O' : [':Vista!!',                                            'outline'],
       \ 'p' : [':Lspsaga diagnostic_jump_prev',                       'prev diagnostic'],
-      \ 'q' : [':Lspsaga code_action',                                'quickfix'],
+      \ 'q' : [':Telescope quickfix',                                 'quickfix'],
       \ 'r' : [':LspReferences',                                      'references'],
       \ 'R' : [':LspRename',                                          'rename'],
       \ 'T' : [':LspTypeDefinition',                                  'type defintion'],
-      \ 'x' : [':cclose',                                             'close quickfix'],
-      \ 'y' : [':LspDocumentSymbol',                                  'document symbols'],
-      \ 'Y' : [':LspWorkspaceSymbol',                                 'workspace symbols'],
+      \ 's' : [':Telescope lsp_document_symbols',                     'document symbols'],
+      \ 'S' : [':Telescope lsp_workspace_symbols',                    'workspace symbols'],
       \ }
 
 let g:which_key_map.s = {
@@ -228,30 +228,6 @@ let g:which_key_map.G = {
       \ 'p' : [':CocCommand gist.create', 'post gist '],
       \ }
 
-" l is for language server protocol
-let g:which_key_map.l = {
-      \ 'name' : '+lsp' ,
-      \ 'a' : [':Lspsaga code_action'                , 'code action'],
-      \ 'A' : [':Lspsaga range_code_action'          , 'selected action'],
-      \ 'd' : [':Telescope lsp_document_diagnostics' , 'document diagnostics'],
-      \ 'D' : [':Telescope lsp_workspace_diagnostics', 'workspace diagnostics'],
-      \ 'f' : [':LspFormatting'                      , 'format'],
-      \ 'H' : [':Lspsaga signature_help'             , 'signature_help'],
-      \ 'i' : [':LspImplementation'                  , 'lsp_info'],
-      \ 'I' : [':LspInfo'                            , 'lsp_info'],
-      \ 'l' : [':Lspsaga lsp_finder'                 , 'lsp_finder'],
-      \ 'L' : [':Lspsaga show_line_diagnostics'      , 'line_diagnostics'],
-      \ 'n' : [':Lspsaga diagnostic_jump_next'       , 'next_diagnostic'],
-      \ 'o' : [':Vista!!'                            , 'outline'],
-      \ 'p' : [':Lspsaga diagnostic_jump_prev'       , 'prev diagnostic'],
-      \ 'q' : [':Lspsaga code_action'                , 'quickfix'],
-      \ 'r' : [':LspReferences'                      , 'references'],
-      \ 'R' : [':LspRename'                          , 'rename'],
-      \ 'T' : [':LspTypeDefinition'                  , 'type defintion'],
-      \ 'q' : [':Telescope quickfix'                 , 'quickfix'],
-      \ 's' : [':Telescope lsp_document_symbols'     , 'document symbols'],
-      \ 'S' : [':Telescope lsp_workspace_symbols'    , 'workspace symbols'],
-      \ }
 " t is for terminal
 let g:which_key_map.t = {
       \ 'name' : '+terminal',

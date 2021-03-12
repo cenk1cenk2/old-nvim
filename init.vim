@@ -83,8 +83,10 @@ else
   luafile ~/.config/nvim/lua/lsp-config.lua
   luafile ~/.config/nvim/lua/lsp-settings.lua
   " LSP: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
-  luafile ~/.config/nvim/lua/lsp/tsserver.lua
   luafile ~/.config/nvim/lua/lsp/efm.lua
+  luafile ~/.config/nvim/lua/lsp/tsserver.lua
+  luafile ~/.config/nvim/lua/lsp/json.lua
+  luafile ~/.config/nvim/lua/lsp/vim.lua
 
   " luafile ~/.config/nvim/lua/plugins/rainbow-config.lua
   " luafile ~/.config/nvim/lua/lsp/python-ls.lua
@@ -94,12 +96,10 @@ else
   " luafile ~/.config/nvim/lua/lsp/graphql-ls.lua
   " luafile ~/.config/nvim/lua/lsp/html-ls.lua
   " luafile ~/.config/nvim/lua/lsp/javascript-ls.lua
-  " luafile ~/.config/nvim/lua/lsp/json-ls.lua
-  " luafile ~/.config/nvim/lua/lsp/vim-ls.lua
   " luafile ~/.config/nvim/lua/lsp/yaml-ls.lua
 endif
 
 " Add paths to node and python here
-if !empty(glob("~/.config/nvim/paths.vim"))
+if !empty(glob('~/.config/nvim/paths.vim'))
   source ~/.config/nvim/paths.vim
 endif

@@ -1,1 +1,1 @@
-let g:NERDTreeIgnore = ['*/node_modules', '/*dist']
+let g:NERDTreeIgnore = []

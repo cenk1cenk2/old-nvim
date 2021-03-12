@@ -1,6 +1,10 @@
 -- npm install -g typescript typescript-language-server
-require'lspconfig'.tsserver.setup{
-  cmd = {vim.g.lsp_settings_servers_dir .. 'typescript-language-server/typescript-language-server', "--stdio"},
+require('lspconfig').tsserver.setup{
+  cmd = {vim.g.lsp_settings_servers_dir .. 'typescript-language-server', "--stdio"},
+  on_attach = function(client)
+        client.resolved_capabilities.document_formatting = false
+    end,
+  init_options = {documentFormatting = false},
   commands = {
     TypescriptOrganizeImports = {
       function ()

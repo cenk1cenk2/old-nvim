@@ -206,10 +206,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'mfussenegger/nvim-jdtls'
     Plug 'mfussenegger/nvim-dap'
 
-    " lsp installer
-    Plug 'prabirshrestha/vim-lsp'
-    Plug 'mattn/vim-lsp-settings'
-
     " File Explorer
     Plug 'kyazdani42/nvim-tree.lua'
 

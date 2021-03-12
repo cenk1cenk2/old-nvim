@@ -1,5 +1,4 @@
 return {
-    lintCommand = "vint -",
-    lintStdin = true,
-    lintFormats = {"%f:%l:%c: %m"}
+  lintCommand = vim.g.lsp_settings_servers_dir .. 'vint',
+  lintFormats = {"%f:%l:%c: %m"}
 }

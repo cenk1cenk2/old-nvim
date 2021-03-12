@@ -1,4 +1,4 @@
-local tree_cb            = require'nvim-tree.config'.nvim_tree_callback
+local tree_cb            = require('nvim-tree.config').nvim_tree_callback
 vim.g.nvim_tree_bindings = {
     -- mappings
     ["<CR>"] = tree_cb("edit"),
