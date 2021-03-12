@@ -52,78 +52,37 @@ function split_string() {
 	fi
 }
 
-# for npm based extensions
-ALL_NPM_EXTENSIONS=()
-ALL_NPM_BINARIES=()
-for e in "${NPM_EXTENSIONS[@]}"; do
-	split_string "${e}"
-	ALL_NPM_EXTENSIONS+=("${PACKAGE_NAME}")
-	ALL_NPM_BINARIES+=("${BIN_NAME}")
-done
-echo "Installing NPM packages: ${ALL_NPM_EXTENSIONS[*]}"
+function install_and_link_binaries() {
+	TYPE=$1
+	BASE_DIR=$2
+	INSTALL_COMMAND=$3
+	ALL_EXTENSIONS=($4)
+	ALL_BINARIES=($5)
 
-if [ ${#ALL_NPM_EXTENSIONS[@]} -gt 0 ]; then
-	yarn add ${ALL_NPM_EXTENSIONS[@]} --prod
+	if [ ${#ALL_EXTENSIONS[@]} -gt 0 ]; then
+		echo "Installing $TYPE packages: ${ALL_EXTENSIONS[*]}"
+		eval "${INSTALL_COMMAND} ${ALL_EXTENSIONS[*]}"
 
-	echo "Linking NPM binaries: ${ALL_NPM_BINARIES[*]}"
-	for e in "${ALL_NPM_BINARIES[@]}"; do
-		if [[ -L $e && -f $e ]]; then
-			rm ${e}
-		fi
-		if [ ! -f "./node_modules/.bin/${e}" ]; then
-			echo "${e} is not a NPM binary."
-			exit 127
-		else
-			ln -s "./node_modules/.bin/${e}" .
-		fi
-	done
-else
-	echo "No NPM extensions. Skipping..."
-fi
+		echo "Linking binaries: ${ALL_BINARIES[*]}"
+		for e in "${ALL_BINARIES[@]}"; do
+			if [[ -L "$LSP_FOLDER/$e" ]]; then
+				echo "Link already exists for $e, deleting it first."
+				rm "$LSP_FOLDER/${e}"
+			fi
 
-# for go based extensions
-for e in "${GO_EXTENSIONS[@]}"; do
-	echo "Installing GO package: ${e}"
-	split_string ${e}
+			if [ ! -f "${BASE_DIR}/${e}" ]; then
+				echo "${e} is not a $TYPE binary."
+				exit 127
+			else
+				ln -s "${BASE_DIR}/.bin/${e}" .
+			fi
+		done
+	else
+		echo "No $TYPE extensions to install. Skipping..."
+	fi
 
-	GOPATH=$(pwd) GOBIN=$(pwd) GO111MODULE=on go get -v "${PACKAGE_NAME}"
-	GOPATH=$(pwd) GO111MODULE=on go clean -modcache
-	rm -rf src pkg 2>/dev/null
-done
+}
 
-# for python based extensions
-ALL_PYTHON_EXTENSIONS=()
-ALL_PYTHON_BINARIES=()
-python3 -m venv ./venv
-./venv/bin/pip3 install -U pip
-for e in "${PYTHON_EXTENSIONS[@]}"; do
-	split_string ${e}
-	ALL_PYTHON_EXTENSIONS+=("${PACKAGE_NAME}")
-	ALL_PYTHON_BINARIES+=("${BIN_NAME}")
-done
-
-if [ ${#ALL_PYTHON_EXTENSIONS[@]} -gt 0 ]; then
-	echo "Installing Python package: ${ALL_PYTHON_EXTENSIONS[*]}"
-	./venv/bin/pip3 install ${ALL_PYTHON_EXTENSIONS[@]}
-
-	echo "Linking Python binaries: ${ALL_PYTHON_BINARIES[*]}"
-	for e in "${ALL_PYTHON_BINARIES[@]}"; do
-		if [[ -L $e && -f $e ]]; then
-			rm ${e}
-		fi
-
-		if [ ! -f "./venv/bin/${e}" ]; then
-			echo "${e} is not a Python binary."
-			exit 127
-		else
-			ln -s "./venv/bin/${e}" .
-		fi
-	done
-else
-	echo "No Python extensions. Skipping..."
-fi
-
-## install custom stuff with curl, for compiled binaries mostly
 function download_asset() {
 	URL=$1
 	BINARY=$2
@@ -159,9 +118,45 @@ function download_asset() {
 	rm "${TMP_UNZIPPED_FOLDER}" -r
 }
 
+# for npm based extensions
+ALL_NPM_EXTENSIONS=()
+ALL_NPM_BINARIES=()
+for e in "${NPM_EXTENSIONS[@]}"; do
+	split_string "${e}"
+	ALL_NPM_EXTENSIONS+=("${PACKAGE_NAME}")
+	ALL_NPM_BINARIES+=("${BIN_NAME}")
+done
+
+install_and_link_binaries "NPM" "./node_modules/.bin/" "yarn add --prod" "${ALL_NPM_EXTENSIONS[*]}" "${ALL_NPM_BINARIES[*]}"
+
+# for go based extensions
+for e in "${GO_EXTENSIONS[@]}"; do
+	echo "Installing GO package: ${e}"
+	split_string ${e}
+
+	GOPATH=$(pwd) GOBIN=$(pwd) GO111MODULE=on go get -v "${PACKAGE_NAME}"
+	GOPATH=$(pwd) GO111MODULE=on go clean -modcache
+	rm -rf src pkg 2>/dev/null
+done
+
+# for python based extensions
+ALL_PYTHON_EXTENSIONS=()
+ALL_PYTHON_BINARIES=()
+python3 -m venv ./venv
+./venv/bin/pip3 install -U pip
+for e in "${PYTHON_EXTENSIONS[@]}"; do
+	split_string ${e}
+	ALL_PYTHON_EXTENSIONS+=("${PACKAGE_NAME}")
+	ALL_PYTHON_BINARIES+=("${BIN_NAME}")
+done
+
+install_and_link_binaries "Python" "./venv/bin/" "./vent/bin/pip3 install" "${ALL_PYTHON_EXTENSIONS[*]}" "${ALL_PYTHON_BINARIES[*]}"
+
+## install custom stuff with curl, for compiled binaries mostly
+
 echo "Installing custom assets with curl..."
 
 # install shell-check here
-echo "Will install shellcheck."
+echo "Will install shellcheck..."
 VERSION=v0.7.1
 download_asset "https://github.com/koalaman/shellcheck/releases/download/${VERSION}/shellcheck-${VERSION}.linux.x86_64.tar.xz" "shellcheck-${VERSION}/shellcheck" "tar_xz"
