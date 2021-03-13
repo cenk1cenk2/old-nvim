@@ -9,19 +9,8 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
-    " Better Comments
-    " Plug 'tpope/vim-commentary'
-    " Change dates fast
-    " Plug 'tpope/vim-speeddating'
-    " Convert binary, hex, etc..
-    " Plug 'glts/vim-radical'
     " Repeat stuff
     Plug 'tpope/vim-repeat'
-    " Text Navigation
-    " Useful for React Commenting
-    Plug 'suy/vim-context-commentstring'
-    " highlight all matches under cursor
-    " Plug 'RRethy/vim-illuminate'
 
     " Easymotion
     Plug 'easymotion/vim-easymotion'
@@ -32,101 +21,109 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " highlight yanks
     Plug 'machakann/vim-highlightedyank'
 
+    " Text Navigation
+    Plug 'unblevable/quick-scope'
+
   if exists('g:vscode')
     " highlight yank
     Plug 'ChristianChiarulli/vscode-easymotion'
   else
     " See what keys do like in emacs
     Plug 'liuchengxu/vim-which-key'
+
     " Have the file system follow you around
     Plug 'airblade/vim-rooter'
-    " auto set indent settings
-    Plug 'tpope/vim-sleuth'
-    " Better Syntax Support
-    Plug 'sheerun/vim-polyglot'
+
     " Treesitter
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/playground'
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
+    Plug 'p00f/nvim-ts-rainbow'
+
     " Cool Icons
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'ryanoasis/vim-devicons'
+
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
+
     " Closetags
     Plug 'alvan/vim-closetag'
-    " Themes
-    " Plug 'christianchiarulli/nvcode-color-schemes.vim'
+
     " Intellisense
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
     " Status Line
     Plug 'glepnir/galaxyline.nvim'
+
+    " Ranger
     Plug 'kevinhwang91/rnvimr'
+
     " FZF
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'main', 'do': ':UpdateRemotePlugins' }
     Plug 'junegunn/fzf.vim'
+
     " Git
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
     Plug 'junegunn/gv.vim'
     Plug 'rhysd/git-messenger.vim'
+
     " Terminal
     Plug 'voldikss/vim-floaterm'
+
     " Start Screen
     Plug 'mhinz/vim-startify'
+
     " Vista
     Plug 'liuchengxu/vista.vim'
-    " Zen mode
-    " Plug 'junegunn/goyo.vim'
-    " Interactive code
-    Plug 'metakirby5/codi.vim'
+
     " Better tabline
     Plug 'romgrk/barbar.nvim'
-    " undo time travel
-    Plug 'mbbill/undotree'
+
     " Find and replace
-    " Plug 'ChristianChiarulli/far.vim'
     Plug 'brooth/far.vim'
-    " Auto change html tags
-    Plug 'AndrewRadev/tagalong.vim'
-    " live server
-    Plug 'turbio/bracey.vim'
+
     " Smooth scroll
     Plug 'psliwka/vim-smoothie'
-    " " async tasks
-    Plug 'skywind3000/asynctasks.vim'
-    Plug 'skywind3000/asyncrun.vim'
-    " Swap windows
-    Plug 'wesQ3/vim-windowswap'
+
     " Markdown Preview
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn & yarn add github-markdown-css'  }
-    " Easily Create Gists
-    " Plug 'mattn/vim-gist'
-    Plug 'mattn/webapi-vim'
+
     " Colorizer
     Plug 'norcalli/nvim-colorizer.lua'
+
     " Intuitive buffer closing
     Plug 'moll/vim-bbye'
+
     " Debugging
     Plug 'puremourning/vimspector'
 
     " ansible related
     " Plug 'arouene/vim-ansible-vault'
+
     " Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.sh' }
+
     " whitespace clean
     Plug 'ntpeters/vim-better-whitespace'
+
     " npm package versions, not working reliable
     Plug 'meain/vim-package-info', { 'do': 'npm install' }
+
     " folding code
     Plug 'pseewald/anyfold'
+
     " maximize windows temporarary
     Plug 'szw/vim-maximizer'
+
     " show yank macro stuff on "
     Plug 'junegunn/vim-peekaboo'
-    " shell format
-    Plug 'z0mbix/vim-shfmt', { 'for': 'sh', 'do': 'GO111MODULE=on go get mvdan.cc/sh/v3/cmd/shfmt' }
+
+    " async tasks
+    Plug 'skywind3000/asynctasks.vim'
+    Plug 'skywind3000/asyncrun.vim'
 
     " Telescope
     Plug 'nvim-lua/popup.nvim'
@@ -140,15 +137,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-telescope/telescope-vimspector.nvim'
     Plug 'GustavoKatel/telescope-asynctasks.nvim'
 
-    " quick scope
-    Plug 'unblevable/quick-scope'
-
     " Multiple Cursors
     Plug 'terryma/vim-multiple-cursors'
-    " Rainbow parenthesis
-    Plug 'luochen1990/rainbow'
+
     " comments
     Plug 'preservim/nerdcommenter'
+
     " jinja
     Plug 'lepture/vim-jinja'
 
@@ -161,17 +155,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " snippets themselves
     Plug 'mattn/emmet-vim'
     Plug 'honza/vim-snippets'
+    Plug 'hrsh7th/vim-vsnip'
 
     " go lang
     Plug 'fatih/vim-go', { 'do': 'GO111MODULE=on go get golang.org/x/tools/gopls@latest' }
-
-    " conflict motions for git conflicts
-    " Plug 'vim-scripts/ConflictMotions'
-    " Plug 'inkarkat/vim-CountJump'
-    " Plug 'inkarkat/vim-ingo-library'
-
-    " vim-mergetool
-    Plug 'samoshkin/vim-mergetool'
 
     " tailwinds
     Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
@@ -190,6 +177,37 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " move plugin
     Plug 'matze/vim-move'
+
+    " Auto change html tags
+    Plug 'AndrewRadev/tagalong.vim'
+    " Closetags
+    Plug 'alvan/vim-closetag'
+
+    " Better Syntax Support
+    Plug 'sheerun/vim-polyglot'
+
+    " Swap windows
+    Plug 'wesQ3/vim-windowswap'
+
+    " undo time travel
+    Plug 'mbbill/undotree'
+
+    " lsp
+    Plug 'nvim-telescope/telescope-media-files.nvim'
+    " Intellisense
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/nvim-compe'
+    Plug 'glepnir/lspsaga.nvim'
+    Plug 'onsails/lspkind-nvim'
+    Plug 'kosayoda/nvim-lightbulb'
+    Plug 'mfussenegger/nvim-jdtls'
+    Plug 'mfussenegger/nvim-dap'
+
+    " File Explorer
+    Plug 'kyazdani42/nvim-tree.lua'
+
+    " Better quickfix
+    Plug 'kevinhwang91/nvim-bqf'
   endif
 
 call plug#end()

@@ -4,6 +4,7 @@ let g:startify_custom_header = [
 
 let g:startify_lists = [
           \ { 'type': 'sessions',  'header': ['   Sessions']                     },
+          \ { 'type': 'files',     'header': ['   Files']                        },
           \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
           \ { 'type': 'files',     'header': ['   Files']                        },
           \ { 'type': 'bookmarks', 'header': ['   Bookmarks']                    },
@@ -31,7 +32,8 @@ let g:startify_bookmarks = [
             \ { 'p': '~/docker' },
             \ { 'd': '~/development' },
             \ { 'w': '~/development/work' },
-            \ { 'c': '~/.config/nvim' }
+            \ { 'c': '~/.config/nvim' },
+            \ { 'i': '~/.config/nvim/init.vim' },
             \ ]
 
 " let g:startify_session_before_save = [

@@ -4,6 +4,7 @@ imap <C-h> <C-w>h
 imap <C-j> <C-w>j
 imap <C-k> <C-w>k
 imap <C-l> <C-w>l
+
 " g Leader key
 let mapleader=" "
 " let localleader=" "
@@ -14,10 +15,6 @@ vnoremap < <gv
 vnoremap > >gv
 
 if exists('g:vscode')
-
-  " Simulate same TAB behavior in VSCode
-  " nmap <Tab> :Tabnext<CR>
-  " nmap <S-Tab> :Tabprev<CR>
 
 else
 
@@ -41,19 +38,16 @@ else
   nnoremap <silent> <Leader><Right> :BufferNext<CR>
   nnoremap <silent> <Leader><Down> :BufferMoveNext<CR>
 
-  " delete buffer with ctrl+w c to replicate behaviour of close
-
-  " Move selected line / block of text in visual mode
-  " shift + k to move up
-  " shift + j to move down
-  xnoremap K :move '<-2<CR>gv-gv
-  xnoremap J :move '>+1<CR>gv-gv
 
   " Alternate way to save
   noremap <silent> <C-s> :w<CR>
+
   " Alternate way to quit
   nnoremap <silent> <C-q> :BufferClose<CR>
+
+  " split to tab
   nnoremap <silent> <C-t> <C-w>T
+
   " Use control-c instead of escape
   noremap <silent> <C-c> <Esc>
 
@@ -86,20 +80,6 @@ else
   vnoremap <silent> <M-i> :resize +2<CR>
   vnoremap <silent> <M-z> :vertical resize -2<CR>
   vnoremap <silent> <M-o> :vertical resize +2<CR>
-
-  " nnoremap <C-ü> :resize -2<CR>
-  " nnoremap <C-ö> :resize +2<CR>
-  " nnoremap <C-ä> :vertical resize -2<CR>
-  " nnoremap <C-#> :vertical resize +2<CR>
-
-  let g:elite_mode=0                      " Disable arrows"
-  " Disable arrow movement, resize splits instead.
-  if get(g:, 'elite_mode')
-    nnoremap <C-ü> :resize -2<CR>
-    nnoremap <C-ö> :resize +2<CR>
-    nnoremap <C-ä> :vertical resize -2<CR>
-    nnoremap <C-#> :vertical resize +2<CR>
-  endif
 
   " create space on top and bottom
   nmap <silent> ü o<ESC>k

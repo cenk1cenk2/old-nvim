@@ -1,5 +1,4 @@
 " Leader Key Maps
-
 let @s = 'veS"'
 
 " Timeout
@@ -17,10 +16,6 @@ let g:which_key_map =  {}
 let g:which_key_sep = '→'
 " set timeoutlen=100
 
-" Coc Search & refactor
-nnoremap <leader>? :CocSearch <C-R>=expand("<cword>")<CR><CR>
-let g:which_key_map['?'] = 'search word'
-
 " Not a fan of floating windows for this
 let g:which_key_use_floating_win = 0
 let g:which_key_max_size = 0
@@ -37,20 +32,22 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
 " Single mappings
-let g:which_key_map[';'] = [ ':Telescope Commands',                           'commands' ]
-let g:which_key_map['/'] = [ ':History/',                                     'history']
-let g:which_key_map['='] = [ '<C-W>=',                                        'balance windows' ]
-let g:which_key_map['e'] = [ ':CocCommand explorer --toggle --sources=file+', 'explorer' ]
-let g:which_key_map['E'] = [ ':Telescope file_browser',                       'file-browser']
-let g:which_key_map['h'] = [ '<C-W>s',                                        'split below']
-let g:which_key_map['v'] = [ '<C-W>v',                                        'split right']
-let g:which_key_map['n'] = [ ':let @/ = ""',                                  'no highlight' ]
-let g:which_key_map['M'] = [ ':MaximizerToggle',                              'maximize' ]
-let g:which_key_map['p'] = [ ':Telescope find_files theme=get_dropdown',      'find file']
-let g:which_key_map['q'] = [ '<Plug>(coc-fix-current)',                       'quickfix' ]
-let g:which_key_map['u'] = [ ':UndotreeToggle',                               'undo tree']
-let g:which_key_map['W'] = [ ':call WindowSwap#EasyWindowSwap()',             'move window' ]
-let g:which_key_map['r'] = [ ':RnvimrToggle',                                 'ranger' ]
+let g:which_key_map[';'] = [ ':Telescope Commands',                        'commands' ]
+let g:which_key_map['/'] = [ ':History/',                                  'search history']
+let g:which_key_map['='] = [ '<C-W>=',                                     'balance windows' ]
+let g:which_key_map['e'] = [ ':NvimTreeToggle',                            'explorer' ]
+let g:which_key_map['?'] = [ ':NvimTreeFindFile',                          'find file in explorer' ]
+let g:which_key_map['E'] = [ ':Telescope file_browser',                    'file-browser']
+let g:which_key_map['h'] = [ '<C-W>s',                                     'split below']
+let g:which_key_map['v'] = [ '<C-W>v',                                     'split right']
+let g:which_key_map['n'] = [ ':let @/ = ""',                               'no highlight' ]
+let g:which_key_map['m'] = [ ':MaximizerToggle',                           'maximize' ]
+let g:which_key_map['p'] = [ ':Telescope find_files theme=get_dropdown',   'find file']
+let g:which_key_map['r'] = [ ':RnvimrToggle',                              'ranger' ]
+" let g:which_key_map['q'] = [ '<Plug>(coc-fix-current)',                  'quickfix' ]
+let g:which_key_map['u'] = [ ':UndotreeToggle',                            'undo tree']
+let g:which_key_map['w'] = [ ':call WindowSwap#EasyWindowSwap()',          'move window' ]
+
 " Group mappings
 
 " a is for actions
@@ -67,8 +64,6 @@ let g:which_key_map.a = {
       \ 'r' : [':set norelativenumber!',              'relative line nums'],
       \ 't' : [':!markdown-toc %:p --bullets="-" -i', 'markdown-toc'],
       \ 'T' : [':TSHighlightCapturesUnderCursor',     'show treesitter theme color'],
-      \ 'v' : [':Codi',                               'virtual repl on'],
-      \ 'V' : [':Codi!',                              'virtual repl off'],
       \ 'w' : [':StripWhitespace',                    'strip whitespace'],
       \ }
 
@@ -109,6 +104,72 @@ let g:which_key_map.d = {
       \ 's' : ['<Plug>VimspectorStop',                        'stop'],
       \ }
 
+" f is for find and replace
+      " \ 'f' : [':Farr'                     , 'file'],
+let g:which_key_map.f = {
+      \ 'name' : '+find & replace' ,
+      \ 'f' : [':Farr --source=vimgrep'    , 'file'],
+      \ 'p' : [':Farr --source=rgnvim'     , 'project'],
+      \ }
+
+" k is for task
+let g:which_key_map.k = {
+      \ 'name' : '+task' ,
+      \ 'c' : [':AsyncTask file-compile'      , 'compile file'],
+      \ 'b' : [':AsyncTask project-build'     , 'build project'],
+      \ 'e' : [':AsyncTaskEdit'               , 'edit local tasks'],
+      \ 'f' : [':AsyncTaskFzf'                , 'find task'],
+      \ 'g' : [':AsyncTaskEdit!'              , 'edit global tasks'],
+      \ 'h' : [':AsyncTaskList!'              , 'list hidden tasks'],
+      \ 'l' : [':CocList tasks'               , 'list tasks'],
+      \ 'm' : [':AsyncTaskMacro'              , 'macro help'],
+      \ 'o' : [':copen'                       , 'open task view'],
+      \ 'r' : [':AsyncTask file-run'          , 'run file'],
+      \ 'p' : [':AsyncTask project-run'       , 'run project'],
+      \ 'x' : [':cclose'                      , 'close task view'],
+      \ }
+      " \ 'l' : [':AsyncTaskList'               , 'list tasks'],
+
+" command! -buffer JdtCompile lua require('jdtls').compile()
+" command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()
+" command! -buffer JdtJol lua require('jdtls').jol()
+" command! -buffer JdtBytecode lua require('jdtls').javap()
+" command! -buffer JdtJshell lua require('jdtls').jshell()
+
+" j is for java
+let g:which_key_map.j = {
+      \ 'name' : '+java' ,
+      \ 'c' : [':AsyncTask file-compile'      , 'compile file'],
+      \ 'b' : [':AsyncTask project-build'     , 'build project'],
+      \ 'e' : [':AsyncTaskEdit'               , 'edit local tasks'],
+      \ 'f' : [':AsyncTaskFzf'                , 'find task'],
+      \ 'g' : [':AsyncTaskEdit!'              , 'edit global tasks'],
+      \ 'h' : [':AsyncTaskList!'              , 'list hidden tasks'],
+      \ 'l' : [':CocList tasks'               , 'list tasks'],
+      \ 'm' : [':AsyncTaskMacro'              , 'macro help'],
+      \ 'o' : [':copen'                       , 'open task view'],
+      \ 'r' : [':AsyncTask file-run'          , 'run file'],
+      \ 'p' : [':AsyncTask project-run'       , 'run project'],
+      \ 'x' : [':cclose'                      , 'close task view'],
+      \ }
+
+" k is for task
+let g:which_key_map.k = {
+      \ 'name' : '+task' ,
+      \ 'c' : [':AsyncTask file-compile'      , 'compile file'],
+      \ 'b' : [':AsyncTask project-build'     , 'build project'],
+      \ 'e' : [':AsyncTaskEdit'               , 'edit local tasks'],
+      \ 'f' : [':AsyncTaskFzf'                , 'find task'],
+      \ 'g' : [':AsyncTaskEdit!'              , 'edit global tasks'],
+      \ 'h' : [':AsyncTaskList!'              , 'list hidden tasks'],
+      \ 'm' : [':AsyncTaskMacro'              , 'macro help'],
+      \ 'o' : [':copen'                       , 'open task view'],
+      \ 'r' : [':AsyncTask file-run'          , 'run file'],
+      \ 'p' : [':AsyncTask project-run'       , 'run project'],
+      \ 'x' : [':cclose'                      , 'close task view'],
+      \ }
+      " \ 'l' : [':AsyncTaskList'               , 'list tasks'],
+
 " m is for mark
 let g:which_key_map.m = {
       \ 'name' : '+mark' ,
@@ -141,14 +202,38 @@ let g:which_key_map.f = {
       \ 'p' : [':Skylight!',                                                                                                 'skylight preview symbol'],
       \ 'r' : [':call RipgrepInteractive()',                                                                                 'rg interactive'],
       \ 'R' : [':Telescope registers',                                                                                       'registers'],
-      \ 't' : [':Rg',                                                                                                        'all files for text rg'],
-      \ 'T' : [':Telescope live_grep',                                                                                       'text-telescope'],
-      \ 'o' : [':CocList outline',                                                                                           'search outline'],
+      \ 't' : [':Telescope live_grep',                                                                                       'text-telescope'],
+      \ 'T' : [':Rg',                                                                                                        'all files for text rg'],
       \ 'O' : [':Telescope vim_options',                                                                                     'vim options'],
       \ 'w' : [':Windows',                                                                                                   'search windows'],
       \ }
 
-" f is for find and replace
+" l is for language server protocol
+let g:which_key_map.l = {
+      \ 'name' : '+lsp',
+      \ 'a' : [':Lspsaga code_action',                                  'code action'],
+      \ 'A' : [':Lspsaga range_code_action',                            'selected action'],
+      \ 'd' : [':Telescope lsp_document_diagnostics',                   'document diagnostics'],
+      \ 'D' : [':Telescope lsp_workspace_diagnostics',                  'workspace diagnostics'],
+      \ 'f' : [':LspFormatting',                                        'format'],
+      \ 'h' : [':lua require("lspsaga.provider").preview_definition()', 'preview definition'],
+      \ 'H' : [':Lspsaga signature_help',                               'signature help'],
+      \ 'g' : [':LspOrganizeImports',                                   'organize imports'],
+      \ 'i' : [':LspImplementation',                                    'implementation'],
+      \ 'I' : [':LspInfo',                                              'lsp information'],
+      \ 'l' : [':Lspsaga lsp_finder',                                   'lsp finder'],
+      \ 'L' : [':Lspsaga show_line_diagnostics',                        'line diagnostics'],
+      \ 'n' : [':Lspsaga diagnostic_jump_next',                         'next diagnostic'],
+      \ 'm' : [':LspRenameFile',                                        'rename current file'],
+      \ 'p' : [':Lspsaga diagnostic_jump_prev',                         'prev diagnostic'],
+      \ 'q' : [':Telescope quickfix',                                   'quickfix'],
+      \ 'r' : [':LspReferences',                                        'references'],
+      \ 'R' : [':LspRename',                                            'rename'],
+      \ 'T' : [':LspTypeDefinition',                                    'type defintion'],
+      \ 's' : [':Telescope lsp_document_symbols',                       'document symbols'],
+      \ 'S' : [':Telescope lsp_workspace_symbols',                      'workspace symbols'],
+      \ }
+
 let g:which_key_map.s = {
       \ 'name' : '+find & replace',
       \ 'f' : [':Farf --source=vimgrep --file-mask="%:p"', 'find in buffer'],
@@ -198,48 +283,6 @@ let g:which_key_map.G = {
       \ 'p' : [':CocCommand gist.create', 'post gist '],
       \ }
 
-" l is for language server protocol
-let g:which_key_map.l = {
-      \ 'name' : '+lsp',
-      \ ';' : [':CocList commands',                               'commands'],
-      \ '.' : [':CocConfig',                                      'config'],
-      \ ',' : ['<Plug>(coc-refactor)',                            'refactor'],
-      \ 'a' : ['<Plug>(coc-codeaction-selected)',                 'selected action'],
-      \ 'A' : ['<Plug>(coc-codeaction)',                          'code action'],
-      \ 'b' : [':CocNext',                                        'next action'],
-      \ 'B' : [':CocPrev',                                        'prev action'],
-      \ 'c' : [':CocCommand docthis.documentThis',                'document this function'],
-      \ 'd' : ['<Plug>(coc-definition)',                          'definition'],
-      \ 'D' : ['<Plug>(coc-declaration)',                         'declaration'],
-      \ 'e' : [':CocList extensions',                             'extensions'],
-      \ 'f' : ['<Plug>(coc-format-selected)',                     'format selected'],
-      \ 'F' : ['<Plug>(coc-format)',                              'format'],
-      \ 'g' : [':CocCommand editor.action.organizeImport',        'organize imports'],
-      \ 'h' : ['<Plug>(coc-float-hide)',                          'hide'],
-      \ 'i' : ['<Plug>(coc-implementation)',                      'implementation'],
-      \ 'I' : [':CocList diagnostics',                            'diagnostics'],
-      \ 'j' : ['<Plug>(coc-float-jump)',                          'float jump'],
-      \ 'l' : ['<Plug>(coc-codelens-action)',                     'code lens'],
-      \ 'L' : [':CocList',                                        'coc-list'],
-      \ 'o' : [':CocList outline',                                'search outline'],
-      \ 'O' : [':Vista!!',                                        'outline'],
-      \ 'n' : ['<Plug>(coc-diagnostic-next)',                     'next diagnostic'],
-      \ 'm' : [':CocCommand workspace.renameCurrentFile',         'rename current file'],
-      \ 'N' : ['<Plug>(coc-diagnostic-next-error)',               'next error'],
-      \ 'p' : ['<Plug>(coc-diagnostic-prev)',                     'prev diagnostic'],
-      \ 'P' : ['<Plug>(coc-diagnostic-prev-error)',               'prev error'],
-      \ 'q' : ['<Plug>(coc-fix-current)',                         'quickfix'],
-      \ 'r' : ['<Plug>(coc-references)',                          'references'],
-      \ 'R' : ['<Plug>(coc-rename)',                              'rename'],
-      \ 't' : ['<Plug>(coc-type-definition)',                     'type definition'],
-      \ 'u' : [':CocListResume',                                  'resume list'],
-      \ 'U' : [':CocUpdate',                                      'update CoC'],
-      \ 'T' : [':CocCommand tsserver.restart',                    'restart ts server'],
-      \ 'z' : [':CocDisable',                                     'disable CoC'],
-      \ 'Z' : [':CocEnable',                                      'enable CoC'],
-      \ '@' : [':Telescope node_modules list theme=get_dropdown', 'node_modules'],
-      \ }
-
 " t is for terminal
 let g:which_key_map.t = {
       \ 'name' : '+terminal',
@@ -272,5 +315,4 @@ let g:which_key_map.T = {
       \ }
 
 
-" Register which key map
-call which_key#register('<Space>', "g:which_key_map")
+call which_key#register('<Space>', 'g:which_key_map')

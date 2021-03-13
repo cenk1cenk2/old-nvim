@@ -38,6 +38,7 @@ set clipboard=unnamedplus               " Copy paste between vim and everything 
 set incsearch
 set guifont="Consolas NF"
 set wrap linebreak nolist
+set completeopt=menuone,noselect
 
 " New stuff
 " set notimeout nottimeout
@@ -52,7 +53,6 @@ set wrap linebreak nolist
 " set autochdir                           " Your working directory will always be the same as your working directory
 " set foldcolumn=2                        " Folding abilities
 
-" au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 augroup TerminalStuff

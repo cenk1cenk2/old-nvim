@@ -1,0 +1,7 @@
+indent_width: 2
+continuation_indent_width: 2
+chop_down_parameter: true
+double_quote_to_single_quote: true
+column_limit: 180
+keep_simple_function_one_line: false
+chop_down_table: true

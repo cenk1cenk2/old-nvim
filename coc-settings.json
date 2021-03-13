@@ -121,35 +121,6 @@
     "v": "open:vsplit"
   },
 
-  "languageserver": {
-    "eslint": {
-      "filetypes": ["js", "json", "ts", "jsx", "tsx"],
-      "command": "./node_modules/.bin/eslint", // this will find local eslint first, if local eslint not found, it
-      "rootPatterns": [".git"],
-      "debounce": 100,
-      "args": ["--stdin", "--stdin-filename", "%filepath", "--format", "json"],
-      "sourceName": "eslint",
-      "parseJson": {
-        "errorsRoot": "[0].messages",
-        "line": "line",
-        "column": "column",
-        "endLine": "endLine",
-        "endColumn": "endColumn",
-        "message": "${message} [${ruleId}]",
-        "security": "severity"
-      },
-      "securities": {
-        "2": "error",
-        "1": "warning"
-      }
-    },
-
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["go"]
-    }
-  },
 
   "tsserver.log": "verbose",
 
@@ -200,16 +171,6 @@
   "tsserver.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
 
-  "markdownlint.config": {
-    "default": true,
-    "line_length": false,
-    "single-h1": false,
-    "no-inline-html": false,
-    "first-line-h1": false,
-    "no-emphasis-as-header": false,
-    "no-duplicate-header": false,
-    "no-bare-urls": false
-  },
 
   // vue
   "tailwindCSS.includeLanguages": {
