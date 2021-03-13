@@ -1,9 +1,10 @@
 #!/bin/bash
 
-cd ~ || exit 127
-sudo rm -r neovim
-git clone https://github.com/neovim/neovim
-cd neovim || exit 127
+ASSET=$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 32)
+
+TMP_DOWNLOAD_PATH="/tmp/${ASSET}"
+
+git clone https://github.com/neovim/neovim "$TMP_DOWNLOAD_PATH"
+cd "$TMP_DOWNLOAD_PATH"
 sudo make CMAKE_BUILD_TYPE=Release install
-cd ~ || exit 127
-sudo rm -r neovim
+sudo rm -r "$TMP_DOWNLOAD_PATH"
