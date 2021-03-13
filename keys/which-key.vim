@@ -112,8 +112,6 @@ let g:which_key_map.f = {
       \ 'p' : [':Farr --source=rgnvim'     , 'project'],
       \ }
 
-<<<<<<< HEAD
-||||||| 9b1ebc5
 " k is for task
 let g:which_key_map.k = {
       \ 'name' : '+task' ,
@@ -132,7 +130,6 @@ let g:which_key_map.k = {
       \ }
       " \ 'l' : [':AsyncTaskList'               , 'list tasks'],
 
-=======
 " command! -buffer JdtCompile lua require('jdtls').compile()
 " command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()
 " command! -buffer JdtJol lua require('jdtls').jol()
@@ -173,7 +170,6 @@ let g:which_key_map.k = {
       \ }
       " \ 'l' : [':AsyncTaskList'               , 'list tasks'],
 
->>>>>>> d002b0419a8621c5575c14119d0b8d9c4a7a44a0
 " m is for mark
 let g:which_key_map.m = {
       \ 'name' : '+mark' ,
