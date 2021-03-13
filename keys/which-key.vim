@@ -32,21 +32,21 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
 " Single mappings
-let g:which_key_map[';'] = [ ':Telescope Commands',                      'commands' ]
-let g:which_key_map['/'] = [ ':History/',                                'search history']
-let g:which_key_map['='] = [ '<C-W>=',                                   'balance windows' ]
-let g:which_key_map['e'] = [ ':NvimTreeToggle',                          'explorer' ]
-let g:which_key_map['?'] = [ ':NvimTreeFindFile',                        'find file in explorer' ]
-let g:which_key_map['E'] = [ ':Telescope file_browser',                  'file-browser']
-let g:which_key_map['h'] = [ '<C-W>s',                                   'split below']
-let g:which_key_map['v'] = [ '<C-W>v',                                   'split right']
-let g:which_key_map['n'] = [ ':let @/ = ""',                             'no highlight' ]
-let g:which_key_map['m'] = [ ':MaximizerToggle',                         'maximize' ]
-let g:which_key_map['p'] = [ ':Telescope find_files theme=get_dropdown', 'find file']
-let g:which_key_map['r'] = [ ':RnvimrToggle',                            'ranger' ]
+let g:which_key_map[';'] = [ ':Telescope Commands',                        'commands' ]
+let g:which_key_map['/'] = [ ':History/',                                  'search history']
+let g:which_key_map['='] = [ '<C-W>=',                                     'balance windows' ]
+let g:which_key_map['e'] = [ ':NvimTreeToggle',                            'explorer' ]
+let g:which_key_map['?'] = [ ':NvimTreeFindFile',                          'find file in explorer' ]
+let g:which_key_map['E'] = [ ':Telescope file_browser',                    'file-browser']
+let g:which_key_map['h'] = [ '<C-W>s',                                     'split below']
+let g:which_key_map['v'] = [ '<C-W>v',                                     'split right']
+let g:which_key_map['n'] = [ ':let @/ = ""',                               'no highlight' ]
+let g:which_key_map['m'] = [ ':MaximizerToggle',                           'maximize' ]
+let g:which_key_map['p'] = [ ':Telescope find_files theme=get_dropdown',   'find file']
+let g:which_key_map['r'] = [ ':RnvimrToggle',                              'ranger' ]
 " let g:which_key_map['q'] = [ '<Plug>(coc-fix-current)',                  'quickfix' ]
-let g:which_key_map['u'] = [ ':UndotreeToggle',                          'undo tree']
-let g:which_key_map['w'] = [ ':call WindowSwap#EasyWindowSwap()',        'move window' ]
+let g:which_key_map['u'] = [ ':UndotreeToggle',                            'undo tree']
+let g:which_key_map['w'] = [ ':call WindowSwap#EasyWindowSwap()',          'move window' ]
 
 " Group mappings
 
@@ -218,12 +218,13 @@ let g:which_key_map.l = {
       \ 'f' : [':LspFormatting',                                        'format'],
       \ 'h' : [':lua require("lspsaga.provider").preview_definition()', 'preview definition'],
       \ 'H' : [':Lspsaga signature_help',                               'signature help'],
-      \ 'g' : [':TypescriptOrganizeImports',                            'organize imports'],
+      \ 'g' : [':LspOrganizeImports',                                   'organize imports'],
       \ 'i' : [':LspImplementation',                                    'implementation'],
       \ 'I' : [':LspInfo',                                              'lsp information'],
       \ 'l' : [':Lspsaga lsp_finder',                                   'lsp finder'],
       \ 'L' : [':Lspsaga show_line_diagnostics',                        'line diagnostics'],
       \ 'n' : [':Lspsaga diagnostic_jump_next',                         'next diagnostic'],
+      \ 'm' : [':LspRenameFile',                                        'rename current file'],
       \ 'p' : [':Lspsaga diagnostic_jump_prev',                         'prev diagnostic'],
       \ 'q' : [':Telescope quickfix',                                   'quickfix'],
       \ 'r' : [':LspReferences',                                        'references'],
