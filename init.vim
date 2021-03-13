@@ -94,6 +94,8 @@ else
   luafile ~/.config/nvim/lua/lsp/go.lua
   luafile ~/.config/nvim/lua/lsp/vue.lua
   luafile ~/.config/nvim/lua/lsp/lua.lua
+  luafile ~/.config/nvim/lua/lsp/eslint.lua
+  luafile ~/.config/nvim/lua/lsp/tailwind.lua
   autocmd FileType java luafile ~/.config/nvim/lua/lsp/java-ls.lua
 endif
 

@@ -21,6 +21,7 @@ NPM_EXTENSIONS=(
 	"vscode-css-languageserver-bin;css-languageserver"
 	"markdownlint-cli;markdownlint"
 	"vls"
+	"eslint;false"
 )
 GO_EXTENSIONS=(
 	"github.com/mattn/efm-langserver@latest"
@@ -66,10 +67,17 @@ function install_and_link_binaries() {
 	TYPE=$1
 	BASE_DIR=$2
 	INSTALL_COMMAND=$3
-	ALL_EXTENSIONS=($4)
-	ALL_BINARIES=($5)
+	EXTENSIONS=($4)
 
 	log_start "Installing $TYPE packages..." "top"
+
+	ALL_EXTENSIONS=()
+	ALL_BINARIES=()
+	for e in "${EXTENSIONS[@]}"; do
+		split_string "${e}"
+		ALL_EXTENSIONS+=("${PACKAGE_NAME}")
+		ALL_BINARIES+=("${BIN_NAME}")
+	done
 
 	if [ ${#ALL_EXTENSIONS[@]} -gt 0 ]; then
 		log_this "${ALL_EXTENSIONS[*]}" "${CYAN}PACKAGE${RESET}" "INFO"
@@ -83,12 +91,15 @@ function install_and_link_binaries() {
 				rm "$LSP_FOLDER/${e}"
 			fi
 
-			if [ ! -f "${BASE_DIR}/${e}" ]; then
+			if [ "$e" != "false" ] && [ ! -f "${BASE_DIR}/${e}" ]; then
 				log_error "${e} is not a $TYPE binary."
 				log_info "Binaries listed as follows:"
 				ls -la "${BASE_DIR}"
 				exit 127
+			elif [ "$e" == "false" ]; then
+				log_warn "No binary for library."
 			else
+				log_info "Linking executable: ${BASE_DIR}/${e}"
 				ln -s "${BASE_DIR}/${e}" .
 			fi
 		done
@@ -124,6 +135,11 @@ function extract_archive() {
 		unzip -qq "$TMP_DOWNLOAD_PATH" -d "${TMP_UNZIPPED_FOLDER}"
 	else
 		log_error "Unknown archive type: ${COMPRESSION}"
+		exit 127
+	fi
+
+	if [ $? -gt 0 ]; then
+		log_error "Unzipping unsuccesfull: ${TMP_DOWNLOAD_PATH} as ${COMPRESSION}"
 		exit 127
 	fi
 }
@@ -181,6 +197,8 @@ function download_extension() {
 		rm "${LSP_FOLDER}/${EXTENSION}" -r
 	fi
 
+	log_info "Added extension: ${EXTENSION}"
+
 	mv "${TMP_UNZIPPED_FOLDER}/${SUBPATH:-'.'}/" "${LSP_FOLDER}/${EXTENSION}"
 
 	for e in "${CHMOD[@]}"; do
@@ -190,40 +208,25 @@ function download_extension() {
 }
 
 # for npm based extensions
-ALL_NPM_EXTENSIONS=()
-ALL_NPM_BINARIES=()
-for e in "${NPM_EXTENSIONS[@]}"; do
-	split_string "${e}"
-	ALL_NPM_EXTENSIONS+=("${PACKAGE_NAME}")
-	ALL_NPM_BINARIES+=("${BIN_NAME}")
-done
-
-install_and_link_binaries "NPM" "./node_modules/.bin/" "yarn add --prod" "${ALL_NPM_EXTENSIONS[*]}" "${ALL_NPM_BINARIES[*]}"
+install_and_link_binaries "NPM" "./node_modules/.bin" "yarn add --prod" "${NPM_EXTENSIONS[*]}"
 
 # for go based extensions
 for e in "${GO_EXTENSIONS[@]}"; do
-	log_start "Installing GO package: ${e}" "top"
+	log_start "Installing GO binary: ${e}" "top"
 	split_string ${e}
 
 	GOPATH=$(pwd) GOBIN=$(pwd) GO111MODULE=on go get -v "${PACKAGE_NAME}"
 	GOPATH=$(pwd) GO111MODULE=on go clean -modcache
 	rm -rf src pkg 2>/dev/null
 
-	log_finish "Installed GO package: ${e}"
+	log_finish "Installed GO binary: ${e}"
 done
 
 # for python based extensions
-ALL_PYTHON_EXTENSIONS=()
-ALL_PYTHON_BINARIES=()
 python3 -m venv ./venv
 ./venv/bin/pip3 install -U pip
-for e in "${PYTHON_EXTENSIONS[@]}"; do
-	split_string ${e}
-	ALL_PYTHON_EXTENSIONS+=("${PACKAGE_NAME}")
-	ALL_PYTHON_BINARIES+=("${BIN_NAME}")
-done
 
-install_and_link_binaries "Python" "./venv/bin/" "./venv/bin/pip3 install" "${ALL_PYTHON_EXTENSIONS[*]}" "${ALL_PYTHON_BINARIES[*]}"
+install_and_link_binaries "Python" "./venv/bin" "./venv/bin/pip3 install" "${PYTHON_EXTENSIONS[*]}"
 
 ## install custom stuff with curl, for compiled binaries mostly
 
@@ -233,8 +236,14 @@ log_start "Installing custom assets with curl..."
 VERSION=v0.7.1
 download_binary "https://github.com/koalaman/shellcheck/releases/download/${VERSION}/shellcheck-${VERSION}.linux.x86_64.tar.xz" "tar_xz" "shellcheck-${VERSION}/shellcheck"
 
-VERSION="1.12.1"
+VERSION="1.18.1"
 download_extension "https://github.com/sumneko/vscode-lua/releases/download/v$VERSION/lua-$VERSION.vsix" "zip" "lua-language-server" "extension/server" "bin"
+
+VERSION="2.1.0"
+download_extension "https://github.com/microsoft/vscode-eslint/releases/download/release%2F$VERSION-next.1/vscode-eslint-$VERSION.vsix" "zip" "eslint-language-server" "extension/server/out"
+
+VERSION="0.5.9"
+download_extension "https://github.com/tailwindlabs/tailwindcss-intellisense/releases/download/v$VERSION/vscode-tailwindcss-$VERSION.vsix" "zip" "tailwindcss-language-server" "extension/dist/server"
 
 log_finish "Installed lsp dependencies." "top"
 log_info "$((SECONDS / 60)) minutes and $((SECONDS % 60)) seconds elapsed."
