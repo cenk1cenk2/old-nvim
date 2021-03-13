@@ -12,7 +12,6 @@ endif
 source ~/.config/nvim/vim-plug/plugins.vim
 source ~/.config/nvim/general/settings.vim
 source ~/.config/nvim/general/functions.vim
-source ~/.config/nvim/general/theme.vim
 source ~/.config/nvim/keys/mappings.vim
 
 " general plugins
