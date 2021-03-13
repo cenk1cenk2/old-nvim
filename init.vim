@@ -12,6 +12,7 @@ endif
 source ~/.config/nvim/vim-plug/plugins.vim
 source ~/.config/nvim/general/settings.vim
 source ~/.config/nvim/general/functions.vim
+source ~/.config/nvim/general/theme.vim
 source ~/.config/nvim/keys/mappings.vim
 
 " general plugins
@@ -24,8 +25,7 @@ if exists('g:vscode')
   source ~/.config/nvim/vscode/settings.vim
 else
   " Themes
-  source ~/.config/nvim/themes/syntax.vim
-  source ~/.config/nvim/themes/onedark.vim
+  source ~/.config/nvim/general/onedark.vim
 
   " Plugin Configuration
   source ~/.config/nvim/keys/which-key.vim
@@ -94,6 +94,7 @@ else
   luafile ~/.config/nvim/lua/lsp/css.lua
   luafile ~/.config/nvim/lua/lsp/go.lua
   luafile ~/.config/nvim/lua/lsp/vue.lua
+  autocmd FileType java luafile ~/.config/nvim/lua/lsp/java-ls.lua
 endif
 
 " Add paths to node and python here

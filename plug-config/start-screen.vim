@@ -3,11 +3,15 @@ let g:startify_custom_header = [
         \]
 
 let g:startify_lists = [
+          \ { 'type': 'files',     'header': ['   Files']                        },
+          \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
+          \ { 'type': 'files',     'header': ['   Files']                        },
           \ { 'type': 'sessions',  'header': ['   Sessions']                     },
           \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
           \ { 'type': 'files',     'header': ['   Files']                        },
           \ { 'type': 'bookmarks', 'header': ['   Bookmarks']                    },
           \ ]
+          " \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
 
 
 let g:startify_session_delete_buffers = 1
@@ -32,6 +36,8 @@ let g:startify_bookmarks = [
             \ { 'd': '~/development' },
             \ { 'w': '~/development/work' },
             \ { 'c': '~/.config/nvim' }
+            \ { 'i': '~/.config/nvim/init.vim' },
+            \ { 'z': '~/.zshrc' },
             \ ]
 
 " let g:startify_session_before_save = [
