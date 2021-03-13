@@ -12,17 +12,14 @@ local eslint = require 'lsp/efm/eslint'
 local shellcheck = require "lsp/efm/shellcheck"
 local shfmt = require "lsp/efm/shfmt"
 local misspell = require "lsp/efm/misspell"
+local lspwrapper = require "lsp-wrapper"
+
 
 -- https://github.com/mattn/efm-langserver
 require('lspconfig').efm.setup{
     cmd = {vim.g.lsp_settings_servers_dir .. 'efm-langserver', "-logfile", "/tmp/efm.log", "-loglevel", "1"},
     on_attach =  function(client)
-        if client.resolved_capabilities.document_formatting then
-            vim.api.nvim_command [[augroup Format]]
-            vim.api.nvim_command [[autocmd! * <buffer>]]
-            vim.api.nvim_command [[autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()]]
-            vim.api.nvim_command [[augroup END]]
-        end
+      lspwrapper.auto_format_if_capable(client)
     end,
     init_options = {documentFormatting = true, codeAction = true},
     filetypes = {'=','sh','vim','go','python','typescript', 'javascript','typescriptreact' ,'javascriptreact','vue','yaml','json', 'html', 'scss', 'css', 'markdown'},
