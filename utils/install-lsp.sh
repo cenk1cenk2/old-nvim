@@ -85,6 +85,8 @@ function install_and_link_binaries() {
 
 			if [ ! -f "${BASE_DIR}/${e}" ]; then
 				log_error "${e} is not a $TYPE binary."
+				log_info "Binaries listed as follows:"
+				ls -la "${BASE_DIR}"
 				exit 127
 			else
 				ln -s "${BASE_DIR}/${e}" .
@@ -98,25 +100,47 @@ function install_and_link_binaries() {
 
 }
 
-function download_asset() {
+function fetch_url() {
 	URL=$1
-	BINARY=$2
-	COMPRESSION=$3
-	ASSET=$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 32)
+	TMP_DOWNLOAD_PATH=$2
 
-	TMP_DOWNLOAD_PATH="/tmp/${ASSET}"
-	TMP_UNZIPPED_FOLDER="/tmp/$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 32)"
-
-	log_start "Downloading binary: $2 from $1" "top"
 	curl -L "$URL" -o "$TMP_DOWNLOAD_PATH" -q
+}
 
-	log_info "Unzipping binary: $2 as $3"
-	if [ "${COMPRESSION}" == "tar_xz" ]; then
+function extract_archive() {
+	TMP_DOWNLOAD_PATH=$1
+	TMP_UNZIPPED_FOLDER=$2
+	COMPRESSION=$3
+
+	log_info "Unzipping file: $TMP_DOWNLOAD_PATH as $COMPRESSION"
+
+	if [ "${COMPRESSION}" == "tar_gz" ]; then
+		mkdir -p "${TMP_UNZIPPED_FOLDER}"
+		tar zxpf "$TMP_DOWNLOAD_PATH" -C "${TMP_UNZIPPED_FOLDER}"
+	elif [ "${COMPRESSION}" == "tar_xz" ]; then
 		mkdir -p "${TMP_UNZIPPED_FOLDER}"
 		tar xf "$TMP_DOWNLOAD_PATH" -C "${TMP_UNZIPPED_FOLDER}"
 	elif [ "${COMPRESSION}" == "zip" ]; then
-		unzip "$TMP_DOWNLOAD_PATH" -d "${TMP_UNZIPPED_FOLDER}"
+		unzip -qq "$TMP_DOWNLOAD_PATH" -d "${TMP_UNZIPPED_FOLDER}"
+	else
+		log_error "Unknown archive type: ${COMPRESSION}"
+		exit 127
 	fi
+}
+
+function download_binary() {
+	URL=$1
+	COMPRESSION=$2
+	BINARY=($3)
+
+	TMP_DOWNLOAD_PATH="/tmp/$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 32)"
+	TMP_UNZIPPED_FOLDER="/tmp/$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 32)"
+
+	log_start "Downloading binary: $BINARY from $URL" "top"
+
+	fetch_url "${URL}" "${TMP_DOWNLOAD_PATH}"
+
+	extract_archive "${TMP_DOWNLOAD_PATH}" "${TMP_UNZIPPED_FOLDER}" "${COMPRESSION}"
 
 	rm "${TMP_DOWNLOAD_PATH}"
 
@@ -125,6 +149,7 @@ function download_asset() {
 		cp "${ASSET_TO_COPY}" "${LSP_FOLDER}"
 
 		ASSET_NAME=$(basename -- "$ASSET_TO_COPY")
+		log_info "chmod +x: ${ASSET_NAME}"
 		chmod +x "${LSP_FOLDER}/${ASSET_NAME}"
 
 		log_info "Asset copied to lsp folder: ${ASSET_NAME}"
@@ -133,6 +158,35 @@ function download_asset() {
 	rm "${TMP_UNZIPPED_FOLDER}" -r
 
 	log_finish "Installed binary: ${ASSET_NAME}"
+}
+
+function download_extension() {
+	URL=$1
+	COMPRESSION=$2
+	EXTENSION=$3
+	SUBPATH=$4
+	CHMOD=(${5})
+
+	TMP_DOWNLOAD_PATH="/tmp/$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 32)"
+	TMP_UNZIPPED_FOLDER="/tmp/$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 32)"
+
+	log_start "Downloading extension: $EXTENSION from $URL" "top"
+
+	fetch_url "${URL}" "${TMP_DOWNLOAD_PATH}"
+
+	extract_archive "${TMP_DOWNLOAD_PATH}" "${TMP_UNZIPPED_FOLDER}" "${COMPRESSION}"
+
+	if [ -d "${LSP_FOLDER}/${EXTENSION}" ] || [ -f "${LSP_FOLDER}/${EXTENSION}" ]; then
+		log_warn "Root for extension already found, removing: ${EXTENSION}"
+		rm "${LSP_FOLDER}/${EXTENSION}" -r
+	fi
+
+	mv "${TMP_UNZIPPED_FOLDER}/${SUBPATH:-'.'}/" "${LSP_FOLDER}/${EXTENSION}"
+
+	for e in "${CHMOD[@]}"; do
+		log_info "chmod +x -R: ${EXTENSION}/${e}"
+		chmod +x -R "${LSP_FOLDER}/${EXTENSION}/${e}"
+	done
 }
 
 # for npm based extensions
@@ -177,7 +231,10 @@ log_start "Installing custom assets with curl..."
 
 # install shell-check here
 VERSION=v0.7.1
-download_asset "https://github.com/koalaman/shellcheck/releases/download/${VERSION}/shellcheck-${VERSION}.linux.x86_64.tar.xz" "shellcheck-${VERSION}/shellcheck" "tar_xz"
+download_binary "https://github.com/koalaman/shellcheck/releases/download/${VERSION}/shellcheck-${VERSION}.linux.x86_64.tar.xz" "tar_xz" "shellcheck-${VERSION}/shellcheck"
+
+VERSION="1.12.1"
+download_extension "https://github.com/sumneko/vscode-lua/releases/download/v$VERSION/lua-$VERSION.vsix" "zip" "lua-language-server" "extension/server" "bin"
 
 log_finish "Installed lsp dependencies." "top"
 log_info "$((SECONDS / 60)) minutes and $((SECONDS % 60)) seconds elapsed."

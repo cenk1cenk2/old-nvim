@@ -1,4 +1,1 @@
-return {
-  '#ffd700',
-  '#8bb9dd'
-}
+return {'#ffd700', '#8bb9dd'}
