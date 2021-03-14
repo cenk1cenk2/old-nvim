@@ -286,7 +286,7 @@ let g:which_key_map.G = {
 " t is for terminal
 let g:which_key_map.t = {
       \ 'name' : '+terminal',
-      \ '.' : [':FloatermNew --wintype=normal --height=10', 'terminal on bottom'],
+      \ '.' : [':FloatermNew --wintype=normal --height=15', 'terminal on bottom'],
       \ ',' : [':FloatermNew',                              'terminal'],
       \ 'F' : [':FloatermNew fzf',                          'fzf'],
       \ 'g' : [':FloatermNew lazygit',                      'git'],
