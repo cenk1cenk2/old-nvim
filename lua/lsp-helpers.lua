@@ -13,4 +13,12 @@ function lsphelpers.disable_formatting(client)
   client.resolved_capabilities.document_formatting = false
 end
 
+function lsphelpers.create_capabilities(add)
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+  if add.snippets then capabilities.textDocument.completion.completionItem.snippetSupport = true end
+
+  return capabilities
+end
+
 return lsphelpers
