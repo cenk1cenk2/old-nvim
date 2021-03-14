@@ -8,3 +8,4 @@ git clone https://github.com/neovim/neovim "$TMP_DOWNLOAD_PATH"
 cd "$TMP_DOWNLOAD_PATH"
 sudo make CMAKE_BUILD_TYPE=Release install
 sudo rm -r "$TMP_DOWNLOAD_PATH"
+sudo rm /bin/nvim

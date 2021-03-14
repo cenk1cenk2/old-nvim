@@ -1,9 +1,9 @@
 -- npm install -g dockerfile-language-server-nodejs
-local lspwrapper = require 'lsp-wrapper'
+local lsphelpers = require 'lsp-helpers'
 
 require('lspconfig').dockerls.setup {
   on_attach = function(client)
-    lspwrapper.auto_format_if_capable(client)
+    lsphelpers.auto_format_if_capable(client)
   end,
   cmd = {vim.g.lsp_settings_servers_dir .. 'docker-langserver', '--stdio'}
 }

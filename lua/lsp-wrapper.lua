@@ -27,15 +27,6 @@ function lsp_wrapper.document_highlight()
   vim.lsp.buf.document_highlight()
 end
 
-function lsp_wrapper.auto_format_if_capable(client)
-  if client.resolved_capabilities.document_formatting then
-    vim.api.nvim_command [[augroup Format]]
-    vim.api.nvim_command [[autocmd! * <buffer>]]
-    vim.api.nvim_command [[autocmd BufWritePre <buffer> LspFormatting]]
-    vim.api.nvim_command [[augroup END]]
-  end
-end
-
 function lsp_wrapper.document_symbol()
   vim.lsp.buf.document_symbol()
 end

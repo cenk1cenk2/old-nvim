@@ -52,7 +52,7 @@ else
   source ~/.config/nvim/plug-config/maximizer.vim
   source ~/.config/nvim/plug-config/peekaboo.vim
   source ~/.config/nvim/plug-config/auto-pairs.vim
-  " source ~/.config/nvim/plug-config/rainbow.vim
+  source ~/.config/nvim/plug-config/ultisnips.vim
   source ~/.config/nvim/plug-config/fzf-preview.vim
   source ~/.config/nvim/plug-config/jinja.vim
   source ~/.config/nvim/plug-config/fugitive.vim

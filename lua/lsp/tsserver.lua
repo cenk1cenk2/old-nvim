@@ -1,8 +1,14 @@
 -- npm install -g typescript typescript-language-server
+local lsphelpers = require('lsp-helpers')
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 require('lspconfig').tsserver.setup {
   cmd = {vim.g.lsp_settings_servers_dir .. 'typescript-language-server', '--stdio', '--log-level', '4'},
+  capabilities = capabilities,
   on_attach = function(client)
-    client.resolved_capabilities.document_formatting = false
+    lsphelpers.disable_formatting(client)
   end,
   init_options = {documentFormatting = false},
   commands = {
