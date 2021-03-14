@@ -2,11 +2,14 @@
 
 SECONDS=0
 
+## inject logger
 LOG_LEVEL=${LOG_LEVEL-"INFO"}
 source <(curl -s "https://gist.githubusercontent.com/cenk1cenk2/e03d8610534a9c78f755c1c1ed93a293/raw/3d61dc3718f3a3687d5990b9b5dc951198d29427/logger.sh")
 
+## set lsp folder
 LSP_FOLDER=~/.config/nvim/lsp-servers
 
+## help string
 HELP=$(
 	cat <<-END
 		Installs dependencies for language servers for neovim. Supports node, python, go, binary and vscode-extensions.
@@ -20,13 +23,17 @@ HELP=$(
 	END
 )
 
+## greet
 log_this "[install-lsp]" "false" "lifetime" "bottom"
 
+## argument parsing
+# generate help
 if [[ -n $1 && $1 == "help" && -n $HELP ]]; then
 	echo "$HELP"
 	exit 0
 fi
 
+# clean argument
 if [[ -n $1 && $1 == "clean" ]]; then
 	if [ -d "${LSP_FOLDER}" ]; then
 		log_warn "Removing LSP folder for clean install: ${LSP_FOLDER}"
@@ -38,6 +45,9 @@ if [[ -n $1 && $1 == "clean" ]]; then
 	fi
 fi
 
+## some general variables
+
+# format: [extensions-name];[binary-name]
 NPM_EXTENSIONS=(
 	"typescript;tsserver"
 	"typescript-language-server"
@@ -56,6 +66,8 @@ NPM_EXTENSIONS=(
 	"vls"
 	"eslint;false"
 )
+
+# format: [extensions-name]
 GO_EXTENSIONS=(
 	"github.com/mattn/efm-langserver@latest"
 	"github.com/client9/misspell/cmd/misspell@latest"
@@ -64,6 +76,8 @@ GO_EXTENSIONS=(
 	"golang.org/x/lint/golint@latest"
 	"golang.org/x/tools/cmd/goimports"
 )
+
+# format: [extensions-name]
 PYTHON_EXTENSIONS=(
 	"vim-vint;vint"
 	"black"
@@ -72,10 +86,15 @@ PYTHON_EXTENSIONS=(
 	"mypy"
 )
 
-log_info "LSP Folder: ${LSP_FOLDER}"
+## create and change in to lsp folder
+log_this "${LSP_FOLDER}" "${MAGENTA}LSP-FOLDER${RESET}" "lifetime"
+
 mkdir -p ${LSP_FOLDER}
 cd ${LSP_FOLDER} || exit 127
 
+## functions
+
+# splits a string by ; delimiter. first one is package name and second one is the binary name if any.
 function split_string() {
 	unset PACKAGE_NAME
 	unset BIN_NAME
@@ -94,6 +113,7 @@ function split_string() {
 	fi
 }
 
+# installs scripts via npm, pip or go get, supports binary linking and cleaning afterwards
 function install_and_link_binaries() {
 	TYPE=$1
 	EXTENSIONS=($2)
@@ -176,6 +196,7 @@ function install_and_link_binaries() {
 
 }
 
+# fetchs a url with curl
 function fetch_url() {
 	URL=$1
 	TMP_DOWNLOAD_PATH=$2
@@ -183,6 +204,7 @@ function fetch_url() {
 	curl -L "$URL" -o "$TMP_DOWNLOAD_PATH" -q
 }
 
+# extracts a archive supports tar.gz tar.xz or zip so vsix too
 function extract_archive() {
 	TMP_DOWNLOAD_PATH=$1
 	TMP_UNZIPPED_FOLDER=$2
@@ -209,6 +231,7 @@ function extract_archive() {
 	fi
 }
 
+# download a binary with cat then unarchive and chmod it
 function download_binary() {
 	URL=$1
 	COMPRESSION=$2
@@ -243,9 +266,9 @@ function download_binary() {
 
 	rm "${TMP_UNZIPPED_FOLDER}" -r
 
-	log_finish "Installed binary: ${ASSET_NAME}"
 }
 
+# download a vscode extensions and copy the subpath to lsp-folder
 function download_extension() {
 	URL=$1
 	COMPRESSION=$2
@@ -270,9 +293,9 @@ function download_extension() {
 		rm "${LSP_FOLDER}/${EXTENSION}" -r
 	fi
 
-	log_info "Added extension: ${EXTENSION}"
-
 	mv "${TMP_UNZIPPED_FOLDER}/${SUBPATH:-'.'}/" "${LSP_FOLDER}/${EXTENSION}"
+
+	log_info "Added extension: ${EXTENSION}"
 
 	for e in "${CHMOD[@]}"; do
 		log_debug "chmod +x -R: ${EXTENSION}/${e}"
@@ -280,13 +303,13 @@ function download_extension() {
 	done
 }
 
-# for npm based extensions
+## for npm based extensions
 install_and_link_binaries "node" "${NPM_EXTENSIONS[*]}"
 
-# for go based extensions
+## for go based extensions
 install_and_link_binaries "go" "${GO_EXTENSIONS[*]}"
 
-# for python based extensions
+## for python based extensions
 log_start "Initiating new python environment." "top"
 python3 -m venv ./venv
 ./venv/bin/pip3 install -U pip
@@ -314,7 +337,7 @@ download_extension "https://github.com/microsoft/vscode-eslint/releases/download
 VERSION="0.5.9"
 download_extension "https://github.com/tailwindlabs/tailwindcss-intellisense/releases/download/v$VERSION/vscode-tailwindcss-$VERSION.vsix" "zip" "tailwindcss-language-server" "extension/dist/server"
 
-log_finish "Installed custom assets and vscode-extensions."
+log_finish "Installed custom assets and vscode-extensions." "top"
 
-# end
+## goodbye
 log_finish "Installed lsp dependencies in $((SECONDS / 60)) minutes and $((SECONDS % 60)) seconds." "top"
