@@ -17,11 +17,9 @@ source ~/.config/nvim/keys/mappings.vim
 " general plugins
 source ~/.config/nvim/plug-config/easymotion.vim
 source ~/.config/nvim/plug-config/highlightyank.vim
-source ~/.config/nvim/plug-config/surround.vim
 
 if exists('g:vscode')
   " VS Code extension
-  source ~/.config/nvim/vscode/settings.vim
 else
   " Themes
   source ~/.config/nvim/general/onedark.vim
@@ -36,7 +34,6 @@ else
   source ~/.config/nvim/plug-config/vim-rooter.vim
   source ~/.config/nvim/plug-config/start-screen.vim
   source ~/.config/nvim/plug-config/gitgutter.vim
-  source ~/.config/nvim/plug-config/git-messenger.vim
   source ~/.config/nvim/plug-config/closetags.vim
   source ~/.config/nvim/plug-config/floaterm.vim
   source ~/.config/nvim/plug-config/barbar.vim
@@ -46,57 +43,22 @@ else
   source ~/.config/nvim/plug-config/window-swap.vim
   source ~/.config/nvim/plug-config/markdown-preview.vim
   source ~/.config/nvim/plug-config/vimspector.vim
-  source ~/.config/nvim/plug-config/nerd-tree.vim
   source ~/.config/nvim/plug-config/nerd-commenter.vim
   source ~/.config/nvim/plug-config/anyfold.vim
   source ~/.config/nvim/plug-config/maximizer.vim
   source ~/.config/nvim/plug-config/peekaboo.vim
-  source ~/.config/nvim/plug-config/auto-pairs.vim
   source ~/.config/nvim/plug-config/ultisnips.vim
   source ~/.config/nvim/plug-config/fzf-preview.vim
   source ~/.config/nvim/plug-config/jinja.vim
   source ~/.config/nvim/plug-config/fugitive.vim
-  source ~/.config/nvim/plug-config/vim-go.vim
   source ~/.config/nvim/plug-config/skylight.vim
   source ~/.config/nvim/plug-config/easy-align.vim
   source ~/.config/nvim/plug-config/indent-guides.vim
   source ~/.config/nvim/plug-config/quickscope.vim
-  source ~/.config/nvim/plug-config/nvimtree-config.vim
-  source ~/.config/nvim/plug-config/lsp-saga.vim
-  source ~/.config/nvim/plug-config/lightbulb.vim
-  source ~/.config/nvim/lua/lsp-wrapper.vim
-  source ~/.config/nvim/plug-config/lsp-config.vim
-  luafile ~/.config/nvim/lua/plugins/galaxyline-config.lua
-  luafile ~/.config/nvim/lua/plugins/nvimtree-config.lua
-  luafile ~/.config/nvim/lua/plugins/treesitter-config.lua
-  luafile ~/.config/nvim/lua/plugins/colorizer-config.lua
-  luafile ~/.config/nvim/lua/plugins/telescope-config.lua
   " lsp core
-  source ~/.config/nvim/plug-config/lsp-compe.vim
-  luafile ~/.config/nvim/lua/lsp-kind.lua
-  luafile ~/.config/nvim/lua/plugins/compe-config.lua
-  luafile ~/.config/nvim/lua/plugins/lspsaga-config.lua
-  source ~/.config/nvim/plug-config/lsp-config.vim
-  luafile ~/.config/nvim/lua/lsp-config.lua
-  luafile ~/.config/nvim/lua/lsp-settings.lua
-  " LSP: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
-  luafile ~/.config/nvim/lua/lsp/efm.lua
-  luafile ~/.config/nvim/lua/lsp/tsserver.lua
-  luafile ~/.config/nvim/lua/lsp/json.lua
-  luafile ~/.config/nvim/lua/lsp/vim.lua
-  luafile ~/.config/nvim/lua/lsp/bash.lua
-  luafile ~/.config/nvim/lua/lsp/yaml.lua
-  luafile ~/.config/nvim/lua/lsp/python.lua
-  luafile ~/.config/nvim/lua/lsp/html.lua
-  luafile ~/.config/nvim/lua/lsp/graphql.lua
-  luafile ~/.config/nvim/lua/lsp/docker.lua
-  luafile ~/.config/nvim/lua/lsp/css.lua
-  luafile ~/.config/nvim/lua/lsp/go.lua
-  luafile ~/.config/nvim/lua/lsp/vue.lua
-  luafile ~/.config/nvim/lua/lsp/lua.lua
-  luafile ~/.config/nvim/lua/lsp/eslint.lua
-  luafile ~/.config/nvim/lua/lsp/tailwind.lua
-  autocmd FileType java luafile ~/.config/nvim/lua/lsp/java-ls.lua
+  luafile ~/.config/nvim/lua/plugin-configurations/init.lua
+  luafile ~/.config/nvim/lua/lsp-configurations/init.lua
+  luafile ~/.config/nvim/lua/lsp-language-configurations/init.lua
 endif
 
 " Add paths to node and python here

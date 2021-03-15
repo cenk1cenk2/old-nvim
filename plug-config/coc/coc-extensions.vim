@@ -1,6 +1,6 @@
 augroup TerminalStuff
 	autocmd BufNew,BufEnter gitcommit  execute "silent! CocEnable"
-	autocmd BufLeave * execute "silent! CocDisable"
+	autocmd BufLeave gitcommit execute "silent! CocDisable"
 augroup END
 
 let g:coc_global_extensions = [
@@ -12,6 +12,4 @@ let g:coc_global_extensions = [
 \ 'coc-gist',
 \ 'coc-github',
 \ 'coc-git',
-\ 'coc-docthis',
 \ ]
-" \ 'coc-highlight',

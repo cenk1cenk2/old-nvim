@@ -14,7 +14,7 @@ let g:far#open_in_parent_window=1
 
 set wildignore+=**/node_modules/**,yarn.lock,package-lock.json,**/dist/**
 
-let g:far#ignore_files=['$HOME/.config/nvim/utils/farignore']
+let g:far#ignore_files=['~/.config/nvim/utils/farignore']
 
 "     Below are the default mappings and corresponding variable names in
 

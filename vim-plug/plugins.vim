@@ -45,7 +45,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'ryanoasis/vim-devicons'
 
     " Auto pairs for '(' '[' '{'
-    Plug 'jiangmiao/auto-pairs'
+    Plug 'windwp/nvim-autopairs'
 
     " Closetags
     Plug 'alvan/vim-closetag'
@@ -69,16 +69,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
     Plug 'junegunn/gv.vim'
-    Plug 'rhysd/git-messenger.vim'
 
     " Terminal
     Plug 'voldikss/vim-floaterm'
 
     " Start Screen
     Plug 'mhinz/vim-startify'
-
-    " Vista
-    Plug 'liuchengxu/vista.vim'
 
     " Better tabline
     Plug 'romgrk/barbar.nvim'
@@ -101,16 +97,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Debugging
     Plug 'puremourning/vimspector'
 
-    " ansible related
-    " Plug 'arouene/vim-ansible-vault'
-
-    " Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.sh' }
-
     " whitespace clean
     Plug 'ntpeters/vim-better-whitespace'
-
-    " npm package versions, not working reliable
-    Plug 'meain/vim-package-info', { 'do': 'npm install' }
 
     " folding code
     Plug 'pseewald/anyfold'
@@ -136,6 +124,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'fhill2/telescope-ultisnips.nvim'
     Plug 'nvim-telescope/telescope-vimspector.nvim'
     Plug 'GustavoKatel/telescope-asynctasks.nvim'
+    Plug 'nvim-telescope/telescope-media-files.nvim'
 
     " Multiple Cursors
     Plug 'terryma/vim-multiple-cursors'
@@ -157,12 +146,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'honza/vim-snippets'
     Plug 'hrsh7th/vim-vsnip'
 
-    " go lang
-    Plug 'fatih/vim-go', { 'do': 'GO111MODULE=on go get golang.org/x/tools/gopls@latest' }
-
-    " tailwinds
-    Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
-
     " skylight peak under the cursor for files
     Plug 'voldikss/vim-skylight'
 
@@ -172,16 +155,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " indent guidelines
     Plug 'nathanaelkane/vim-indent-guides'
 
-    " for graphql coc
-    Plug 'jparise/vim-graphql'
-
     " move plugin
     Plug 'matze/vim-move'
 
     " Auto change html tags
     Plug 'AndrewRadev/tagalong.vim'
-    " Closetags
-    Plug 'alvan/vim-closetag'
 
     " Better Syntax Support
     Plug 'sheerun/vim-polyglot'
@@ -193,15 +171,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'mbbill/undotree'
 
     " lsp
-    Plug 'nvim-telescope/telescope-media-files.nvim'
     " Intellisense
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-compe'
     Plug 'glepnir/lspsaga.nvim'
     Plug 'onsails/lspkind-nvim'
     Plug 'kosayoda/nvim-lightbulb'
-    Plug 'mfussenegger/nvim-jdtls'
-    Plug 'mfussenegger/nvim-dap'
 
     " File Explorer
     Plug 'kyazdani42/nvim-tree.lua'
