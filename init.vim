@@ -9,7 +9,7 @@ if !exists('g:vscode')
 endif
 
 " General Settings
-source ~/.config/nvim/vim-plug/plugins.vim
+luafile ~/.config/nvim/lua/plugins.lua
 source ~/.config/nvim/general/settings.vim
 source ~/.config/nvim/general/functions.vim
 source ~/.config/nvim/keys/mappings.vim
