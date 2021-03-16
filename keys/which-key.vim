@@ -286,6 +286,7 @@ let g:which_key_map.G = {
 " t is for terminal
 let g:which_key_map.t = {
       \ 'name' : '+terminal',
+      \ '-' : [':ToggleTerm', 'toggleterm'],
       \ '.' : [':FloatermNew --wintype=normal --height=15', 'terminal on bottom'],
       \ ',' : [':FloatermNew',                              'terminal'],
       \ 'F' : [':FloatermNew fzf',                          'fzf'],

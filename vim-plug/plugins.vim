@@ -183,6 +183,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Better quickfix
     Plug 'kevinhwang91/nvim-bqf'
+
+    " alternative terminal
+     Plug 'akinsho/nvim-toggleterm.lua'
   endif
 
 call plug#end()
