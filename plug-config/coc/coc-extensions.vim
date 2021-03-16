@@ -1,7 +1,4 @@
-augroup TerminalStuff
-	autocmd BufNew,BufEnter gitcommit  execute "silent! CocEnable"
-	autocmd BufLeave gitcommit execute "silent! CocDisable"
-augroup END
+execute 'silent! CocDisable'
 
 let g:coc_global_extensions = [
 \ 'coc-lists',

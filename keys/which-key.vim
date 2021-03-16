@@ -12,15 +12,14 @@ vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
 
 " Create map to add keys to
 let g:which_key_map =  {}
+
 " Define a separator
 let g:which_key_sep = '→'
-" set timeoutlen=100
 
 " Not a fan of floating windows for this
 let g:which_key_use_floating_win = 0
 let g:which_key_max_size = 0
 
-" let g:which_key_position = 'botright'
 " let g:which_key_position = 'topleft'
 " let g:which_key_vertical = 1
 
@@ -44,7 +43,6 @@ let g:which_key_map['n'] = [ ':let @/ = ""',                               'no h
 let g:which_key_map['m'] = [ ':MaximizerToggle',                           'maximize' ]
 let g:which_key_map['p'] = [ ':Telescope find_files theme=get_dropdown',   'find file']
 let g:which_key_map['r'] = [ ':RnvimrToggle',                              'ranger' ]
-" let g:which_key_map['q'] = [ '<Plug>(coc-fix-current)',                  'quickfix' ]
 let g:which_key_map['u'] = [ ':UndotreeToggle',                            'undo tree']
 let g:which_key_map['w'] = [ ':call WindowSwap#EasyWindowSwap()',          'move window' ]
 
@@ -104,71 +102,6 @@ let g:which_key_map.d = {
       \ 's' : ['<Plug>VimspectorStop',                        'stop'],
       \ }
 
-" f is for find and replace
-      " \ 'f' : [':Farr'                     , 'file'],
-let g:which_key_map.f = {
-      \ 'name' : '+find & replace' ,
-      \ 'f' : [':Farr --source=vimgrep'    , 'file'],
-      \ 'p' : [':Farr --source=rgnvim'     , 'project'],
-      \ }
-
-" k is for task
-let g:which_key_map.k = {
-      \ 'name' : '+task' ,
-      \ 'c' : [':AsyncTask file-compile'      , 'compile file'],
-      \ 'b' : [':AsyncTask project-build'     , 'build project'],
-      \ 'e' : [':AsyncTaskEdit'               , 'edit local tasks'],
-      \ 'f' : [':AsyncTaskFzf'                , 'find task'],
-      \ 'g' : [':AsyncTaskEdit!'              , 'edit global tasks'],
-      \ 'h' : [':AsyncTaskList!'              , 'list hidden tasks'],
-      \ 'l' : [':CocList tasks'               , 'list tasks'],
-      \ 'm' : [':AsyncTaskMacro'              , 'macro help'],
-      \ 'o' : [':copen'                       , 'open task view'],
-      \ 'r' : [':AsyncTask file-run'          , 'run file'],
-      \ 'p' : [':AsyncTask project-run'       , 'run project'],
-      \ 'x' : [':cclose'                      , 'close task view'],
-      \ }
-      " \ 'l' : [':AsyncTaskList'               , 'list tasks'],
-
-" command! -buffer JdtCompile lua require('jdtls').compile()
-" command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()
-" command! -buffer JdtJol lua require('jdtls').jol()
-" command! -buffer JdtBytecode lua require('jdtls').javap()
-" command! -buffer JdtJshell lua require('jdtls').jshell()
-
-" j is for java
-let g:which_key_map.j = {
-      \ 'name' : '+java' ,
-      \ 'c' : [':AsyncTask file-compile'      , 'compile file'],
-      \ 'b' : [':AsyncTask project-build'     , 'build project'],
-      \ 'e' : [':AsyncTaskEdit'               , 'edit local tasks'],
-      \ 'f' : [':AsyncTaskFzf'                , 'find task'],
-      \ 'g' : [':AsyncTaskEdit!'              , 'edit global tasks'],
-      \ 'h' : [':AsyncTaskList!'              , 'list hidden tasks'],
-      \ 'l' : [':CocList tasks'               , 'list tasks'],
-      \ 'm' : [':AsyncTaskMacro'              , 'macro help'],
-      \ 'o' : [':copen'                       , 'open task view'],
-      \ 'r' : [':AsyncTask file-run'          , 'run file'],
-      \ 'p' : [':AsyncTask project-run'       , 'run project'],
-      \ 'x' : [':cclose'                      , 'close task view'],
-      \ }
-
-" k is for task
-let g:which_key_map.k = {
-      \ 'name' : '+task' ,
-      \ 'c' : [':AsyncTask file-compile'      , 'compile file'],
-      \ 'b' : [':AsyncTask project-build'     , 'build project'],
-      \ 'e' : [':AsyncTaskEdit'               , 'edit local tasks'],
-      \ 'f' : [':AsyncTaskFzf'                , 'find task'],
-      \ 'g' : [':AsyncTaskEdit!'              , 'edit global tasks'],
-      \ 'h' : [':AsyncTaskList!'              , 'list hidden tasks'],
-      \ 'm' : [':AsyncTaskMacro'              , 'macro help'],
-      \ 'o' : [':copen'                       , 'open task view'],
-      \ 'r' : [':AsyncTask file-run'          , 'run file'],
-      \ 'p' : [':AsyncTask project-run'       , 'run project'],
-      \ 'x' : [':cclose'                      , 'close task view'],
-      \ }
-      " \ 'l' : [':AsyncTaskList'               , 'list tasks'],
 
 " m is for mark
 let g:which_key_map.m = {
