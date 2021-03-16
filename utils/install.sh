@@ -10,12 +10,12 @@ LOG_LEVEL=${LOG_LEVEL-"INFO"}
 source <(curl -s "https://gist.githubusercontent.com/cenk1cenk2/e03d8610534a9c78f755c1c1ed93a293/raw/3d61dc3718f3a3687d5990b9b5dc951198d29427/logger.sh")
 
 installpynvim() {
-	echo "Installing pynvim..."
+	log_warn "Installing pynvim..."
 	pip3 install pynvim --user
 }
 
 # Welcome
-echo 'Installing Nvim configuration.'
+log_this "[install-nvim]" "false" "lifetime" "bottom"
 
 # install pynvim
 pip3 list | grep pynvim >/dev/null && echo "pynvim installed, moving on..." || installpynvim
@@ -42,3 +42,6 @@ which nvim >/dev/null
 
 # install stuff for lsp
 eval "source $HOME/.config/nvim/utils/install-lsp.sh"
+
+## goodbye
+log_finish "Installed neovim configuration in $((SECONDS / 60)) minutes and $((SECONDS % 60)) seconds." "top"

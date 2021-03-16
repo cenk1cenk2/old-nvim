@@ -14,3 +14,4 @@ utils/java/*
 lua-language-server/
 lsp-servers/
 eclipse.jdt.ls/
+plugin/
