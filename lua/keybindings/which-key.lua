@@ -142,6 +142,7 @@ vim.g.which_key_map = {
     k = {':GitSignsPrevHunk', 'prev hunk'},
     M = {':Gvdiffsplit!', 'merge view, 3-way-split'},
     s = {':CocCommand fzf-preview.GitStatus', 'status'},
+    t = {':GitSignsToggle', 'toggle hunks'},
     U = {':GitSignsResetHunk', 'undo hunk'},
     v = {':Telescope git_bcommits', 'view buffer commits'},
     V = {':Telescope git_commits', 'view commits'}

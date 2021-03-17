@@ -39,5 +39,6 @@ helpers.command.wrap_to_command({
   {'GitSignsNextHunk', 'lua require("gitsigns").next_hunk()'},
   {'GitSignsPrevHunk', 'lua require("gitsigns").prev_hunk()'},
   {'GitSignsResetHunk', 'lua require("gitsigns").reset_hunk()'},
-  {'GitSignsPreviewHunk', 'lua require("gitsigns").preview_hunk()'}
+  {'GitSignsPreviewHunk', 'lua require("gitsigns").preview_hunk()'},
+  {'GitSignsToggle', 'lua require("gitsigns").toggle_signs()'}
 })
