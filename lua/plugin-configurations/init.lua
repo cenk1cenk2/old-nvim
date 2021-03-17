@@ -1,5 +1,6 @@
 require('plugin-configurations.colorizer')
 require('plugin-configurations.galaxyline')
+require('plugin-configurations.gitsigns')
 require('plugin-configurations.lspkind-nvim')
 require('plugin-configurations.lspsaga')
 require('plugin-configurations.nvim-autopairs')

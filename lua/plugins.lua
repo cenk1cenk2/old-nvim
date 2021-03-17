@@ -150,7 +150,8 @@ return require('packer').startup(function(use)
     use {'nvim-telescope/telescope-media-files.nvim'}
 
     -- git related
-    use {'airblade/vim-gitgutter'}
+    -- use {'airblade/vim-gitgutter'}
+    use {'lewis6991/gitsigns.nvim'}
     use {'tpope/vim-fugitive'}
     use {'tpope/vim-rhubarb'}
     use {'junegunn/gv.vim'}

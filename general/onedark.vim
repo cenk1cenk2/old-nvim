@@ -44,6 +44,10 @@ hi MatchParen guifg=#61afef ctermfg=75 guibg=NONE ctermbg=NONE gui=underline cte
 hi Delimiter guifg=#b0b0b0
 hi IncSearch guifg=#e5c07b ctermfg=180 guibg=#5c6370 ctermbg=241 gui=NONE cterm=NONE
 
+hi GitGutterAdd    guifg=#587C0C ctermfg=2
+hi GitGutterChange guifg=#0C7D9D ctermfg=3
+hi GitGutterDelete guifg=#94151B ctermfg=1
+
 hi CocExplorerIndentLine guifg=#5c6370 ctermfg=241 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi CocExplorerBufferRoot guifg=#56b6c2 ctermfg=73 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi CocExplorerFileRoot guifg=#56b6c2 ctermfg=73 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE

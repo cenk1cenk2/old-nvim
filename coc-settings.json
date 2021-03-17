@@ -9,4 +9,6 @@
   "session.directory": "~/.config/vimsession",
   "session.saveOnVimLeave": true,
   "session.restartOnSessionLoad": false,
+
+  "git.enableGutters": false
 }

@@ -1,4 +1,4 @@
-execute 'silent! CocDisable'
+let g:coc_start_at_startup = v:false
 
 let g:coc_global_extensions = [
 \ 'coc-lists',
@@ -8,5 +8,4 @@ let g:coc_global_extensions = [
 \ 'coc-gitignore',
 \ 'coc-gist',
 \ 'coc-github',
-\ 'coc-git',
 \ ]

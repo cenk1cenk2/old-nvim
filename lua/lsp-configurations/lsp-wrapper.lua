@@ -124,4 +124,26 @@ function lsp_wrapper.show_line_diagnostics()
   vim.lsp.diagnostic.show_line_diagnostics()
 end
 
+local helpers = require('helper-functions')
+helpers.command.wrap_to_command({
+  {'LspCodeAction', 'lua require("lsp-configurations.lsp-wrapper").code_action()'},
+  {'LspDeclaration', 'lua require("lsp-configurations.lsp-wrapper").declaration()'},
+  {'LspDefinition', 'lua require("lsp-configurations.lsp-wrapper").definition()'},
+  {'LspDocumentSymbol', 'lua require("lsp-configurations.lsp-wrapper").document_symbol()'},
+  {'LspFormatting', 'lua require("lsp-configurations.lsp-wrapper").formatting()'},
+  {'LspFormattingSync', 'lua require("lsp-configurations.lsp-wrapper").formatting_sync()'},
+  {'LspHover', 'lua require("lsp-configurations.lsp-wrapper").hover()'},
+  {'LspHoverPreview', 'lua require("lspsaga.provider").preview_definition()'},
+  {'LspImplementation', 'lua require("lsp-configurations.lsp-wrapper").implementation()'},
+  {'LspRangeCodeAction', 'lua require("lsp-configurations.lsp-wrapper").range_code_action()'},
+  {'LspRangeFormatting', 'lua require("lsp-configurations.lsp-wrapper").range_formatting()'},
+  {'LspReferences', 'lua require("lsp-configurations.lsp-wrapper").references()'},
+  {'LspRename', 'lua require("lsp-configurations.lsp-wrapper").rename()'},
+  {'LspTypeDefinition', 'lua require("lsp-configurations.lsp-wrapper").type_definition()'},
+  {'LspWorkspaceSymbol', 'lua require("lsp-configurations.lsp-wrapper").workspace_symbol()'},
+  {'LspGotoNext', 'lua require("lsp-configurations.lsp-wrapper").goto_next()'},
+  {'LspGotoPrev', 'lua require("lsp-configurations.lsp-wrapper").goto_prev()'},
+  {'LspShowLineDiagnostics', 'lua require("lsp-configurations.lsp-wrapper").show_line_diagnostics()'}
+})
+
 return lsp_wrapper
