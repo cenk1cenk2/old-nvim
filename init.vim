@@ -12,7 +12,7 @@ endif
 luafile ~/.config/nvim/lua/plugins.lua
 source ~/.config/nvim/general/settings.vim
 source ~/.config/nvim/general/functions.vim
-source ~/.config/nvim/keys/mappings.vim
+luafile ~/.config/nvim/lua/keybindings/init.lua
 
 " general plugins
 source ~/.config/nvim/plug-config/easymotion.vim
@@ -25,7 +25,6 @@ else
   source ~/.config/nvim/general/onedark.vim
 
   " Plugin Configuration
-  " source ~/.config/nvim/keys/which-key.vim
   source ~/.config/nvim/plug-config/rnvimr.vim
   source ~/.config/nvim/plug-config/better-whitespace.vim
   source ~/.config/nvim/plug-config/fzf.vim
@@ -56,7 +55,6 @@ else
   source ~/.config/nvim/plug-config/indent-guides.vim
   source ~/.config/nvim/plug-config/quickscope.vim
   " lsp core
-  luafile ~/.config/nvim/lua/keybindings/init.lua
   luafile ~/.config/nvim/lua/plugin-configurations/init.lua
   luafile ~/.config/nvim/lua/lsp-configurations/init.lua
   luafile ~/.config/nvim/lua/lsp-language-configurations/init.lua
