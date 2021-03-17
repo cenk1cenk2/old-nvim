@@ -1,4 +1,4 @@
--- timeout
+-- timeoutwhich_key_timeout
 vim.api.nvim_set_var('which_key_timeout', 25)
 
 -- display names
@@ -148,6 +148,35 @@ vim.g.which_key_map = {
     U = {'<Plug>(GitGutterUndoHunk)', 'undo hunk'},
     v = {':Telescope git_bcommits', 'view buffer commits'},
     V = {':Telescope git_commits', 'view commits'}
+  },
+
+  -- gist
+  G = {name = '+gist', f = {':CocList gist', 'list'}, p = {':CocCommand gist.create', 'post gist '}},
+
+  -- lsp
+  l = {
+    name = '+lsp',
+    a = {':Lspsaga code_action', 'code action'},
+    A = {':Lspsaga range_code_action', 'selected action'},
+    d = {':Telescope lsp_document_diagnostics', 'document diagnostics'},
+    D = {':Telescope lsp_workspace_diagnostics', 'workspace diagnostics'},
+    f = {':LspFormatting', 'format'},
+    h = {':lua require("lspsaga.provider").preview_definition()', 'preview definition'},
+    H = {':Lspsaga signature_help', 'signature help'},
+    g = {':LspOrganizeImports', 'organize imports'},
+    i = {':LspImplementation', 'implementation'},
+    I = {':LspInfo', 'lsp information'},
+    l = {':Lspsaga lsp_finder', 'lsp finder'},
+    L = {':Lspsaga show_line_diagnostics', 'line diagnostics'},
+    n = {':Lspsaga diagnostic_jump_next', 'next diagnostic'},
+    m = {':LspRenameFile', 'rename current file'},
+    p = {':Lspsaga diagnostic_jump_prev', 'prev diagnostic'},
+    q = {':Telescope quickfix', 'quickfix'},
+    r = {':LspReferences', 'references'},
+    R = {':LspRename', 'rename'},
+    T = {':LspTypeDefinition', 'type defintion'},
+    s = {':Telescope lsp_document_symbols', 'document symbols'},
+    S = {':Telescope lsp_workspace_symbols', 'workspace symbols'}
   },
 
   -- bookmarks (not working at the moment)
