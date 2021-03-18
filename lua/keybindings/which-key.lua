@@ -2,7 +2,7 @@
 vim.api.nvim_set_var('which_key_timeout', 25)
 
 -- display names
-vim.api.nvim_command([[
+vim.cmd([[
 let g:which_key_display_names = {'<CR>': '↵', '<TAB>': '⇆'}
 ]])
 
@@ -96,7 +96,7 @@ vim.g.which_key_map = {
     name = '+search',
     [';'] = {':Telescope commands', 'commands'},
     A = {':Telescope builtin', 'telescope list all command'},
-    b = {':Telescope current_buffer_fuzzy_find', 'current buffer'},
+    b = {'current_buffer_fuzzy_find', 'current buffer'},
     d = {':CocCommand fzf-preview.DirectoryFiles --preview "bat --style=numbers --color=always --line-range :500 {}"', 'files in directory'},
     f = {':Telescope find_files', 'files'},
     F = {':Telescope oldfiles', 'file history'},
