@@ -10,5 +10,7 @@
   "session.saveOnVimLeave": true,
   "session.restartOnSessionLoad": false,
 
-  "git.enableGutters": false
+  "git.enableGutters": false,
+
+  "suggest.autoTrigger": false
 }

@@ -3,7 +3,6 @@ local lsphelpers = require('helper-functions.lsp')
 
 require('lspconfig').tsserver.setup {
   cmd = {vim.g.lsp_servers_dir .. 'typescript-language-server', '--stdio', '--log-level', '4'},
-  capabilities = lsphelpers.create_capabilities({snippets = true}),
   on_attach = function(client)
     lsphelpers.disable_formatting(client)
   end,

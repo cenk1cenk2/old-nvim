@@ -42,3 +42,4 @@ helpers.command.wrap_to_command({
   {'GitSignsPreviewHunk', 'lua require("gitsigns").preview_hunk()'},
   {'GitSignsToggle', 'lua require("gitsigns").toggle_signs()'}
 })
+

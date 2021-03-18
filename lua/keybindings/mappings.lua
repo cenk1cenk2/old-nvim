@@ -70,7 +70,7 @@ else
 
   -- create space on top and bottom
   vim.api.nvim_set_keymap('n', [[ü]], [[o<ESC>k]], {silent = true, noremap = true})
-  vim.api.nvim_set_keymap('n', [[Ü]], [[<ESC>j]], {silent = true, noremap = true})
+  vim.api.nvim_set_keymap('n', [[Ü]], [[O<ESC>j]], {silent = true, noremap = true})
 
   -- jump between paragraphs
   vim.api.nvim_set_keymap('n', [[ö]], [[{zz]], {silent = true, noremap = true})

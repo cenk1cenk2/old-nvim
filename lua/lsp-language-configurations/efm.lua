@@ -28,7 +28,7 @@ require('lspconfig').efm.setup {
       html = {efm.prettier},
       scss = {efm.prettier},
       css = {efm.prettier},
-      markdown = {efm.prettier, efm.markdownlint}
+      markdown = {efm.prettier, efm.markdownlint, efm.misspell}
     }
   }
 }

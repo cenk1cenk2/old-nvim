@@ -1,5 +1,6 @@
 -- TODO we need snippet support and to maybe get better docs idk
 vim.cmd [[set shortmess+=c]]
+vim.o.completeopt = "menuone,noselect"
 
 require('compe').setup {
   enabled = true,
@@ -19,19 +20,18 @@ require('compe').setup {
   source = {path = true, buffer = true, vsnip = true, nvim_lsp = true, nvim_lua = true, spell = true, tags = true, snippets_nvim = true, treesitter = true}
 }
 
--- handled by nvim-autopairs at the moment!
--- local t = function(str)
---   return vim.api.nvim_replace_termcodes(str, true, true, true)
--- end
--- _G.s_tab_complete = function()
---   if vim.fn.pumvisible() == 1 then
---     return t '<C-p>'
---   elseif vim.fn.call('vsnip#jumpable', {-1}) == 1 then
---     return t '<Plug>(vsnip-jump-prev)'
---   else
---     return t '<S-Tab>'
---   end
--- end
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+_G.s_tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t('<C-p>')
+  elseif vim.fn.call('vsnip#jumpable', {-1}) == 1 then
+    return t('<Plug>(vsnip-jump-prev)')
+  else
+    return t('<S-Tab>')
+  end
+end
 
 vim.api.nvim_set_keymap('s', '<Tab>', 'v:lua.tab_complete()', {expr = true})
 vim.api.nvim_set_keymap('i', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
