@@ -1,7 +1,7 @@
 set iskeyword+=-                      	" treat dash separated words as a word text object"
 set formatoptions-=cro                  " Stop newline continution of comments
 
-syntax enable                           " Enables syntax highlighing
+syntax enable                           " Enables syntax highlighting
 set termguicolors
 set hidden                              " Required to keep multiple buffers open multiple buffers
 set nowrap                              " Display long lines as just one line
@@ -40,36 +40,11 @@ set guifont="Consolas NF"
 set wrap linebreak nolist
 set completeopt=menuone,noselect
 
-" New stuff
-" set notimeout nottimeout
-" set scrolloff=1
-" set sidescroll=1
-" set sidescrolloff=1
-" set display+=lastline
-" set backspace=eol,start,indent
-" set nostartofline
-" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-" set mmp=1300
-" set autochdir                           " Your working directory will always be the same as your working directory
-" set foldcolumn=2                        " Folding abilities
-
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-augroup TerminalStuff
-  autocmd TermOpen * setlocal nonumber norelativenumber
-augroup END
-
 set sessionoptions=buffers,curdir,folds,tabpages,winsize
 
 " You can't stop me
 cmap w!! w !sudo tee %
 
-""""""""""""""
-" tmux fixes "
-""""""""""""""
-" Handle tmux $TERM quirks in vim
+" tmux fixes
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
-""""""""""""""
-"
-""""""""""""""

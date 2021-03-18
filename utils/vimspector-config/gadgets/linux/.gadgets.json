@@ -1,0 +1,16 @@
+{
+  "adapters": {
+    "multi-session": {
+      "host": "${host}",
+      "port": "${port}"
+    },
+    "vscode-node": {
+      "command": [
+        "node",
+        "${gadgetDir}/vscode-node-debug2/out/src/nodeDebug.js"
+      ],
+      "name": "node2",
+      "type": "node2"
+    }
+  }
+}
