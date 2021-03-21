@@ -1,6 +1,6 @@
 vim.o.completeopt = 'menuone,noselect'
 
-require'compe'.setup {
+require('compe').setup {
   enabled = true,
   autocomplete = true,
   debug = false,
@@ -14,20 +14,7 @@ require'compe'.setup {
   max_menu_width = 100,
   documentation = true,
 
-  source = {
-    path = {kind = ' 匸 '},
-    buffer = {kind = ' 亀 '},
-    calc = {kind = '  '},
-    vsnip = {kind = ' 躹 '},
-    nvim_lsp = {kind = ' 㺿 '},
-    nvim_lua = {kind = ' 輰 '},
-    spell = {kind = '  '},
-    tags = false,
-    snippets_nvim = {kind = ' 躹 '},
-    treesitter = {kind = '  '},
-    emoji = {kind = ' ﲃ '}
-    -- for emoji press : (idk if that in compe tho)
-  }
+  source = {path = true, buffer = true, vsnip = true, nvim_lsp = true, nvim_lua = true, spell = true, tags = true, snippets_nvim = true, treesitter = true}
 }
 
 local t = function(str)
@@ -71,3 +58,10 @@ vim.api.nvim_set_keymap('i', '<Tab>', 'v:lua.tab_complete()', {expr = true})
 vim.api.nvim_set_keymap('s', '<Tab>', 'v:lua.tab_complete()', {expr = true})
 vim.api.nvim_set_keymap('i', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
 vim.api.nvim_set_keymap('s', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
+
+-- completion triggers
+vim.api.nvim_set_keymap('i', '<C-Space>', 'compe#complete()', {expr = true, silent = true})
+vim.api.nvim_set_keymap('i', '<CR>', 'compe#confirm("<CR>")', {expr = true, silent = true})
+vim.api.nvim_set_keymap('i', '<C-e>', 'compe#close("<C-e>")', {expr = true, silent = true})
+vim.api.nvim_set_keymap('i', '<C-f>', 'compe#scroll({ "delta": +4 })', {expr = true, silent = true})
+vim.api.nvim_set_keymap('i', '<C-d>', 'compe#scroll({ "delta": -4 })', {expr = true, silent = true})

@@ -307,7 +307,9 @@ function download_extension() {
 install_and_link_binaries "node" "${NPM_EXTENSIONS[*]}"
 
 ## for go based extensions
-install_and_link_binaries "go" "${GO_EXTENSIONS[*]}"
+for e in "${GO_EXTENSIONS[@]}"; do
+	install_and_link_binaries "go" "$e"
+done
 
 ## for python based extensions
 log_start "Initiating new python environment." "top"
