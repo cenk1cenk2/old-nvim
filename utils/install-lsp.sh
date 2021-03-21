@@ -74,7 +74,7 @@ GO_EXTENSIONS=(
 	"mvdan.cc/sh/v3/cmd/shfmt@latest"
 	"golang.org/x/tools/gopls@latest"
 	"golang.org/x/lint/golint@latest"
-	"golang.org/x/tools/cmd/goimports"
+	"golang.org/x/tools/cmd/goimports@latest"
 )
 
 # format: [extensions-name]

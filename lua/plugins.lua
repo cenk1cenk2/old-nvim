@@ -94,14 +94,13 @@ return require('packer').startup(function(use)
     use {'kevinhwang91/nvim-bqf'} -- (temp)
 
     -- peek registers and macros
-    use {'junegunn/vim-peekaboo'}
+    use {'gennaro-tedesco/nvim-peekup'}
 
     -- file explorer
     use {'kyazdani42/nvim-tree.lua'}
 
     -- terminal
     use {'voldikss/vim-floaterm'}
-    use {'akinsho/nvim-toggleterm.lua'} -- (temp)
 
     -- lsp
     use {'neovim/nvim-lspconfig'}
@@ -132,6 +131,7 @@ return require('packer').startup(function(use)
     -- Treesitter
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'p00f/nvim-ts-rainbow', run = ':TSUpdate'}
+    use {'windwp/nvim-ts-autotag'}
 
     -- Colorized
     use {'norcalli/nvim-colorizer.lua'}

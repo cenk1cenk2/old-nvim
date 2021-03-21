@@ -1,5 +1,5 @@
 -- timeoutwhich_key_timeout
-vim.api.nvim_set_var('which_key_timeout', 25)
+vim.g.which_key_timeout = 25
 
 -- display names
 vim.cmd([[
@@ -22,9 +22,10 @@ augroup END
 
 -- the main menu
 vim.g.which_key_map = {
-  [';'] = {':Telescope Commands', 'commands'},
+  [';'] = {':Telescope commands', 'commands'},
   ['/'] = {':History/', 'search history'},
   ['='] = {'<C-W>=', 'balance windows'},
+  ['"'] = {'<Plug>PeekupOpen', 'registers'},
   ['e'] = {':NvimTreeToggle', 'explorer'},
   ['?'] = {':NvimTreeFindFile', 'find file in explorer'},
   ['E'] = {':Telescope file_browser', 'file-browser'},
