@@ -38,6 +38,8 @@ else
 
   -- use control c instead of escape
   vim.api.nvim_set_keymap('n', [[<C-c>]], [[<Esc>]], {silent = true, noremap = true})
+  vim.api.nvim_set_keymap('i', [[<C-c>]], [[<Esc>]], {silent = true, noremap = true})
+  vim.api.nvim_set_keymap('v', [[<C-c>]], [[<Esc>]], {silent = true, noremap = true})
 
   -- better window navigation
   vim.api.nvim_set_keymap('n', [[<C-h>]], [[<C-w>h]], {silent = true, noremap = true})
