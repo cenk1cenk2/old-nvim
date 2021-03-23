@@ -113,6 +113,9 @@ return require('packer').startup(function(use)
     use {'onsails/lspkind-nvim'}
     use {'kosayoda/nvim-lightbulb'}
 
+    -- illumunate
+    use {'RRethy/vim-illuminate'}
+
     -- snippets
     use {'hrsh7th/vim-vsnip'}
     use {'hrsh7th/vim-vsnip-integ'}
