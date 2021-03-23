@@ -23,7 +23,7 @@ local buffer_not_empty = function()
   return false
 end
 
-gls.left[1] = {
+local vim_mode = {
   ViMode = {
     provider = function()
       -- auto change color according the vim mode
@@ -85,6 +85,8 @@ gls.left[1] = {
   }
 }
 
+gls.left[1] = vim_mode
+
 gls.left[2] = {
   GitIcon = {
     provider = function()
@@ -142,7 +144,9 @@ gls.right[7] = {PerCent = {provider = 'LinePercent', separator = ' ', separator_
 --   }
 -- }
 
-gls.right[9] = {
+gls.right[9] = {BufferIcon = {provider = 'BufferIcon', highlight = {colors.grey, colors.bg}}}
+
+gls.right[10] = {
   BufferType = {provider = 'FileTypeName', condition = condition.hide_in_width, separator = ' ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.grey, colors.bg}}
 }
 
@@ -161,8 +165,4 @@ gls.right[11] = {
   }
 }
 
-gls.short_line_left[1] = {BufferType = {provider = 'FileTypeName', separator = ' ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.grey, colors.bg}}}
-
-gls.short_line_left[2] = {SFileName = {provider = 'SFileName', condition = condition.buffer_not_empty, highlight = {colors.grey, colors.bg}}}
-
-gls.short_line_right[1] = {BufferIcon = {provider = 'BufferIcon', highlight = {colors.grey, colors.bg}}}
+gls.short_line_left[1] = vim_mode
