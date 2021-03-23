@@ -62,6 +62,10 @@ helpers.theme.add_highlight({
   ['debugPc'] = {guifg = 'NONE', ctermfg = 'NONE', guibg = '#56b6c2', ctermbg = 73, gui = 'NONE', cterm = 'NONE'},
   ['debugBreakpoint'] = {guifg = '#e06c75', ctermfg = 168, guibg = 'NONE', ctermbg = 'NONE', gui = 'reverse', cterm = 'reverse'},
 
+  -- indent indent-blankline
+  ['IndentBlankLineChar'] = {guifg = '#292c32'},
+  ['IndentBlankLineContext'] = {guifg = '#34373d'},
+
   -- treesitter
   ['TSFloat'] = {guifg = '#98c379', ctermfg = 114, guibg = 'NONE', ctermbg = 'NONE', gui = 'NONE', cterm = 'NONE'},
   ['TSType'] = {guifg = '#e5c07b'},

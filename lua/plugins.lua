@@ -121,6 +121,7 @@ return require('packer').startup(function(use)
     use {'hrsh7th/vim-vsnip-integ'}
     use {'SirVer/ultisnips'}
     use {'honza/vim-snippets'}
+    use {'kitagry/vs-snippets'}
 
     -- peak lsp stuff in window
     use {'voldikss/vim-skylight'}

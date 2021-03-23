@@ -16,7 +16,7 @@ end
 function lsphelpers.create_capabilities(add)
   local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-  if add.snippets then capabilities.textDocument.completion.completionItem.snippetSupport = true end
+  if add.snippets == true then capabilities.textDocument.completion.completionItem.snippetSupport = true end
 
   return capabilities
 end
