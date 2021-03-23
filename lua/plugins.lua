@@ -17,7 +17,7 @@ return require('packer').startup(function(use)
   use {'wbthomason/packer.nvim', opt = true}
 
   -- Quality of life improvements
-  use 'norcalli/nvim_utils'
+  use {'norcalli/nvim_utils'}
 
   -- easy motion, hop now
   use {'phaazon/hop.nvim'}
