@@ -48,6 +48,7 @@ vim.g.which_key_map = {
     f = {':Telescope filetypes', 'select from filetypes'},
     m = {':MarkdownPreview', 'markdown preview'},
     M = {':MarkdownPreviewStop', 'markdown preview stop'},
+    i = {':IndentBlanklineToggle', 'indentation guides'},
     l = {':set nonumber!', 'line-numbers'},
     r = {':set norelativenumber!', 'relative line nums'},
     t = {':!markdown-toc %:p --bullets="-" -i', 'markdown-toc'},
