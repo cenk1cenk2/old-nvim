@@ -42,11 +42,6 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-"Get Files
-command! -bang -nargs=? -complete=dir Files
-    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--inline-info']}), <bang>0)
-
-
 let s:rg_cmd = 'rg --column --line-number --hidden --smart-case --no-heading --color=always ---glob "!.git/**" --glob "!yarn.lock" --glob "!package-lock.json" '
 
  " Make Ripgrep ONLY search file contents and not filenames

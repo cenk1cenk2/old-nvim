@@ -2,7 +2,6 @@ vim.cmd('set iskeyword+=-') -- treat dash separated words as a word text object"
 vim.cmd('set shortmess+=c') -- Don't pass messages to |ins-completion-menu|.
 
 vim.o.hidden = true -- Required to keep multiple buffers open multiple buffers
-vim.wo.wrap = false -- Display long lines as just one line
 vim.cmd('set whichwrap+=<,>,[,],h,l') -- move to next line with theses keys
 vim.o.pumheight = 10 -- Makes popup menu smaller
 vim.o.fileencoding = 'utf-8' -- The encoding written to file
@@ -29,5 +28,8 @@ vim.o.timeoutlen = 100 -- By default timeoutlen is 1000 ms
 vim.o.clipboard = 'unnamedplus' -- Copy paste between vim and everything else
 vim.o.guifont = 'Consolas NF'
 vim.o.incsearch = true
-vim.cmd('set wrap linebreak nolist')
+vim.o.lazyredraw = true
+-- vim.cmd('set lazydraw')
+vim.wo.wrap = false -- Display long lines as just one line
+-- vim.cmd('set wrap linebreak nolist')
 vim.o.sessionoptions = 'buffers,curdir,folds,tabpages,winsize'

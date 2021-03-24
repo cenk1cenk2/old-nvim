@@ -4,7 +4,7 @@ local helpers = require('helper-functions')
 vim.g.which_key_timeout = 25
 
 -- display names
-vim.cmd([[
+vim.api.nvim_command([[
 let g:which_key_display_names = {'<CR>': '↵', '<TAB>': '⇆'}
 ]])
 
@@ -14,8 +14,6 @@ vim.g.which_key_sep = '→'
 -- Not a fan of floating windows for this
 vim.g.which_key_use_floating_win = 0
 vim.g.which_key_max_size = 0
-
-helpers.autocommand.define_augroups({OverrideWhichKeyDefaultMethod = {{'FileType', 'which_key', 'set laststatus=0 noshowmode noruler'}}})
 
 -- the main menu
 vim.g.which_key_map = {
