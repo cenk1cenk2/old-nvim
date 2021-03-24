@@ -91,7 +91,7 @@ return require('packer').startup(function(use)
     use {'mbbill/undotree'}
 
     -- better quick fix window
-    use {'kevinhwang91/nvim-bqf'} -- (temp)
+    -- use {'kevinhwang91/nvim-bqf'} -- (temp)
 
     -- peek registers and macros
     use {'gennaro-tedesco/nvim-peekup'}
