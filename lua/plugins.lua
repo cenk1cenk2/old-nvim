@@ -104,6 +104,7 @@ return require('packer').startup(function(use)
 
     -- lsp
     use {'neovim/nvim-lspconfig'}
+    use {'kabouzeid/nvim-lspinstall'}
 
     -- lsp completion
     use {'hrsh7th/nvim-compe'}
