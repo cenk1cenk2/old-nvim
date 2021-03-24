@@ -165,4 +165,13 @@ gls.right[11] = {
   }
 }
 
-gls.short_line_left[1] = vim_mode
+-- gls.short_line_left[1] = {
+--   LeftEnd = {
+--     provider = function()
+--       return ' '
+--     end,
+--     separator = ' ',
+--     separator_highlight = {colors.purple, colors.bg},
+--     highlight = {colors.purple, colors.bg}
+--   }
+-- }
