@@ -104,4 +104,8 @@ else
   -- x to blackhole
   vim.api.nvim_set_keymap('n', [[x]], [["_x]], {silent = true, noremap = true})
   vim.api.nvim_set_keymap('v', [[x]], [["_x]], {silent = true, noremap = true})
+
+  -- tmux fixes
+  vim.api.nvim_set_keymap('i', [[<C-a>]], [[<Home>]], {silent = true, noremap = true})
+  vim.api.nvim_set_keymap('i', [[<C-e>]], [[<End>]], {silent = true, noremap = true})
 end

@@ -1,7 +1,7 @@
 -- general settings
 require('plugins')
-vim.api.nvim_command('source ~/.config/nvim/general/settings.vim')
-vim.api.nvim_command('source ~/.config/nvim/general/functions.vim')
+require('settings')
+require('configurations')
 require('keybindings')
 
 if (vim.g.vscode) then

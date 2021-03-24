@@ -1,3 +1,5 @@
+local helpers = require('helper-functions')
+
 -- timeoutwhich_key_timeout
 vim.g.which_key_timeout = 25
 
@@ -13,12 +15,7 @@ vim.g.which_key_sep = '→'
 vim.g.which_key_use_floating_win = 0
 vim.g.which_key_max_size = 0
 
-vim.api.nvim_command([[
-augroup OverrideWhichKeyDefaultMethod
-  autocmd! FileType which_key
-  autocmd  FileType which_key set laststatus=0 noshowmode noruler
-augroup END
-]])
+helpers.autocommand.define_augroups({OverrideWhichKeyDefaultMethod = {{'FileType', 'which_key', 'set laststatus=0 noshowmode noruler'}}})
 
 -- the main menu
 vim.g.which_key_map = {
@@ -65,7 +62,7 @@ vim.g.which_key_map = {
     l = {':BufferLast', 'last buffer'},
     L = {':BufferOrderByLanguage', 'order by language'},
     D = {':BufferOrderByDirectory', 'order by directory'},
-    f = {':Telescope buffers', 'buffers-telescope'},
+    f = {':Telescope tele_tabby list theme=get_dropdown', 'buffers-telescope'},
     F = {':CocCommand fzf-preview.AllBuffers --preview "bat --style=numbers --color=always --line-range :500 {}"', 'buffers-fzf'},
     s = {':edit #', 'jump between two last buffers'},
     C = {':%bd', 'close-all'},
