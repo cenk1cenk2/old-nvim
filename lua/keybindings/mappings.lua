@@ -88,9 +88,9 @@ else
 
   -- run through function parantheses
   vim.api.nvim_set_keymap('n', [[#]], [[/(<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
+  vim.api.nvim_set_keymap('n', [[*]], [[?(<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
   vim.api.nvim_set_keymap('n', [[+]], [[?)<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
   vim.api.nvim_set_keymap('n', [[']], [[/)<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
-  vim.api.nvim_set_keymap('n', [[*]], [[?)<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
 
   -- copy last clipboard register
   vim.api.nvim_set_keymap('n', [[po]], [["_diw"*P]], {silent = true, noremap = true})
