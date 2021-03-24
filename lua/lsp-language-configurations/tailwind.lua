@@ -7,7 +7,49 @@ if not lspconfig.tailwind then
   configs.tailwind = {
     default_config = {
       cmd = {'node', vim.g.lsp_servers_dir .. 'tailwindcss-language-server/index.js', '--stdio'},
-      filetypes = {'vue'},
+      filetypes = {
+        -- html
+        'aspnetcorerazor',
+        'blade',
+        'django-html',
+        'edge',
+        'ejs',
+        'erb',
+        'gohtml',
+        'haml',
+        'handlebars',
+        'hbs',
+        'html',
+        'html-eex',
+        'jade',
+        'leaf',
+        'liquid',
+        'markdown',
+        'mdx',
+        'mustache',
+        'njk',
+        'nunjucks',
+        'php',
+        'razor',
+        'slim',
+        'twig',
+        -- css
+        'css',
+        'less',
+        'postcss',
+        'sass',
+        'scss',
+        'stylus',
+        'sugarss',
+        -- js
+        'javascriptreact',
+        'reason',
+        'rescript',
+        'typescriptreact',
+        -- mixed
+        'vue',
+        'svelte'
+      },
       root_dir = function(fname)
         return util.root_pattern('tsconfig.json')(fname) or util.root_pattern('package.json', 'jsconfig.json', '.git')(fname)
       end,

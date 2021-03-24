@@ -54,14 +54,11 @@ NPM_EXTENSIONS=(
 	"bash-language-server"
 	"eslint_d"
 	"prettier"
-	"vscode-json-languageserver"
 	"vim-language-server"
 	"yaml-language-server"
 	"pyright;pyright-langserver"
-	"vscode-html-languageserver-bin;html-languageserver"
 	"graphql-language-service-cli;graphql-lsp"
 	"dockerfile-language-server-nodejs;docker-langserver"
-	"vscode-css-languageserver-bin;css-languageserver"
 	"markdownlint-cli;markdownlint"
 	"vls"
 	"eslint;false"
@@ -268,16 +265,17 @@ function download_binary() {
 
 }
 
-# download a vscode extensions and copy the subpath to lsp-folder
+# download a vscode extensions an"d copy the subpath to lsp-folder
 function download_extension() {
 	URL=$1
 	COMPRESSION=$2
 	EXTENSION=$3
-	SUBPATH=$4
+	SUBPATH=(${4})
 	CHMOD=(${5})
 
 	unset TMP_DOWNLOAD_PATH
 	unset TMP_UNZIPPED_FOLDER
+	unset PARSED_SUBPATHS
 
 	TMP_DOWNLOAD_PATH="/tmp/$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 32)"
 	TMP_UNZIPPED_FOLDER="/tmp/$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 32)"
@@ -293,7 +291,23 @@ function download_extension() {
 		rm "${LSP_FOLDER}/${EXTENSION}" -r
 	fi
 
-	mv "${TMP_UNZIPPED_FOLDER}/${SUBPATH:-'.'}/" "${LSP_FOLDER}/${EXTENSION}"
+	if [ "${#SUBPATH[@]}" -eq 0 ]; then
+		SUBPATH=('.')
+		log_debug "Using root path for extension: ${EXTENSION}"
+	fi
+
+	PARSED_SUBPATHS=()
+
+	for e in "${SUBPATH[@]}"; do
+		PARSED_SUBPATHS+=("${TMP_UNZIPPED_FOLDER}/${e}")
+	done
+
+	if [ "${#PARSED_SUBPATHS[@]}" -gt 1 ]; then
+		mkdir -p "${LSP_FOLDER}/${EXTENSION}"
+		log_debug "Multiple subpaths will be created for extension: ${EXTENSION}"
+	fi
+
+	eval "mv -v ${PARSED_SUBPATHS[*]} ${LSP_FOLDER}/${EXTENSION}/"
 
 	log_info "Added extension: ${EXTENSION}"
 
@@ -338,6 +352,10 @@ download_extension "https://github.com/microsoft/vscode-eslint/releases/download
 # install tailwinds language server
 VERSION="0.5.9"
 download_extension "https://github.com/tailwindlabs/tailwindcss-intellisense/releases/download/v$VERSION/vscode-tailwindcss-$VERSION.vsix" "zip" "tailwindcss-language-server" "extension/dist/server"
+
+# downloading vscode internal extensions
+EXTENSIONS_BASE_PATH="VSCode-linux-x64/resources/app/extensions"
+download_extension "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64" "tar_gz" "vscode" "${EXTENSIONS_BASE_PATH}/node_modules ${EXTENSIONS_BASE_PATH}/json-language-features ${EXTENSIONS_BASE_PATH}/css-language-features ${EXTENSIONS_BASE_PATH}/html-language-features"
 
 log_finish "Installed custom assets and vscode-extensions." "top"
 
