@@ -183,11 +183,6 @@ return require('packer').startup(function(use)
     -- move stuff around with altjk
     use {'matze/vim-move'}
 
-    -- pairings tags
-    use {'alvan/vim-closetag'}
-
-    -- changing tags together
-    use {'AndrewRadev/tagalong.vim'}
 
     -- align around some anchor
     use {'junegunn/vim-easy-align'}
@@ -204,6 +199,7 @@ return require('packer').startup(function(use)
 
     -- jinja syntax highlights
     use {'lepture/vim-jinja'} -- (temp)
+
   end
 
 end)

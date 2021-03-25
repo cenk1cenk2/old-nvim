@@ -12,6 +12,41 @@ vim.api.nvim_set_keymap('i', [[<C-l>]], [[<C-w>l]], {})
 vim.api.nvim_set_keymap('v', [[<]], [[<gv]], {})
 vim.api.nvim_set_keymap('v', [[>]], [[>gv]], {})
 
+-- create space on top and bottom
+vim.api.nvim_set_keymap('n', [[ü]], [[o<ESC>k]], {silent = true, noremap = true})
+vim.api.nvim_set_keymap('n', [[Ü]], [[O<ESC>j]], {silent = true, noremap = true})
+
+-- jump between paragraphs
+vim.api.nvim_set_keymap('n', [[ö]], [[{zz]], {silent = true, noremap = true})
+vim.api.nvim_set_keymap('n', [[ä]], [[}zz]], {silent = true, noremap = true})
+
+-- jump between methods
+vim.api.nvim_set_keymap('n', [[äö]], [[[mzz]], {silent = true, noremap = true})
+vim.api.nvim_set_keymap('n', [[öä]], [[]mzz]], {silent = true, noremap = true})
+
+-- jump between curly braces
+vim.api.nvim_set_keymap('n', [[Ö]], [[?{<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
+vim.api.nvim_set_keymap('n', [[Ä]], [[/{<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
+
+-- run through function parantheses
+vim.api.nvim_set_keymap('n', [[#]], [[/(<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
+vim.api.nvim_set_keymap('n', [[*]], [[?(<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
+vim.api.nvim_set_keymap('n', [[+]], [[?)<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
+vim.api.nvim_set_keymap('n', [[']], [[/)<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
+
+-- copy last clipboard register
+vim.api.nvim_set_keymap('n', [[po]], [["_diw"*P]], {silent = true, noremap = true})
+
+-- copy last yank register
+vim.api.nvim_set_keymap('n', [[pü]], [["_diw"0P]], {silent = true, noremap = true})
+
+-- visual select word
+vim.api.nvim_set_keymap('n', [[pp]], [[viw]], {silent = true, noremap = true})
+
+-- x to blackhole
+vim.api.nvim_set_keymap('n', [[x]], [["_x]], {silent = true, noremap = true})
+vim.api.nvim_set_keymap('v', [[x]], [["_x]], {silent = true, noremap = true})
+
 if (vim.g.vscode) then
 
 else
@@ -69,41 +104,6 @@ else
   vim.api.nvim_set_keymap('v', [[<M-i>]], [[:resize +2<CR>]], {silent = true, noremap = true})
   vim.api.nvim_set_keymap('v', [[<M-z>]], [[:vertical resize -2<CR>]], {silent = true, noremap = true})
   vim.api.nvim_set_keymap('v', [[<M-o>]], [[:vertical resize +2<CR>]], {silent = true, noremap = true})
-
-  -- create space on top and bottom
-  vim.api.nvim_set_keymap('n', [[ü]], [[o<ESC>k]], {silent = true, noremap = true})
-  vim.api.nvim_set_keymap('n', [[Ü]], [[O<ESC>j]], {silent = true, noremap = true})
-
-  -- jump between paragraphs
-  vim.api.nvim_set_keymap('n', [[ö]], [[{zz]], {silent = true, noremap = true})
-  vim.api.nvim_set_keymap('n', [[ä]], [[}zz]], {silent = true, noremap = true})
-
-  -- jump between methods
-  vim.api.nvim_set_keymap('n', [[äö]], [[[mzz]], {silent = true, noremap = true})
-  vim.api.nvim_set_keymap('n', [[öä]], [[]mzz]], {silent = true, noremap = true})
-
-  -- jump between curly braces
-  vim.api.nvim_set_keymap('n', [[Ö]], [[?{<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
-  vim.api.nvim_set_keymap('n', [[Ä]], [[/{<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
-
-  -- run through function parantheses
-  vim.api.nvim_set_keymap('n', [[#]], [[/(<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
-  vim.api.nvim_set_keymap('n', [[*]], [[?(<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
-  vim.api.nvim_set_keymap('n', [[+]], [[?)<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
-  vim.api.nvim_set_keymap('n', [[']], [[/)<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
-
-  -- copy last clipboard register
-  vim.api.nvim_set_keymap('n', [[po]], [["_diw"*P]], {silent = true, noremap = true})
-
-  -- copy last yank register
-  vim.api.nvim_set_keymap('n', [[pü]], [["_diw"0P]], {silent = true, noremap = true})
-
-  -- visual select word
-  vim.api.nvim_set_keymap('n', [[pp]], [[viw]], {silent = true, noremap = true})
-
-  -- x to blackhole
-  vim.api.nvim_set_keymap('n', [[x]], [["_x]], {silent = true, noremap = true})
-  vim.api.nvim_set_keymap('v', [[x]], [["_x]], {silent = true, noremap = true})
 
   -- tmux fixes
   vim.api.nvim_set_keymap('i', [[<C-a>]], [[<Home>]], {silent = true, noremap = true})
