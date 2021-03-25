@@ -7,7 +7,7 @@ LOG_LEVEL=${LOG_LEVEL-"INFO"}
 source <(curl -s "https://gist.githubusercontent.com/cenk1cenk2/e03d8610534a9c78f755c1c1ed93a293/raw/3d61dc3718f3a3687d5990b9b5dc951198d29427/logger.sh")
 
 ## set lsp folder
-LSP_FOLDER=~/.config/nvim/lsp-servers
+LSP_FOLDER=~/.local/share/nvim/lsp-servers
 
 ## help string
 HELP=$(

@@ -14,6 +14,12 @@ installpynvim() {
 	pip3 install pynvim --user
 }
 
+installpacker() {
+	log_warn "Installing packer itself..."
+    git clone https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+}
+
 # Welcome
 log_this "[install-nvim]" "false" "lifetime" "bottom"
 
@@ -36,6 +42,12 @@ fi
 log_start "Cloning neovim configuration..."
 git clone git@github.com:cenk1cenk2/nvim.git ~/.config/nvim
 log_finish "Cloned neovim configuration...."
+
+if [ -a "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
+    log_info 'Packer already installed.'
+else
+    installpacker
+fi
 
 # install plugins
 which nvim >/dev/null
