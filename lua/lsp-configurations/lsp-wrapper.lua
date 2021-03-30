@@ -124,6 +124,12 @@ function lsp_wrapper.show_line_diagnostics()
   vim.lsp.diagnostic.show_line_diagnostics()
 end
 
+function lsp_wrapper.restart_lsp()
+  local clients = vim.lsp.get_active_clients()
+  vim.lsp.stop_client(clients)
+  vim.lsp.start_client(clients)
+end
+
 local helpers = require('helper-functions')
 helpers.command.wrap_to_command({
   {'LspCodeAction', 'lua require("lsp-configurations.lsp-wrapper").code_action()'},
@@ -143,7 +149,8 @@ helpers.command.wrap_to_command({
   {'LspWorkspaceSymbol', 'lua require("lsp-configurations.lsp-wrapper").workspace_symbol()'},
   {'LspGotoNext', 'lua require("lsp-configurations.lsp-wrapper").goto_next()'},
   {'LspGotoPrev', 'lua require("lsp-configurations.lsp-wrapper").goto_prev()'},
-  {'LspShowLineDiagnostics', 'lua require("lsp-configurations.lsp-wrapper").show_line_diagnostics()'}
+  {'LspShowLineDiagnostics', 'lua require("lsp-configurations.lsp-wrapper").show_line_diagnostics()'},
+  {'LspRestart', 'lua require("lsp-configurations.lsp-wrapper").restart_lsp()'},
 })
 
 return lsp_wrapper

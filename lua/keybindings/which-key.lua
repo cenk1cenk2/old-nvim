@@ -170,6 +170,7 @@ vim.g.which_key_map = {
     r = {':LspReferences', 'references'},
     R = {':LspRename', 'rename'},
     T = {':LspTypeDefinition', 'type defintion'},
+    Q = {':LspRestart', 'restart currently active lsps'},
     s = {':Telescope lsp_document_symbols --theme=get_dropdown', 'document symbols'},
     S = {':Telescope lsp_workspace_symbols --theme=get_dropdown', 'workspace symbols'}
   },
