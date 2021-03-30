@@ -30,7 +30,6 @@ vim.o.clipboard = 'unnamedplus' -- Copy paste between vim and everything else
 vim.o.guifont = 'Consolas NF'
 vim.o.incsearch = true
 vim.o.lazyredraw = true
-vim.cmd('set formatoptions-=cro') -- dont contunie comments after linespace
 -- vim.wo.wrap = false -- Display long lines as just one line
 vim.cmd('set wrap linebreak nolist')
 vim.o.sessionoptions = 'buffers,curdir,folds,tabpages,winsize'
