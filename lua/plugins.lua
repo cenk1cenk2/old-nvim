@@ -183,7 +183,6 @@ return require('packer').startup(function(use)
     -- move stuff around with altjk
     use {'matze/vim-move'}
 
-
     -- align around some anchor
     use {'junegunn/vim-easy-align'}
 
@@ -195,7 +194,7 @@ return require('packer').startup(function(use)
     use {'skywind3000/asyncrun.vim'}
 
     -- markdown previewer
-    use {'iamcco/markdown-preview.nvim', run = 'cd app & yarn', ft = {'markdown'}}
+    use {'iamcco/markdown-preview.nvim', run = 'cd app & yarn & yarn add -D tslib', ft = {'markdown'}}
 
     -- jinja syntax highlights
     use {'lepture/vim-jinja'} -- (temp)
