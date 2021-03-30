@@ -1,5 +1,6 @@
 vim.g.mkdp_open_ip = '192.168.10.7'
 vim.g.mkdp_echo_preview_url = 1
+vim.g.mkdp_open_to_the_world = 1
 
 vim.g.mkdp_preview_options = {
   mkit = {},
@@ -11,7 +12,7 @@ vim.g.mkdp_preview_options = {
   hide_yaml_meta = 1,
   sequence_diagrams = {},
   flowchart_diagrams = {},
-  content_editable = false
+  content_editable = true
 }
 
 vim.g.mkdp_port = '15000'

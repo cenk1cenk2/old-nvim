@@ -153,16 +153,16 @@ vim.g.which_key_map = {
     name = '+lsp',
     a = {':Lspsaga code_action', 'code action'},
     A = {':Lspsaga range_code_action', 'selected action'},
-    d = {':Telescope lsp_document_diagnostics', 'document diagnostics'},
-    D = {':Telescope lsp_workspace_diagnostics', 'workspace diagnostics'},
+    d = {':Telescope lsp_document_diagnostics --theme=get_dropdown', 'document diagnostics'},
+    D = {':Telescope lsp_workspace_diagnostics --theme=get_dropdown', 'workspace diagnostics'},
     f = {':LspFormattingSync', 'format'},
     h = {':LspHoverPreview', 'preview definition'},
     H = {':Lspsaga signature_help', 'signature help'},
     g = {':LspOrganizeImports', 'organize imports'},
     i = {':LspImplementation', 'implementation'},
     I = {':LspInfo', 'lsp information'},
-    l = {':Lspsaga lsp_finder', 'lsp finder'},
-    L = {':Lspsaga show_line_diagnostics', 'line diagnostics'},
+    l = {':Lspsaga show_line_diagnostics', 'line diagnostics'},
+    L = {':Lspsaga lsp_finder', 'lsp finder'},
     n = {':Lspsaga diagnostic_jump_next', 'next diagnostic'},
     m = {':LspRenameFile', 'rename current file'},
     p = {':Lspsaga diagnostic_jump_prev', 'prev diagnostic'},
@@ -170,23 +170,18 @@ vim.g.which_key_map = {
     r = {':LspReferences', 'references'},
     R = {':LspRename', 'rename'},
     T = {':LspTypeDefinition', 'type defintion'},
-    s = {':Telescope lsp_document_symbols', 'document symbols'},
-    S = {':Telescope lsp_workspace_symbols', 'workspace symbols'}
+    s = {':Telescope lsp_document_symbols --theme=get_dropdown', 'document symbols'},
+    S = {':Telescope lsp_workspace_symbols --theme=get_dropdown', 'workspace symbols'}
   },
 
-  -- bookmarks (not working at the moment)
-  --[[
-     [ m = {
-     [   name = '+mark',
-     [   c = {':BookmarkClear', 'clear file'},
-     [   C = {':BookmarkClearAll', 'clear project'},
-     [   n = {':BookmarkNext', 'next bookmark'},
-     [   p = {':BookmarkPrev', 'prev bookmark'},
-     [   t = {':BookmarkToggle', 'toggle bookmark'},
-     [   a = {':BookmarkAnnotate', 'add annotated bookmark'},
-     [   f = {':CocCommand fzf-preview.Bookmarks', 'list bookmarks'}
-     [ },
-     ]]
+  -- bookmarks
+  m = {
+    name = '+mark',
+    t = {':BookmarkToggle', 'toggle'},
+    n = {':BookmarkNext', 'next mark'},
+    p = {':BookmarkPrev', 'prev mark'},
+    f = {':CocCommand fzf-preview.Bookmarks', 'list bookmarks'}
+  },
 
   -- terminal
   t = {
@@ -203,7 +198,7 @@ vim.g.which_key_map = {
     f = {':CocList floaterm', 'find terminal'},
     t = {':FloatermToggle', 'toggle'},
     s = {':FloattermShow', 'floaterm-show'},
-    k = {':FloattermKill!', 'floaterm-kill'}
+    k = {':FloattermKill!', 'floaterm-kill-all'}
   },
 
   -- tasks

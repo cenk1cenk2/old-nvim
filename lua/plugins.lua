@@ -121,7 +121,7 @@ return require('packer').startup(function(use)
     use {'hrsh7th/vim-vsnip-integ'}
     use {'rafamadriz/friendly-snippets'}
     use {'kitagry/vs-snippets'}
-    
+
     -- legacy
     use {'SirVer/ultisnips'}
     use {'honza/vim-snippets'}
@@ -201,6 +201,9 @@ return require('packer').startup(function(use)
 
     -- jinja syntax highlights
     use {'lepture/vim-jinja'} -- (temp)
+
+    -- bookmarks
+    use {'MattesGroeger/vim-bookmarks'}
 
   end
 

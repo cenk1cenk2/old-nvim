@@ -70,8 +70,8 @@ else
   vim.api.nvim_set_keymap('n', [[<Leader><Right>]], [[:BufferNext<CR>]], {silent = true, noremap = true})
 
   -- move buffers
-  vim.api.nvim_set_keymap('n', [[<Leader><Up>]], [[:BufferMovePrevious<CR>]], {silent = true, noremap = true})
-  vim.api.nvim_set_keymap('n', [[<Leader><Down>]], [[:BufferMoveNext<CR>]], {silent = true, noremap = true})
+  vim.api.nvim_set_keymap('n', [[<C-Up>]], [[:BufferMovePrevious<CR>]], {silent = true, noremap = true})
+  vim.api.nvim_set_keymap('n', [[<C-Down>]], [[:BufferMoveNext<CR>]], {silent = true, noremap = true})
 
   -- alternate way to save
   vim.api.nvim_set_keymap('n', [[<C-s>]], [[:w<CR>]], {silent = true, noremap = true})
@@ -83,7 +83,7 @@ else
   vim.api.nvim_set_keymap('n', [[<C-t>]], [[<C-w>T]], {silent = true, noremap = true})
 
   -- use control c instead of escape
-  vim.api.nvim_set_keymap('n', [[<C-c>]], [[<Esc>]], {silent = true, noremap = true})
+  -- vim.api.nvim_set_keymap('n', [[<C-c>]], [[<Esc>]], {silent = true, noremap = true})
   vim.api.nvim_set_keymap('i', [[<C-c>]], [[<Esc>]], {silent = true, noremap = true})
   vim.api.nvim_set_keymap('v', [[<C-c>]], [[<Esc>]], {silent = true, noremap = true})
 
