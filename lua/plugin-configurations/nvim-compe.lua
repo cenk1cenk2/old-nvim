@@ -14,7 +14,7 @@ require('compe').setup {
   max_menu_width = 100,
   documentation = true,
 
-  source = {path = true, buffer = true, vsnip = true, nvim_lsp = true, nvim_lua = true, spell = true, tags = true, snippets_nvim = true, treesitter = false}
+  source = {nvim_lsp = true,nvim_lua = true, spell = true, path = true, buffer = true, vsnip = true,  tags = true, snippets_nvim = true, treesitter = false}
 }
 
 local t = function(str)
@@ -44,6 +44,7 @@ _G.tab_complete = function()
     return vim.fn['compe#complete']()
   end
 end
+
 _G.s_tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t '<C-p>'
@@ -62,6 +63,7 @@ vim.api.nvim_set_keymap('s', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
 -- completion triggers
 vim.api.nvim_set_keymap('i', '<C-Space>', 'compe#complete()', {expr = true, silent = true})
 vim.api.nvim_set_keymap('i', '<CR>', 'compe#confirm("<CR>")', {expr = true, silent = true})
+vim.api.nvim_set_keymap('i', '<S-CR>', '<CR>', {expr = true, silent = true})
 vim.api.nvim_set_keymap('i', '<C-e>', 'compe#close("<C-e>")', {expr = true, silent = true})
 vim.api.nvim_set_keymap('i', '<C-f>', 'compe#scroll({ "delta": +4 })', {expr = true, silent = true})
 vim.api.nvim_set_keymap('i', '<C-d>', 'compe#scroll({ "delta": -4 })', {expr = true, silent = true})

@@ -46,6 +46,7 @@ vim.g.which_key_map = {
     i = {':IndentBlanklineToggle', 'indentation guides'},
     l = {':set nonumber!', 'line-numbers'},
     r = {':set norelativenumber!', 'relative line nums'},
+    s = {':setlocal spell!', 'toggle spell check'},
     t = {':!markdown-toc %:p --bullets="-" -i', 'markdown-toc'},
     T = {':TSHighlightCapturesUnderCursor', 'show treesitter theme color'},
     w = {':StripWhitespace', 'strip whitespace'}

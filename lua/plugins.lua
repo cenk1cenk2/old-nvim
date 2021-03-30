@@ -119,9 +119,12 @@ return require('packer').startup(function(use)
     -- snippets
     use {'hrsh7th/vim-vsnip'}
     use {'hrsh7th/vim-vsnip-integ'}
+    use {'rafamadriz/friendly-snippets'}
+    use {'kitagry/vs-snippets'}
+    
+    -- legacy
     use {'SirVer/ultisnips'}
     use {'honza/vim-snippets'}
-    use {'kitagry/vs-snippets'}
 
     -- peak lsp stuff in window
     use {'voldikss/vim-skylight'}

@@ -7,7 +7,7 @@ require('lspconfig').efm.setup {
   on_attach = function(client)
     lsphelpers.auto_format_if_capable(client)
   end,
-  init_options = {documentFormatting = true},
+  init_options = {documentFormatting = true, codeAction = true, completion = true},
   filetypes = {'=', 'sh', 'vim', 'lua', 'go', 'python', 'typescript', 'javascript', 'typescriptreact', 'javascriptreact', 'vue', 'yaml', 'json', 'html', 'scss', 'css', 'markdown'},
   settings = {
     rootMarkers = {'package.json', '.git/'},
