@@ -47,10 +47,6 @@ vim.api.nvim_set_keymap('n', [[pp]], [[viw]], {silent = true, noremap = true})
 vim.api.nvim_set_keymap('n', [[c]], [["_c]], {silent = true, noremap = true})
 vim.api.nvim_set_keymap('v', [[c]], [["_c]], {silent = true, noremap = true})
 
--- d to blackhole
-vim.api.nvim_set_keymap('n', [[d]], [["_d]], {silent = true, noremap = true})
-vim.api.nvim_set_keymap('v', [[d]], [["_d]], {silent = true, noremap = true})
-
 -- x to blackhole
 vim.api.nvim_set_keymap('n', [[x]], [["_x]], {silent = true, noremap = true})
 vim.api.nvim_set_keymap('v', [[x]], [["_x]], {silent = true, noremap = true})
