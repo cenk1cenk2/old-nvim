@@ -195,7 +195,7 @@ gls.right[3] = {
 
 gls.right[4] = {LineInfo = {provider = 'LineColumn', separator = ' ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.grey, colors.bg}}}
 
-gls.right[5] = {ScrollBar = {provider = 'ScrollBar', separator = ' ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.purple, colors.bg}}}
+gls.right[5] = {ScrollBar = {provider = 'ScrollBar', separator = ' ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.yellow, colors.bg}}}
 
 gls.short_line_left[1] = {
   LeftEnd = {
