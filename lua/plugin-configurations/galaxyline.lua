@@ -143,10 +143,14 @@ gls.mid[3] = {
           end
         end
 
-        return '  ' .. t .. ' ➜'
+        if #t > 0 then
+          return '  ' .. t .. ' ➜'
+        else
+          return ' '
+        end
       end,
       function()
-        return ' '.. require('galaxyline.provider_buffer').get_buffer_filetype():lower()
+        return ' ' .. require('galaxyline.provider_buffer').get_buffer_filetype():lower()
       end,
       function()
         return ' '
@@ -161,13 +165,58 @@ gls.mid[3] = {
   }
 }
 
-gls.mid[5] = {DiagnosticError = {provider = 'DiagnosticError', icon = '  ', highlight = {colors.error_red, colors.bg}}}
+local function get_nvim_lsp_diagnostic(diag_type)
+  if next(vim.lsp.buf_get_clients()) == nil then return '' end
+  local active_clients = vim.lsp.get_active_clients()
 
-gls.mid[6] = {DiagnosticWarn = {provider = 'DiagnosticWarn', icon = '  ', highlight = {colors.orange, colors.bg}}}
+  if active_clients then
+    local count = 0
 
-gls.mid[7] = {DiagnosticHint = {provider = 'DiagnosticHint', icon = '  ', highlight = {colors.blue, colors.bg}}}
+    for _, client in ipairs(active_clients) do count = count + vim.lsp.diagnostic.get_count(vim.api.nvim_get_current_buf(), diag_type, client.id) end
 
-gls.mid[8] = {DiagnosticInfo = {provider = 'DiagnosticInfo', icon = '  ', highlight = {colors.blue, colors.bg}}}
+    if count ~= 0 then return count .. ' ' end
+  end
+end
+
+gls.mid[5] = {
+  DiagnosticError = {
+    provider = function()
+      if not vim.tbl_isempty(vim.lsp.buf_get_clients()) then return get_nvim_lsp_diagnostic('Error') end
+    end,
+    icon = '   ',
+    highlight = {colors.red, colors.bg}
+  }
+}
+
+gls.mid[6] = {
+  DiagnosticWarn = {
+    provider = function()
+      if not vim.tbl_isempty(vim.lsp.buf_get_clients()) then return get_nvim_lsp_diagnostic('Warning') end
+    end,
+    icon = '   ',
+    highlight = {colors.orange, colors.bg}
+  }
+}
+
+gls.mid[7] = {
+  DiagnosticHint = {
+    provider = function()
+      if not vim.tbl_isempty(vim.lsp.buf_get_clients()) then return get_nvim_lsp_diagnostic('Hint') end
+    end,
+    icon = '   ',
+    highlight = {colors.blue, colors.bg}
+  }
+}
+
+gls.mid[8] = {
+  DiagnosticInfo = {
+    provider = function()
+      if not vim.tbl_isempty(vim.lsp.buf_get_clients()) then return get_nvim_lsp_diagnostic('Information') end
+    end,
+    icon = '   ',
+    highlight = {colors.blue, colors.bg}
+  }
+}
 
 gls.right[1] = {
   Tabstop = {
