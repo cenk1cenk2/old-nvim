@@ -150,7 +150,7 @@ helpers.command.wrap_to_command({
   {'LspGotoNext', 'lua require("lsp-configurations.lsp-wrapper").goto_next()'},
   {'LspGotoPrev', 'lua require("lsp-configurations.lsp-wrapper").goto_prev()'},
   {'LspShowLineDiagnostics', 'lua require("lsp-configurations.lsp-wrapper").show_line_diagnostics()'},
-  {'LspRestart', 'lua require("lsp-configurations.lsp-wrapper").restart_lsp()'},
+  {'LspRestart', 'lua require("lsp-configurations.lsp-wrapper").restart_lsp()'}
 })
 
 return lsp_wrapper

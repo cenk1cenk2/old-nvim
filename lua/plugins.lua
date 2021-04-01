@@ -126,9 +126,6 @@ return require('packer').startup(function(use)
     use {'SirVer/ultisnips'}
     use {'honza/vim-snippets'}
 
-    -- peak lsp stuff in window
-    use {'voldikss/vim-skylight'}
-
     -- debug adapter
     use {'puremourning/vimspector'}
 

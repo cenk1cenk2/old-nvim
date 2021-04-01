@@ -25,7 +25,6 @@ require('plugin-configurations.nvim-peekup')
 if (not vim.g.vscode) then require('plugin-configurations.polyglot') end
 require('plugin-configurations.quickscope')
 require('plugin-configurations.rnvimr')
-require('plugin-configurations.skylight')
 require('plugin-configurations.telescope')
 require('plugin-configurations.ultisnips')
 require('plugin-configurations.indent-blankline')

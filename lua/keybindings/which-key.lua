@@ -106,7 +106,6 @@ vim.g.which_key_map = {
     k = {':Telescope keymaps', 'keymaps'},
     s = {':Telescope ultisnips ultisnips', 'snippets'},
     S = {':Telescope spell_suggest', 'spell suggest'},
-    p = {':Skylight!', 'skylight preview symbol'},
     r = {':call RipgrepInteractive()', 'rg interactive'},
     R = {':Telescope registers', 'registers'},
     t = {':Telescope live_grep', 'text-telescope'},
