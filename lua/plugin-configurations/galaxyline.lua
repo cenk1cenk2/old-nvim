@@ -107,88 +107,64 @@ gls.left[4] = {DiffAdd = {provider = 'DiffAdd', condition = condition.hide_in_wi
 gls.left[5] = {DiffModified = {provider = 'DiffModified', condition = condition.hide_in_width, icon = ' 柳 ', highlight = {colors.blue, colors.bg}}}
 gls.left[6] = {DiffRemove = {provider = 'DiffRemove', condition = condition.hide_in_width, icon = '  ', highlight = {colors.red, colors.bg}}}
 
--- gls.left[7] = {
---   LeftRounded = {
---     provider = function()
---       return ''
---     end,
---     highlight = {colors.purple, colors.bg},
---     separator = ' ',
---     separator_highlight = {'NONE', colors.purple}
---   }
--- }
-
-gls.left[8] = {
+gls.mid[1] = {
   FileIcon = {provider = 'FileIcon', condition = buffer_not_empty, icon = '  ', highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color, colors.purple}}
 }
 
-gls.left[9] = {
+gls.mid[2] = {
   FileName = {
-    provider = {'FileName', 'FileSize'},
+    provider = {
+      'FileName',
+      'FileSize',
+      function()
+        return ' '
+      end
+    },
     condition = buffer_not_empty,
-    highlight = {colors.grey, colors.purple},
-    separator = ' ',
-    separator_highlight = {colors.bg, colors.purple}
+    highlight = {colors.grey, colors.purple}
   }
 }
 
-gls.left[10] = {
+gls.mid[3] = {
   ShowLspClient = {
-    provider = function()
-      local clients = vim.lsp.buf_get_clients()
+    provider = {
+      function()
+        local clients = vim.lsp.buf_get_clients()
 
-      if next(clients) == nil then return 'none' end
+        if next(clients) == nil then return ' ' end
 
-      local t = ''
-      for i, client in ipairs(clients) do
-        if i == 1 then
-          t = client.name
-        else
-          t = t .. ', ' .. client.name
+        local t = ''
+        for i, client in ipairs(clients) do
+          if i == 1 then
+            t = client.name
+          else
+            t = t .. ', ' .. client.name
+          end
         end
-      end
 
-      return t
-    end,
+        return '  ' .. t .. '  '
+      end,
+      'FileTypeName',
+      function()
+        return ' '
+      end
+    },
     condition = function()
       local tbl = {['dashboard'] = true, [' '] = true}
       if tbl[vim.bo.filetype] then return false end
       return true
     end,
-    icon = ' ',
-    separator = ' ',
-    separator_highlight = {'NONE', colors.red},
-    highlight = {colors.grey, colors.red}
+    highlight = {colors.grey, colors.green}
   }
 }
 
-gls.left[11] = {
-  BufferType = {
-    provider = 'FileTypeName',
-    condition = condition.hide_in_width,
-    icon = ' ',
-    separator_highlight = {'NONE', colors.darkblue},
-    highlight = {colors.grey, colors.darkblue},
-    separator = ' '
-  }
-}
+gls.mid[5] = {DiagnosticError = {provider = 'DiagnosticError', icon = '  ', highlight = {colors.error_red, colors.bg}}}
 
--- gls.left[12] = {
---   RightRounded = {
---     provider = function()
---       return ''
---     end,
---     highlight = {colors.purple, colors.bg}
---   }
--- }
+gls.mid[6] = {DiagnosticWarn = {provider = 'DiagnosticWarn', icon = '  ', highlight = {colors.orange, colors.bg}}}
 
-gls.left[13] = {DiagnosticError = {provider = 'DiagnosticError', icon = '  ', highlight = {colors.error_red, colors.bg}}}
+gls.mid[7] = {DiagnosticHint = {provider = 'DiagnosticHint', icon = '  ', highlight = {colors.blue, colors.bg}}}
 
-gls.left[14] = {DiagnosticWarn = {provider = 'DiagnosticWarn', icon = '  ', highlight = {colors.orange, colors.bg}}}
-
-gls.left[15] = {DiagnosticHint = {provider = 'DiagnosticHint', icon = '  ', highlight = {colors.blue, colors.bg}}}
-
-gls.left[16] = {DiagnosticInfo = {provider = 'DiagnosticInfo', icon = '  ', highlight = {colors.blue, colors.bg}}}
+gls.mid[8] = {DiagnosticInfo = {provider = 'DiagnosticInfo', icon = '  ', highlight = {colors.blue, colors.bg}}}
 
 gls.right[1] = {
   Tabstop = {
