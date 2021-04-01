@@ -107,40 +107,58 @@ gls.left[4] = {DiffAdd = {provider = 'DiffAdd', condition = condition.hide_in_wi
 gls.left[5] = {DiffModified = {provider = 'DiffModified', condition = condition.hide_in_width, icon = ' 柳 ', highlight = {colors.blue, colors.bg}}}
 gls.left[6] = {DiffRemove = {provider = 'DiffRemove', condition = condition.hide_in_width, icon = '  ', highlight = {colors.red, colors.bg}}}
 
-gls.left[7] = {
-  LeftRounded = {
-    provider = function()
-      return ''
-    end,
-    highlight = {colors.purple, colors.bg},
-    separator = ' ',
-    separator_highlight = {'NONE', colors.purple}
-  }
-}
+-- gls.left[7] = {
+--   LeftRounded = {
+--     provider = function()
+--       return ''
+--     end,
+--     highlight = {colors.purple, colors.bg},
+--     separator = ' ',
+--     separator_highlight = {'NONE', colors.purple}
+--   }
+-- }
 
-gls.left[8] = {FileIcon = {provider = 'FileIcon', condition = buffer_not_empty, highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color, colors.purple}}}
+gls.left[8] = {
+  FileIcon = {provider = 'FileIcon', condition = buffer_not_empty, icon = '  ', highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color, colors.purple}}
+}
 
 gls.left[9] = {
   FileName = {
     provider = {'FileName', 'FileSize'},
     condition = buffer_not_empty,
     highlight = {colors.grey, colors.purple},
-    separator = '| ',
+    separator = ' ',
     separator_highlight = {colors.bg, colors.purple}
   }
 }
 
 gls.left[10] = {
   ShowLspClient = {
-    provider = 'GetLspClient',
+    provider = function()
+      local clients = vim.lsp.buf_get_clients()
+
+      if next(clients) == nil then return 'none' end
+
+      local t = ''
+      for i, client in ipairs(clients) do
+        if i == 1 then
+          t = client.name
+        else
+          t = t .. ', ' .. client.name
+        end
+      end
+
+      return t
+    end,
     condition = function()
       local tbl = {['dashboard'] = true, [' '] = true}
       if tbl[vim.bo.filetype] then return false end
       return true
     end,
-    separator = ' | ',
-    separator_highlight = {colors.bg, colors.purple},
-    highlight = {colors.grey, colors.purple}
+    icon = ' ',
+    separator = ' ',
+    separator_highlight = {'NONE', colors.red},
+    highlight = {colors.grey, colors.red}
   }
 }
 
@@ -148,20 +166,21 @@ gls.left[11] = {
   BufferType = {
     provider = 'FileTypeName',
     condition = condition.hide_in_width,
-    separator_highlight = {'NONE', colors.purple},
-    highlight = {colors.grey, colors.purple},
+    icon = ' ',
+    separator_highlight = {'NONE', colors.darkblue},
+    highlight = {colors.grey, colors.darkblue},
     separator = ' '
   }
 }
 
-gls.left[12] = {
-  RightRounded = {
-    provider = function()
-      return ''
-    end,
-    highlight = {colors.purple, colors.bg}
-  }
-}
+-- gls.left[12] = {
+--   RightRounded = {
+--     provider = function()
+--       return ''
+--     end,
+--     highlight = {colors.purple, colors.bg}
+--   }
+-- }
 
 gls.left[13] = {DiagnosticError = {provider = 'DiagnosticError', icon = '  ', highlight = {colors.error_red, colors.bg}}}
 
