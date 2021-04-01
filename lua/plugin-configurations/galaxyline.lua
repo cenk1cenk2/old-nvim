@@ -85,6 +85,8 @@ local vim_mode = {
   }
 }
 
+-- left
+
 gls.left[1] = vim_mode
 
 gls.left[2] = {
@@ -107,6 +109,8 @@ gls.left[4] = {DiffAdd = {provider = 'DiffAdd', condition = condition.hide_in_wi
 gls.left[5] = {DiffModified = {provider = 'DiffModified', condition = condition.hide_in_width, icon = ' 柳 ', highlight = {colors.blue, colors.bg}}}
 gls.left[6] = {DiffRemove = {provider = 'DiffRemove', condition = condition.hide_in_width, icon = '  ', highlight = {colors.red, colors.bg}}}
 
+-- mid
+
 gls.mid[1] = {
   FileName = {
     provider = {
@@ -119,12 +123,23 @@ gls.mid[1] = {
         return ' '
       end
     },
-    condition = buffer_not_empty,
+    condition = function()
+      return buffer_not_empty() and condition.hide_in_width()
+    end,
     highlight = {colors.grey, colors.purple}
   }
 }
 
-gls.mid[2] = {FileIcon = {provider = {'FileIcon'}, condition = buffer_not_empty, icon = '  ', highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color, colors.bg}}}
+gls.mid[2] = {
+  FileIcon = {
+    provider = {'FileIcon'},
+    condition = function()
+      return buffer_not_empty() and condition.hide_in_width()
+    end,
+    icon = '  ',
+    highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color, colors.bg}
+  }
+}
 
 gls.mid[3] = {
   ShowLspClient = {
@@ -158,8 +173,10 @@ gls.mid[3] = {
     },
     condition = function()
       local tbl = {['dashboard'] = true, [' '] = true}
+
       if tbl[vim.bo.filetype] then return false end
-      return true
+
+      return true and condition.hide_in_width()
     end,
     highlight = {colors.grey, colors.purple}
   }
@@ -218,6 +235,8 @@ gls.mid[8] = {
   }
 }
 
+-- right
+
 gls.right[1] = {
   Tabstop = {
     provider = function()
@@ -235,19 +254,10 @@ gls.right[2] = {
 }
 
 gls.right[3] = {
-  Space = {
-    provider = function()
-      return ' '
-    end,
-    separator = ' ',
-    separator_highlight = {'NONE', colors.bg},
-    highlight = {colors.orange, colors.bg}
-  }
+  LineInfo = {provider = 'LineColumn', separator = ' ', condition = condition.hide_in_width, separator_highlight = {'NONE', colors.bg}, highlight = {colors.grey, colors.bg}}
 }
 
-gls.right[4] = {LineInfo = {provider = 'LineColumn', separator = ' ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.grey, colors.bg}}}
-
-gls.right[5] = {ScrollBar = {provider = 'ScrollBar', separator = ' ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.yellow, colors.bg}}}
+gls.right[4] = {ScrollBar = {provider = 'ScrollBar', separator = ' ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.yellow, colors.bg}}}
 
 gls.short_line_left[1] = {
   LeftEnd = {
