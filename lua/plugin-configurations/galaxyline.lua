@@ -154,7 +154,7 @@ gls.mid[3] = {
       if tbl[vim.bo.filetype] then return false end
       return true
     end,
-    highlight = {colors.grey, colors.green}
+    highlight = {colors.grey, colors.bg}
   }
 }
 
