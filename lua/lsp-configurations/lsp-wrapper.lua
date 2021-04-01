@@ -36,7 +36,7 @@ function lsp_wrapper.formatting()
 end
 
 function lsp_wrapper.formatting_sync()
-  vim.lsp.buf.formatting_sync(nil, 1000)
+  vim.lsp.buf.formatting_sync(nil, 2000)
 end
 
 function lsp_wrapper.hover()
