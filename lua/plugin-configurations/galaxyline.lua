@@ -108,12 +108,11 @@ gls.left[5] = {DiffModified = {provider = 'DiffModified', condition = condition.
 gls.left[6] = {DiffRemove = {provider = 'DiffRemove', condition = condition.hide_in_width, icon = '  ', highlight = {colors.red, colors.bg}}}
 
 gls.mid[1] = {
-  FileIcon = {provider = 'FileIcon', condition = buffer_not_empty, icon = '  ', highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color, colors.purple}}
-}
-
-gls.mid[2] = {
   FileName = {
     provider = {
+      function()
+        return '  '
+      end,
       'FileName',
       'FileSize',
       function()
@@ -125,26 +124,30 @@ gls.mid[2] = {
   }
 }
 
+gls.mid[2] = {FileIcon = {provider = {'FileIcon'}, condition = buffer_not_empty, icon = '  ', highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color, colors.bg}}}
+
 gls.mid[3] = {
   ShowLspClient = {
     provider = {
       function()
         local clients = vim.lsp.buf_get_clients()
 
-        if next(clients) == nil then return ' ' end
+        if next(clients) == nil then return '' end
 
         local t = ''
         for i, client in ipairs(clients) do
           if i == 1 then
-            t = client.name
+            t = t .. client.name
           else
             t = t .. ', ' .. client.name
           end
         end
 
-        return '  ' .. t .. '  '
+        return '  ' .. t .. ' ➜'
       end,
-      'FileTypeName',
+      function()
+        return ' '.. require('galaxyline.provider_buffer').get_buffer_filetype():lower()
+      end,
       function()
         return ' '
       end
@@ -154,7 +157,7 @@ gls.mid[3] = {
       if tbl[vim.bo.filetype] then return false end
       return true
     end,
-    highlight = {colors.grey, colors.bg}
+    highlight = {colors.grey, colors.purple}
   }
 }
 
