@@ -1,12 +1,10 @@
 local lsphelpers = {}
+local autocommandhelper = require('helper-functions.autocommand')
 
 function lsphelpers.auto_format_if_capable(client)
   if client.resolved_capabilities.document_formatting then
-    print('Autoformat supported for ➜ ' .. client.name)
-    vim.api.nvim_command([[ augroup AutoFormatStuff ]])
-    vim.api.nvim_command([[ autocmd! * <buffer> ]])
-    vim.api.nvim_command([[ autocmd BufWritePre <buffer> LspFormattingSync ]])
-    vim.api.nvim_command([[ augroup END ]])
+    -- print('Autoformat supported for ➜ ' .. client.name)
+    autocommandhelper.define_augroups({Format = {{'BufWritePre', '*', ':LspFormattingSync'}}})
   end
 end
 
