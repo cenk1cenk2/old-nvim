@@ -3,7 +3,6 @@ local autocommandhelper = require('helper-functions.autocommand')
 
 function lsphelpers.auto_format_if_capable(client)
   if client.resolved_capabilities.document_formatting then
-    -- print('Autoformat supported for ➜ ' .. client.name)
     autocommandhelper.define_augroups({Format = {{'BufWritePre', '*', ':LspFormattingSync'}}})
   end
 end
