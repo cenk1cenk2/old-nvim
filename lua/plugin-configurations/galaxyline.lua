@@ -107,15 +107,30 @@ gls.left[4] = {DiffAdd = {provider = 'DiffAdd', condition = condition.hide_in_wi
 gls.left[5] = {DiffModified = {provider = 'DiffModified', condition = condition.hide_in_width, icon = ' 柳 ', highlight = {colors.blue, colors.bg}}}
 gls.left[6] = {DiffRemove = {provider = 'DiffRemove', condition = condition.hide_in_width, icon = '  ', highlight = {colors.red, colors.bg}}}
 
-gls.right[1] = {DiagnosticError = {provider = 'DiagnosticError', icon = '  ', highlight = {colors.error_red, colors.bg}}}
+gls.left[7] = {
+  LeftRounded = {
+    provider = function()
+      return ''
+    end,
+    highlight = {colors.purple, colors.bg},
+    separator = ' ',
+    separator_highlight = {'NONE', colors.purple}
+  }
+}
 
-gls.right[2] = {DiagnosticWarn = {provider = 'DiagnosticWarn', icon = '  ', highlight = {colors.orange, colors.bg}}}
+gls.left[8] = {FileIcon = {provider = 'FileIcon', condition = buffer_not_empty, highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color, colors.purple}}}
 
-gls.right[3] = {DiagnosticHint = {provider = 'DiagnosticHint', icon = '  ', highlight = {colors.blue, colors.bg}}}
+gls.left[9] = {
+  FileName = {
+    provider = {'FileName', 'FileSize'},
+    condition = buffer_not_empty,
+    highlight = {colors.grey, colors.purple},
+    separator = '| ',
+    separator_highlight = {colors.bg, colors.purple}
+  }
+}
 
-gls.right[4] = {DiagnosticInfo = {provider = 'DiagnosticInfo', icon = '  ', highlight = {colors.blue, colors.bg}}}
-
-gls.right[5] = {
+gls.left[10] = {
   ShowLspClient = {
     provider = 'GetLspClient',
     condition = function()
@@ -123,39 +138,56 @@ gls.right[5] = {
       if tbl[vim.bo.filetype] then return false end
       return true
     end,
-    icon = ' ',
+    separator = ' | ',
+    separator_highlight = {colors.bg, colors.purple},
+    highlight = {colors.grey, colors.purple}
+  }
+}
+
+gls.left[11] = {
+  BufferType = {
+    provider = 'FileTypeName',
+    condition = condition.hide_in_width,
+    separator_highlight = {'NONE', colors.purple},
+    highlight = {colors.grey, colors.purple},
+    separator = ' '
+  }
+}
+
+gls.left[12] = {
+  RightRounded = {
+    provider = function()
+      return ''
+    end,
+    highlight = {colors.purple, colors.bg}
+  }
+}
+
+gls.left[13] = {DiagnosticError = {provider = 'DiagnosticError', icon = '  ', highlight = {colors.error_red, colors.bg}}}
+
+gls.left[14] = {DiagnosticWarn = {provider = 'DiagnosticWarn', icon = '  ', highlight = {colors.orange, colors.bg}}}
+
+gls.left[15] = {DiagnosticHint = {provider = 'DiagnosticHint', icon = '  ', highlight = {colors.blue, colors.bg}}}
+
+gls.left[16] = {DiagnosticInfo = {provider = 'DiagnosticInfo', icon = '  ', highlight = {colors.blue, colors.bg}}}
+
+gls.right[1] = {
+  Tabstop = {
+    provider = function()
+      return 'sw=' .. vim.api.nvim_buf_get_option(0, 'shiftwidth')
+    end,
+    condition = condition.hide_in_width,
+    separator = ' ',
+    separator_highlight = {'NONE', colors.bg},
     highlight = {colors.grey, colors.bg}
   }
 }
 
-gls.right[6] = {LineInfo = {provider = 'LineColumn', separator = '  ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.grey, colors.bg}}}
-
--- gls.right[7] = {PerCent = {provider = 'LinePercent', separator = ' ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.grey, colors.bg}}}
-
-gls.right[7] = {ScrollBar = {provider = 'ScrollBar', separator = '  ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.grey, colors.bg}}}
--- gls.right[8] = {
---   Tabstop = {
---     provider = function()
---       return 'Spaces: ' .. vim.api.nvim_buf_get_option(0, 'shiftwidth') .. ' '
---     end,
---     condition = condition.hide_in_width,
---     separator = ' ',
---     separator_highlight = {'NONE', colors.bg},
---     highlight = {colors.grey, colors.bg}
---   }
--- }
-
-gls.right[9] = {BufferIcon = {provider = 'BufferIcon', separator = ' ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.grey, colors.bg}}}
-
-gls.right[10] = {
-  BufferType = {provider = 'FileTypeName', condition = condition.hide_in_width, separator = ' ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.grey, colors.bg}}
+gls.right[2] = {
+  FileEncode = {provider = 'FileEncode', condition = condition.hide_in_width, separator = ' ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.grey, colors.bg}}
 }
 
--- gls.right[10] = {
---   FileEncode = {provider = 'FileEncode', condition = condition.hide_in_width, separator = ' ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.grey, colors.bg}}
--- }
-
-gls.right[11] = {
+gls.right[3] = {
   Space = {
     provider = function()
       return ' '
@@ -165,6 +197,10 @@ gls.right[11] = {
     highlight = {colors.orange, colors.bg}
   }
 }
+
+gls.right[4] = {LineInfo = {provider = 'LineColumn', separator = ' ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.grey, colors.bg}}}
+
+gls.right[5] = {ScrollBar = {provider = 'ScrollBar', separator = ' ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.purple, colors.bg}}}
 
 gls.short_line_left[1] = {
   LeftEnd = {
