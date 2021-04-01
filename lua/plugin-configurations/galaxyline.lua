@@ -132,7 +132,7 @@ gls.right[6] = {LineInfo = {provider = 'LineColumn', separator = '  ', separator
 
 -- gls.right[7] = {PerCent = {provider = 'LinePercent', separator = ' ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.grey, colors.bg}}}
 
-gls.right[7] = {ScrollBar = {provider = 'ScrollBar', separator = '  ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.yellow, colors.gray}}}
+gls.right[7] = {ScrollBar = {provider = 'ScrollBar', separator = '  ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.grey, colors.bg}}}
 -- gls.right[8] = {
 --   Tabstop = {
 --     provider = function()
