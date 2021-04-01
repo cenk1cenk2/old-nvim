@@ -20,6 +20,7 @@ local colors = {
 
 local buffer_not_empty = function()
   if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then return true end
+
   return false
 end
 
@@ -78,6 +79,7 @@ local vim_mode = {
       colors.yellow,
       function()
         if not buffer_not_empty() then return colors.bg end
+
         return colors.bg
       end
     },
@@ -94,7 +96,9 @@ gls.left[2] = {
     provider = function()
       return ' '
     end,
-    condition = condition.check_git_workspace,
+    condition = function()
+      return condition.check_git_workspace() and condition.hide_in_width()
+    end,
     separator = ' ',
     separator_highlight = {'NONE', colors.bg},
     highlight = {colors.orange, colors.bg}
@@ -102,7 +106,15 @@ gls.left[2] = {
 }
 
 gls.left[3] = {
-  GitBranch = {provider = 'GitBranch', condition = condition.check_git_workspace, separator = ' ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.grey, colors.bg}}
+  GitBranch = {
+    provider = 'GitBranch',
+    condition = function()
+      return condition.check_git_workspace() and condition.hide_in_width()
+    end,
+    separator = ' ',
+    separator_highlight = {'NONE', colors.bg},
+    highlight = {colors.grey, colors.bg}
+  }
 }
 
 gls.left[4] = {DiffAdd = {provider = 'DiffAdd', condition = condition.hide_in_width, icon = '  ', highlight = {colors.green, colors.bg}}}
@@ -258,6 +270,8 @@ gls.right[3] = {
 }
 
 gls.right[4] = {ScrollBar = {provider = 'ScrollBar', separator = ' ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.yellow, colors.bg}}}
+
+-- shortline disable
 
 gls.short_line_left[1] = {
   LeftEnd = {
