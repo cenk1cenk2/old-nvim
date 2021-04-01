@@ -71,6 +71,7 @@ else
 
   -- alternate way to save
   vim.api.nvim_set_keymap('n', [[<C-s>]], [[:w<CR>]], {silent = true, noremap = true})
+  vim.api.nvim_set_keymap('n', [[<C-S>]], [[:noa w<CR>]], {silent = true, noremap = true})
 
   -- alternate way to quit
   vim.api.nvim_set_keymap('n', [[<C-q>]], [[:BufferClose<CR>]], {silent = true, noremap = true})
