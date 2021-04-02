@@ -65,4 +65,4 @@ if not lspconfig.tailwind then
   }
 end
 
-lspconfig.tailwind.setup {}
+lspconfig.tailwind.setup({})

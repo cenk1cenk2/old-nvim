@@ -217,6 +217,9 @@ function extract_archive() {
 		tar xf "$TMP_DOWNLOAD_PATH" -C "${TMP_UNZIPPED_FOLDER}"
 	elif [ "${COMPRESSION}" == "zip" ]; then
 		unzip -qq "$TMP_DOWNLOAD_PATH" -d "${TMP_UNZIPPED_FOLDER}"
+	elif [ "${COMPRESSION}" == "none" ]; then
+		cp -v "${TMP_DOWNLOAD_PATH}" "${TMP_UNZIPPED_FOLDER}"
+		log_warn "No unzipping pattern found, using none."
 	else
 		log_error "Unknown archive type: ${COMPRESSION}"
 		exit 127
@@ -251,8 +254,14 @@ function download_binary() {
 	rm "${TMP_DOWNLOAD_PATH}"
 
 	for e in "${BINARY[@]}"; do
-		ASSET_TO_COPY="${TMP_UNZIPPED_FOLDER}/${e}"
-		cp "${ASSET_TO_COPY}" "${LSP_FOLDER}"
+		if [ "${COMPRESSION}" != "none" ]; then
+			ASSET_TO_COPY="${TMP_UNZIPPED_FOLDER}/${e}"
+			cp "${ASSET_TO_COPY}" "${LSP_FOLDER}"
+		else
+			ASSET_TO_COPY="${TMP_UNZIPPED_FOLDER}"
+			cp "${ASSET_TO_COPY}" "${LSP_FOLDER}/${e}"
+			ASSET_TO_COPY="${e}"
+		fi
 
 		ASSET_NAME=$(basename -- "$ASSET_TO_COPY")
 		log_debug "chmod +x: ${ASSET_NAME}"
@@ -352,6 +361,10 @@ download_extension "https://github.com/microsoft/vscode-eslint/releases/download
 # install tailwinds language server
 VERSION="0.5.9"
 download_extension "https://github.com/tailwindlabs/tailwindcss-intellisense/releases/download/v$VERSION/vscode-tailwindcss-$VERSION.vsix" "zip" "tailwindcss-language-server" "extension/dist/server"
+
+# install hadolint language server
+VERSION="v2.1.0"
+download_binary "https://github.com/hadolint/hadolint/releases/download/$VERSION/hadolint-Linux-x86_64" "none" "hadolint"
 
 # downloading vscode internal extensions
 EXTENSIONS_BASE_PATH="VSCode-linux-x64/resources/app/extensions"

@@ -1,5 +1,6 @@
 return {
   black = require('lsp-language-configurations.efm-configurations.black'),
+  docker_hadolint = require('lsp-language-configurations.efm-configurations.docker-hadolint'),
   eslint = require('lsp-language-configurations.efm-configurations.eslint'),
   flake8 = require('lsp-language-configurations.efm-configurations.flake8'),
   goimports = require('lsp-language-configurations.efm-configurations.goimports'),

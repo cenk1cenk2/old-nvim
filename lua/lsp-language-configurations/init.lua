@@ -1,8 +1,6 @@
 require('lsp-language-configurations.bash')
 require('lsp-language-configurations.css')
 require('lsp-language-configurations.docker')
-require('lsp-language-configurations.efm')
-require('lsp-language-configurations.eslint')
 require('lsp-language-configurations.go')
 require('lsp-language-configurations.graphql')
 require('lsp-language-configurations.html')
@@ -15,3 +13,7 @@ require('lsp-language-configurations.tsserver')
 require('lsp-language-configurations.vim')
 require('lsp-language-configurations.vue')
 require('lsp-language-configurations.yaml')
+
+-- this is at the end due to priority
+require('lsp-language-configurations.efm')
+require('lsp-language-configurations.eslint')
