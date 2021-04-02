@@ -188,7 +188,7 @@ gls.mid[3] = {
 
       if tbl[vim.bo.filetype] then return false end
 
-      return true and condition.hide_in_width()
+      return true and condition.hide_in_width() and buffer_not_empty()
     end,
     highlight = {colors.grey, colors.purple}
   }
