@@ -17,3 +17,6 @@ require('lsp-language-configurations.yaml')
 -- this is at the end due to priority
 require('lsp-language-configurations.efm')
 require('lsp-language-configurations.eslint')
+
+-- spellcheck, least priority
+require('lsp-language-configurations.grammarly')

@@ -62,6 +62,7 @@ NPM_EXTENSIONS=(
 	"markdownlint-cli;markdownlint"
 	"vls"
 	"eslint;false"
+	"unofficial-grammarly-language-server"
 )
 
 # format: [extensions-name]

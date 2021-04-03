@@ -49,7 +49,9 @@ vim.g.which_key_map = {
     s = {':setlocal spell!', 'toggle spell check'},
     t = {':!markdown-toc %:p --bullets="-" -i', 'markdown-toc'},
     T = {':TSHighlightCapturesUnderCursor', 'show treesitter theme color'},
-    w = {':StripWhitespace', 'strip whitespace'}
+    w = {':StripWhitespace', 'strip whitespace'},
+    U = {':! cd ~/.config/nvim/ && git pull', 'update configuration via git'},
+    L = {':! cd ~/.config/nvim/utils && bash install-lsp.sh', 'update lsp servers'}
   },
 
   -- buffer
