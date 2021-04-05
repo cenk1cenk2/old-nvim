@@ -15,8 +15,10 @@ require('lsp-language-configurations.vue')
 require('lsp-language-configurations.yaml')
 
 -- this is at the end due to priority
-require('lsp-language-configurations.efm')
 require('lsp-language-configurations.eslint')
+
+-- formatter priority
+require('lsp-language-configurations.efm')
 
 -- spellcheck, least priority
 require('lsp-language-configurations.grammarly')

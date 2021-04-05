@@ -1,6 +1,6 @@
-local lspconfig = require 'lspconfig'
-local configs = require 'lspconfig/configs'
-local util = require 'lspconfig/util'
+local lspconfig = require('lspconfig')
+local configs = require('lspconfig/configs')
+local util = require('lspconfig.util')
 local lsphelpers = require('helper-functions.lsp')
 
 -- Check if it's already defined for when reloading this file.
@@ -30,8 +30,4 @@ if not lspconfig.eslint then
   }
 end
 
-lspconfig.eslint.setup {
-  on_attach = function(client)
-    client.resolved_capabilities.document_formatting = false
-  end
-}
+lspconfig.eslint.setup({})

@@ -5,8 +5,9 @@ require('lspconfig').tsserver.setup {
   cmd = {vim.g.lsp_servers_dir .. 'typescript-language-server', '--stdio', '--log-level', '4'},
   on_attach = function(client)
     lsphelpers.disable_formatting(client)
+    lsphelpers.on_attach_illuminate(client)
   end,
-  init_options = {documentFormatting = false},
+  settings = {documentFormatting = false},
   commands = {
     LspOrganizeImports = {
       function()
