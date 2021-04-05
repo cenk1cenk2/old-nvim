@@ -7,7 +7,7 @@ require('lspconfig').tsserver.setup {
     lsphelpers.disable_formatting(client)
     lsphelpers.on_attach_illuminate(client)
   end,
-  settings = {documentFormatting = false},
+  init_options = {documentFormatting = false},
   commands = {
     LspOrganizeImports = {
       function()

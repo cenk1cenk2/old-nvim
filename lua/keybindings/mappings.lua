@@ -70,6 +70,7 @@ else
   vim.api.nvim_set_keymap('n', [[<C-Down>]], [[:BufferMoveNext<CR>]], {silent = true, noremap = true})
 
   -- alternate way to save
+  -- @FIXME: bandaidded this to save twice because of the formatting
   vim.api.nvim_set_keymap('n', [[<C-s>]], [[:w<CR>]], {silent = true, noremap = true})
   vim.api.nvim_set_keymap('n', [[<C-x>]], [[:noa w<CR>:echo "No autocommands had been run while saving!!!"<CR>]], {silent = true, noremap = true})
 

@@ -5,7 +5,7 @@ require('compe').setup {
   autocomplete = true,
   debug = false,
   min_length = 1,
-  preselect = 'disable',
+  preselect = 'enable',
   throttle_time = 80,
   source_timeout = 200,
   incomplete_delay = 400,
@@ -30,9 +30,6 @@ local check_back_space = function()
   end
 end
 
--- Use (s-)tab to:
---- move to prev/next item in completion menuone
---- jump to prev/next snippet's placeholder
 _G.tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t '<C-n>'
@@ -62,8 +59,8 @@ vim.api.nvim_set_keymap('s', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
 
 -- completion triggers
 vim.api.nvim_set_keymap('i', '<C-Space>', 'compe#complete()', {expr = true, silent = true})
-vim.api.nvim_set_keymap('i', '<CR>', 'compe#confirm()', {expr = true, silent = true})
-vim.api.nvim_set_keymap('i', '<S-CR>', 'compe#close("<CR>")', {expr = true, silent = true})
+-- vim.api.nvim_set_keymap('i', '<CR>', 'compe#confirm("<CR>")', {expr = true, silent = true})
+vim.api.nvim_set_keymap('i', '<C-CR>', 'compe#close("<C-e>")', {expr = true, silent = true})
 vim.api.nvim_set_keymap('i', '<C-e>', 'compe#close("<C-e>")', {expr = true, silent = true})
 vim.api.nvim_set_keymap('i', '<C-f>', 'compe#scroll({ "delta": +4 })', {expr = true, silent = true})
 vim.api.nvim_set_keymap('i', '<C-d>', 'compe#scroll({ "delta": -4 })', {expr = true, silent = true})
