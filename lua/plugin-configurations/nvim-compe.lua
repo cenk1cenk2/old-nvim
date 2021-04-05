@@ -61,7 +61,7 @@ vim.api.nvim_set_keymap('i', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
 vim.api.nvim_set_keymap('s', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
 
 -- completion triggers
-vim.api.nvim_set_keymap('i', '<C-Space>', 'compe#complete()', {expr = true, silent = true})
+vim.api.nvim_set_keymap('i', '<C-Space>', 'compe#close("<CR>")', {expr = true, silent = true})
 -- vim.api.nvim_set_keymap('i', '<CR>', 'compe#confirm("<CR>")', {expr = true, silent = true})
 vim.api.nvim_set_keymap('i', '<S-CR>', '<CR>', {expr = true, silent = true})
 vim.api.nvim_set_keymap('i', '<C-e>', 'compe#close("<C-e>")', {expr = true, silent = true})
