@@ -9,11 +9,11 @@ if not lspconfig.grammarly then
       cmd = {'node', vim.g.lsp_servers_dir .. 'unofficial-grammarly-language-server', '--stdio'},
       filetypes = {'=', 'markdown'},
       root_dir = function(fname)
-        return util.root_pattern('tsconfig.json')(fname) or util.root_pattern('package.json', 'jsconfig.json', '.git')(fname)
+        return util.root_pattern('.git')(fname)
       end,
-      log_level = vim.lsp.protocol.MessageType.Log,
-      settings = {},
-      handlers = {}
+      log_level = vim.lsp.protocol.MessageType.Info,
+      settings = {autoActivate = true, debug = true}
+      -- handlers = {}
     }
   }
 end

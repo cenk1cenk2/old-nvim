@@ -4,7 +4,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 require('lspconfig').html.setup {
-  cmd = {'node', vim.g.lsp_servers_dir .. 'vs-code/html-language-features/server/dist/node/htmlServerMain.js', '--stdio'},
+  cmd = {'node', vim.g.lsp_servers_dir .. 'vscode/html-language-features/server/dist/node/htmlServerMain.js', '--stdio'},
   capabilities = capabilities,
   -- init_options = {provideFormatter = true},
   filetypes = {
