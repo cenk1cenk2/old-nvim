@@ -52,7 +52,7 @@ fi
 which nvim >/dev/null
 
 # install stuff for lsp
-eval "source $HOME/.config/nvim/utils/install-lsp.sh"
+bash "$HOME/.config/nvim/utils/install-lsp.sh"
 
 ## goodbye
 log_finish "Installed neovim configuration in $((SECONDS / 60)) minutes and $((SECONDS % 60)) seconds." "top"
