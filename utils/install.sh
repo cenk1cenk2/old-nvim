@@ -26,7 +26,7 @@ log_this "[install-nvim]" "false" "lifetime" "bottom"
 pip3 list | grep pynvim >/dev/null && echo "pynvim installed, moving on..." || installpynvim
 
 # move old nvim directory if it exists
-if [ -d "$HOME/config/nvim" ]; then
+if [ -d "$HOME/.config/nvim" ]; then
 	log_warn "Moving your config to nvim.old"
 	mv ~/.config/nvim ~/.config/nvim.old
 fi
