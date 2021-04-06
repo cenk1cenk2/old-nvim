@@ -153,6 +153,9 @@ return require('packer').startup(function(use)
     use {'GustavoKatel/telescope-asynctasks.nvim'}
     use {'nvim-telescope/telescope-media-files.nvim'}
     use {'TC72/telescope-tele-tabby.nvim'}
+    use {'nvim-telescope/telescope-github.nvim'}
+    use {'gbrlsnchs/telescope-lsp-handlers.nvim'}
+    use {'nvim-telescope/telescope-packer.nvim'}
 
     -- git related
     -- use {'airblade/vim-gitgutter'}

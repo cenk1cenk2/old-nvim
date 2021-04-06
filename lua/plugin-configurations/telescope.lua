@@ -4,7 +4,7 @@ local actions = require('telescope.actions')
 require('telescope').load_extension('media_files')
 require('telescope').setup {
   defaults = {
-    vimgrep_arguments = {'rg', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case'},
+    find_command = {'rg', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case'},
     prompt_position = 'top',
     prompt_prefix = ' ',
     selection_caret = ' ',
@@ -74,15 +74,19 @@ require('telescope').setup {
 }
 
 -- extensions
-require('telescope').load_extension('ultisnips')
-require('telescope').load_extension('gh')
-require('telescope').load_extension('node_modules')
+local telescope = require('telescope')
+telescope.load_extension('ultisnips')
+telescope.load_extension('gh')
+telescope.load_extension('node_modules')
+telescope.load_extension('gh')
+telescope.load_extension('lsp_handlers')
+telescope.extensions.packer.plugins()
 
 local action_state = require('telescope.actions.state')
 local actions = require('telescope.actions')
 
 -- add close buffer
-telescope_custom_buffers = function()
+Telescope_custom_buffers = function()
   require('telescope.builtin').buffers({
     attach_mappings = function(prompt_bufnr, map)
       local delete_buf = function()
