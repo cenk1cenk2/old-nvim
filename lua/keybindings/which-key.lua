@@ -138,6 +138,7 @@ vim.g.which_key_map = {
     h = {':GitSignsPreviewHunk', 'preview hunk'},
     n = {':GitSignsNextHunk', 'next hunk'},
     p = {':GitSignsPrevHunk', 'prev hunk'},
+    m = {':Gdiffsplit', 'merge view'},
     M = {':Gvdiffsplit!', 'merge view, 3-way-split'},
     s = {':CocCommand fzf-preview.GitStatus', 'status'},
     t = {':GitSignsToggle', 'toggle hunks'},
@@ -147,7 +148,14 @@ vim.g.which_key_map = {
   },
 
   -- gist
-  G = {name = '+gist', f = {':CocList gist', 'list'}, p = {':CocCommand gist.create', 'post gist '}},
+  G = {
+    name = '+gist',
+    f = {':CocList gist', 'list'},
+    p = {':CocCommand gist.create', 'post gist '},
+    I = {':Telescope gh issues', 'github issues'},
+    P = {':Telescope gh pull_request', 'github pull requests'},
+    G = {':Telescope gh gist', 'github gists'}
+  },
 
   -- lsp
   l = {

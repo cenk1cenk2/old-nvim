@@ -78,9 +78,8 @@ local telescope = require('telescope')
 telescope.load_extension('ultisnips')
 telescope.load_extension('gh')
 telescope.load_extension('node_modules')
-telescope.load_extension('gh')
 telescope.load_extension('lsp_handlers')
-telescope.extensions.packer.plugins()
+
 
 local action_state = require('telescope.actions.state')
 local actions = require('telescope.actions')
