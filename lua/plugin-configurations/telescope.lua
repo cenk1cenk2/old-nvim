@@ -1,12 +1,12 @@
 local actions = require('telescope.actions')
 -- Global remapping
 -- '--color=never',
-require('telescope').load_extension('media_files')
 require('telescope').setup {
   defaults = {
     find_command = {'rg', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case'},
+    vimgrep_arguments = {'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case'},
     prompt_position = 'top',
-    prompt_prefix = ' ',
+    prompt_prefix = '🔍 ',
     selection_caret = ' ',
     entry_prefix = '  ',
     initial_mode = 'insert',
@@ -14,9 +14,9 @@ require('telescope').setup {
     sorting_strategy = 'descending',
     layout_strategy = 'horizontal',
     layout_defaults = {horizontal = {mirror = false}, vertical = {mirror = false}},
-    file_sorter = require'telescope.sorters'.get_fuzzy_file,
+    file_sorter = require('telescope.sorters').get_fuzzy_file,
     file_ignore_patterns = {},
-    generic_sorter = require'telescope.sorters'.get_generic_fuzzy_sorter,
+    generic_sorter = require('telescope.sorters').get_generic_fuzzy_sorter,
     shorten_path = true,
     winblend = 0,
     width = 0.75,
@@ -28,9 +28,9 @@ require('telescope').setup {
     color_devicons = true,
     use_less = true,
     set_env = {['COLORTERM'] = 'truecolor'}, -- default = nil,
-    file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
-    grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
-    qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
+    file_previewer = require('telescope.previewers').vim_buffer_cat.new,
+    grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
+    qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
 
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker,
@@ -79,7 +79,7 @@ telescope.load_extension('ultisnips')
 telescope.load_extension('gh')
 telescope.load_extension('node_modules')
 telescope.load_extension('lsp_handlers')
-
+telescope.load_extension('media_files')
 
 local action_state = require('telescope.actions.state')
 local actions = require('telescope.actions')
