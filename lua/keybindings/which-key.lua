@@ -1,5 +1,3 @@
-local helpers = require('helper-functions')
-
 -- timeoutwhich_key_timeout
 vim.g.which_key_timeout = 25
 
@@ -125,6 +123,7 @@ vim.g.which_key_map = {
 
   g = {
     name = '+git',
+    a = {':0Glog', 'buffer commits'},
     b = {':Git blame', 'blame'},
     B = {':Telescope git_branches', 'branches'},
     c = {':GDiffCompare', 'compare with branch'},
