@@ -2,6 +2,9 @@
 vim.g.mapleader = ' '
 vim.api.nvim_set_keymap('n', [[<Space>]], [[<Nop>]], {})
 
+-- disable help
+vim.api.nvim_set_keymap('i', [[<F1>]], [[<Nop>]], {silent = true})
+
 -- window moving keybinds
 vim.api.nvim_set_keymap('i', [[<C-h>]], [[<C-w>h]], {})
 vim.api.nvim_set_keymap('i', [[<C-j>]], [[<C-w>j]], {})
@@ -30,8 +33,8 @@ vim.api.nvim_set_keymap('n', [[Ä]], [[/{<CR>:let @/ = ""<CR>zz]], {silent = tru
 
 -- run through function parantheses
 vim.api.nvim_set_keymap('n', [[#]], [[/(<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
-vim.api.nvim_set_keymap('n', [[*]], [[?(<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
-vim.api.nvim_set_keymap('n', [[+]], [[?)<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
+vim.api.nvim_set_keymap('n', [[*]], [[?)<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
+vim.api.nvim_set_keymap('n', [[+]], [[?(<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
 vim.api.nvim_set_keymap('n', [[']], [[/)<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
 
 -- copy last clipboard register
@@ -74,16 +77,14 @@ else
   vim.api.nvim_set_keymap('n', [[<C-x>]], [[:noa w<CR>:echo "No autocommands had been run while saving!!!"<CR>]], {silent = true, noremap = true})
 
   -- close quick fix
-  vim.api.nvim_set_keymap('n', [[<C-e>]], [[:cclose]], {silent = true, noremap = true})
-  vim.api.nvim_set_keymap('n', [[<C-b>]], [[:cprev]], {silent = true, noremap = true})
-  vim.api.nvim_set_keymap('n', [[<C-m>]], [[:cnext]], {silent = true, noremap = true})
+  vim.api.nvim_set_keymap('n', [[<C-e>]], [[:cclose<CR>]], {silent = true, noremap = true})
 
   -- alternate way to quit
   vim.api.nvim_set_keymap('n', [[<C-q>]], [[:BufferClose<CR>]], {silent = true, noremap = true})
 
   -- split to tab
   vim.api.nvim_set_keymap('n', [[<C-t>]], [[<C-w>T]], {silent = true, noremap = true})
-  vim.api.nvim_set_keymap('n', [[<C-w>]], [[<C-w><C-o>]], {silent = true, noremap = true})
+  vim.api.nvim_set_keymap('n', [[<C-E>]], [[<C-w><C-o>]], {silent = true, noremap = true})
 
   -- use control c instead of escape
   -- vim.api.nvim_set_keymap('n', [[<C-c>]], [[<Esc>]], {silent = true, noremap = true})

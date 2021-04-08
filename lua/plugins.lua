@@ -156,10 +156,10 @@ return require('packer').startup(function(use)
     use {'gbrlsnchs/telescope-lsp-handlers.nvim'}
 
     -- git related
-    -- use {'airblade/vim-gitgutter'}
     use {'lewis6991/gitsigns.nvim'}
     use {'tpope/vim-fugitive'}
     use {'tpope/vim-rhubarb'}
+    use {'tpope/vim-unimpaired'}
     use {'junegunn/gv.vim'}
 
     -- coc for now
