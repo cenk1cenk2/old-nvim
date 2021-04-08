@@ -20,7 +20,6 @@ vim.g.which_key_map = {
   [';'] = {':Telescope commands', 'commands'},
   ['/'] = {':History/', 'search history'},
   ['='] = {'<C-W>=', 'balance windows'},
-  ['"'] = {'<Plug>PeekupOpen', 'registers'},
   ['e'] = {':NvimTreeToggle', 'explorer'},
   ['?'] = {':NvimTreeFindFile', 'find file in explorer'},
   ['E'] = {':Telescope file_browser', 'file-browser'},
@@ -117,12 +116,11 @@ vim.g.which_key_map = {
   },
 
   -- find and replace
-  F = {
+  s = {
     name = '+find & replace',
-    f = {':Farf --source=vimgrep --file-mask="%:p"', 'find in buffer'},
-    F = {':Farf --source=rgnvim', 'find in workspace'},
-    r = {':Farr --source=vimgrep --file-mask="%:p"', 'replace in buffer'},
-    R = {':Farr --source=rgnvim', 'replace in workspace'}
+    f = {':FindAndReplace', 'find and replace'},
+    s = {':FindAndReplaceVisual', 'find this visual'},
+    b = {':FindAndReplaceInBuffer', 'search in current buffer'}
   },
 
   g = {

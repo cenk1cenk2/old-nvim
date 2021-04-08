@@ -61,7 +61,7 @@ return require('packer').startup(function(use)
     use {'psliwka/vim-smoothie'}
 
     -- find and replace
-    use {'brooth/far.vim'}
+    use {'windwp/nvim-spectre'}
 
     -- multiple cursors
     use {'terryma/vim-multiple-cursors'}
@@ -91,10 +91,10 @@ return require('packer').startup(function(use)
     use {'mbbill/undotree'}
 
     -- better quick fix window
-    -- use {'kevinhwang91/nvim-bqf'} -- (temp)
+    use {'kevinhwang91/nvim-bqf'} -- (temp)
 
     -- peek registers and macros
-    use {'gennaro-tedesco/nvim-peekup'}
+    use {'tversteeg/registers.nvim'}
 
     -- file explorer
     use {'kyazdani42/nvim-tree.lua'}
