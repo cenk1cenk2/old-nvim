@@ -48,6 +48,9 @@ return require('packer').startup(function(use)
     -- start screen
     use {'mhinz/vim-startify'}
 
+    -- session management
+    use {'rmagatti/auto-session'}
+
     -- which key
     use {'liuchengxu/vim-which-key'}
 
@@ -58,7 +61,7 @@ return require('packer').startup(function(use)
     use {'romgrk/barbar.nvim'}
 
     -- smooth scroll
-    use {'psliwka/vim-smoothie'}
+    use {'karb94/neoscroll.nvim'}
 
     -- find and replace
     use {'windwp/nvim-spectre'}
@@ -112,6 +115,7 @@ return require('packer').startup(function(use)
     use {'glepnir/lspsaga.nvim'}
     use {'onsails/lspkind-nvim'}
     use {'kosayoda/nvim-lightbulb'}
+    use {'jose-elias-alvarez/nvim-lsp-ts-utils'}
 
     -- illumunate
     use {'RRethy/vim-illuminate'}
@@ -130,7 +134,7 @@ return require('packer').startup(function(use)
     use {'puremourning/vimspector'}
 
     -- syntax highlighting for the rest
-    use {'sheerun/vim-polyglot'}
+    -- use {'sheerun/vim-polyglot'}
 
     -- Treesitter
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
@@ -147,7 +151,6 @@ return require('packer').startup(function(use)
 
     -- telescope extensions
     use {'nvim-telescope/telescope-node-modules.nvim'}
-    use {'fhill2/telescope-ultisnips.nvim'}
     use {'nvim-telescope/telescope-vimspector.nvim'}
     use {'GustavoKatel/telescope-asynctasks.nvim'}
     use {'nvim-telescope/telescope-media-files.nvim'}

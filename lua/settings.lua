@@ -1,6 +1,7 @@
 vim.cmd('set iskeyword+=-') -- treat dash separated words as a word text object"
 vim.cmd('set iskeyword+=_') -- treat dash separated words as a word text object"
 vim.cmd('set shortmess+=c') -- Don't pass messages to |ins-completion-menu|.
+vim.cmd('autocmd FileType * set formatoptions-=o') -- Don't pass messages to |ins-completion-menu|.
 
 vim.o.hidden = true -- Required to keep multiple buffers open multiple buffers
 vim.cmd('set whichwrap+=<,>,[,],h,l') -- move to next line with theses keys

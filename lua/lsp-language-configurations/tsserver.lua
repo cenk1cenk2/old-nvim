@@ -6,6 +6,12 @@ require('lspconfig').tsserver.setup {
   on_attach = function(client)
     lsphelpers.disable_formatting(client)
     lsphelpers.on_attach_illuminate(client)
+
+    require('nvim-lsp-ts-utils').setup {
+      -- defaults
+      disable_commands = false,
+      enable_import_on_completion = false
+    }
   end,
   init_options = {documentFormatting = false},
   commands = {

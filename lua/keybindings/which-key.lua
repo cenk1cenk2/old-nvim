@@ -29,6 +29,7 @@ vim.g.which_key_map = {
   ['r'] = {':RnvimrToggle', 'ranger'},
   ['u'] = {':UndotreeToggle', 'undo tree'},
   ['W'] = {':call WindowSwap#EasyWindowSwap()', 'move window'},
+  ['q'] = {':TSLspFixCurrent', 'quick fix'},
 
   -- actions
   a = {
@@ -163,9 +164,11 @@ vim.g.which_key_map = {
     d = {':Telescope lsp_document_diagnostics --theme=get_dropdown', 'document diagnostics'},
     D = {':Telescope lsp_workspace_diagnostics --theme=get_dropdown', 'workspace diagnostics'},
     f = {':LspFormattingSync', 'format'},
+    F = {':LspFormatting', 'format-async'},
     h = {':LspHoverPreview', 'preview definition'},
     H = {':Lspsaga signature_help', 'signature help'},
-    g = {':LspOrganizeImports', 'organize imports'},
+    g = {':TSLspOrganize', 'organize imports'},
+    G = {':TSLspImportAll', 'import all missing'},
     i = {':LspImplementation', 'implementation'},
     I = {':LspInfo', 'lsp information'},
     l = {':Lspsaga show_line_diagnostics', 'line diagnostics'},
@@ -175,7 +178,7 @@ vim.g.which_key_map = {
     p = {':Lspsaga diagnostic_jump_prev', 'prev diagnostic'},
     q = {':Telescope quickfix', 'quickfix'},
     r = {':LspReferences', 'references'},
-    R = {':LspRename', 'rename'},
+    R = {':TSLspRenameFile', 'rename'},
     T = {':LspTypeDefinition', 'type defintion'},
     Q = {':LspRestart', 'restart currently active lsps'},
     s = {':Telescope lsp_document_symbols --theme=get_dropdown', 'document symbols'},
@@ -225,12 +228,17 @@ vim.g.which_key_map = {
     name = '+Session',
     c = {':SClose', 'Close Session'},
     d = {':SDelete!', 'Delete Session'},
-    l = {':SLoad', 'Load Session'},
+    -- l = {':SLoad', 'Load Session'},
+    l = {':RestoreSession', 'Load Session'},
     h = {':Startify', 'Start Page'},
-    s = {':SSave!', 'Save Session'},
+    -- s = {':SSave!', 'Save Session'},
+    s = {':SaveSession', 'Save Session'},
     f = {':CocList sessions', 'List Session'}
   }
 }
 
 vim.api.nvim_set_keymap('n', '<Space>', [[:<c-u>WhichKey '<space>'<CR>]], {silent = true})
 vim.fn['which_key#register']('<Space>', 'g:which_key_map')
+
+vim.cmd('autocmd! FileType which_key')
+vim.cmd('autocmd Filetype which_key set laststatus=0 noshowmode noruler | autocmd BufLeave <buffer> set laststatus=2 showmode ruler')
