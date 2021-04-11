@@ -45,7 +45,7 @@ vim.g.which_key_map = {
     l = {':set nonumber!', 'line-numbers'},
     r = {':set norelativenumber!', 'relative line nums'},
     s = {':setlocal spell!', 'toggle spell check'},
-    t = {':!markdown-toc %:p --bullets="-" -i', 'markdown-toc'},
+    t = {':!' .. vim.g.lsp_servers_dir .. 'markdown-toc %:p --bullets="-" -i', 'markdown-toc'},
     T = {':TSHighlightCapturesUnderCursor', 'show treesitter theme color'},
     w = {':StripWhitespace', 'strip whitespace'},
     U = {':! cd ~/.config/nvim/ && git pull', 'update configuration via git'},
