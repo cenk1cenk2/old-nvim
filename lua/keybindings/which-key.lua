@@ -241,4 +241,4 @@ vim.api.nvim_set_keymap('n', '<Space>', [[:<c-u>WhichKey '<space>'<CR>]], {silen
 vim.fn['which_key#register']('<Space>', 'g:which_key_map')
 
 vim.cmd('autocmd! FileType which_key')
-vim.cmd('autocmd Filetype which_key set laststatus=0 noshowmode noruler | autocmd BufLeave <buffer> set laststatus=2 showmode ruler')
+vim.cmd('autocmd Filetype which_key set laststatus=0 noruler | autocmd BufLeave <buffer> set laststatus=2 ruler')
