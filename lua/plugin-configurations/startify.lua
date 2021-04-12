@@ -2,7 +2,7 @@ vim.g.startify_custom_header = {'    @cenk1cenk2/nvim'}
 
 vim.g.startify_lists = {{type = 'sessions', header = {'   Sessions'}}, {type = 'dir', header = {'   Current Directory ' .. vim.fn.getcwd()}}}
 
-vim.g.startify_session_delete_buffers = 0
+vim.g.startify_session_delete_buffers = 1
 vim.g.startify_change_to_vcs_root = 1
 vim.g.startify_fortune_use_unicode = 1
 
