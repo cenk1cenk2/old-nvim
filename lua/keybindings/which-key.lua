@@ -228,11 +228,11 @@ vim.g.which_key_map = {
     name = '+Session',
     c = {':SClose', 'Close Session'},
     d = {':SDelete!', 'Delete Session'},
-    -- l = {':SLoad', 'Load Session'},
-    l = {':RestoreSession', 'Load Session'},
+    l = {':SLoad', 'Load Session'},
+    -- l = {':RestoreSession', 'Load Session'},
     h = {':Startify', 'Start Page'},
-    -- s = {':SSave!', 'Save Session'},
-    s = {':SaveSession', 'Save Session'},
+    s = {':SSave!', 'Save Session'},
+    -- s = {':SaveSession', 'Save Session'},
     f = {':CocList sessions', 'List Session'}
   }
 }
