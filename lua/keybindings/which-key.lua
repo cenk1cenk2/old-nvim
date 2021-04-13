@@ -228,6 +228,7 @@ vim.g.which_key_map = {
     name = '+Session',
     -- c = {':SClose', 'Close Session'},
     c = {':Dashboard', 'Dashboard'},
+    Q = {':qa!', 'quit all'},
     -- d = {':SDelete!', 'Delete Session'},
     -- l = {':SLoad', 'Load Session'},
     l = {':SessionLoad', 'Load Session'},
