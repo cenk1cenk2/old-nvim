@@ -17,7 +17,7 @@ vim.g.which_key_max_size = 0
 vim.g.which_key_map = {
   [';'] = {':Telescope commands', 'commands'},
   ['/'] = {':History/', 'search history'},
-  ['='] = {'<C-W>=', 'balance windows'},
+  ['='] = {'<C-w>=', 'balance windows'},
   ['e'] = {':NvimTreeToggle', 'explorer'},
   ['?'] = {':NvimTreeFindFile', 'find file in explorer'},
   ['E'] = {':Telescope file_browser', 'file-browser'},
@@ -107,6 +107,7 @@ vim.g.which_key_map = {
     s = {':Telescope ultisnips ultisnips', 'snippets'},
     S = {':Telescope spell_suggest', 'spell suggest'},
     r = {':call RipgrepInteractive()', 'rg interactive'},
+    p = {':Telescope find_files theme=get_dropdown', 'find file'},
     R = {':Telescope registers', 'registers'},
     t = {':Telescope live_grep', 'text-telescope'},
     T = {':Rg', 'all files for text ripgrep'},
