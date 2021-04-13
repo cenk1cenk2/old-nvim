@@ -9,7 +9,7 @@ vim.g.startify_fortune_use_unicode = 1
 vim.g.startify_session_autoload = 0
 vim.g.startify_session_persistence = 0
 
-vim.g.startify_session_dir = '~/.config/vimsession'
+vim.g.startify_session_dir = '~/.cache/nvim/session'
 
 vim.g.webdevicons_enable_startify = 1
 

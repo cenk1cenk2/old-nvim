@@ -6,7 +6,7 @@
   "list.source.mru.ignoreGitIgnore": true,
 
   // sessions
-  "session.directory": "~/.config/vimsession",
+  "session.directory": "~/.cache/nvim/session",
   "session.saveOnVimLeave": true,
   "session.restartOnSessionLoad": false,
 

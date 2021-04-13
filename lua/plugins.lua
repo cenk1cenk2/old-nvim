@@ -45,11 +45,11 @@ return require('packer').startup(function(use)
     use {'kyazdani42/nvim-web-devicons'}
     use {'ryanoasis/vim-devicons'}
 
+    -- dashboard
+    use {'glepnir/dashboard-nvim'}
+
     -- start screen
     -- use {'mhinz/vim-startify'}
-
-    -- session management
-    use {'rmagatti/auto-session'}
 
     -- which key
     use {'liuchengxu/vim-which-key'}
