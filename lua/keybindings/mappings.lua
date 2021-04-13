@@ -123,4 +123,8 @@ else
   -- tmux fixes
   vim.api.nvim_set_keymap('i', [[<C-a>]], [[<Home>]], {silent = true, noremap = true})
   vim.api.nvim_set_keymap('i', [[<C-e>]], [[<End>]], {silent = true, noremap = true})
+
+  -- ranger quick open
+  vim.api.nvim_set_keymap('n', [[<F5>]], [[:RnvimrToggle<CR>]], {silent = true, noremap = true})
+  vim.api.nvim_set_keymap('i', [[<F5>]], [[:RnvimrToggle<CR>]], {silent = true, noremap = true})
 end

@@ -34,4 +34,4 @@ vim.o.lazyredraw = true
 vim.cmd('set inccommand=split') -- Make substitution work in realtime
 -- vim.wo.wrap = false -- Display long lines as just one line
 vim.cmd('set wrap linebreak nolist')
-vim.o.sessionoptions = 'buffers,curdir,folds,tabpages,winsize'
+vim.o.sessionoptions = 'curdir,folds,tabpages,winsize'

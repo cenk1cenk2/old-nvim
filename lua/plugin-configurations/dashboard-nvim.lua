@@ -11,8 +11,9 @@ vim.g.dashboard_custom_section = {
   f = {description = {'  Quit'}, command = 'qa!'}
 }
 
--- vim.g.dashboard_custom_shortcut = {a = 'f', r = 'r', q = 'q', new_file = 'cn', book_marks = 'SPC f b'}
--- find_history = 'SPC f h',
+-- vim.cmd([[
+--   autocmd BufEnter !gitcommit if line2byte('.') == -1 && len(tabpagebuflist()) == 1 | Dashboard | endif
+--  ]])
 
 vim.g.dashboard_session_directory = vim.env['HOME'] .. '/.cache/nvim/session'
 
