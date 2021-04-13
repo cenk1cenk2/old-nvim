@@ -46,7 +46,7 @@ return require('packer').startup(function(use)
     use {'ryanoasis/vim-devicons'}
 
     -- start screen
-    use {'mhinz/vim-startify'}
+    -- use {'mhinz/vim-startify'}
 
     -- session management
     use {'rmagatti/auto-session'}

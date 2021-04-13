@@ -226,8 +226,8 @@ vim.g.which_key_map = {
   -- workspace/session
   w = {
     name = '+Session',
-    c = {':SClose', 'Close Session'},
-    d = {':SDelete!', 'Delete Session'},
+    -- c = {':SClose', 'Close Session'},
+    -- d = {':SDelete!', 'Delete Session'},
     -- l = {':SLoad', 'Load Session'},
     l = {':RestoreSession', 'Load Session'},
     h = {':Startify', 'Start Page'},
