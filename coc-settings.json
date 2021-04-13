@@ -7,7 +7,7 @@
 
   // sessions
   "session.directory": "~/.cache/nvim/session",
-  "session.saveOnVimLeave": true,
+  "session.saveOnVimLeave": false,
   "session.restartOnSessionLoad": false,
 
   "git.enableGutters": false,
