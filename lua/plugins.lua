@@ -49,7 +49,7 @@ return require('packer').startup(function(use)
     use {'mhinz/vim-startify'}
 
     -- session management
-    -- use {'rmagatti/auto-session'}
+    use {'rmagatti/auto-session'}
 
     -- which key
     use {'liuchengxu/vim-which-key'}
