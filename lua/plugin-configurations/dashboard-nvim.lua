@@ -6,8 +6,9 @@ vim.g.dashboard_custom_section = {
   a = {description = {'  Load Last Session'}, command = 'SessionLoad'},
   b = {description = {'ﭯ  Sessions'}, command = 'CocList sessions'},
   c = {description = {'  Find File'}, command = 'Telescope find_files'},
-  d = {description = {'  Recently Used Files'}, command = 'Telescope oldfiles'},
-  e = {description = {'  Quit'}, command = 'qa!'}
+  d = {description = {'  File Browser'}, command = 'Telescope file_browser'},
+  e = {description = {'  Recently Used Files'}, command = 'Telescope oldfiles'},
+  f = {description = {'  Quit'}, command = 'qa!'}
 }
 
 -- vim.g.dashboard_custom_shortcut = {a = 'f', r = 'r', q = 'q', new_file = 'cn', book_marks = 'SPC f b'}
