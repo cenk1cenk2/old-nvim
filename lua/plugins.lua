@@ -101,7 +101,7 @@ return require('packer').startup(function(use)
     use {'tversteeg/registers.nvim'}
 
     -- file explorer
-    use {'kyazdani42/nvim-tree.lua'}
+    use {'kyazdani42/nvim-tree.lua', commit = 'bbb8d60'}
 
     -- terminal
     use {'voldikss/vim-floaterm'}
