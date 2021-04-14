@@ -49,7 +49,7 @@ fi
 
 # format: [extensions-name];[binary-name]
 NPM_EXTENSIONS=(
-	"typescript;tsserver"
+	"typescript@next;tsserver"
 	"typescript-language-server"
 	"bash-language-server"
 	"eslint_d"
@@ -67,7 +67,7 @@ NPM_EXTENSIONS=(
 	"markdown-toc"
 )
 
-# format: [extensions-name]
+# format: [extensions-name];[binary-name]
 GO_EXTENSIONS=(
 	"github.com/mattn/efm-langserver@latest"
 	"github.com/client9/misspell/cmd/misspell@latest"
@@ -77,7 +77,7 @@ GO_EXTENSIONS=(
 	"golang.org/x/tools/cmd/goimports@latest"
 )
 
-# format: [extensions-name]
+# format: [extensions-name];[binary-name]
 PYTHON_EXTENSIONS=(
 	"vim-vint;vint"
 	"black"
@@ -362,7 +362,7 @@ VERSION="2.1.0"
 download_extension "https://github.com/microsoft/vscode-eslint/releases/download/release%2F$VERSION-next.1/vscode-eslint-$VERSION.vsix" "zip" "eslint-language-server" "extension/server/out"
 
 # install tailwinds language server
-VERSION="0.5.9"
+VERSION="0.5.10"
 download_extension "https://github.com/tailwindlabs/tailwindcss-intellisense/releases/download/v$VERSION/vscode-tailwindcss-$VERSION.vsix" "zip" "tailwindcss-language-server" "extension/dist/server"
 
 # install hadolint language server
