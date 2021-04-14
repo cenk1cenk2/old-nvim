@@ -65,6 +65,7 @@ NPM_EXTENSIONS=(
 	"vscode-languageserver-protocol@next;false"
 	"@emacs-grammarly/unofficial-grammarly-language-server;unofficial-grammarly-language-server"
 	"markdown-toc"
+	"stylelint-lsp"
 )
 
 # format: [extensions-name];[binary-name]
