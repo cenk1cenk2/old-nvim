@@ -11,12 +11,4 @@ vim.g.dashboard_custom_section = {
   f = {description = {'  Quit'}, command = 'qa!'}
 }
 
--- vim.cmd([[
---   autocmd BufEnter !gitcommit if line2byte('.') == -1 && len(tabpagebuflist()) == 1 | Dashboard | endif
---  ]])
-
 vim.g.dashboard_session_directory = vim.env['HOME'] .. '/.cache/nvim/session'
-
-local helpers = require('helper-functions')
-
--- helpers.autocommand.define_augroups({SessionSave = {{'VimLeave', '*', ':SessionSave'}}})

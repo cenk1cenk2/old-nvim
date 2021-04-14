@@ -24,7 +24,7 @@ endfunction
 
 vim.g.startify_bookmarks = {{p = '~/docker'}, {d = '~/development'}, {w = '~/development/work'}, {c = '~/.config/nvim'}, {i = '~/.config/nvim/init.vim'}}
 
-vim.cmd([[
-	autocmd BufEnter !gitcommit if line2byte('.') == -1 && len(tabpagebuflist()) == 1 | Startify | endif
-]])
+-- vim.cmd([[
+--   autocmd BufEnter !gitcommit if line2byte('.') == -1 && len(tabpagebuflist()) == 1 | Startify | endif
+-- ]])
 
