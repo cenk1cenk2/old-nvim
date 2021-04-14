@@ -64,7 +64,7 @@ vim.g.which_key_map = {
     f = {':Telescope tele_tabby list theme=get_dropdown', 'buffers-telescope'},
     F = {':CocCommand fzf-preview.AllBuffers --preview "bat --style=numbers --color=always --line-range :500 {}"', 'buffers-fzf'},
     s = {':edit #', 'jump between two last buffers'},
-    C = {':%bd', 'close-all'},
+    C = {':BufferWipeout', 'close-all'},
     X = {':BufferCloseAllButCurrent', 'close-all but current'},
     Y = {':BufferCloseBuffersRight', 'close-all to right'}
   },

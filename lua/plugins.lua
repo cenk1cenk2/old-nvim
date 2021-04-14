@@ -47,6 +47,7 @@ return require('packer').startup(function(use)
 
     -- dashboard
     use {'glepnir/dashboard-nvim'}
+    -- use {'rmagatti/auto-session'}
 
     -- start screen
     -- use {'mhinz/vim-startify'}

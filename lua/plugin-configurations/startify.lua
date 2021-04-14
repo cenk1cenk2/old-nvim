@@ -27,3 +27,4 @@ vim.g.startify_bookmarks = {{p = '~/docker'}, {d = '~/development'}, {w = '~/dev
 vim.cmd([[
 	autocmd BufEnter !gitcommit if line2byte('.') == -1 && len(tabpagebuflist()) == 1 | Startify | endif
 ]])
+

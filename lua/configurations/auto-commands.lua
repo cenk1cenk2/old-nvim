@@ -5,6 +5,10 @@ helpers.autocommand.define_augroups({
   DisableContuniationOfComments = {
     {'BufWinEnter', '*', 'setlocal formatoptions-=c formatoptions-=r formatoptions-=o'},
     {'BufRead', '*', 'setlocal formatoptions-=c formatoptions-=r formatoptions-=o'},
-    {'BufNewFile', '*', 'setlocal formatoptions-=c formatoptions-=r formatoptions-=o'}
+    {'BufNewFile', '*', 'setlocal formatoptions-=c formatoptions-=r formatoptions-=o'},
+
+    {'BufWinEnter', '*', 'setlocal iskeyword+=- iskeyword+=_'},
+    {'BufRead', '*', 'setlocal iskeyword+=- iskeyword+=_'},
+    {'BufNewFile', '*', 'setlocal iskeyword+=- iskeyword+=_'}
   }
 })

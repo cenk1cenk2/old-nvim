@@ -19,4 +19,4 @@ vim.g.dashboard_session_directory = vim.env['HOME'] .. '/.cache/nvim/session'
 
 local helpers = require('helper-functions')
 
-helpers.autocommand.define_augroups({SessionSave = {{'VimLeave', '*', ':SessionSave'}}})
+-- helpers.autocommand.define_augroups({SessionSave = {{'VimLeave', '*', ':SessionSave'}}})
