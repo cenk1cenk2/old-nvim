@@ -176,6 +176,7 @@ vim.g.which_key_map = {
     l = {':Lspsaga show_line_diagnostics', 'line diagnostics'},
     L = {':Lspsaga lsp_finder', 'lsp finder'},
     m = {':TSLspRenameFile', 'rename'},
+    M = {':Telescope node_modules list', 'node modules'},
     n = {':Lspsaga diagnostic_jump_next', 'next diagnostic'},
     p = {':Lspsaga diagnostic_jump_prev', 'prev diagnostic'},
     q = {':Telescope quickfix', 'quickfix'},
