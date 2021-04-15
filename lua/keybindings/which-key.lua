@@ -102,7 +102,7 @@ vim.g.which_key_map = {
     h = {':History:', 'command history'},
     g = {':Telescope grep_string', 'grep string under cursor'},
     l = {':Lines', 'text in open buffers'},
-    m = {':Telescope marks', 'marks'},
+    m = {':CocCommand fzf-preview.Bookmarks', 'list bookmarks'},
     j = {':CocCommand fzf-preview.Jumps --preview "bat --style=numbers --color=always --line-range :500 {}"', 'jumps'},
     k = {':Telescope keymaps', 'keymaps'},
     s = {':Telescope ultisnips ultisnips', 'snippets'},
@@ -186,15 +186,6 @@ vim.g.which_key_map = {
     Q = {':LspRestart', 'restart currently active lsps'},
     s = {':Telescope lsp_document_symbols --theme=get_dropdown', 'document symbols'},
     S = {':Telescope lsp_workspace_symbols --theme=get_dropdown', 'workspace symbols'}
-  },
-
-  -- bookmarks
-  m = {
-    name = '+mark',
-    t = {':BookmarkToggle', 'toggle'},
-    n = {':BookmarkNext', 'next mark'},
-    p = {':BookmarkPrev', 'prev mark'},
-    f = {':CocCommand fzf-preview.Bookmarks', 'list bookmarks'}
   },
 
   -- terminal
