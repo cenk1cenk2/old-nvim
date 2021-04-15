@@ -7,7 +7,7 @@ helpers.autocommand.define_augroups({
     -- {'BufRead', '*', 'setlocal formatoptions-=c formatoptions-=r formatoptions-=o'},
     -- {'BufNewFile', '*', 'setlocal formatoptions-=c formatoptions-=r formatoptions-=o'},
 
-    {'BufWinEnter', '*', 'set iskeyword-=- | set iskeyword-=_'}
+    {'BufWinEnter', '*', 'set iskeyword+=- | set iskeyword+=_'}
     -- {'BufReadPost', '*', 'set iskeyword-=- | set iskeyword-=_'},
     -- {'BufNewFile', '*', 'set iskeyword-=- | set iskeyword-=_'}
   }
