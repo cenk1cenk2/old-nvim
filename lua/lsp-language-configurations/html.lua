@@ -24,7 +24,7 @@ require('lspconfig').html.setup {
     'jade',
     'leaf',
     'liquid',
-    'markdown',
+    -- 'markdown',
     'mdx',
     'mustache',
     'njk',
