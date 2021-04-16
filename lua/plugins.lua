@@ -97,8 +97,8 @@ return require('packer').startup(function(use)
     use {'tversteeg/registers.nvim'}
 
     -- file explorer
-    use {'kyazdani42/nvim-tree.lua', commit = 'bbb8d60'}
-    -- use {'kyazdani42/nvim-tree.lua'}
+    -- use {'kyazdani42/nvim-tree.lua', commit = 'bbb8d60'}
+    use {'kyazdani42/nvim-tree.lua'}
 
     -- terminal
     use {'voldikss/vim-floaterm'}
@@ -136,6 +136,7 @@ return require('packer').startup(function(use)
     -- Treesitter
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'p00f/nvim-ts-rainbow', run = ':TSUpdate'}
+    use {'windwp/nvim-ts-autotag'}
 
     -- Colorized
     use {'norcalli/nvim-colorizer.lua'}

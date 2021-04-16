@@ -7,12 +7,11 @@ require('lspconfig').vuels.setup({
     lsphelpers.on_attach_illuminate(client)
   end,
   cmd = {vim.g.lsp_servers_dir .. 'vls', '--stdio', '--debug'},
-  settings = {vetur = {experimental = {templateInterpolationService = true}}}
+  settings = {vetur = {experimental = {templateInterpolationService = true}}},
 
-  -- handlers = {
-  --   ['tailwindcss/getConfiguration'] = function(_, _, params, _, bufnr, _)
-  --     -- tailwindcss lang server waits for this response before providing hover
-  --     vim.lsp.buf_notify(bufnr, 'tailwindcss/getConfigurationResponse', {_id = params._id})
-  --   end
-  -- }
+  handlers = {
+    ['codeAction/resolve'] = function(_, _, params, _, bufnr, _)
+      vim.lsp.buf_request_sync(bufnr, 'codeAction/resolve', params)
+    end
+  }
 })
