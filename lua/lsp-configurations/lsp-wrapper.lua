@@ -132,11 +132,11 @@ end
 
 function lsp_wrapper.fix_current()
   local params = vim.lsp.util.make_range_params()
-  params.context = {diagnostics = {}, only = {'quickfix'}}
+  -- params.context = {diagnostics = {}, only = {'quickfix'}}
 
-  local responses = vim.lsp.buf_request_sync(0, 'textDocument/codeAction', params)
+  local responses = vim.lsp.buf_request_sync(0, 'quickfix', params)
 
-  print(vim.inspect(responses))
+  print(vim.inspect(responses) .. 'test')
 
   if not responses or vim.tbl_isempty(responses) then
     print('No quickfix found.')
