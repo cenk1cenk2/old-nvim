@@ -48,9 +48,6 @@ return require('packer').startup(function(use)
     -- dashboard
     use {'glepnir/dashboard-nvim'}
 
-    -- start screen
-    -- use {'mhinz/vim-startify'}
-
     -- which key
     use {'liuchengxu/vim-which-key'}
 
@@ -94,7 +91,7 @@ return require('packer').startup(function(use)
     use {'mbbill/undotree'}
 
     -- better quick fix window
-    use {'kevinhwang91/nvim-bqf'} -- (temp)
+    use {'kevinhwang91/nvim-bqf'}
 
     -- peek registers and macros
     use {'tversteeg/registers.nvim'}
@@ -116,7 +113,6 @@ return require('packer').startup(function(use)
     use {'glepnir/lspsaga.nvim'}
     use {'onsails/lspkind-nvim'}
     use {'kosayoda/nvim-lightbulb'}
-    use {'jose-elias-alvarez/nvim-lsp-ts-utils'}
 
     -- illumunate
     use {'RRethy/vim-illuminate'}
@@ -128,8 +124,8 @@ return require('packer').startup(function(use)
     use {'kitagry/vs-snippets'}
 
     -- legacy
-    use {'SirVer/ultisnips'}
-    use {'honza/vim-snippets'}
+    -- use {'SirVer/ultisnips'}
+    -- use {'honza/vim-snippets'}
 
     -- debug adapter
     use {'puremourning/vimspector'}
@@ -140,7 +136,6 @@ return require('packer').startup(function(use)
     -- Treesitter
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'p00f/nvim-ts-rainbow', run = ':TSUpdate'}
-    use {'windwp/nvim-ts-autotag'}
 
     -- Colorized
     use {'norcalli/nvim-colorizer.lua'}
@@ -163,8 +158,10 @@ return require('packer').startup(function(use)
     use {'lewis6991/gitsigns.nvim'}
     use {'tpope/vim-fugitive'}
     use {'tpope/vim-rhubarb'}
-    use {'tpope/vim-unimpaired'}
     use {'junegunn/gv.vim'}
+
+    -- quick move commands
+    use {'tpope/vim-unimpaired'}
 
     -- coc for now
     use {'neoclide/coc.nvim', branch = 'release'}

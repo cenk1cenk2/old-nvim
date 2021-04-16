@@ -22,4 +22,4 @@ require('lsp-language-configurations.eslint')
 require('lsp-language-configurations.efm')
 
 -- spellcheck, least priority
-require('lsp-language-configurations.grammarly')
+-- require('lsp-language-configurations.grammarly')

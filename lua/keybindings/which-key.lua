@@ -29,7 +29,7 @@ vim.g.which_key_map = {
   ['r'] = {':RnvimrToggle', 'ranger'},
   ['u'] = {':UndotreeToggle', 'undo tree'},
   ['W'] = {':call WindowSwap#EasyWindowSwap()', 'move window'},
-  ['q'] = {':TSLspFixCurrent', 'quick fix'},
+  ['q'] = {':LspFixCurrent', 'quick fix'},
 
   -- actions
   a = {
@@ -169,13 +169,12 @@ vim.g.which_key_map = {
     F = {':LspFormatting', 'format-async'},
     h = {':LspHoverPreview', 'preview definition'},
     H = {':Lspsaga signature_help', 'signature help'},
-    g = {':TSLspOrganize', 'organize imports'},
-    G = {':TSLspImportAll', 'import all missing'},
+    g = {':LspOrganizeImports', 'organize imports'},
     i = {':LspImplementation', 'implementation'},
     I = {':LspInfo', 'lsp information'},
     l = {':Lspsaga show_line_diagnostics', 'line diagnostics'},
     L = {':Lspsaga lsp_finder', 'lsp finder'},
-    m = {':TSLspRenameFile', 'rename'},
+    m = {':LspRenameFile', 'rename'},
     M = {':Telescope node_modules list', 'node modules'},
     n = {':Lspsaga diagnostic_jump_next', 'next diagnostic'},
     p = {':Lspsaga diagnostic_jump_prev', 'prev diagnostic'},

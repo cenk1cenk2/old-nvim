@@ -130,6 +130,49 @@ function lsp_wrapper.restart_lsp()
   vim.lsp.start_client(clients)
 end
 
+function lsp_wrapper.fix_current()
+  local params = vim.lsp.util.make_range_params()
+  params.context = {diagnostics = {}, only = {'quickfix'}}
+
+  local responses = vim.lsp.buf_request_sync(0, 'textDocument/codeAction', params)
+
+  print(vim.inspect(responses))
+
+  if not responses or vim.tbl_isempty(responses) then
+    print('No quickfix found.')
+    return
+  end
+
+  print(vim.inspect(responses))
+end
+
+function lsp_wrapper.organize_imports()
+  local params = vim.lsp.util.make_range_params()
+  params.context = {diagnostics = {}, only = {'source.organizeImports'}}
+
+  local responses = vim.lsp.buf_request_sync(0, 'textDocument/codeAction', params)
+
+  if not responses or vim.tbl_isempty(responses) then
+    print('No response from language servers.')
+    return
+  end
+
+  for i, response in pairs(responses) do
+    for _, result in pairs(response.result or {}) do
+      if result.edit then
+        vim.lsp.util.apply_workspace_edit(result.edit)
+      elseif result.command then
+        vim.lsp.buf.execute_command(result.command)
+      elseif result.data then
+        -- print(vim.inspect(vim.lsp.get_client_by_id(i)))
+        vim.lsp.buf.execute_command({command = 'codeAction/resolve', data = result.data, title = response.title})
+      else
+        print('No language client can provide organizing imports.')
+      end
+    end
+  end
+end
+
 local helpers = require('helper-functions')
 helpers.command.wrap_to_command({
   {'LspCodeAction', 'lua require("lsp-configurations.lsp-wrapper").code_action()'},
@@ -150,7 +193,9 @@ helpers.command.wrap_to_command({
   {'LspGotoNext', 'lua require("lsp-configurations.lsp-wrapper").goto_next()'},
   {'LspGotoPrev', 'lua require("lsp-configurations.lsp-wrapper").goto_prev()'},
   {'LspShowLineDiagnostics', 'lua require("lsp-configurations.lsp-wrapper").show_line_diagnostics()'},
-  {'LspRestart', 'lua require("lsp-configurations.lsp-wrapper").restart_lsp()'}
+  {'LspRestart', 'lua require("lsp-configurations.lsp-wrapper").restart_lsp()'},
+  {'LspFixCurrent', 'lua require("lsp-configurations.lsp-wrapper").fix_current()'},
+  {'LspOrganizeImports', 'lua require("lsp-configurations.lsp-wrapper").organize_imports()'}
 })
 
 return lsp_wrapper
