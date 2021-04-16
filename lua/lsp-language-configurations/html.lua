@@ -34,7 +34,7 @@ require('lspconfig').html.setup {
     'slim',
     'twig',
     -- mixed
-    'vue',
+    -- 'vue',
     'svelte'
   }
 }
