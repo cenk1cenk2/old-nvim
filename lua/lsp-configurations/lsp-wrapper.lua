@@ -132,9 +132,9 @@ end
 
 function lsp_wrapper.fix_current()
   local params = vim.lsp.util.make_range_params()
-  -- params.context = {diagnostics = {}, only = {'quickfix'}}
+  params.context = {diagnostics = {}, only = {'quickfix'}}
 
-  local responses = vim.lsp.buf_request_sync(0, 'quickfix', params)
+  local responses = vim.lsp.buf_request_sync(0, 'textDocument/codeAction', params)
 
   print(vim.inspect(responses) .. 'test')
 
@@ -144,6 +144,10 @@ function lsp_wrapper.fix_current()
   end
 
   print(vim.inspect(responses))
+end
+
+local function lsp_execute_command(bn, command)
+  vim.lsp.buf_request_sync(bn, 'workspace/executeCommand', command)
 end
 
 function lsp_wrapper.organize_imports()
@@ -157,17 +161,13 @@ function lsp_wrapper.organize_imports()
     return
   end
 
-  for i, response in pairs(responses) do
+  for _, response in pairs(responses) do
     for _, result in pairs(response.result or {}) do
-      if result.edit then
-        vim.lsp.util.apply_workspace_edit(result.edit)
-      elseif result.command then
-        vim.lsp.buf.execute_command(result.command)
-      elseif result.data then
-        -- print(vim.inspect(vim.lsp.get_client_by_id(i)))
-        vim.lsp.buf.execute_command({command = 'codeAction/resolve', data = result.data, title = response.title})
+      if result.edit or type(result.command) == 'table' then
+        if result.edit then vim.lsp.util.apply_workspace_edit(result.edit) end
+        if type(result.command) == 'table' then lsp_execute_command(0, result.command) end
       else
-        print('No language client can provide organizing imports.')
+        lsp_execute_command(0, result)
       end
     end
   end
