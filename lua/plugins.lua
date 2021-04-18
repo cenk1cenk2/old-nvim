@@ -138,6 +138,9 @@ return require('packer').startup(function(use)
     use {'p00f/nvim-ts-rainbow', run = ':TSUpdate'}
     use {'windwp/nvim-ts-autotag'}
 
+    -- match tags
+    use {'andymass/vim-matchup'}
+
     -- Colorized
     use {'norcalli/nvim-colorizer.lua'}
 
