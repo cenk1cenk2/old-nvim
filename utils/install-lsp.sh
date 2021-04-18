@@ -66,6 +66,7 @@ NPM_EXTENSIONS=(
 	"@emacs-grammarly/unofficial-grammarly-language-server;unofficial-grammarly-language-server"
 	"markdown-toc"
 	"stylelint-lsp"
+	"@fsouza/prettierd;prettierd"
 )
 
 # format: [extensions-name];[binary-name]
