@@ -68,9 +68,6 @@ vim.api.nvim_set_keymap('n', [[g.]], [[<C-^>]], {silent = true, noremap = true})
 -- copy line to paste in visual mode with out new line
 vim.api.nvim_set_keymap('n', [[yl]], [[vg_y]], {silent = true, noremap = true})
 
--- paste first register
-vim.api.nvim_set_keymap('n', [[g0]], [["1p]], {silent = true, noremap = true})
-
 if (vim.g.vscode) then
 
 else

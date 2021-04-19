@@ -28,6 +28,7 @@ require('lspconfig').efm.setup {
   cmd = {vim.g.lsp_servers_dir .. 'efm-langserver', '-logfile', '/tmp/efm.log', '-loglevel', '1'},
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = true
+
     lsphelpers.auto_format_if_capable(client)
   end,
   init_options = {documentFormatting = true, codeAction = true, completion = true},
