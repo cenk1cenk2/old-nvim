@@ -57,6 +57,20 @@ vim.api.nvim_set_keymap('v', [[x]], [["_x]], {silent = true, noremap = true})
 -- dont overwrite in visual mode while pasting
 vim.api.nvim_set_keymap('x', [[p]], [["_dP]], {silent = true, noremap = true})
 
+-- Disable Ex mode
+vim.api.nvim_set_keymap('n', [[Q]], [[<Nop>]], {silent = true, noremap = true})
+vim.api.nvim_set_keymap('v', [[Q]], [[<Nop>]], {silent = true, noremap = true})
+vim.api.nvim_set_keymap('x', [[Q]], [[<Nop>]], {silent = true, noremap = true})
+
+-- switch between current and last buffer
+vim.api.nvim_set_keymap('n', [[g.]], [[<C-^>]], {silent = true, noremap = true})
+
+-- copy line to paste in visual mode with out new line
+vim.api.nvim_set_keymap('n', [[yl]], [[vg_y]], {silent = true, noremap = true})
+
+-- paste first register
+vim.api.nvim_set_keymap('n', [[g0]], [["1p]], {silent = true, noremap = true})
+
 if (vim.g.vscode) then
 
 else

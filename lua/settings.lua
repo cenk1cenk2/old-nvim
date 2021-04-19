@@ -30,3 +30,5 @@ vim.api.nvim_command('set inccommand=split') -- Make substitution work in realti
 -- vim.wo.wrap = false -- Display long lines as just one line
 vim.api.nvim_command('set wrap linebreak nolist')
 vim.o.sessionoptions = 'buffers,curdir,folds,tabpages,winsize'
+vim.o.expandtab = true
+vim.o.softtabstop = 0
