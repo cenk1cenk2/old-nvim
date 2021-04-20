@@ -352,11 +352,11 @@ install_and_link_binaries "python" "${PYTHON_EXTENSIONS[*]}"
 log_start "Installing custom assets and vscode-extensions..." "top"
 
 # install shell-check here
-VERSION="v0.7.1"
+VERSION="v0.7.2"
 download_binary "https://github.com/koalaman/shellcheck/releases/download/${VERSION}/shellcheck-${VERSION}.linux.x86_64.tar.xz" "tar_xz" "shellcheck-${VERSION}/shellcheck"
 
 # install lua language server
-VERSION="1.18.1"
+VERSION="1.20.2"
 download_extension "https://github.com/sumneko/vscode-lua/releases/download/v$VERSION/lua-$VERSION.vsix" "zip" "lua-language-server" "extension/server" "bin"
 
 # install eslint language server, dont upgrade this until figuring out how to accept the prompt
@@ -368,7 +368,7 @@ VERSION="0.5.10"
 download_extension "https://github.com/tailwindlabs/tailwindcss-intellisense/releases/download/v$VERSION/vscode-tailwindcss-$VERSION.vsix" "zip" "tailwindcss-language-server" "extension/dist/server"
 
 # install hadolint language server
-VERSION="v2.1.0"
+VERSION="v2.2.0"
 download_binary "https://github.com/hadolint/hadolint/releases/download/$VERSION/hadolint-Linux-x86_64" "none" "hadolint"
 
 # downloading vscode internal extensions
