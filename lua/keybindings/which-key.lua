@@ -49,6 +49,7 @@ vim.g.which_key_map = {
     T = {':TSHighlightCapturesUnderCursor', 'show treesitter theme color'},
     w = {':StripWhitespace', 'strip whitespace'},
     U = {':! cd ~/.config/nvim/ && git pull', 'update configuration via git'},
+    R = {':! cd ~/.config/nvim/utils && bash install-latest-neovim.sh && bash install-lsp.sh', 'rebuild neovim'},
     L = {':! cd ~/.config/nvim/utils && bash install-lsp.sh', 'update lsp servers'}
   },
 
