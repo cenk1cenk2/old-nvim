@@ -17,8 +17,14 @@ require('lspconfig').jsonls.setup {
         {fileMatch = {'.prettierrc', '.prettierrc.json'}, url = 'https://json.schemastore.org/prettierrc.json'},
         {fileMatch = {'.eslintrc', '.eslintrc.json'}, url = 'https://json.schemastore.org/eslintrc.json'},
         {fileMatch = {'.babelrc', '.babelrc.json'}, url = 'https://json.schemastore.org/babelrc.json'},
-        {fileMatch = {'lerna.json'}, url = 'https://json.schemastore.org/lerna.json'},
+        {fileMatch = {'lerna.json'}, url = 'https://json.schemastore.org/lerna.json'}
       }
     }
   }
 }
+
+local helpers = require('helper-functions')
+
+helpers.autocommand.define_augroups({
+  JsonSetFileTypes = {{'BufNewFile,BufRead', '.prettierrc', 'set ft=json'}, {'BufNewFile,BufRead', '.eslintrc', 'set ft=json'}, {'BufNewFile,BufRead', '.babelrc', 'set ft=json'}}
+})
