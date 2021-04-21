@@ -32,3 +32,5 @@ vim.api.nvim_command('set wrap linebreak nolist')
 vim.o.sessionoptions = 'buffers,curdir,folds,tabpages,winsize'
 vim.o.expandtab = true
 vim.o.softtabstop = 0
+vim.o.ignorecase = true
+vim.o.smartcase = true
