@@ -113,6 +113,7 @@ return require('packer').startup(function(use)
     use {'glepnir/lspsaga.nvim'}
     use {'onsails/lspkind-nvim'}
     use {'kosayoda/nvim-lightbulb'}
+    use {'folke/lsp-trouble.nvim'}
 
     -- illumunate
     use {'RRethy/vim-illuminate'}

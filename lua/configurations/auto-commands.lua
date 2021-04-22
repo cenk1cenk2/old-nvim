@@ -6,7 +6,5 @@ helpers.autocommand.define_augroups({
     {'BufWinEnter', '*', 'setlocal formatoptions-=c formatoptions-=r formatoptions-=o'}
     -- {'BufRead', '*', 'setlocal formatoptions-=c formatoptions-=r formatoptions-=o'},
     -- {'BufNewFile', '*', 'setlocal formatoptions-=c formatoptions-=r formatoptions-=o'},
-
-  },
-  DisableWordSplitting = {{'BufWinEnter', '*', 'set iskeyword-=_'}, {'BufReadPost', '*', 'set iskeyword-=_'}, {'BufNewFile', '*', 'set iskeyword-=_'}}
+  }
 })

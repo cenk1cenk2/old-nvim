@@ -164,6 +164,7 @@ vim.g.which_key_map = {
     name = '+lsp',
     a = {':Lspsaga code_action', 'code action'},
     A = {':Lspsaga range_code_action', 'selected action'},
+    c = {':LspTroubleToggle', 'show all diagnostics'},
     d = {':Telescope lsp_document_diagnostics --theme=get_dropdown', 'document diagnostics'},
     D = {':Telescope lsp_workspace_diagnostics --theme=get_dropdown', 'workspace diagnostics'},
     f = {':LspFormattingSync', 'format'},

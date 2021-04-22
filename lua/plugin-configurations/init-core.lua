@@ -2,6 +2,7 @@ vim.api.nvim_command('source ~/.config/nvim/lua/plugin-configurations/barbar.vim
 require('plugin-configurations.floaterm')
 require('plugin-configurations.lspkind-nvim')
 require('plugin-configurations.lspsaga')
+require('plugin-configurations.lsp-trouble')
 require('plugin-configurations.nvim-compe')
 require('plugin-configurations.nvim-lightbulb')
 require('plugin-configurations.nvim-tree')

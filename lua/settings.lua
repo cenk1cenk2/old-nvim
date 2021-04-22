@@ -1,4 +1,6 @@
 vim.o.hidden = true -- Required to keep multiple buffers open multiple buffers
+vim.cmd('set iskeyword+=-')
+vim.cmd('set shortmess+=c')
 vim.api.nvim_command('set whichwrap+=<,>,[,],h,l') -- move to next line with theses keys
 vim.o.pumheight = 20 -- Makes popup menu smaller
 vim.o.fileencoding = 'utf-8' -- The encoding written to file
@@ -26,9 +28,10 @@ vim.o.clipboard = 'unnamedplus' -- Copy paste between vim and everything else
 vim.o.guifont = 'Consolas NF'
 vim.o.incsearch = true
 vim.o.lazyredraw = true
-vim.api.nvim_command('set inccommand=split') -- Make substitution work in realtime
+vim.o.inccommand = 'split'
+vim.o.wrap = true
+vim.o.linebreak = true
 -- vim.wo.wrap = false -- Display long lines as just one line
-vim.api.nvim_command('set wrap linebreak nolist')
 vim.o.sessionoptions = 'buffers,curdir,folds,tabpages,winsize'
 vim.o.expandtab = true
 vim.o.softtabstop = 0
