@@ -17,7 +17,7 @@ vim.g.which_key_max_size = 0
 vim.g.which_key_map = {
   [';'] = {':Telescope commands', 'commands'},
   ['/'] = {':History/', 'search history'},
-  ['='] = {'<C-w>=', 'balance windows'},
+  ['='] = {'<C-W>=', 'balance windows'},
   ['e'] = {':NvimTreeToggle', 'explorer'},
   ['?'] = {':NvimTreeFindFile', 'find file in explorer'},
   ['E'] = {':Telescope file_browser', 'file-browser'},
