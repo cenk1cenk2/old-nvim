@@ -16,7 +16,7 @@ MUtils.completion_confirm = function()
   end
 end
 
-npairs.setup({check_ts = true, ts_config = {}})
+npairs.setup({check_ts = true, ts_config = {}, enable_moveright = false})
 
 vim.api.nvim_set_keymap('i', '<CR>', 'v:lua.MUtils.completion_confirm()', {expr = true, noremap = true})
 -- vim.api.nvim_set_keymap('i', '<CR>', 'compe#confirm("<CR>")', {expr = true, silent = true})
