@@ -22,6 +22,8 @@ vim.api.nvim_set_keymap('n', [[Ü]], [[O<ESC>j]], {silent = true, noremap = true
 -- jump between paragraphs
 vim.api.nvim_set_keymap('n', [[ö]], [[{zz]], {silent = true, noremap = true})
 vim.api.nvim_set_keymap('n', [[ä]], [[}zz]], {silent = true, noremap = true})
+vim.api.nvim_set_keymap('v', [[ö]], [[{]], {silent = true, noremap = true})
+vim.api.nvim_set_keymap('v', [[ä]], [[}]], {silent = true, noremap = true})
 
 -- jump between methods
 vim.api.nvim_set_keymap('n', [[äö]], [[[mzz]], {silent = true, noremap = true})
