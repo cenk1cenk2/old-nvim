@@ -20,7 +20,6 @@ local languages = {
   scss = {efm.prettier},
   css = {efm.prettier},
   markdown = {efm.prettier, efm.markdownlint, efm.misspell}
-
 }
 
 -- https://github.com/mattn/efm-langserver

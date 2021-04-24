@@ -4,6 +4,6 @@ return {
   -- lintStdin = true,
   -- lintFormats = {'%f:%l:%c: %m'},
   -- lintIgnoreExitCode = true,
-  formatCommand = vim.g.lsp_servers_dir .. 'eslint_d --fix-to-stdout --stdin --stdin-filename ${INPUT}',
+  formatCommand = 'node ' .. vim.g.lsp_servers_dir .. 'eslint_d --stdin --fix-to-stdout --stdin-filename ${INPUT}',
   formatStdin = true
 }
