@@ -64,7 +64,11 @@ helpers.theme.add_highlight({
 
   -- indent indent-blankline
   ['IndentBlankLineChar'] = {guifg = '#292c32', gui = 'nocombine'},
-  ['IndentBlanklineContextChar'] = {guifg = '#34373d', gui = 'nocombine'},
+  ['IndentBlanklineContextChar'] = {guifg = '#484B50', gui = 'nocombine'},
+
+  -- spectre
+  ['SpectreChange'] = {guifg = '#e5c07b', ctermfg = 114, guibg = 'NONE', ctermbg = 'NONE', gui = 'underline', cterm = 'underline'},
+  ['SpectreDelete'] = {guifg = '#98c379', ctermfg = 114, guibg = 'NONE', ctermbg = 'NONE', gui = 'underline', cterm = 'underline'},
 
   -- treesitter
   ['TSFloat'] = {guifg = '#98c379', ctermfg = 114, guibg = 'NONE', ctermbg = 'NONE', gui = 'NONE', cterm = 'NONE'},

@@ -1,9 +1,6 @@
 require('spectre').setup({
   color_devicons = true,
-  line_sep_start = '┌-----------------------------------------',
-  result_padding = '   ',
-  line_sep = '└-----------------------------------------',
-  highlight = {ui = 'String', search = 'DiffChange', replace = 'DiffDelete'},
+  highlight = {ui = 'String', search = 'SpectreChange', replace = 'SpectreDelete'},
   mapping = {
     ['delete_line'] = {map = 'D', cmd = '<cmd>lua require(\'spectre\').delete()<CR>', desc = 'toggle current item'},
     ['enter_file'] = {map = '<cr>', cmd = '<cmd>lua require(\'spectre.actions\').select_entry()<CR>', desc = 'goto current file'},
@@ -12,8 +9,8 @@ require('spectre').setup({
     ['show_option_menu'] = {map = 'o', cmd = '<cmd>lua require(\'spectre\').show_options()<CR>', desc = 'show option'},
     ['run_replace'] = {map = 'R', cmd = '<cmd>lua require(\'spectre.actions\').run_replace()<CR>', desc = 'replace all'},
     ['change_view_mode'] = {map = 'v', cmd = '<cmd>lua require(\'spectre\').change_view()<CR>', desc = 'change result view mode'},
-    ['toggle_ignore_case'] = {map = 'ti', cmd = '<cmd>lua require(\'spectre\').change_options(\'ignore-case\')<CR>', desc = 'toggle ignore case'},
-    ['toggle_ignore_hidden'] = {map = 'th', cmd = '<cmd>lua require(\'spectre\').change_options(\'hidden\')<CR>', desc = 'toggle search hidden'}
+    ['toggle_ignore_case'] = {map = 'zi', cmd = '<cmd>lua require(\'spectre\').change_options(\'ignore-case\')<CR>', desc = 'toggle ignore case'},
+    ['toggle_ignore_hidden'] = {map = 'zh', cmd = '<cmd>lua require(\'spectre\').change_options(\'hidden\')<CR>', desc = 'toggle search hidden'}
     -- you can put your mapping here it only have normal
   },
   find_engine = {
