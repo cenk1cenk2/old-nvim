@@ -1,6 +1,13 @@
 -- npm install -g yaml-language-server
-require('lspconfig').yamlls.setup {
+local lsphelpers = require('helper-functions.lsp')
+
+require('lspconfig').yamlls.setup({
   cmd = {vim.g.lsp_servers_dir .. 'yaml-language-server', '--stdio'},
+  on_attach = function(client)
+    lsphelpers.disable_formatting(client)
+
+    lsphelpers.on_attach_illuminate(client)
+  end,
   settings = {
     yaml = {
       schemas = {
@@ -10,4 +17,4 @@ require('lspconfig').yamlls.setup {
       }
     }
   }
-}
+})

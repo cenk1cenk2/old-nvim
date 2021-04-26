@@ -1,7 +1,14 @@
 -- npm install -g vscode-json-languageserver
-require('lspconfig').jsonls.setup {
+local lsphelpers = require('helper-functions.lsp')
+
+require('lspconfig').jsonls.setup({
   cmd = {'node', vim.g.lsp_servers_dir .. 'vscode/json-language-features/server/dist/node/jsonServerMain.js', '--stdio'},
   filetypes = {'json', 'jsonc'},
+  on_attach = function(client)
+    lsphelpers.disable_formatting(client)
+
+    lsphelpers.on_attach_illuminate(client)
+  end,
   commands = {
     Format = {
       function()
@@ -21,7 +28,7 @@ require('lspconfig').jsonls.setup {
       }
     }
   }
-}
+})
 
 local helpers = require('helper-functions')
 
