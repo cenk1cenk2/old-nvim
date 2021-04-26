@@ -28,7 +28,27 @@ require('lspconfig').efm.setup {
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = true
 
-    lsphelpers.auto_format_if_capable(client)
+    lsphelpers.auto_format_if_capable(client, {
+      '*.sh',
+      '*.lua',
+      '*.go',
+      '*.py',
+      '*.ts',
+      '*.tsx',
+      '*.js',
+      '*.jsx',
+      '*.vue',
+      '*.yml',
+      '*.yml.j2',
+      '*.yaml',
+      '*.yaml.j2',
+      '*.json',
+      '*.json5',
+      '*.html',
+      '*.scss',
+      '*.css',
+      '*.md'
+    })
   end,
   init_options = {documentFormatting = true, codeAction = true, completion = true},
   root_dir = require('lspconfig').util.root_pattern('package.json', '.git', vim.fn.getcwd()),
