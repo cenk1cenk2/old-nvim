@@ -32,12 +32,18 @@ helpers.theme.add_highlight({
   ['GitGutterChange'] = {guifg = '#0C7D9D', ctermfg = 3},
   ['GitGutterDelete'] = {guifg = '#94151B', ctermfg = 1},
 
-  ['diffAdded'] = {guifg = '#98c379', ctermfg = 114, guibg = 'NONE', ctermbg = 'NONE', gui = 'NONE', cterm = 'NONE'},
-  ['diffRemoved'] = {guifg = '#e06c75', ctermfg = 168, guibg = 'NONE', ctermbg = 'NONE', gui = 'NONE', cterm = 'NONE'},
-  ['diffFileId'] = {guifg = '#61afef', ctermfg = 75, guibg = 'NONE', ctermbg = 'NONE', gui = 'bold,reverse', cterm = 'bold,reverse'},
-  ['diffFile'] = {guifg = '#3b4048', ctermfg = 238, guibg = 'NONE', ctermbg = 'NONE', gui = 'NONE', cterm = 'NONE'},
-  ['diffNewFile'] = {guifg = '#98c379', ctermfg = 114, guibg = 'NONE', ctermbg = 'NONE', gui = 'NONE', cterm = 'NONE'},
-  ['diffOldFile'] = {guifg = '#e06c75', ctermfg = 168, guibg = 'NONE', ctermbg = 'NONE', gui = 'NONE', cterm = 'NONE'},
+  ['diffAdded'] = {guibg = '#98c379', guifg = 'NONE', gui = 'NONE', cterm = 'NONE'},
+  ['diffRemoved'] = {guibg = '#e06c75', guifg = 'NONE', gui = 'NONE', cterm = 'NONE'},
+  ['diffFileId'] = {guifg = '#61afef', guibg = 'NONE', gui = 'bold,reverse', cterm = 'bold,reverse'},
+  ['diffFile'] = {guifg = '#3b4048', guibg = 'NONE', gui = 'NONE', cterm = 'NONE'},
+  ['diffNewFile'] = {guifg = '#98c379', guibg = 'NONE', gui = 'NONE', cterm = 'NONE'},
+  ['diffOldFile'] = {guifg = '#e06c75', guibg = 'NONE', gui = 'NONE', cterm = 'NONE'},
+
+  -- git diff
+  ['DiffAdd'] = {guibg = '#2e3a24', guifg = 'NONE', gui = 'NONE'},
+  ['DiffChange'] = {guibg = '#2e2619', guifg = 'NONE', gui = 'NONE'},
+  ['DiffDelete'] = {guibg = '#432023', guifg = 'NONE', gui = 'NONE'},
+  ['DiffText'] = {guibg = '#453a25', guifg = 'NONE', gui = 'NONE'},
 
   -- startify
   ['StartifyNumber'] = {guifg = '#d19a66', ctermfg = 173, guibg = 'NONE', ctermbg = 'NONE', gui = 'NONE', cterm = 'NONE'},
