@@ -8,6 +8,7 @@ vim.api.nvim_command('source ~/.config/nvim/lua/plugin-configurations/asynctask.
 require('plugin-configurations.better-whitespace')
 require('plugin-configurations.coc')
 require('plugin-configurations.colorizer')
+-- require('plugin-configurations.diffview-nvim')
 require('plugin-configurations.easy-align')
 require('plugin-configurations.fugitive')
 vim.api.nvim_command('source ~/.config/nvim/lua/plugin-configurations/fzf.vim')

@@ -26,6 +26,7 @@ helpers.theme.add_highlight({
   ['MatchParen'] = {guifg = '#61afef', ctermfg = 75, guibg = 'NONE', ctermbg = 'NONE', gui = 'underline', cterm = 'underline'},
   ['Delimiter'] = {guifg = '#b0b0b0'},
   ['IncSearch'] = {guifg = '#e5c07b', ctermfg = 180, guibg = '#5c6370', ctermbg = 241, gui = 'NONE', cterm = 'NONE'},
+  ['NormalFloat'] = {guibg = '#292c32', ctermfg = 75, ctermbg = 'NONE', gui = 'NONE', cterm = 'NONE'},
 
   -- git related
   ['GitGutterAdd'] = {guifg = '#587C0C', ctermfg = 2},
@@ -63,6 +64,7 @@ helpers.theme.add_highlight({
   ['WhichKeySeperator'] = {guifg = '#98c379', ctermfg = 114, guibg = 'NONE', ctermbg = 'NONE', gui = 'NONE', cterm = 'NONE'},
   ['WhichKeyGroup'] = {guifg = '#61afef', ctermfg = 75, guibg = 'NONE', ctermbg = 'NONE', gui = 'NONE', cterm = 'NONE'},
   ['WhichKeyDesc'] = {guifg = '#61afef', ctermfg = 75, guibg = 'NONE', ctermbg = 'NONE', gui = 'NONE', cterm = 'NONE'},
+  ['WhichKeyFloat'] = {guibg = '#292c32', ctermfg = 75, ctermbg = 'NONE', gui = 'NONE', cterm = 'NONE'},
 
   -- debugging
   ['debugPc'] = {guifg = 'NONE', ctermfg = 'NONE', guibg = '#56b6c2', ctermbg = 73, gui = 'NONE', cterm = 'NONE'},

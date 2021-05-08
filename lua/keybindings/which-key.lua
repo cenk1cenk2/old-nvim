@@ -1,74 +1,83 @@
--- timeoutwhich_key_timeout
-vim.g.which_key_timeout = 25
+local wk = require('which-key')
 
--- display names
-vim.api.nvim_command([[
-let g:which_key_display_names = {'<CR>': '↵', '<TAB>': '⇆'}
-]])
-
--- Define a separator
-vim.g.which_key_sep = '→'
-
--- Not a fan of floating windows for this
-vim.g.which_key_use_floating_win = 0
-vim.g.which_key_max_size = 0
+wk.setup({
+  plugins = {
+    marks = false, -- shows a list of your marks on ' and `
+    registers = false, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+    presets = {
+      operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+      motions = true, -- adds help for motions
+      text_objects = true, -- help for text objects triggered after entering an operator
+      windows = true, -- default bindings on <c-w>
+      nav = true, -- misc bindings to work with windows
+      z = true, -- bindings for folds, spelling and others prefixed with z
+      g = true -- bindings for prefixed with g,
+    }
+  },
+  window = {
+    border = 'single', -- none, single, double, shadow
+    position = 'bottom', -- bottom, top
+    margin = {0, 0, 1, 0}, -- extra window margin [top, right, bottom, left]
+    padding = {1, 1, 1, 1} -- extra window padding [top, right, bottom, left]
+  }
+})
 
 -- the main menu
-vim.g.which_key_map = {
-  [';'] = {':Telescope commands', 'commands'},
-  ['/'] = {':History/', 'search history'},
-  ['='] = {'<C-W>=', 'balance windows'},
-  ['e'] = {':NvimTreeToggle', 'explorer'},
-  ['?'] = {':NvimTreeFindFile', 'find file in explorer'},
-  ['E'] = {':Telescope file_browser', 'file-browser'},
+wk.register({
+  [';'] = {':Telescope commands<CR>', 'commands'},
+  ['/'] = {':History/<CR>', 'search history'},
+  ['='] = {'<C-W>=<CR>', 'balance windows'},
+  ['e'] = {':NvimTreeToggle<CR>', 'explorer'},
+  ['?'] = {':NvimTreeFindFile<CR>', 'find file in explorer'},
+  ['E'] = {':Telescope file_browser<CR>', 'file-browser'},
   ['h'] = {'<C-W>s', 'split below'},
   ['v'] = {'<C-W>v', 'split right'},
-  ['n'] = {':let @/ = ""', 'no highlight'},
-  ['M'] = {':MaximizerToggle', 'maximize'},
-  ['p'] = {':Telescope find_files theme=get_dropdown', 'find file'},
-  ['r'] = {':RnvimrToggle', 'ranger'},
-  ['u'] = {':UndotreeToggle', 'undo tree'},
-  ['W'] = {':call WindowSwap#EasyWindowSwap()', 'move window'},
-  ['q'] = {':LspFixCurrent', 'quick fix'},
+  ['n'] = {':let @/ = ""<CR>', 'no highlight'},
+  ['M'] = {':MaximizerToggle<CR>', 'maximize'},
+  ['p'] = {':Telescope find_files theme=get_dropdown<CR>', 'find file'},
+  ['r'] = {':RnvimrToggle<CR>', 'ranger'},
+  ['u'] = {':UndotreeToggle<CR>', 'undo tree'},
+  ['W'] = {':call WindowSwap#EasyWindowSwap()<CR>', 'move window'},
+  ['q'] = {':LspFixCurrent<CR>', 'quick fix'},
 
   -- actions
   a = {
     name = '+actions',
-    a = {':AnyFoldActivate ', 'activate anyfold'},
-    c = {':ColorizerToggle', 'colorizer toggle'},
-    d = {':! ansible-vault decrypt %:p', 'ansible-vault decrypt'},
-    D = {':! ansible-vault encrypt %:p', 'ansible-vault encrypt'},
-    f = {':Telescope filetypes', 'select from filetypes'},
-    m = {':MarkdownPreview', 'markdown preview'},
-    M = {':MarkdownPreviewStop', 'markdown preview stop'},
-    i = {':IndentBlanklineToggle', 'indentation guides'},
-    l = {':set nonumber!', 'line-numbers'},
-    r = {':set norelativenumber!', 'relative line nums'},
-    s = {':setlocal spell!', 'toggle spell check'},
-    t = {':!' .. vim.g.lsp_servers_dir .. 'markdown-toc %:p --bullets="-" -i', 'markdown-toc'},
-    T = {':TSHighlightCapturesUnderCursor', 'show treesitter theme color'},
-    w = {':StripWhitespace', 'strip whitespace'},
-    U = {':! cd ~/.config/nvim/ && git pull', 'update configuration via git'},
-    R = {':! cd ~/.config/nvim/utils && bash install-latest-neovim.sh && bash install-lsp.sh clean', 'rebuild neovim'},
-    L = {':! cd ~/.config/nvim/utils && bash install-lsp.sh', 'update lsp servers'}
+    a = {':AnyFoldActivate<CR>', 'activate anyfold'},
+    c = {':ColorizerToggle<CR>', 'colorizer toggle'},
+    d = {':! ansible-vault decrypt %:p<CR>', 'ansible-vault decrypt'},
+    D = {':! ansible-vault encrypt %:p<CR>', 'ansible-vault encrypt'},
+    f = {':Telescope filetypes<CR>', 'select from filetypes'},
+    m = {':MarkdownPreview<CR>', 'markdown preview'},
+    M = {':MarkdownPreviewStop<CR>', 'markdown preview stop'},
+    i = {':IndentBlanklineToggle<CR>', 'indentation guides'},
+    l = {':set nonumber!<CR>', 'line-numbers'},
+    r = {':set norelativenumber!<CR>', 'relative line nums'},
+    s = {':setlocal spell!<CR>', 'toggle spell check'},
+    t = {':!' .. vim.g.lsp_servers_dir .. 'markdown-toc %:p --bullets="-" -i<CR>', 'markdown-toc'},
+    T = {':TSHighlightCapturesUnderCursor<CR>', 'show treesitter theme color'},
+    w = {':StripWhitespace<CR>', 'strip whitespace'},
+    U = {':! cd ~/.config/nvim/ && git pull<CR>', 'update configuration via git'},
+    R = {':! cd ~/.config/nvim/utils && bash install-latest-neovim.sh && bash install-lsp.sh clean<CR>', 'rebuild neovim'},
+    L = {':! cd ~/.config/nvim/utils && bash install-lsp.sh<CR>', 'update lsp servers'}
   },
 
   -- buffer
   b = {
     name = '+buffer',
-    b = {':BufferPick', 'pick buffer'},
-    d = {':Bdelete', 'delete-buffer'},
-    h = {':BufferFirst', 'first-buffer'},
-    l = {':BufferLast', 'last buffer'},
-    L = {':BufferOrderByLanguage', 'order by language'},
-    D = {':BufferOrderByDirectory', 'order by directory'},
-    f = {':Telescope tele_tabby list theme=get_dropdown', 'buffers-telescope'},
-    F = {':CocCommand fzf-preview.AllBuffers --preview "bat --style=numbers --color=always --line-range :500 {}"', 'buffers-fzf'},
-    s = {':edit #', 'jump between two last buffers'},
-    c = {':BufferClose!', 'close-this buffer'},
-    C = {':BufferWipeout', 'close-all'},
-    X = {':BufferCloseAllButCurrent', 'close-all but current'},
-    Y = {':BufferCloseBuffersRight', 'close-all to right'}
+    b = {':BufferPick<CR>', 'pick buffer'},
+    d = {':Bdelete<CR>', 'delete-buffer'},
+    h = {':BufferFirst<CR>', 'first-buffer'},
+    l = {':BufferLast<CR>', 'last buffer'},
+    L = {':BufferOrderByLanguage<CR>', 'order by language'},
+    D = {':BufferOrderByDirectory<CR>', 'order by directory'},
+    f = {':Telescope tele_tabby list theme=get_dropdown<CR>', 'buffers-telescope'},
+    F = {':CocCommand fzf-preview.AllBuffers --preview "bat --style=numbers --color=always --line-range :500 {}"<CR>', 'buffers-fzf'},
+    s = {':edit #<CR>', 'jump between two last buffers'},
+    c = {':BufferClose!<CR>', 'close-this buffer'},
+    C = {':BufferWipeout<CR>', 'close-all'},
+    X = {':BufferCloseAllButCurrent<CR>', 'close-all but current'},
+    Y = {':BufferCloseBuffersRight<CR>', 'close-all to right'}
   },
 
   -- debugger
@@ -78,164 +87,154 @@ vim.g.which_key_map = {
     b = {'<Plug>VimspectorToggleBreakpoint', 'breakpoint'},
     B = {'<Plug>VimspectorToggleConditionalBreakpoint', 'conditional breakpoint'},
     c = {'<Plug>VimspectorRunToCursor', 'run to cursor'},
-    C = {':call vimspector#ClearBreakpoints()', 'clear all breakpoints'},
+    C = {':call vimspector#ClearBreakpoints()<CR>', 'clear all breakpoints'},
     d = {'<Plug>VimspectorContinue', 'continue'},
-    f = {':Telescope vimspector configurations', 'configurations'},
+    f = {':Telescope vimspector configurations<CR>', 'configurations'},
     o = {'<Plug>VimspectorStepOver', 'step over'},
     O = {'<Plug>VimspectorStepOut', 'step out'},
     i = {'<Plug>VimspectorStepInto', 'step into'},
     k = {'<Plug>VimspectorBalloonEval', 'hover this'},
     p = {'<Plug>VimspectorPause', 'pause'},
     r = {'<Plug>VimspectorRestart', 'restart'},
-    R = {':VimspectorReset', 'reset'},
+    R = {':VimspectorReset<CR>', 'reset'},
     s = {'<Plug>VimspectorStop', 'stop'}
   },
 
   -- find
   f = {
     name = '+search',
-    [';'] = {':Telescope commands', 'commands'},
-    A = {':Telescope builtin', 'telescope list all command'},
-    b = {':Telescope current_buffer_fuzzy_find theme=get_dropdown', 'current buffer'},
-    d = {':CocCommand fzf-preview.DirectoryFiles --preview "bat --style=numbers --color=always --line-range :500 {}"', 'files in directory'},
-    f = {':Telescope find_files', 'files'},
-    F = {':Telescope oldfiles', 'file history'},
-    h = {':History:', 'command history'},
-    g = {':Telescope grep_string', 'grep string under cursor'},
-    l = {':Lines', 'text in open buffers'},
-    m = {':CocCommand fzf-preview.Bookmarks', 'list bookmarks'},
-    j = {':CocCommand fzf-preview.Jumps --preview "bat --style=numbers --color=always --line-range :500 {}"', 'jumps'},
-    k = {':Telescope keymaps', 'keymaps'},
-    s = {':Telescope ultisnips ultisnips', 'snippets'},
-    S = {':Telescope spell_suggest', 'spell suggest'},
-    r = {':call RipgrepInteractive()', 'rg interactive'},
-    p = {':Telescope find_files theme=get_dropdown', 'find file'},
-    R = {':Telescope registers', 'registers'},
-    t = {':Telescope live_grep', 'text-telescope'},
-    T = {':Rg', 'all files for text ripgrep'},
-    O = {':Telescope vim_options', 'vim options'},
-    w = {':Windows', 'search windows'}
+    [';'] = {':Telescope commands<CR>', 'commands'},
+    A = {':Telescope builtin<CR>', 'telescope list all command'},
+    b = {':Telescope current_buffer_fuzzy_find theme=get_dropdown<CR>', 'current buffer'},
+    d = {':CocCommand fzf-preview.DirectoryFiles --preview "bat --style=numbers --color=always --line-range :500 {}"<CR>', 'files in directory'},
+    f = {':Telescope find_files<CR>', 'files'},
+    F = {':Telescope oldfiles<CR>', 'file history'},
+    h = {':History:<CR>', 'command history'},
+    g = {':Telescope grep_string<CR>', 'grep string under cursor'},
+    l = {':Lines<CR>', 'text in open buffers'},
+    m = {':CocCommand fzf-preview.Bookmarks<CR>', 'list bookmarks'},
+    j = {':CocCommand fzf-preview.Jumps --preview "bat --style=numbers --color=always --line-range :500 {}"<CR>', 'jumps'},
+    k = {':Telescope keymaps<CR>', 'keymaps'},
+    s = {':Telescope ultisnips ultisnips<CR>', 'snippets'},
+    S = {':Telescope spell_suggest<CR>', 'spell suggest'},
+    r = {':call RipgrepInteractive()<CR>', 'rg interactive'},
+    p = {':Telescope find_files theme=get_dropdown<CR>', 'find file'},
+    R = {':Telescope registers<CR>', 'registers'},
+    t = {':Telescope live_grep<CR>', 'text-telescope'},
+    T = {':Rg<CR>', 'all files for text ripgrep'},
+    O = {':Telescope vim_options<CR>', 'vim options'},
+    w = {':Windows<CR>', 'search windows'}
   },
 
   -- find and replace
   s = {
     name = '+find & replace',
-    f = {':FindAndReplace', 'find and replace'},
-    s = {':FindAndReplaceVisual', 'find this visual'},
-    b = {':FindAndReplaceInBuffer', 'search in current buffer'}
+    f = {':FindAndReplace<CR>', 'find and replace'},
+    s = {':FindAndReplaceVisual<CR>', 'find this visual'},
+    b = {':FindAndReplaceInBuffer<CR>', 'search in current buffer'}
   },
 
   g = {
     name = '+git',
-    a = {':0Glog', 'buffer commits'},
-    b = {':Git blame', 'blame'},
-    B = {':Telescope git_branches', 'branches'},
-    c = {':GDiffCompare', 'compare with branch'},
-    d = {':Gdiffsplit', 'diff split'},
-    D = {':Git diff', 'diff'},
-    e = {':Gedit', 'edit-version'},
-    f = {':GFiles?', 'modified git files'},
-    F = {':Telescope git_files', 'git_files'},
-    h = {':GitSignsPreviewHunk', 'preview hunk'},
-    n = {':GitSignsNextHunk', 'next hunk'},
-    p = {':GitSignsPrevHunk', 'prev hunk'},
-    m = {':Gdiffsplit', 'merge view'},
-    M = {':Gvdiffsplit!', 'merge view, 3-way-split'},
-    s = {':Git', 'status'},
-    S = {':CocCommand fzf-preview.GitStatus', 'full status'},
-    t = {':GitSignsToggle', 'toggle hunks'},
-    U = {':GitSignsResetHunk', 'undo hunk'},
-    v = {':Telescope git_bcommits', 'view buffer commits'},
-    V = {':Telescope git_commits', 'view commits'}
+    a = {':0Glog<CR>', 'buffer commits'},
+    b = {':Git blame<CR>', 'blame'},
+    B = {':Telescope git_branches<CR>', 'branches'},
+    c = {':GDiffCompare<CR>', 'compare with branch'},
+    d = {':Gdiffsplit<CR>', 'diff split'},
+    D = {':Git diff<CR>', 'diff'},
+    e = {':Gedit<CR>', 'edit-version'},
+    f = {':GFiles?<CR>', 'modified git files'},
+    F = {':Telescope git_files<CR>', 'git_files'},
+    h = {':GitSignsPreviewHunk<CR>', 'preview hunk'},
+    n = {':GitSignsNextHunk<CR>', 'next hunk'},
+    p = {':GitSignsPrevHunk<CR>', 'prev hunk'},
+    m = {':Gdiffsplit<CR>', 'merge view'},
+    M = {':Gvdiffsplit!<CR>', 'merge view, 3-way-split'},
+    s = {':Git<CR>', 'status'},
+    S = {':CocCommand fzf-preview.GitStatus<CR>', 'full status'},
+    t = {':GitSignsToggle<CR>', 'toggle hunks'},
+    U = {':GitSignsResetHunk<CR>', 'undo hunk'},
+    v = {':Telescope git_bcommits<CR>', 'view buffer commits'},
+    V = {':Telescope git_commits<CR>', 'view commits'}
   },
 
   -- gist
   G = {
     name = '+gist',
-    f = {':CocList gist', 'list'},
-    p = {':CocCommand gist.create', 'post gist '},
-    I = {':Telescope gh issues', 'github issues'},
-    P = {':Telescope gh pull_request', 'github pull requests'},
-    G = {':Telescope gh gist', 'github gists'}
+    f = {':CocList gist<CR>', 'list'},
+    p = {':CocCommand gist.create<CR>', 'post gist '},
+    I = {':Telescope gh issues<CR>', 'github issues'},
+    P = {':Telescope gh pull_request<CR>', 'github pull requests'},
+    G = {':Telescope gh gist<CR>', 'github gists'}
   },
 
   -- lsp
   l = {
     name = '+lsp',
-    a = {':Lspsaga code_action', 'code action'},
-    A = {':Lspsaga range_code_action', 'selected action'},
-    c = {':LspTroubleToggle', 'show all diagnostics'},
-    d = {':Telescope lsp_document_diagnostics --theme=get_dropdown', 'document diagnostics'},
-    D = {':Telescope lsp_workspace_diagnostics --theme=get_dropdown', 'workspace diagnostics'},
-    f = {':LspFormattingSync', 'format'},
-    F = {':LspFormatting', 'format-async'},
-    h = {':LspHoverPreview', 'preview definition'},
-    H = {':Lspsaga signature_help', 'signature help'},
-    g = {':LspOrganizeImports', 'organize imports'},
-    i = {':LspImplementation', 'implementation'},
-    I = {':LspInfo', 'lsp information'},
-    l = {':Lspsaga show_line_diagnostics', 'line diagnostics'},
-    L = {':Lspsaga lsp_finder', 'lsp finder'},
-    m = {':LspRenameFile', 'rename'},
-    M = {':Telescope node_modules list', 'node modules'},
-    n = {':Lspsaga diagnostic_jump_next', 'next diagnostic'},
-    p = {':Lspsaga diagnostic_jump_prev', 'prev diagnostic'},
-    q = {':Telescope quickfix', 'quickfix'},
-    r = {':LspReferences', 'references'},
-    R = {':LspRename', 'rename item'},
-    T = {':LspTypeDefinition', 'type defintion'},
-    Q = {':LspRestart', 'restart currently active lsps'},
-    s = {':Telescope lsp_document_symbols --theme=get_dropdown', 'document symbols'},
-    S = {':Telescope lsp_workspace_symbols --theme=get_dropdown', 'workspace symbols'}
+    a = {':Lspsaga code_action<CR>', 'code action'},
+    A = {':Lspsaga range_code_action<CR>', 'selected action'},
+    c = {':LspTroubleToggle<CR>', 'show all diagnostics'},
+    d = {':Telescope lsp_document_diagnostics --theme=get_dropdown<CR>', 'document diagnostics'},
+    D = {':Telescope lsp_workspace_diagnostics --theme=get_dropdown<CR>', 'workspace diagnostics'},
+    f = {':LspFormattingSync<CR>', 'format'},
+    F = {':LspFormatting<CR>', 'format-async'},
+    h = {':LspHoverPreview<CR>', 'preview definition'},
+    H = {':Lspsaga signature_help<CR>', 'signature help'},
+    g = {':LspOrganizeImports<CR>', 'organize imports'},
+    i = {':LspImplementation<CR>', 'implementation'},
+    I = {':LspInfo<CR>', 'lsp information'},
+    l = {':Lspsaga show_line_diagnostics<CR>', 'line diagnostics'},
+    L = {':Lspsaga lsp_finder<CR>', 'lsp finder'},
+    m = {':LspRenameFile<CR>', 'rename'},
+    M = {':Telescope node_modules list<CR>', 'node modules'},
+    n = {':Lspsaga diagnostic_jump_next<CR>', 'next diagnostic'},
+    p = {':Lspsaga diagnostic_jump_prev<CR>', 'prev diagnostic'},
+    q = {':Telescope quickfix<CR>', 'quickfix'},
+    r = {':LspReferences<CR>', 'references'},
+    R = {':LspRename<CR>', 'rename item'},
+    T = {':LspTypeDefinition<CR>', 'type defintion'},
+    Q = {':LspRestart<CR>', 'restart currently active lsps'},
+    s = {':Telescope lsp_document_symbols --theme=get_dropdown<CR>', 'document symbols'},
+    S = {':Telescope lsp_workspace_symbols --theme=get_dropdown<CR>', 'workspace symbols'}
   },
 
   -- terminal
   t = {
     name = '+terminal',
-    ['-'] = {':ToggleTerm', 'toggleterm'},
-    ['.'] = {':FloatermNew --wintype=normal --height=15', 'terminal on bottom'},
-    [','] = {':FloatermNew', 'terminal'},
-    F = {':FloatermNew fzf', 'fzf'},
-    g = {':FloatermNew lazygit', 'git'},
-    d = {':FloatermNew lazydocker', 'docker'},
-    r = {':FloatermNew ranger', 'ranger'},
-    h = {':FloatermNew htop', 'htop'},
-    n = {':FloatermNew ncdu', 'ncdu'},
-    f = {':CocList floaterm', 'find terminal'},
-    t = {':FloatermToggle', 'toggle'},
-    s = {':FloattermShow', 'floaterm-show'},
-    k = {':FloattermKill!', 'floaterm-kill-all'}
+    ['-'] = {':ToggleTerm<CR>', 'toggleterm'},
+    ['.'] = {':FloatermNew --wintype=normal --height=15<CR>', 'terminal on bottom'},
+    [','] = {':FloatermNew<CR>', 'terminal'},
+    F = {':FloatermNew fzf<CR>', 'fzf'},
+    g = {':FloatermNew lazygit<CR>', 'git'},
+    d = {':FloatermNew lazydocker<CR>', 'docker'},
+    r = {':FloatermNew ranger<CR>', 'ranger'},
+    h = {':FloatermNew htop<CR>', 'htop'},
+    n = {':FloatermNew ncdu<CR>', 'ncdu'},
+    f = {':CocList floaterm<CR>', 'find terminal'},
+    t = {':FloatermToggle<CR>', 'toggle'},
+    s = {':FloattermShow<CR>', 'floaterm-show'},
+    k = {':FloattermKill!<CR>', 'floaterm-kill-all'}
   },
 
   -- tasks
   T = {
     name = '+task',
-    e = {':AsyncTaskEdit', 'edit local tasks'},
-    g = {':AsyncTaskEdit!', 'edit global tasks'},
-    f = {':Telescope asynctasks all', 'list tasks'},
-    m = {':AsyncTaskMacro', 'macro help'},
-    d = {':AsyncTask docker-compose-up', 'docker-compose up'},
-    D = {':AsyncTask docker-compose-up-d', 'docker-compose up -d'}
+    e = {':AsyncTaskEdit<CR>', 'edit local tasks'},
+    g = {':AsyncTaskEdit!<CR>', 'edit global tasks'},
+    f = {':Telescope asynctasks all<CR>', 'list tasks'},
+    m = {':AsyncTaskMacro<CR>', 'macro help'},
+    d = {':AsyncTask docker-compose-up<CR>', 'docker-compose up'},
+    D = {':AsyncTask docker-compose-up-d<CR>', 'docker-compose up -d'}
   },
 
   -- workspace/session
   w = {
     name = '+Session',
-    -- c = {':SClose', 'Close Session'},
-    c = {':Dashboard', 'Dashboard'},
-    Q = {':qa!', 'Quit'},
-    -- d = {':SDelete!', 'Delete Session'},
-    -- l = {':SLoad', 'Load Session'},
-    l = {':SessionLoad', 'Load Session'},
-    -- h = {':Startify', 'Start Page'},
-    -- s = {':SSave!', 'Save Session'},
-    s = {':SessionSave', 'Save Session'},
-    f = {':CocList sessions', 'List Session'}
+    c = {':Dashboard<CR>', 'Dashboard'},
+    Q = {':qa!<CR>', 'Quit'},
+    l = {':SessionLoad<CR>', 'Load Session'},
+    s = {':SessionSave<CR>', 'Save Session'},
+    f = {':CocList sessions<CR>', 'List Session'}
   }
-}
+}, {prefix = '<Leader>'})
 
-vim.api.nvim_set_keymap('n', '<Space>', [[:<c-u>WhichKey '<space>'<CR>]], {silent = true})
-vim.fn['which_key#register']('<Space>', 'g:which_key_map')
-
-vim.cmd('autocmd! FileType which_key')
-vim.cmd('autocmd Filetype which_key set laststatus=0 noruler | autocmd BufLeave <buffer> set laststatus=2 ruler')

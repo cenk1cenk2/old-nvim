@@ -49,7 +49,8 @@ return require('packer').startup(function(use)
     use {'glepnir/dashboard-nvim'}
 
     -- which key
-    use {'liuchengxu/vim-which-key'}
+    use {'folke/which-key.nvim'}
+    -- use {'liuchengxu/vim-which-key'}
 
     -- status line
     use {'glepnir/galaxyline.nvim'}
@@ -114,6 +115,7 @@ return require('packer').startup(function(use)
     use {'onsails/lspkind-nvim'}
     use {'kosayoda/nvim-lightbulb'}
     use {'folke/lsp-trouble.nvim'}
+    use {'folke/lsp-colors.nvim'}
 
     -- illumunate
     use {'RRethy/vim-illuminate'}
@@ -139,9 +141,6 @@ return require('packer').startup(function(use)
     use {'p00f/nvim-ts-rainbow', run = ':TSUpdate'}
     use {'windwp/nvim-ts-autotag'}
 
-    -- match tags
-    use {'andymass/vim-matchup'}
-
     -- Colorized
     use {'norcalli/nvim-colorizer.lua'}
 
@@ -164,6 +163,7 @@ return require('packer').startup(function(use)
     use {'tpope/vim-fugitive'}
     use {'tpope/vim-rhubarb'}
     use {'junegunn/gv.vim'}
+    -- use {'sindrets/diffview.nvim'}
 
     -- quick move commands
     use {'tpope/vim-unimpaired'}

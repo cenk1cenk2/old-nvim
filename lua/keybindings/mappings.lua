@@ -40,13 +40,16 @@ vim.api.nvim_set_keymap('n', [[+]], [[?(<CR>:let @/ = ""<CR>zz]], {silent = true
 vim.api.nvim_set_keymap('n', [[']], [[/)<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
 
 -- copy last clipboard register
-vim.api.nvim_set_keymap('n', [[po]], [["_diw"*P]], {silent = true, noremap = true})
+vim.api.nvim_set_keymap('n', [[op]], [["_diw"*P]], {silent = true, noremap = true})
 
 -- copy last yank register
-vim.api.nvim_set_keymap('n', [[pü]], [["_diw"0P]], {silent = true, noremap = true})
+vim.api.nvim_set_keymap('n', [[üp]], [["_diw"0P]], {silent = true, noremap = true})
 
 -- visual select word
-vim.api.nvim_set_keymap('n', [[pp]], [[viw]], {silent = true, noremap = true})
+vim.api.nvim_set_keymap('n', [[üü]], [[viw]], {silent = true, noremap = true})
+
+-- select inside block visual
+vim.api.nvim_set_keymap('n', [[oo]], [[vib]], {silent = true, noremap = true})
 
 -- c to blackhole
 vim.api.nvim_set_keymap('n', [[c]], [["_c]], {silent = true, noremap = true})
