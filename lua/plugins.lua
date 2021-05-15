@@ -157,6 +157,7 @@ return require('packer').startup(function(use)
     use {'TC72/telescope-tele-tabby.nvim'}
     use {'nvim-telescope/telescope-github.nvim'}
     use {'gbrlsnchs/telescope-lsp-handlers.nvim'}
+    use {'folke/todo-comments.nvim'}
 
     -- git related
     use {'lewis6991/gitsigns.nvim'}

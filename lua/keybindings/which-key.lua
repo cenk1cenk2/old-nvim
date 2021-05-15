@@ -106,6 +106,7 @@ wk.register({
     [';'] = {':Telescope commands<CR>', 'commands'},
     A = {':Telescope builtin<CR>', 'telescope list all command'},
     b = {':Telescope current_buffer_fuzzy_find theme=get_dropdown<CR>', 'current buffer'},
+    c = {':TodoTelescope<CR>', 'todo comments'},
     d = {':CocCommand fzf-preview.DirectoryFiles --preview "bat --style=numbers --color=always --line-range :500 {}"<CR>', 'files in directory'},
     f = {':Telescope find_files<CR>', 'files'},
     F = {':Telescope oldfiles<CR>', 'file history'},
