@@ -35,7 +35,7 @@ require('todo-comments').setup {
     },
     -- regex that will be used to match keywords.
     -- don't replace the (KEYWORDS) placeholder
-    pattern = '(KEYWORDS):'
+    pattern = '@?(KEYWORDS):'
     -- pattern = "(KEYWORDS)", -- match without the extra colon. You'll likely get false positives
     -- pattern = "-- (KEYWORDS):", -- only match in lua comments
   }
