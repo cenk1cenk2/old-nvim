@@ -19,7 +19,8 @@ wk.setup({
     position = 'bottom', -- bottom, top
     margin = {0, 0, 1, 0}, -- extra window margin [top, right, bottom, left]
     padding = {1, 1, 1, 1} -- extra window padding [top, right, bottom, left]
-  }
+  },
+  triggers = {'<leader>', 'g', 'z'}
 })
 
 -- the main menu
