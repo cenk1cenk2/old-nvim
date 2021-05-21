@@ -1,4 +1,4 @@
-require('telescope').setup {
+require('telescope').setup({
   defaults = {
     find_command = {'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '--hidden', '--ignore'},
     vimgrep_arguments = {'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '--hidden', '--ignore'},
@@ -10,7 +10,7 @@ require('telescope').setup {
     file_ignore_patterns = {'yarn.lock', '**/node_modules/**'}
   },
   extensions = {media_files = {filetypes = {'png', 'webp', 'jpg', 'jpeg'}, find_cmd = 'rg'}, tele_tabby = {use_highlighter = true}}
-}
+})
 
 -- extensions
 local telescope = require('telescope')

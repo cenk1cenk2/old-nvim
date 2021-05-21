@@ -371,6 +371,10 @@ download_extension "https://github.com/tailwindlabs/tailwindcss-intellisense/rel
 VERSION="v2.2.0"
 download_binary "https://github.com/hadolint/hadolint/releases/download/$VERSION/hadolint-Linux-x86_64" "none" "hadolint"
 
+# rust analyzer
+VERSION="nightly"
+download_binary "https://github.com/rust-analyzer/rust-analyzer/releases/download/$VERSION/rust-analyzer-linux" "none" "rust-analyzer"
+
 # downloading vscode internal extensions
 EXTENSIONS_BASE_PATH="VSCode-linux-x64/resources/app/extensions"
 download_extension "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64" "tar_gz" "vscode" "${EXTENSIONS_BASE_PATH}/node_modules ${EXTENSIONS_BASE_PATH}/json-language-features ${EXTENSIONS_BASE_PATH}/css-language-features ${EXTENSIONS_BASE_PATH}/html-language-features"
