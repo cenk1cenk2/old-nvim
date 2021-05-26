@@ -167,7 +167,8 @@ wk.register({
     p = {':CocCommand gist.create<CR>', 'post gist '},
     I = {':Telescope gh issues<CR>', 'github issues'},
     P = {':Telescope gh pull_request<CR>', 'github pull requests'},
-    G = {':Telescope gh gist<CR>', 'github gists'}
+    G = {':Telescope gh gist<CR>', 'github gists'},
+    U = {':CocCommand gist.update<CR>', 'github gists'}
   },
 
   -- lsp
