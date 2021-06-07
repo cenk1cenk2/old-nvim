@@ -40,3 +40,23 @@ telescope.load_extension('media_files')
 --   })
 -- end
 --
+M = {}
+
+function M.TelescopeRipgrepInteractive()
+  vim.call('inputsave')
+
+  local args = vim.fn.input('Pass in ripgrep arguments' .. ' ➜ ')
+
+  vim.api.nvim_command('normal :esc<CR>')
+
+  vim.api.nvim_out_write('rg ➜ ' .. args .. '\n')
+
+  vim.api.nvim_command(':Telescope live_grep find_command=rg,--ignore,--hidden,' .. args)
+
+  vim.call('inputrestore')
+end
+
+local helpers = require('helper-functions')
+helpers.command.wrap_to_command({{'TelescopeRipgrepInteractive', 'lua require("plugin-configurations.telescope").TelescopeRipgrepInteractive()'}})
+
+return M
