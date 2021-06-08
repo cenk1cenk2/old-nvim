@@ -48,6 +48,7 @@ wk.register({
     c = {':ColorizerToggle<CR>', 'colorizer toggle'},
     d = {':! ansible-vault decrypt %:p<CR>', 'ansible-vault decrypt'},
     D = {':! ansible-vault encrypt %:p<CR>', 'ansible-vault encrypt'},
+    e = {':set ff=unix<CR>', 'set lf'},
     f = {':Telescope filetypes<CR>', 'select from filetypes'},
     m = {':MarkdownPreview<CR>', 'markdown preview'},
     M = {':MarkdownPreviewStop<CR>', 'markdown preview stop'},
