@@ -2,6 +2,7 @@ require('telescope').setup({
   defaults = {
     find_command = {'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '--hidden', '--ignore'},
     vimgrep_arguments = {'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '--hidden', '--ignore'},
+    file_sorter = require('telescope.sorters').get_fzy_sorter,
     prompt_position = 'bottom',
     prompt_prefix = '🔍 ',
     selection_caret = ' ',

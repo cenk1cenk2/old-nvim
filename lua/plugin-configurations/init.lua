@@ -23,6 +23,7 @@ require('plugin-configurations.nvim-autopairs')
 -- if (not vim.g.vscode) then require('plugin-configurations.polyglot') end
 require('plugin-configurations.quickscope')
 require('plugin-configurations.rnvimr')
+require('plugin-configurations.symbols-outline-nvim')
 require('plugin-configurations.spectre')
 require('plugin-configurations.telescope')
 require('plugin-configurations.todo-comments')

@@ -41,6 +41,8 @@ configs.tailwind = {
       'stylus',
       'sugarss',
       -- js
+      -- 'javascript',
+      -- 'typescript',
       'javascriptreact',
       'reason',
       'rescript',

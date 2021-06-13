@@ -193,6 +193,7 @@ wk.register({
     M = {':Telescope node_modules list<CR>', 'node modules'},
     n = {':Lspsaga diagnostic_jump_next<CR>', 'next diagnostic'},
     p = {':Lspsaga diagnostic_jump_prev<CR>', 'prev diagnostic'},
+    o = {':SymbolsOutline<CR>', 'outline'},
     q = {':Telescope quickfix<CR>', 'quickfix'},
     r = {':LspReferences<CR>', 'references'},
     R = {':LspRename<CR>', 'rename item'},

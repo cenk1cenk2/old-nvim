@@ -98,8 +98,8 @@ return require('packer').startup(function(use)
     use {'tversteeg/registers.nvim'}
 
     -- file explorer
-    -- use {'kyazdani42/nvim-tree.lua', commit = 'bbb8d60'}
-    use {'kyazdani42/nvim-tree.lua', commit = '23935ff'}
+    use {'kyazdani42/nvim-tree.lua'}
+    -- use {'kyazdani42/nvim-tree.lua', commit = '23935ff'}
 
     -- terminal
     use {'voldikss/vim-floaterm'}
@@ -116,6 +116,7 @@ return require('packer').startup(function(use)
     use {'kosayoda/nvim-lightbulb'}
     use {'folke/lsp-trouble.nvim'}
     use {'folke/lsp-colors.nvim'}
+    use {'simrat39/symbols-outline.nvim'}
 
     -- illumunate
     use {'RRethy/vim-illuminate'}
@@ -125,10 +126,6 @@ return require('packer').startup(function(use)
     use {'hrsh7th/vim-vsnip-integ'}
     use {'rafamadriz/friendly-snippets'}
     use {'kitagry/vs-snippets'}
-
-    -- legacy
-    -- use {'SirVer/ultisnips'}
-    -- use {'honza/vim-snippets'}
 
     -- debug adapter
     use {'puremourning/vimspector'}
@@ -209,7 +206,6 @@ return require('packer').startup(function(use)
 
     -- bookmarks
     use {'MattesGroeger/vim-bookmarks'}
-
   end
 
 end)
