@@ -126,8 +126,10 @@ end
 
 function lsp_wrapper.restart_lsp()
   local clients = vim.lsp.get_active_clients()
-  vim.lsp.stop_client(clients)
+  vim.lsp.stop_client(clients, {force = true})
+  print('Stopped LSP clients.')
   vim.lsp.start_client(clients)
+  print('Restarted all LSP clients.')
 end
 
 function lsp_wrapper.fix_current()
