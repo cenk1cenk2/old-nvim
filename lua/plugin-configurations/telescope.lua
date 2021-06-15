@@ -1,4 +1,4 @@
-local actions = require('telecope.actions')
+local actions = require('telescope.actions')
 
 require('telescope').setup({
   defaults = {
