@@ -1,3 +1,5 @@
+local actions = require('telecope.actions')
+
 require('telescope').setup({
   defaults = {
     find_command = {'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '--hidden', '--ignore'},
@@ -8,7 +10,8 @@ require('telescope').setup({
     selection_caret = ' ',
     entry_prefix = '  ',
     layout_defaults = {horizontal = {mirror = false}, vertical = {mirror = false}},
-    file_ignore_patterns = {'yarn.lock', '**/node_modules/**'}
+    file_ignore_patterns = {'yarn.lock', '**/node_modules/**'},
+    mappings = {i = {['<C-s>'] = actions.cycle_previewers_next, ['<C-a>'] = actions.cycle_previewers_prev}}
   },
   extensions = {media_files = {filetypes = {'png', 'webp', 'jpg', 'jpeg'}, find_cmd = 'rg'}, tele_tabby = {use_highlighter = true}}
 })
