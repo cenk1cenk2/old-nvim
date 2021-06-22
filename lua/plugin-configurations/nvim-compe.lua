@@ -14,7 +14,18 @@ require('compe').setup({
   max_menu_width = 100,
   documentation = true,
 
-  source = {nvim_lsp = {priority = 10000}, nvim_lua = true, spell = false, path = true, buffer = true, vsnip = true, tags = true, snippets_nvim = true, treesitter = false}
+  source = {
+    nvim_lsp = {priority = 10000},
+    nvim_lua = true,
+    path = true,
+    omni = true,
+    buffer = true,
+    vsnip = true,
+    tags = true,
+    snippets_nvim = true,
+    treesitter = false,
+    spell = false
+  }
 })
 
 local t = function(str)
