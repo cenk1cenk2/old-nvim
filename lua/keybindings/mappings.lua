@@ -33,15 +33,9 @@ vim.api.nvim_set_keymap('n', [[öä]], [[]mzz]], {silent = true, noremap = true}
 vim.api.nvim_set_keymap('n', [[Ö]], [[?{<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
 vim.api.nvim_set_keymap('n', [[Ä]], [[/{<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
 
-vim.api.nvim_set_keymap('v', [[Ö]], [[?{<CR>:let @/ = ""<CR>]], {silent = true, noremap = true})
-vim.api.nvim_set_keymap('v', [[Ä]], [[/{<CR>:let @/ = ""<CR>]], {silent = true, noremap = true})
-
 -- run through function parantheses
 vim.api.nvim_set_keymap('n', [[öä]], [[/(<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
 vim.api.nvim_set_keymap('n', [[äö]], [[?(<CR>:let @/ = ""<CR>zz]], {silent = true, noremap = true})
-
-vim.api.nvim_set_keymap('v', [[öä]], [[/(<CR>:let @/ = ""<CR>]], {silent = true, noremap = true})
-vim.api.nvim_set_keymap('v', [[äö]], [[?(<CR>:let @/ = ""<CR>]], {silent = true, noremap = true})
 
 -- copy last clipboard register
 vim.api.nvim_set_keymap('n', [[op]], [["_diw"*P]], {silent = true, noremap = true})
