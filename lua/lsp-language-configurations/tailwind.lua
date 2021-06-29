@@ -5,7 +5,7 @@ local util = require('lspconfig.util')
 -- Check if it's already defined for when reloading this file.
 configs.tailwind = {
   default_config = {
-    cmd = {'node', vim.g.lsp_servers_dir .. 'tailwindcss-language-server/index.js', '--stdio'},
+    cmd = {'node', vim.g.lsp_servers_dir .. 'tailwindcss-language-server/tailwindServer.js', '--stdio'},
     filetypes = {
       -- html
       'aspnetcorerazor',
