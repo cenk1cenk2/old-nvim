@@ -56,6 +56,11 @@ configs.tailwind = {
     end,
     log_level = vim.lsp.protocol.MessageType.Log,
     -- settings = {},
+    settings = {
+      tailwindCSS = {
+        experimental = {classRegex = {[[tw`([^`]*)]], [[tw\\..+`([^`]*)]], [[tw\\(.*?\\).*?`([^`]*)]], [[css`([^`]*)]], [[css\\..+`([^`]*)]], [[css\\(.*?\\).*?`([^`]*)]]}}
+      }
+    },
     handlers = {
       ['tailwindcss/getConfiguration'] = function(_, _, params, _, bufnr, _)
         -- tailwindcss lang server waits for this response before providing hover
