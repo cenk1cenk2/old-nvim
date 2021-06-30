@@ -131,7 +131,7 @@ return require('packer').startup(function(use)
     use {'puremourning/vimspector'}
 
     -- syntax highlighting for the rest
-    -- use {'sheerun/vim-polyglot'}
+    use {'sheerun/vim-polyglot'}
 
     -- Treesitter
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}

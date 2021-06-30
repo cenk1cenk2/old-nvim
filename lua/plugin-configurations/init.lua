@@ -20,7 +20,7 @@ require('plugin-configurations.markdown-preview')
 require('plugin-configurations.maximizer')
 require('plugin-configurations.nerdcommenter')
 require('plugin-configurations.nvim-autopairs')
--- if (not vim.g.vscode) then require('plugin-configurations.polyglot') end
+if (not vim.g.vscode) then require('plugin-configurations.polyglot') end
 require('plugin-configurations.quickscope')
 require('plugin-configurations.rnvimr')
 require('plugin-configurations.symbols-outline-nvim')
