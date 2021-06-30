@@ -135,6 +135,7 @@ return require('packer').startup(function(use)
 
     -- Treesitter
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use {'nvim-treesitter/playground'}
     use {'p00f/nvim-ts-rainbow', run = ':TSUpdate'}
     use {'windwp/nvim-ts-autotag'}
 
