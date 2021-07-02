@@ -5,11 +5,10 @@ require('telescope').setup({
     find_command = {'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '--hidden', '--ignore'},
     vimgrep_arguments = {'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '--hidden', '--ignore'},
     file_sorter = require('telescope.sorters').get_fzy_sorter,
-    prompt_position = 'bottom',
     prompt_prefix = '🔍 ',
     selection_caret = ' ',
     entry_prefix = '  ',
-    layout_defaults = {horizontal = {mirror = false}, vertical = {mirror = false}},
+    layout_config = {prompt_position = 'bottom', horizontal = {mirror = false}, vertical = {mirror = false}},
     file_ignore_patterns = {'yarn.lock', '**/node_modules/**'},
     mappings = {i = {['<C-s>'] = actions.cycle_previewers_next, ['<C-a>'] = actions.cycle_previewers_prev}}
   },
