@@ -99,5 +99,9 @@ helpers.theme.add_highlight({
   ['TSDelimiter'] = {guifg = '#b0b0b0'},
   ['TSPunctBracket'] = {guifg = '#FFD700'},
   ['TSVariableBuiltin'] = {guifg = '#e5c07b'},
-  ['TSTag'] = {guifg = '#e06c75'}
+  ['TSTag'] = {guifg = '#e06c75'},
+  ['htmlTSTag'] = {guifg = '#e06c75'},
+  ['htmlTSProperty'] = {guifg = '#e5c07b'},
+  ['htmlTSNone'] = {guifg = 'b0b0b0'},
+  ['htmlTSString'] = {guifg = '#98c379'}
 })

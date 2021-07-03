@@ -8,9 +8,19 @@ require('telescope').setup({
     prompt_prefix = '🔍 ',
     selection_caret = ' ',
     entry_prefix = '  ',
-    layout_config = {prompt_position = 'bottom', horizontal = {mirror = false}, vertical = {mirror = false}},
-    file_ignore_patterns = {'yarn.lock', '**/node_modules/**'},
+    layout_config = {prompt_position = 'bottom', horizontal = {mirror = false, width = 0.9}, vertical = {mirror = false, width = 0.8}},
+    file_ignore_patterns = {'yarn.lock', '**/node_modules/**', 'package-lock.json'},
     mappings = {i = {['<C-s>'] = actions.cycle_previewers_next, ['<C-a>'] = actions.cycle_previewers_prev}}
+  },
+  pickers = {
+    -- Your special builtin config goes in here
+    buffers = {
+      sort_lastused = true,
+      theme = 'dropdown',
+      previewer = false,
+      mappings = {i = {['<c-d>'] = 'delete_buffer'}, n = {['<c-d>'] = require('telescope.actions').delete_buffer}}
+    },
+    find_files = {theme = 'dropdown'}
   },
   extensions = {media_files = {filetypes = {'png', 'webp', 'jpg', 'jpeg'}, find_cmd = 'rg'}, tele_tabby = {use_highlighter = true}}
 })
