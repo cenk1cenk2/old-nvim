@@ -1,7 +1,7 @@
 local tree_cb = require('nvim-tree.config').nvim_tree_callback
 
 vim.g.nvim_tree_width = 40
-vim.g.nvim_tree_follow = 1
+vim.g.nvim_tree_follow = 0
 vim.g.nvim_tree_hide_dotfiles = 0
 vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_hijack_netrw = 1
