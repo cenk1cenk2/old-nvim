@@ -193,7 +193,7 @@ return require('packer').startup(function(use)
     use {'junegunn/vim-easy-align'}
 
     -- indent guidelines
-    use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
+    use {'lukas-reineke/indent-blankline.nvim'}
 
     -- tasks
     use {'skywind3000/asynctasks.vim'}
