@@ -16,6 +16,7 @@ local languages = {
   vue = {efm.prettier, efm.eslint},
   yaml = {efm.prettier},
   json = {efm.prettier},
+  jsonc = {efm.prettier},
   html = {efm.prettier},
   scss = {efm.prettier},
   css = {efm.prettier},
