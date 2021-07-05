@@ -39,6 +39,10 @@ function lsp_wrapper.formatting_sync()
   vim.lsp.buf.formatting_sync(nil, 3000)
 end
 
+function lsp_wrapper.formatting_seq_sync()
+  vim.lsp.buf.formatting_seq_sync(nil, 3000)
+end
+
 function lsp_wrapper.hover()
   -- vim.lsp.buf.hover()
   require('lspsaga.hover').render_hover_doc()
@@ -182,7 +186,10 @@ helpers.command.wrap_to_command({
   {'LspDefinition', 'lua require("lsp-configurations.lsp-wrapper").definition()'},
   {'LspDocumentSymbol', 'lua require("lsp-configurations.lsp-wrapper").document_symbol()'},
   {'LspFormatting', 'lua require("lsp-configurations.lsp-wrapper").formatting()'},
-  {'LspFormattingSync', 'lua require("lsp-configurations.lsp-wrapper").formatting_sync()'},
+  -- {'LspFormattingSync', 'lua require("lsp-configurations.lsp-wrapper").formatting_sync()'},
+  -- send sync formatting to this
+  {'LspFormattingSync', 'lua require("lsp-configurations.lsp-wrapper").formatting_seq_sync()'},
+  {'LspFormattingSeqSync', 'lua require("lsp-configurations.lsp-wrapper").formatting_seq_sync()'},
   {'LspHover', 'lua require("lsp-configurations.lsp-wrapper").hover()'},
   {'LspHoverPreview', 'lua require("lspsaga.provider").preview_definition()'},
   {'LspImplementation', 'lua require("lsp-configurations.lsp-wrapper").implementation()'},
@@ -195,7 +202,7 @@ helpers.command.wrap_to_command({
   {'LspGotoNext', 'lua require("lsp-configurations.lsp-wrapper").goto_next()'},
   {'LspGotoPrev', 'lua require("lsp-configurations.lsp-wrapper").goto_prev()'},
   {'LspShowLineDiagnostics', 'lua require("lsp-configurations.lsp-wrapper").show_line_diagnostics()'},
-  {'LspRestart', 'lua require("lsp-configurations.lsp-wrapper").restart_lsp()'},
+  -- {'LspRestart', 'lua require("lsp-configurations.lsp-wrapper").restart_lsp()'},
   {'LspFixCurrent', 'lua require("lsp-configurations.lsp-wrapper").fix_current()'},
   {'LspOrganizeImports', 'lua require("lsp-configurations.lsp-wrapper").organize_imports()'}
 })
