@@ -8,6 +8,7 @@ require('lspconfig').yamlls.setup({
 
     lsphelpers.on_attach_illuminate(client)
   end,
+  filetypes = {'yaml', 'yaml.*'},
   settings = {
     yaml = {
       schemas = {
