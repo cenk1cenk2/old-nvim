@@ -356,7 +356,7 @@ VERSION="v0.7.2"
 download_binary "https://github.com/koalaman/shellcheck/releases/download/${VERSION}/shellcheck-${VERSION}.linux.x86_64.tar.xz" "tar_xz" "shellcheck-${VERSION}/shellcheck"
 
 # install lua language server
-VERSION="1.21.3"
+VERSION="2.0.3"
 download_extension "https://github.com/sumneko/vscode-lua/releases/download/v$VERSION/lua-$VERSION.vsix" "zip" "lua-language-server" "extension/server" "bin"
 
 # install eslint language server, dont upgrade this until figuring out how to accept the prompt
@@ -364,11 +364,11 @@ VERSION="2.1.0"
 download_extension "https://github.com/microsoft/vscode-eslint/releases/download/release%2F$VERSION-next.1/vscode-eslint-$VERSION.vsix" "zip" "eslint-language-server" "extension/server/out"
 
 # install tailwinds language server
-VERSION="0.6.12"
+VERSION="0.6.13"
 download_extension "https://github.com/tailwindlabs/tailwindcss-intellisense/releases/download/v$VERSION/vscode-tailwindcss-$VERSION.vsix" "zip" "tailwindcss-language-server" "extension/dist/server"
 
 # install hadolint language server
-VERSION="v2.5.0"
+VERSION="v2.6.0"
 download_binary "https://github.com/hadolint/hadolint/releases/download/$VERSION/hadolint-Linux-x86_64" "none" "hadolint"
 
 # rust analyzer
