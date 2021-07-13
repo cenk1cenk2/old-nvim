@@ -139,6 +139,10 @@ else
   vim.api.nvim_set_keymap('i', [[<C-e>]], [[<End>]], {silent = true, noremap = true})
 
   -- ranger quick open
-  vim.api.nvim_set_keymap('n', [[<F5>]], [[:RnvimrToggle<CR>]], {silent = true, noremap = true})
-  vim.api.nvim_set_keymap('i', [[<F5>]], [[:RnvimrToggle<CR>]], {silent = true, noremap = true})
+  vim.api.nvim_set_keymap('n', [[<F7>]], [[:RnvimrToggle<CR>]], {silent = true, noremap = true})
+  vim.api.nvim_set_keymap('i', [[<F7>]], [[:RnvimrToggle<CR>]], {silent = true, noremap = true})
+
+  -- open floaterm in current directory
+  vim.api.nvim_buf_set_keymap('n', [[F5]], [[:FloatermNew! cd %:p:h<CR>]], {silent = true, noremap = true})
+  vim.api.nvim_buf_set_keymap('i', [[F5]], [[:FloatermNew! cd %:p:h<CR>]], {silent = true, noremap = true})
 end
