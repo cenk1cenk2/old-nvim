@@ -63,7 +63,7 @@ NPM_EXTENSIONS=(
 	"vls"
 	"eslint;false"
 	"vscode-languageserver-protocol@next;false"
-	"@emacs-grammarly/unofficial-grammarly-language-server;unofficial-grammarly-language-server"
+	"unofficial-grammarly-language-server;unofficial-grammarly-language-server"
 	"markdown-toc"
 	"stylelint-lsp"
 	"@fsouza/prettierd;prettierd"
