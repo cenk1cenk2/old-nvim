@@ -100,6 +100,7 @@ helpers.theme.add_highlight({
   ['TSPunctBracket'] = {guifg = '#FFD700'},
   ['TSVariableBuiltin'] = {guifg = '#e5c07b'},
   ['TSTag'] = {guifg = '#e06c75'},
+  ['TSKeywordFunction'] = {guifg = '#e5c07b'},
   ['htmlTSTag'] = {guifg = '#e06c75'},
   ['htmlTSProperty'] = {guifg = '#e5c07b'},
   ['htmlTSNone'] = {guifg = 'b0b0b0'},
