@@ -56,11 +56,11 @@ hl.common = {
   Folded = {fg = c.fg, bg = c.bg2},
   SignColumn = {fg = c.fg, bg = c.bg0},
   ToolbarLine = {fg = c.fg},
-  Cursor = {bg = c.cursor},
-  vCursor = {bg = c.cursor},
-  iCursor = {bg = c.cursor},
-  lCursor = {bg = c.cursor},
-  CursorIM = {bg = c.cursor},
+  Cursor = {reverse = true},
+  vCursor = {reverse = true},
+  iCursor = {reverse = true},
+  lCursor = {reverse = true},
+  CursorIM = {reverse = true},
   CursorColumn = {bg = c.bg1},
   CursorLine = {bg = c.bg1},
   ColorColumn = {bg = c.bg1},
@@ -78,7 +78,7 @@ hl.common = {
   Directory = {fg = c.blue},
   ErrorMsg = {fg = c.red, bold = true, bg = c.bg0},
   WarningMsg = {fg = c.orange, bold = true, bg = c.bg0},
-  MoreMsg = {fg = c.dark_yellow, bold = true, bg = c.bg0},
+  MoreMsg = {fg = c.cyan, bold = true, bg = c.bg0},
   IncSearch = {bg = c.bg_d},
   Search = {bg = c.bg3},
   MatchParen = {fg = c.blue, underline = true},
@@ -97,16 +97,16 @@ hl.common = {
   SpellLocal = {fg = c.blue, underline = true, sp = c.blue},
   SpellRare = {fg = c.purple, underline = true, sp = c.purple},
   StatusLine = {fg = c.fg, bg = c.bg1},
-  StatusLineTerm = {fg = c.fg, bg = c.bg1},
-  StatusLineNC = {fg = c.yellow, bg = c.bg2},
-  StatusLineTermNC = {fg = c.grey, bg = c.bg2},
+  StatusLineTerm = {fg = c.bg0, bg = c.bg1},
+  StatusLineNC = {fg = c.grey, bg = c.bg2},
+  StatusLineTermNC = {fg = c.bg0, bg = c.bg2},
   TabLine = {fg = c.fg, bg = c.bg1},
   TabLineFill = {fg = c.grey, bg = c.bg0},
   TabLineSel = {fg = c.fg, bg = c.bg0},
   VertSplit = {fg = c.bg1},
   Visual = {bg = c.bg2},
-  VisualNOS = {fg = c.none, bg = c.bg2, underline = false},
-  QuickFixLine = {fg = c.blue, underline = false},
+  VisualNOS = {fg = c.none, bg = c.bg2},
+  QuickFixLine = {fg = c.blue},
   Debug = {fg = c.yellow},
   debugPC = {fg = c.bg0, bg = c.cyan},
   debugBreakpoint = {fg = c.bg0, bg = c.red},
@@ -117,6 +117,7 @@ hl.syntax = {
   String = colors.Green,
   Character = colors.Orange,
   NormalFloat = {bg = c.bg1},
+  FloatBorder = {fg = c.grey},
   Number = colors.Orange,
   Float = colors.Orange,
   Boolean = colors.Orange,
@@ -147,14 +148,7 @@ hl.syntax = {
   Delimiter = colors.BrightGrey,
   Comment = {italic = true, fg = c.grey},
   SpecialComment = {italic = true, fg = c.grey},
-  Todo = colors.Red,
-  gitCommitHeader = {fg = c.yellow},
-  gitcommitSummary = {fg = c.fg},
-  gitcommitSelectedType = {fg = c.green},
-  gitcommitSelectedFile = {fg = c.green},
-  gitcommitDiscardedType = {fg = c.red},
-  gitcommitDiscardedFile = {fg = c.red},
-  gitcommitBranch = {fg = c.bright_yellow}
+  Todo = colors.Red
 }
 
 hl.treesitter = {
@@ -162,7 +156,7 @@ hl.treesitter = {
   TSAttribute = colors.Cyan,
   TSBoolean = colors.Orange,
   TSCharacter = colors.Fg,
-  TSComment = colors.Grey,
+  TSComment = {fg = c.grey, italic = true},
   TSConditional = colors.Purple,
   TSConstant = colors.Yellow,
   TSConstBuiltin = colors.Orange,
@@ -220,18 +214,18 @@ hl.treesitter = {
 }
 
 hl.plugins.lsp = {
-  LspDiagnosticsDefaultError = {fg = c.dark_red},
-  LspDiagnosticsDefaultHint = {fg = c.dark_yellow},
-  LspDiagnosticsDefaultInformation = {fg = c.dark_cyan},
-  LspDiagnosticsDefaultWarning = {fg = c.orange},
+  LspDiagnosticsDefaultError = {fg = c.red},
+  LspDiagnosticsDefaultHint = {fg = c.blue},
+  LspDiagnosticsDefaultInformation = {fg = c.grey},
+  LspDiagnosticsDefaultWarning = {fg = c.yellow},
   LspDiagnosticsUnderlineError = {sp = c.red},
-  LspDiagnosticsUnderlineHint = {sp = c.dark_yellow, underline = false},
-  LspDiagnosticsUnderlineInformation = {sp = c.dark_cyan, underline = false},
-  LspDiagnosticsUnderlineWarning = {sp = c.orange, underline = false},
+  LspDiagnosticsUnderlineHint = {sp = c.blue, bold = true},
+  LspDiagnosticsUnderlineInformation = {sp = c.grey, bold = true},
+  LspDiagnosticsUnderlineWarning = {sp = c.yellow, bold = true},
   LspDiagnosticsVirtualTextError = {fg = c.red},
-  LspDiagnosticsVirtualTextWarning = {fg = c.orange},
-  LspDiagnosticsVirtualTextInformation = {fg = c.dark_cyan},
-  LspDiagnosticsVirtualTextHint = {fg = c.dark_yellow},
+  LspDiagnosticsVirtualTextWarning = {fg = c.yellow},
+  LspDiagnosticsVirtualTextInformation = {fg = c.grey},
+  LspDiagnosticsVirtualTextHint = {fg = c.blue},
   LspReferenceText = {bg = c.bg1},
   LspReferenceWrite = {bg = c.bg1},
   LspReferenceRead = {bg = c.bg1}
@@ -239,7 +233,7 @@ hl.plugins.lsp = {
 
 hl.plugins.whichkey = {WhichKey = colors.Red, WhichKeyDesc = colors.Blue, WhichKeyGroup = colors.Orange, WhichKeySeperator = colors.Green, WhichKeyFloat = {bg = c.bg1}}
 
-hl.plugins.gitgutter = {GitGutterAdd = {fg = c.green}, GitGutterChange = {fg = c.cyan}, GitGutterDelete = {fg = c.dark_red}}
+hl.plugins.gitgutter = {GitGutterAdd = {fg = c.bright_green}, GitGutterChange = {fg = c.bright_cyan}, GitGutterDelete = {fg = c.bright_red}}
 
 hl.plugins.hop = {HopNextKey = {fg = c.bg0, bg = c.orange}, HopNextKey1 = {fg = c.bg0, bg = c.orange}, HopNextKey2 = {fg = c.bg0, bg = c.bg_yellow}, HopUnmatched = {}}
 
@@ -287,7 +281,7 @@ hl.plugins.gitsigns = {
 hl.plugins.nvim_tree = {
   NvimTreeNormal = {fg = c.fg, bg = c.bg0},
   NvimTreeEndOfBuffer = {fg = c.bg0, bg = c.bg0},
-  NvimTreeRootFolder = {fg = c.fg, bold = true},
+  NvimTreeRootFolder = {fg = c.purple, bold = true},
   NvimTreeGitDirty = colors.Yellow,
   NvimTreeGitNew = colors.Green,
   NvimTreeGitDeleted = colors.Red,
@@ -300,13 +294,13 @@ hl.plugins.nvim_tree = {
 
 hl.plugins.telescope = {
   TelescopeBorder = colors.Grey,
-  TelescopeMatching = colors.Yellow,
+  TelescopeMatching = colors.Green,
   TelescopePromptPrefix = colors.Blue,
   TelescopeSelection = {bg = c.bg2},
   TelescopeSelectionCaret = colors.Blue
 }
 
-hl.plugins.dashboard = {DashboardShortcut = colors.Yellow, DashboardHeader = colors.Green, DashboardCenter = colors.Yellow, DashboardFooter = {fg = c.grey, bold = true}}
+hl.plugins.dashboard = {DashboardShortcut = {fg = c.fg}, DashboardHeader = colors.Green, DashboardCenter = {fg = c.yellow}, DashboardFooter = {fg = c.grey, bold = true}}
 
 hl.plugins.spectre = {SpectreChange = {fg = c.yellow}, SpectreDelete = {fg = c.red}}
 
@@ -338,6 +332,30 @@ hl.langs.markdown = {
   markdownUrl = {fg = c.blue, underline = true},
   markdownUrlDelimiter = colors.Grey,
   markdownUrlTitleDelimiter = colors.Green
+}
+
+hl.langs.gitcommit = {
+  gitcommitComment = {fg = c.grey},
+  gitcommitUnmerged = {fg = c.green},
+  gitcommitOnBranch = {},
+  gitcommitBranch = {fg = c.yellow},
+  gitcommitDiscardedType = {fg = c.red},
+  gitcommitSelectedType = {fg = c.green},
+  gitcommitHeader = {},
+  gitcommitUntrackedFile = {fg = c.cyan},
+  gitcommitDiscardedFile = {fg = c.red},
+  gitcommitSelectedFile = {fg = c.green},
+  gitcommitUnmergedFile = {fg = c.yellow},
+  gitcommitFile = {},
+  gitcommitSummary = {fg = c.fg},
+  gitcommitOverflow = {fg = c.red},
+  gitcommitNoBranch = {fg = c.yellow},
+  gitcommitUntracked = {fg = c.cyan},
+  gitcommitDiscarded = {fg = c.red},
+  gitcommitSelected = {fg = c.green},
+  gitcommitDiscardedArrow = {fg = c.red},
+  gitcommitSelectedArrow = {fg = c.green},
+  gitcommitUnmergedArrow = {fg = c.yellow}
 }
 
 function M.setup()

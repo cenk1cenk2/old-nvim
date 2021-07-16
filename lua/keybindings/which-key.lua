@@ -3,7 +3,7 @@ local wk = require('which-key')
 wk.setup({
   plugins = {
     marks = false, -- shows a list of your marks on ' and `
-    registers = false, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+    registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
     presets = {
       operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
       motions = true, -- adds help for motions
@@ -20,7 +20,7 @@ wk.setup({
     margin = {0, 0, 1, 0}, -- extra window margin [top, right, bottom, left]
     padding = {1, 1, 1, 1} -- extra window padding [top, right, bottom, left]
   },
-  triggers = {'<leader>', 'g', 'z'}
+  triggers = {'<leader>', 'g', 'z', '"', '<C-r>'}
 })
 
 -- the main menu

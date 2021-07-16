@@ -12,8 +12,7 @@ require('compe').setup({
   max_abbr_width = 100,
   max_kind_width = 100,
   max_menu_width = 100,
-  documentation = true,
-
+  documentation = {border = 'rounded'},
   source = {nvim_lsp = {priority = 10000}, nvim_lua = true, path = true, buffer = true, vsnip = true, tags = true, snippets_nvim = true, treesitter = false, spell = false}
 })
 

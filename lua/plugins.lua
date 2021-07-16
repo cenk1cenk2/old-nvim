@@ -92,7 +92,7 @@ return require('packer').startup(function(use)
     use {'kevinhwang91/nvim-bqf'}
 
     -- peek registers and macros
-    use {'tversteeg/registers.nvim'}
+    -- use {'tversteeg/registers.nvim'}
 
     -- file explorer
     use {'kyazdani42/nvim-tree.lua'}
