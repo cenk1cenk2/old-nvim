@@ -105,7 +105,7 @@ gls.left[3] = {
     end,
     separator = ' ',
     separator_highlight = {'NONE'},
-    highlight = {colors.grey}
+    highlight = {colors.grey, 'NONE'}
   }
 }
 
