@@ -147,7 +147,14 @@ hl.syntax = {
   Delimiter = colors.BrightGrey,
   Comment = {italic = true, fg = c.grey},
   SpecialComment = {italic = true, fg = c.grey},
-  Todo = colors.Red
+  Todo = colors.Red,
+  gitCommitHeader = {fg = c.yellow},
+  gitcommitSummary = {fg = c.fg},
+  gitcommitSelectedType = {fg = c.green},
+  gitcommitSelectedFile = {fg = c.green},
+  gitcommitDiscardedType = {fg = c.red},
+  gitcommitDiscardedFile = {fg = c.red},
+  gitcommitBranch = {fg = c.bright_yellow}
 }
 
 hl.treesitter = {
