@@ -76,14 +76,15 @@ hl.common = {
   DiffFile = colors.Cyan,
   DiffIndexLine = colors.Grey,
   Directory = {fg = c.blue},
-  ErrorMsg = {fg = c.dark_red, bold = true, bg = c.bg0},
+  ErrorMsg = {fg = c.red, bold = true, bg = c.bg0},
   WarningMsg = {fg = c.orange, bold = true, bg = c.bg0},
   MoreMsg = {fg = c.dark_yellow, bold = true, bg = c.bg0},
-  IncSearch = {bg = c.bg2},
-  Search = {bg = c.bg2},
+  IncSearch = {bg = c.bg_d},
+  Search = {bg = c.bg3},
   MatchParen = {fg = c.blue, underline = true},
   NonText = {fg = c.grey},
   Whitespace = {fg = c.grey},
+  ExtraWhitespace = {bg = c.dark_red},
   SpecialKey = {fg = c.grey},
   Pmenu = {fg = c.fg, bg = c.bg1},
   PmenuSbar = {fg = c.none, bg = c.bg1},
@@ -95,10 +96,10 @@ hl.common = {
   SpellCap = {fg = c.yellow, underline = true, sp = c.yellow},
   SpellLocal = {fg = c.blue, underline = true, sp = c.blue},
   SpellRare = {fg = c.purple, underline = true, sp = c.purple},
-  StatusLine = {fg = c.fg, bg = c.bg1},
-  StatusLineTerm = {fg = c.fg, bg = c.bg2},
-  StatusLineNC = {fg = c.grey, bg = c.bg1},
-  StatusLineTermNC = {fg = c.grey, bg = c.bg1},
+  StatusLine = {fg = c.fg, bg = c.bg0},
+  StatusLineTerm = {fg = c.fg, bg = c.bg0},
+  StatusLineNC = {fg = c.grey, bg = c.bg0},
+  StatusLineTermNC = {fg = c.grey, bg = c.bg0},
   TabLine = {fg = c.fg, bg = c.bg1},
   TabLineFill = {fg = c.grey, bg = c.bg0},
   TabLineSel = {fg = c.fg, bg = c.bg0},
@@ -212,11 +213,6 @@ hl.treesitter = {
 }
 
 hl.plugins.lsp = {
-  LspCxxHlGroupEnumConstant = colors.Orange,
-  LspCxxHlGroupMemberVariable = colors.Orange,
-  LspCxxHlGroupNamespace = colors.Blue,
-  LspCxxHlSkippedRegion = colors.Grey,
-  LspCxxHlSkippedRegionBeginEnd = colors.Red,
   LspDiagnosticsDefaultError = {fg = c.dark_red},
   LspDiagnosticsDefaultHint = {fg = c.dark_yellow},
   LspDiagnosticsDefaultInformation = {fg = c.dark_cyan},
@@ -236,11 +232,11 @@ hl.plugins.lsp = {
 
 hl.plugins.whichkey = {WhichKey = colors.Red, WhichKeyDesc = colors.Blue, WhichKeyGroup = colors.Orange, WhichKeySeperator = colors.Green, WhichKeyFloat = {bg = c.bg1}}
 
-hl.plugins.gitgutter = {GitGutterAdd = {fg = c.dark_green}, GitGutterChange = {fg = c.dark_cyan}, GitGutterDelete = {fg = c.dark_red}}
+hl.plugins.gitgutter = {GitGutterAdd = {fg = c.green}, GitGutterChange = {fg = c.cyan}, GitGutterDelete = {fg = c.dark_red}}
 
 hl.plugins.hop = {HopNextKey = {fg = c.bg0, bg = c.orange}, HopNextKey1 = {fg = c.bg0, bg = c.orange}, HopNextKey2 = {fg = c.bg0, bg = c.bg_yellow}, HopUnmatched = {}}
 
-hl.plugins.indentblankline = {IndentBlankLineChar = {fg = c.bg2}, IndentBlanklineContextChar = {fg = c.bg_d}}
+hl.plugins.indentblankline = {IndentBlankLineChar = {fg = c.bg3}, IndentBlanklineContextChar = {fg = c.cursor}}
 
 hl.plugins.diffview = {
   DiffviewFilePanelTitle = {fg = c.blue, bold = true},
