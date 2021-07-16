@@ -38,9 +38,6 @@ return require('packer').startup(function(use)
     -- vscode easy motion
     use {'ChristianChiarulli/vscode-easymotion'}
   else
-    -- theme
-    use {'joshdick/onedark.vim'}
-
     -- icons
     use {'kyazdani42/nvim-web-devicons'}
     use {'ryanoasis/vim-devicons'}
@@ -200,7 +197,7 @@ return require('packer').startup(function(use)
     use {'skywind3000/asyncrun.vim'}
 
     -- markdown previewer
-    use {'iamcco/markdown-preview.nvim', run = 'cd app & yarn & yarn add -D tslib', ft = {'markdown'}}
+    use {'iamcco/markdown-preview.nvim', run = 'cd app & yarn & yarn add -D tslib'}
 
     -- jinja syntax highlights
     use {'lepture/vim-jinja'} -- (temp)

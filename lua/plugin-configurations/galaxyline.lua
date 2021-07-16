@@ -5,7 +5,6 @@ local gls = gl.section
 gl.short_line_list = {'LuaTree', 'vista', 'dbui'}
 
 local colors = {
-  bg = '#282c34',
   yellow = '#fabd2f',
   cyan = '#008080',
   darkblue = '#081633',
@@ -75,15 +74,8 @@ local vim_mode = {
       return '  ' .. mode_name[vim.fn.mode()] .. ' '
     end,
     separator = ' ',
-    separator_highlight = {
-      colors.yellow,
-      function()
-        if not buffer_not_empty() then return colors.bg end
-
-        return colors.bg
-      end
-    },
-    highlight = {colors.grey, colors.bg, 'bold'}
+    separator_highlight = {colors.yellow},
+    highlight = {colors.grey, 'bold'}
   }
 }
 
@@ -100,8 +92,8 @@ gls.left[2] = {
       return condition.check_git_workspace() and condition.hide_in_width()
     end,
     separator = ' ',
-    separator_highlight = {'NONE', colors.bg},
-    highlight = {colors.orange, colors.bg}
+    separator_highlight = {'NONE'},
+    highlight = {colors.orange}
   }
 }
 
@@ -112,14 +104,14 @@ gls.left[3] = {
       return condition.check_git_workspace() and condition.hide_in_width()
     end,
     separator = ' ',
-    separator_highlight = {'NONE', colors.bg},
-    highlight = {colors.grey, colors.bg}
+    separator_highlight = {'NONE'},
+    highlight = {colors.grey}
   }
 }
 
-gls.left[4] = {DiffAdd = {provider = 'DiffAdd', condition = condition.hide_in_width, icon = '  ', highlight = {colors.green, colors.bg}}}
-gls.left[5] = {DiffModified = {provider = 'DiffModified', condition = condition.hide_in_width, icon = ' 柳 ', highlight = {colors.blue, colors.bg}}}
-gls.left[6] = {DiffRemove = {provider = 'DiffRemove', condition = condition.hide_in_width, icon = '  ', highlight = {colors.red, colors.bg}}}
+gls.left[4] = {DiffAdd = {provider = 'DiffAdd', condition = condition.hide_in_width, icon = '  ', highlight = {colors.green}}}
+gls.left[5] = {DiffModified = {provider = 'DiffModified', condition = condition.hide_in_width, icon = ' 柳 ', highlight = {colors.blue}}}
+gls.left[6] = {DiffRemove = {provider = 'DiffRemove', condition = condition.hide_in_width, icon = '  ', highlight = {colors.red}}}
 
 -- mid
 
@@ -149,7 +141,7 @@ gls.mid[2] = {
       return buffer_not_empty() and condition.hide_in_width()
     end,
     icon = '  ',
-    highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color, colors.bg}
+    highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color}
   }
 }
 
@@ -213,7 +205,7 @@ gls.mid[5] = {
       if not vim.tbl_isempty(vim.lsp.buf_get_clients()) then return get_nvim_lsp_diagnostic('Error') end
     end,
     icon = '   ',
-    highlight = {colors.red, colors.bg}
+    highlight = {colors.red}
   }
 }
 
@@ -223,7 +215,7 @@ gls.mid[6] = {
       if not vim.tbl_isempty(vim.lsp.buf_get_clients()) then return get_nvim_lsp_diagnostic('Warning') end
     end,
     icon = '   ',
-    highlight = {colors.orange, colors.bg}
+    highlight = {colors.orange}
   }
 }
 
@@ -233,7 +225,7 @@ gls.mid[7] = {
       if not vim.tbl_isempty(vim.lsp.buf_get_clients()) then return get_nvim_lsp_diagnostic('Hint') end
     end,
     icon = '   ',
-    highlight = {colors.blue, colors.bg}
+    highlight = {colors.blue}
   }
 }
 
@@ -243,7 +235,7 @@ gls.mid[8] = {
       if not vim.tbl_isempty(vim.lsp.buf_get_clients()) then return get_nvim_lsp_diagnostic('Information') end
     end,
     icon = '   ',
-    highlight = {colors.blue, colors.bg}
+    highlight = {colors.blue}
   }
 }
 
@@ -256,20 +248,16 @@ gls.right[1] = {
     end,
     condition = condition.hide_in_width,
     separator = ' ',
-    separator_highlight = {'NONE', colors.bg},
-    highlight = {colors.grey, colors.bg}
+    separator_highlight = {'NONE'},
+    highlight = {colors.grey}
   }
 }
 
-gls.right[2] = {
-  FileEncode = {provider = 'FileEncode', condition = condition.hide_in_width, separator = ' ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.grey, colors.bg}}
-}
+gls.right[2] = {FileEncode = {provider = 'FileEncode', condition = condition.hide_in_width, separator = ' ', separator_highlight = {'NONE'}, highlight = {colors.grey}}}
 
-gls.right[3] = {
-  LineInfo = {provider = 'LineColumn', separator = ' ', condition = condition.hide_in_width, separator_highlight = {'NONE', colors.bg}, highlight = {colors.grey, colors.bg}}
-}
+gls.right[3] = {LineInfo = {provider = 'LineColumn', separator = ' ', condition = condition.hide_in_width, separator_highlight = {'NONE'}, highlight = {colors.grey}}}
 
-gls.right[4] = {ScrollBar = {provider = 'ScrollBar', separator = ' ', separator_highlight = {'NONE', colors.bg}, highlight = {colors.yellow, colors.bg}}}
+gls.right[4] = {ScrollBar = {provider = 'ScrollBar', separator = ' ', separator_highlight = {'NONE'}, highlight = {colors.yellow}}}
 
 -- shortline disable
 
@@ -279,7 +267,7 @@ gls.short_line_left[1] = {
       return ' '
     end,
     separator = ' ',
-    separator_highlight = {colors.purple, colors.bg},
-    highlight = {colors.purple, colors.bg}
+    separator_highlight = {colors.purple},
+    highlight = {colors.purple}
   }
 }
