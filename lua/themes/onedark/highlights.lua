@@ -358,6 +358,8 @@ hl.langs.gitcommit = {
   gitcommitUnmergedArrow = {fg = c.yellow}
 }
 
+hl.langs.yaml = {yamlBlockCollectionItemStart = colors.Fg}
+
 hl.langs.dockerCompose = {dockercomposeKeywords = colors.Red}
 
 hl.langs.bash = {bashTSParameter = {fg = c.fg}}
