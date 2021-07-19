@@ -360,6 +360,8 @@ hl.langs.gitcommit = {
 
 hl.langs.dockerCompose = {dockercomposeKeywords = colors.Red}
 
+hl.langs.bash = {bashTSParameter = {fg = c.fg}}
+
 function M.setup()
   vim_highlights(hl.common)
   vim_highlights(hl.syntax)
