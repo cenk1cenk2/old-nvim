@@ -358,6 +358,8 @@ hl.langs.gitcommit = {
   gitcommitUnmergedArrow = {fg = c.yellow}
 }
 
+hl.langs.dockerCompose = {dockercomposeKeywords = colors.Red}
+
 function M.setup()
   vim_highlights(hl.common)
   vim_highlights(hl.syntax)
