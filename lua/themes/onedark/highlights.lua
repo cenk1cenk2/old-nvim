@@ -282,7 +282,7 @@ hl.plugins.nvim_tree = {
   NvimTreeNormal = {fg = c.fg, bg = c.bg0},
   NvimTreeEndOfBuffer = {fg = c.bg0, bg = c.bg0},
   NvimTreeRootFolder = {fg = c.purple, bold = true},
-  NvimTreeGitDirty = colors.Yellow,
+  NvimTreeGitDirty = colors.Orange,
   NvimTreeGitNew = colors.Green,
   NvimTreeGitDeleted = colors.Red,
   NvimTreeSpecialFile = {fg = c.yellow, bold = true},
