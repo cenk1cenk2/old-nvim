@@ -29,7 +29,7 @@ local function vim_highlights(highlights)
   for group_name, group_settings in pairs(highlights) do
     local fg = group_settings.fg and 'guifg=' .. group_settings.fg or 'guifg=NONE'
     local bg = group_settings.bg and 'guibg=' .. group_settings.bg or 'guibg=NONE'
-    vim.cmd('highlight ' .. group_name .. ' ' .. 'gui=' .. gui(group_settings) .. ' ' .. fg .. ' ' .. bg)
+    vim.api.nvim_command('highlight ' .. group_name .. ' ' .. 'gui=' .. gui(group_settings) .. ' ' .. fg .. ' ' .. bg)
   end
 end
 
@@ -116,6 +116,7 @@ hl.common = {
 hl.syntax = {
   String = colors.Green,
   Character = colors.Orange,
+  confComment = colors.Grey,
   NormalFloat = {bg = c.bg1},
   FloatBorder = {fg = c.grey},
   Number = colors.Orange,
@@ -358,13 +359,22 @@ hl.langs.gitcommit = {
   gitcommitUnmergedArrow = {fg = c.yellow}
 }
 
-hl.langs.yaml = {yamlBlockCollectionItemStart = colors.Fg, yamlKeyValueDelimiter = colors.Fg}
+hl.langs.yaml = {yamlBlockCollectionItemStart = colors.Fg, yamlKeyValueDelimiter = colors.Fg, yamlBlockMappingKey = colors.Red}
 
 hl.langs.dockerCompose = {dockercomposeKeywords = colors.Red}
 
 hl.langs.bash = {bashTSParameter = {fg = c.fg}}
 
-hl.langs.jinja = {jinjaTagBlock = colors.RED, jinjaVarBlock = colors.Yellow}
+hl.langs.jinja = {
+  jinjaTagBlock = colors.Red,
+  jinjaVarBlock = colors.Yellow,
+  jinjaVariable = colors.Yellow,
+  jinjaVarDelim = colors.BrightYellow,
+  jinjaFilter = colors.Blue,
+  jinjaStatement = colors.Red
+}
+
+hl.langs.ansible = {ansible_normal_keywords = colors.Blue}
 
 function M.setup()
   vim_highlights(hl.common)
