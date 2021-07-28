@@ -76,6 +76,7 @@ wk.register({
     f = {':Telescope tele_tabby list theme=get_dropdown<CR>', 'buffers-telescope'},
     F = {':CocCommand fzf-preview.AllBuffers --preview "bat --style=numbers --color=always --line-range :500 {}"<CR>', 'buffers-fzf'},
     s = {':edit #<CR>', 'jump between two last buffers'},
+    S = {':w !sudo tee % > /dev/null<CR>', 'sudo save'},
     c = {':BufferClose!<CR>', 'close-this buffer'},
     C = {':BufferWipeout<CR>', 'close-all'},
     X = {':BufferCloseAllButCurrent<CR>', 'close-all but current'},
