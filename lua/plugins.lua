@@ -65,7 +65,7 @@ return require('packer').startup(function(use)
     use {'terryma/vim-multiple-cursors'}
 
     -- comments
-    use {'preservim/nerdcommenter'}
+    use {'preservim/nerdcommenter', commit = 'a5d1663'}
 
     -- ranger
     use {'kevinhwang91/rnvimr'}
