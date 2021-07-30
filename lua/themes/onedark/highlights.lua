@@ -379,9 +379,10 @@ hl.langs.ansible = {ansible_normal_keywords = colors.Blue}
 function M.setup()
   vim_highlights(hl.common)
   vim_highlights(hl.syntax)
-  local ns = create_namespace('onedark')
-  load_highlights(ns, hl.treesitter)
-  set_hl_ns(ns)
+  -- local ns = create_namespace('onedark')
+  -- load_highlights(ns, hl.treesitter)
+  -- set_hl_ns(ns)
+  vim_highlights(hl.treesitter)
   for _, group in pairs(hl.langs) do vim_highlights(group) end
   for _, group in pairs(hl.plugins) do vim_highlights(group) end
 end
