@@ -216,17 +216,17 @@ hl.treesitter = {
 
 hl.plugins.lsp = {
   LspDiagnosticsDefaultError = {fg = c.red},
-  LspDiagnosticsDefaultHint = {fg = c.blue},
+  LspDiagnosticsDefaultHint = {fg = c.grey},
   LspDiagnosticsDefaultInformation = {fg = c.grey},
   LspDiagnosticsDefaultWarning = {fg = c.yellow},
   LspDiagnosticsUnderlineError = {sp = c.red},
-  LspDiagnosticsUnderlineHint = {sp = c.blue, bold = true},
-  LspDiagnosticsUnderlineInformation = {sp = c.grey, bold = true},
-  LspDiagnosticsUnderlineWarning = {sp = c.yellow, bold = true},
+  LspDiagnosticsUnderlineHint = {sp = c.grey},
+  LspDiagnosticsUnderlineInformation = {sp = c.grey},
+  LspDiagnosticsUnderlineWarning = {sp = c.yellow},
   LspDiagnosticsVirtualTextError = {fg = c.red},
   LspDiagnosticsVirtualTextWarning = {fg = c.yellow},
   LspDiagnosticsVirtualTextInformation = {fg = c.grey},
-  LspDiagnosticsVirtualTextHint = {fg = c.blue},
+  LspDiagnosticsVirtualTextHint = {fg = c.grey},
   LspReferenceText = {bg = c.bg1},
   LspReferenceWrite = {bg = c.bg1},
   LspReferenceRead = {bg = c.bg1}
