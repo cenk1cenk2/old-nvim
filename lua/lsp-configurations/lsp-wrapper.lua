@@ -179,6 +179,10 @@ function lsp_wrapper.organize_imports()
   end
 end
 
+function lsp_wrapper.enable_lsp_debug_logging ()
+vim.lsp.set_log_level("debug")
+end
+
 local helpers = require('helper-functions')
 helpers.command.wrap_to_command({
   {'LspCodeAction', 'lua require("lsp-configurations.lsp-wrapper").code_action()'},
@@ -202,6 +206,7 @@ helpers.command.wrap_to_command({
   {'LspGotoNext', 'lua require("lsp-configurations.lsp-wrapper").goto_next()'},
   {'LspGotoPrev', 'lua require("lsp-configurations.lsp-wrapper").goto_prev()'},
   {'LspShowLineDiagnostics', 'lua require("lsp-configurations.lsp-wrapper").show_line_diagnostics()'},
+  {'LspDebugLog', 'lua require("lsp-configurations.lsp-wrapper").enable_lsp_debug_logging()'},
   -- {'LspRestart', 'lua require("lsp-configurations.lsp-wrapper").restart_lsp()'},
   {'LspFixCurrent', 'lua require("lsp-configurations.lsp-wrapper").fix_current()'},
   {'LspOrganizeImports', 'lua require("lsp-configurations.lsp-wrapper").organize_imports()'}
