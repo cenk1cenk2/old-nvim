@@ -331,6 +331,22 @@ function download_extension() {
 	done
 }
 
+# gets the latest release from the github releases
+function get_latest_release() {
+	curl --silent "https://api.github.com/repos/$1/releases/latest" \
+		|
+		# Get latest release from GitHub api
+		grep '"tag_name":' \
+		|
+		# Get tag line
+		sed -E 's/.*"([^"]+)".*/\1/' # Pluck JSON value
+}
+
+function pluck_v_from_release() {
+	echo "$1" \
+		| sed -E 's/v//'
+}
+
 ## for npm based extensions
 install_and_link_binaries "node" "${NPM_EXTENSIONS[*]}"
 
@@ -352,23 +368,25 @@ install_and_link_binaries "python" "${PYTHON_EXTENSIONS[*]}"
 log_start "Installing custom assets and vscode-extensions..." "top"
 
 # install shell-check here
-VERSION="v0.7.2"
+VERSION="$(get_latest_release koalaman/shellcheck)"
 download_binary "https://github.com/koalaman/shellcheck/releases/download/${VERSION}/shellcheck-${VERSION}.linux.x86_64.tar.xz" "tar_xz" "shellcheck-${VERSION}/shellcheck"
 
 # install lua language server
-VERSION="2.0.3"
+VERSION="$(pluck_v_from_release $(get_latest_release "sumneko/vscode-lua"))"
 download_extension "https://github.com/sumneko/vscode-lua/releases/download/v$VERSION/lua-$VERSION.vsix" "zip" "lua-language-server" "extension/server" "bin"
 
 # install eslint language server, dont upgrade this until figuring out how to accept the prompt
 VERSION="2.1.0"
 download_extension "https://github.com/microsoft/vscode-eslint/releases/download/release%2F$VERSION-next.1/vscode-eslint-$VERSION.vsix" "zip" "eslint-language-server" "extension/server/out"
+# VERSION="2.1.8"
+# download_extension "https://github.com/microsoft/vscode-eslint/releases/download/release%2F$VERSION/dbaeumer.vscode-eslint-$VERSION.vsix" "zip" "eslint-language-server" "extension/server/out"
 
 # install tailwinds language server
-VERSION="0.6.13"
+VERSION="$(pluck_v_from_release $(get_latest_release tailwindlabs/tailwindcss-intellisense))"
 download_extension "https://github.com/tailwindlabs/tailwindcss-intellisense/releases/download/v$VERSION/vscode-tailwindcss-$VERSION.vsix" "zip" "tailwindcss-language-server" "extension/dist/server"
 
 # install hadolint language server
-VERSION="v2.6.0"
+VERSION="$(get_latest_release hadolint/hadolint)"
 download_binary "https://github.com/hadolint/hadolint/releases/download/$VERSION/hadolint-Linux-x86_64" "none" "hadolint"
 
 # rust analyzer
