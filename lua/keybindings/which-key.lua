@@ -46,7 +46,7 @@ wk.register({
     name = '+actions',
     a = {':AnyFoldActivate<CR>', 'activate anyfold'},
     c = {':ColorizerToggle<CR>', 'colorizer toggle'},
-    C = {':set cursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20<CR>', 'bring back cursor'},
+    C = {':set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20<CR>', 'bring back cursor'},
     d = {':! ansible-vault decrypt %:p<CR>', 'ansible-vault decrypt'},
     D = {':! ansible-vault encrypt %:p<CR>', 'ansible-vault encrypt'},
     e = {':set ff=unix<CR>', 'set lf'},
