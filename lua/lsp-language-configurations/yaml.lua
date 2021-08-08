@@ -14,7 +14,8 @@ require('lspconfig').yamlls.setup({
       schemas = {
         ['https://json.schemastore.org/gitlab-ci.json'] = {'.gitlab-ci.yml'},
         ['https://json.schemastore.org/drone.json'] = {'.drone.yml'},
-        ['https://json.schemastore.org/ansible-playbook.json'] = {'deploy.yml', 'provision.yml'}
+        ['https://json.schemastore.org/ansible-playbook.json'] = {'deploy.yml', 'provision.yml'},
+        ['https://bitbucket.org/atlassianlabs/atlascode/raw/main/resources/schemas/pipelines-schema.json'] = {'bitbucket-pipelines.yml'}
       }
     }
   }
