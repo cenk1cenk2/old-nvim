@@ -9,7 +9,7 @@ if not lspconfig.grammarly then
 
   configs.grammarly = {
     default_config = {
-      cmd = {vim.g.lsp_servers_dir .. 'unofficial-grammarly-language-server', '--stdio'},
+      cmd = {'node', vim.g.lsp_servers_dir .. 'unofficial-grammarly-language-server', '--stdio'},
       filetypes = {'=', 'markdown'},
       capabilities = capabilities,
       root_dir = function(fname)
