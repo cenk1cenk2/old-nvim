@@ -197,7 +197,7 @@ return require('packer').startup(function(use)
     use {'skywind3000/asyncrun.vim'}
 
     -- markdown previewer
-    use {'iamcco/markdown-preview.nvim', run = 'cd app & yarn & yarn add -D tslib'}
+    use {'iamcco/markdown-preview.nvim', run = {'cd app & yarn & yarn add -D tslib', ':call mkdp#util#install()'}}
 
     -- jinja syntax highlights
     use {'lepture/vim-jinja'} -- (temp)
