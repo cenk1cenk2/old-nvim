@@ -132,9 +132,9 @@ return require('packer').startup(function(use)
 
     -- Treesitter
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-    use {'nvim-treesitter/playground', requires = {'nvim-treesitter'}}
-    use {'p00f/nvim-ts-rainbow', run = ':TSUpdate', requires = {'nvim-treesitter'}}
-    use {'windwp/nvim-ts-autotag', requires = {'nvim-treesitter'}}
+    use {'nvim-treesitter/playground', requires = {'nvim-treesitter/nvim-treesitter'}}
+    use {'p00f/nvim-ts-rainbow', run = ':TSUpdate', requires = {'nvim-treesitter/nvim-treesitter'}}
+    use {'windwp/nvim-ts-autotag', requires = {'nvim-treesitter/nvim-treesitter'}}
 
     -- Colorized
     use {'norcalli/nvim-colorizer.lua'}
