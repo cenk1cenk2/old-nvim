@@ -65,7 +65,9 @@ return require('packer').startup(function(use)
     use {'terryma/vim-multiple-cursors'}
 
     -- comments
-    use {'preservim/nerdcommenter', commit = 'a5d1663'}
+    use {'preservim/nerdcommenter'}
+    -- use {'preservim/nerdcommenter', commit = 'a5d1663'}
+    -- use {'b3nj5m1n/kommentary'}
 
     -- ranger
     use {'kevinhwang91/rnvimr'}
@@ -96,7 +98,6 @@ return require('packer').startup(function(use)
 
     -- file explorer
     use {'kyazdani42/nvim-tree.lua'}
-    -- use {'kyazdani42/nvim-tree.lua', commit = '23935ff'}
 
     -- terminal
     use {'voldikss/vim-floaterm'}
@@ -159,6 +160,7 @@ return require('packer').startup(function(use)
     use {'tpope/vim-fugitive'}
     use {'tpope/vim-rhubarb'}
     use {'junegunn/gv.vim'}
+    use {'pwntester/octo.nvim'}
     -- use {'sindrets/diffview.nvim'}
 
     -- quick move commands
@@ -202,8 +204,14 @@ return require('packer').startup(function(use)
     -- jinja syntax highlights
     use {'lepture/vim-jinja'} -- (temp)
 
+    -- clipboard telescope
+    use {'AckslD/nvim-neoclip.lua'}
+
     -- bookmarks
     use {'MattesGroeger/vim-bookmarks'}
+
+    -- package information for npm packages
+    use {'vuki656/package-info.nvim'}
   end
 
 end)

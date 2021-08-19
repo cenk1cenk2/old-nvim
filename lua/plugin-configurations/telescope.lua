@@ -9,7 +9,7 @@ require('telescope').setup({
     selection_caret = ' ',
     entry_prefix = '  ',
     layout_config = {prompt_position = 'bottom', horizontal = {mirror = false, width = 0.9}, vertical = {mirror = false, width = 0.8}},
-    file_ignore_patterns = {'yarn.lock', '**/node_modules/**', 'package-lock.json'},
+    file_ignore_patterns = {'**/yarn.lock', '**/node_modules/**', '**/package-lock.json'},
     mappings = {i = {['<C-s>'] = actions.cycle_previewers_next, ['<C-a>'] = actions.cycle_previewers_prev}}
   },
   pickers = {
