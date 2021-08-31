@@ -71,12 +71,12 @@ NPM_EXTENSIONS=(
 
 # format: [extensions-name];[binary-name]
 GO_EXTENSIONS=(
-	"github.com/mattn/efm-langserver@latest"
-	"github.com/client9/misspell/cmd/misspell@latest"
-	"mvdan.cc/sh/v3/cmd/shfmt@latest"
-	"golang.org/x/tools/gopls@latest"
-	"golang.org/x/lint/golint@latest"
-	"golang.org/x/tools/cmd/goimports@latest"
+	"github.com/mattn/efm-langserver@latest;efm-langserver"
+	"github.com/client9/misspell/cmd/misspell@latest;misspell"
+	"mvdan.cc/sh/v3/cmd/shfmt@latest;shfmt"
+	"golang.org/x/tools/gopls@latest;gopls"
+	"golang.org/x/lint/golint@latest;golint"
+	"golang.org/x/tools/cmd/goimports@latest;goimports"
 )
 
 # format: [extensions-name];[binary-name]
@@ -135,6 +135,7 @@ function install_and_link_binaries() {
 		BASE_DIR="./venv/bin"
 		INSTALL_COMMAND="./venv/bin/pip3 install"
 	elif [ "$TYPE" = "go" ]; then
+		BASE_DIR="./bin"
 		INSTALL_COMMAND="GOPATH=$(pwd) go install"
 		CLEAN_COMMAND=("GOPATH=$(pwd) go clean -modcache" "rm -rf src pkg 2>/dev/null")
 	else
