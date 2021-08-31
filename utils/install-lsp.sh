@@ -135,8 +135,8 @@ function install_and_link_binaries() {
 		BASE_DIR="./venv/bin"
 		INSTALL_COMMAND="./venv/bin/pip3 install"
 	elif [ "$TYPE" = "go" ]; then
-		INSTALL_COMMAND="GOPATH=$(pwd) GOBIN=$(pwd) GO111MODULE=on go get -v"
-		CLEAN_COMMAND=("GOPATH=$(pwd) GO111MODULE=on go clean -modcache" "rm -rf src pkg 2>/dev/null")
+		INSTALL_COMMAND="GOPATH=$(pwd) go install"
+		CLEAN_COMMAND=("GOPATH=$(pwd) go clean -modcache" "rm -rf src pkg 2>/dev/null")
 	else
 		log_error "Package type not supported: ${TYPE}"
 
