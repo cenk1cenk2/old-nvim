@@ -130,8 +130,10 @@ end
 
 function lsp_wrapper.restart_lsp()
   local clients = vim.lsp.get_active_clients()
+
   vim.lsp.stop_client(clients, {force = true})
   print('Stopped LSP clients.')
+
   vim.lsp.start_client(clients)
   print('Restarted all LSP clients.')
 end
@@ -179,8 +181,8 @@ function lsp_wrapper.organize_imports()
   end
 end
 
-function lsp_wrapper.enable_lsp_debug_logging ()
-vim.lsp.set_log_level("debug")
+function lsp_wrapper.lsp_logging_level(level)
+  vim.lsp.set_log_level(level)
 end
 
 local helpers = require('helper-functions')
@@ -206,8 +208,9 @@ helpers.command.wrap_to_command({
   {'LspGotoNext', 'lua require("lsp-configurations.lsp-wrapper").goto_next()'},
   {'LspGotoPrev', 'lua require("lsp-configurations.lsp-wrapper").goto_prev()'},
   {'LspShowLineDiagnostics', 'lua require("lsp-configurations.lsp-wrapper").show_line_diagnostics()'},
-  {'LspDebugLog', 'lua require("lsp-configurations.lsp-wrapper").enable_lsp_debug_logging()'},
-  -- {'LspRestart', 'lua require("lsp-configurations.lsp-wrapper").restart_lsp()'},
+  {'LspLogLevelDebug', 'lua require("lsp-configurations.lsp-wrapper").enable_lsp_debug_logging("debug")'},
+  {'LspLogLevelInfo', 'lua require("lsp-configurations.lsp-wrapper").enable_lsp_debug_logging("info")'},
+  {'LspRestartAll', 'lua require("lsp-configurations.lsp-wrapper").restart_lsp()'},
   {'LspFixCurrent', 'lua require("lsp-configurations.lsp-wrapper").fix_current()'},
   {'LspOrganizeImports', 'lua require("lsp-configurations.lsp-wrapper").organize_imports()'}
 })

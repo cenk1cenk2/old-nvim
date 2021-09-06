@@ -1,6 +1,7 @@
 #!/bin/bash
 
 SECONDS=0
+COMMIT_SHA="f7dabbc115296d7d821985fb77d63a2958d48be3"
 
 ## inject logger
 LOG_LEVEL=${LOG_LEVEL-"INFO"}
@@ -19,6 +20,11 @@ git clone https://github.com/neovim/neovim "$TMP_DOWNLOAD_PATH"
 log_finish "Neovim cloned."
 
 cd "$TMP_DOWNLOAD_PATH" || exit 127
+
+if [ -n "${COMMIT_SHA}" ]; then
+	log_warn "Certain commit sha is set: ${COMMIT_SHA}"
+	git checkout "${COMMIT_SHA}"
+fi
 
 log_start "Building neovim..."
 sudo make CMAKE_BUILD_TYPE=Release install

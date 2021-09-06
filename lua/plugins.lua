@@ -66,8 +66,8 @@ return require('packer').startup(function(use)
 
     -- comments
     use {'preservim/nerdcommenter'}
-    -- use {'preservim/nerdcommenter', commit = 'a5d1663'}
     -- use {'b3nj5m1n/kommentary'}
+    use {'danymat/neogen', requires = 'nvim-treesitter/nvim-treesitter'}
 
     -- ranger
     use {'kevinhwang91/rnvimr'}

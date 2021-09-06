@@ -184,6 +184,7 @@ wk.register({
     a = {':Lspsaga code_action<CR>', 'code action'},
     A = {':Lspsaga range_code_action<CR>', 'selected action'},
     c = {':LspTroubleToggle<CR>', 'show all diagnostics'},
+    C = {':lua require("neogen").generate()<CR>', 'generate documentation'},
     d = {':Telescope lsp_document_diagnostics --theme=get_dropdown<CR>', 'document diagnostics'},
     D = {':Telescope lsp_workspace_diagnostics --theme=get_dropdown<CR>', 'workspace diagnostics'},
     f = {':LspFormattingSync<CR>', 'format'},
@@ -204,7 +205,7 @@ wk.register({
     r = {':LspReferences<CR>', 'references'},
     R = {':LspRename<CR>', 'rename item'},
     T = {':LspTypeDefinition<CR>', 'type defintion'},
-    Q = {':LspRestart<CR>', 'restart currently active lsps'},
+    Q = {':LspRestartAll<CR>', 'restart currently active lsps'},
     s = {':Telescope lsp_document_symbols --theme=get_dropdown<CR>', 'document symbols'},
     S = {':Telescope lsp_workspace_symbols --theme=get_dropdown<CR>', 'workspace symbols'}
   },
