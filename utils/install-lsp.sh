@@ -37,7 +37,7 @@ fi
 if [[ -n $1 && $1 == "clean" ]]; then
 	if [ -d "${LSP_FOLDER}" ]; then
 		log_warn "Removing LSP folder for clean install: ${LSP_FOLDER}"
-		rm -r "${LSP_FOLDER}"
+		sudo rm -r "${LSP_FOLDER}"
 	else
 		log_error "LSP folder is not really a folder: ${LSP_FOLDER}"
 		ls -la "${LSP_FOLDER}"

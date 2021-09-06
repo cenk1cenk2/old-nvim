@@ -4,7 +4,7 @@ tags*
 pythonpath.vim
 nodepath.vim
 autoload/plugged/*
-vimspector-config/gadgets/*
+utils/vimspector-config/*
 paths.vim
 session/**
 !session/.gitkeep
