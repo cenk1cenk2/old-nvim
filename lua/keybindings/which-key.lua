@@ -40,6 +40,7 @@ wk.register({
   ['u'] = {':UndotreeToggle<CR>', 'undo tree'},
   ['W'] = {':call WindowSwap#EasyWindowSwap()<CR>', 'move window'},
   ['q'] = {':LspFixCurrent<CR>', 'quick fix'},
+  ['y'] = {':Telescope neoclip<CR>', 'yank registers'},
 
   -- actions
   a = {
