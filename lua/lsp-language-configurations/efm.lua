@@ -15,6 +15,7 @@ local languages = {
   javascriptreact = {efm.prettier, efm.eslint},
   vue = {efm.prettier, efm.eslint},
   yaml = {efm.prettier},
+  ['yaml.docker-compose'] = {efm.prettier},
   json = {efm.prettier},
   jsonc = {efm.prettier},
   html = {efm.prettier},
@@ -54,5 +55,5 @@ require('lspconfig').efm.setup {
   init_options = {documentFormatting = true, codeAction = true, completion = true},
   root_dir = require('lspconfig').util.root_pattern('package.json', '.git', vim.fn.getcwd()),
   filetypes = vim.tbl_keys(languages),
-  settings = {rootMarkers = {'package.json', '.git/'}, lintDebounce = 500, languages = languages}
+  settings = {rootMarkers = {'.git/'}, lintDebounce = 500, languages = languages}
 }
