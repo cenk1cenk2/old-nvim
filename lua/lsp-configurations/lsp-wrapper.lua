@@ -153,7 +153,7 @@ function lsp_wrapper.fix_current()
     for _, result in pairs(response.result or {}) do
       print('Applying quickfix from ' .. vim.lsp.buf_get_clients()[i].name .. ': ' .. result.title)
 
-      apply_lsp_edit(result)
+      Apply_lsp_edit(result)
 
       break
     end
@@ -177,10 +177,10 @@ function lsp_wrapper.organize_imports()
     return
   end
 
-  for _, response in pairs(responses) do for _, result in pairs(response.result or {}) do apply_lsp_edit(result) end end
+  for _, response in pairs(responses) do for _, result in pairs(response.result or {}) do Apply_lsp_edit(result) end end
 end
 
-function apply_lsp_edit(result)
+function Apply_lsp_edit(result)
   if result.edit or type(result.command) == 'table' then
     if result.edit then vim.lsp.util.apply_workspace_edit(result.edit) end
     if type(result.command) == 'table' then lsp_execute_command(0, result.command) end
