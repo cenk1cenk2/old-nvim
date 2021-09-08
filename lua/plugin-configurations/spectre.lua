@@ -54,3 +54,5 @@ helpers.command.wrap_to_command({
 
 vim.api.nvim_set_keymap('n', [[as]], [[:lua require('spectre').open_file_search()<cr>]], {silent = true, noremap = true})
 vim.api.nvim_set_keymap('v', [[as]], [[:lua require('spectre').open_file_search()<cr>]], {silent = true, noremap = true})
+vim.api.nvim_set_keymap('n', [[sa]], [[:lua require('spectre').open()<cr>]], {silent = true, noremap = true})
+vim.api.nvim_set_keymap('v', [[sa]], [[:lua require('spectre').open()<cr>]], {silent = true, noremap = true})

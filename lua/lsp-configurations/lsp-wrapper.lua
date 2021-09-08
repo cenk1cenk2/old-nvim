@@ -140,18 +140,26 @@ end
 
 function lsp_wrapper.fix_current()
   local params = vim.lsp.util.make_range_params()
-  params.context = {diagnostics = {}, only = {'quickfix'}}
+  params.context = {diagnostics = vim.lsp.diagnostic.get_line_diagnostics()}
 
   local responses = vim.lsp.buf_request_sync(0, 'textDocument/codeAction', params)
-
-  print(vim.inspect(responses) .. 'test')
 
   if not responses or vim.tbl_isempty(responses) then
     print('No quickfix found.')
     return
   end
 
-  print(vim.inspect(responses))
+  for i, response in pairs(responses) do
+    for _, result in pairs(response.result or {}) do
+      print('Applying quickfix from ' .. vim.lsp.buf_get_clients()[i].name .. ': ' .. result.title)
+
+      apply_lsp_edit(result)
+
+      break
+    end
+    break
+  end
+
 end
 
 local function lsp_execute_command(bn, command)
@@ -169,15 +177,15 @@ function lsp_wrapper.organize_imports()
     return
   end
 
-  for _, response in pairs(responses) do
-    for _, result in pairs(response.result or {}) do
-      if result.edit or type(result.command) == 'table' then
-        if result.edit then vim.lsp.util.apply_workspace_edit(result.edit) end
-        if type(result.command) == 'table' then lsp_execute_command(0, result.command) end
-      else
-        lsp_execute_command(0, result)
-      end
-    end
+  for _, response in pairs(responses) do for _, result in pairs(response.result or {}) do apply_lsp_edit(result) end end
+end
+
+function apply_lsp_edit(result)
+  if result.edit or type(result.command) == 'table' then
+    if result.edit then vim.lsp.util.apply_workspace_edit(result.edit) end
+    if type(result.command) == 'table' then lsp_execute_command(0, result.command) end
+  else
+    lsp_execute_command(0, result)
   end
 end
 

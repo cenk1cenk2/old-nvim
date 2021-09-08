@@ -3,6 +3,9 @@ local languageServerRootDir = vim.g.lsp_servers_dir .. 'lua-language-server/'
 
 require('lspconfig').sumneko_lua.setup {
   cmd = {languageServerRootDir .. 'bin/Linux/lua-language-server', '-E', languageServerRootDir .. 'main.lua'},
+  on_attach = function(_, bufnr)
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  end,
   settings = {
     Lua = {
       runtime = {

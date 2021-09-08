@@ -1,11 +1,10 @@
 -- npm install -g vscode-html-languageserver-bin
 -- Enable (broadcasting) snippet capability for completion
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+local lsphelpers = require('helper-functions.lsp')
 
 require('lspconfig').html.setup {
   cmd = {'node', vim.g.lsp_servers_dir .. 'vscode/html-language-features/server/dist/node/htmlServerMain.js', '--stdio'},
-  capabilities = capabilities,
+  capabilities = lsphelpers.create_capabilities({snippets = true}),
   -- init_options = {provideFormatter = true},
   filetypes = {
     -- html

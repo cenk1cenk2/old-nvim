@@ -24,6 +24,8 @@ function lsphelpers.create_capabilities(add)
     capabilities.textDocument.completion.completionItem.snippetSupport = false
   end
 
+  if add.cmp_lsp == true then require('cmp_nvim_lsp').update_capabilities(capabilities) end
+
   return capabilities
 end
 
