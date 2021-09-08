@@ -47,7 +47,6 @@ return require('packer').startup(function(use)
 
     -- which key
     use {'folke/which-key.nvim'}
-    -- use {'liuchengxu/vim-which-key'}
 
     -- status line
     use {'glepnir/galaxyline.nvim'}
@@ -93,9 +92,6 @@ return require('packer').startup(function(use)
     -- better quick fix window
     use {'kevinhwang91/nvim-bqf'}
 
-    -- peek registers and macros
-    -- use {'tversteeg/registers.nvim'}
-
     -- file explorer
     use {'kyazdani42/nvim-tree.lua'}
 
@@ -113,7 +109,6 @@ return require('packer').startup(function(use)
     use {'onsails/lspkind-nvim'}
     use {'kosayoda/nvim-lightbulb'}
     use {'folke/lsp-trouble.nvim'}
-    use {'folke/lsp-colors.nvim'}
     use {'simrat39/symbols-outline.nvim'}
 
     -- illumunate
