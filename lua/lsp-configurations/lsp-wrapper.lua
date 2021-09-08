@@ -128,16 +128,6 @@ function lsp_wrapper.show_line_diagnostics()
   vim.lsp.diagnostic.show_line_diagnostics()
 end
 
-function lsp_wrapper.restart_lsp()
-  local clients = vim.lsp.get_active_clients()
-
-  vim.lsp.stop_client(clients, {force = true})
-  print('Stopped LSP clients.')
-
-  vim.lsp.start_client(clients)
-  print('Restarted all LSP clients.')
-end
-
 function lsp_wrapper.fix_current()
   local params = vim.lsp.util.make_range_params()
   params.context = {diagnostics = vim.lsp.diagnostic.get_line_diagnostics()}
@@ -218,7 +208,6 @@ helpers.command.wrap_to_command({
   {'LspShowLineDiagnostics', 'lua require("lsp-configurations.lsp-wrapper").show_line_diagnostics()'},
   {'LspLogLevelDebug', 'lua require("lsp-configurations.lsp-wrapper").enable_lsp_debug_logging("debug")'},
   {'LspLogLevelInfo', 'lua require("lsp-configurations.lsp-wrapper").enable_lsp_debug_logging("info")'},
-  {'LspRestartAll', 'lua require("lsp-configurations.lsp-wrapper").restart_lsp()'},
   {'LspFixCurrent', 'lua require("lsp-configurations.lsp-wrapper").fix_current()'},
   {'LspOrganizeImports', 'lua require("lsp-configurations.lsp-wrapper").organize_imports()'}
 })

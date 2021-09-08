@@ -206,7 +206,7 @@ wk.register({
     r = {':LspReferences<CR>', 'references'},
     R = {':LspRename<CR>', 'rename item'},
     T = {':LspTypeDefinition<CR>', 'type defintion'},
-    Q = {':LspRestartAll<CR>', 'restart currently active lsps'},
+    Q = {':LspRestart<CR>', 'restart currently active lsps'},
     s = {':Telescope lsp_document_symbols --theme=get_dropdown<CR>', 'document symbols'},
     S = {':Telescope lsp_workspace_symbols --theme=get_dropdown<CR>', 'workspace symbols'}
   },
