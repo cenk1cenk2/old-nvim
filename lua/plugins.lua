@@ -61,7 +61,8 @@ return require('packer').startup(function(use)
 
   -- comments
   -- use {'preservim/nerdcommenter'}
-  use {'b3nj5m1n/kommentary'}
+  -- use {'b3nj5m1n/kommentary'}
+  use {'terrortylor/nvim-comment'}
 
   -- ranger
   use {'kevinhwang91/rnvimr'}
@@ -201,6 +202,9 @@ return require('packer').startup(function(use)
   -- bookmarks
   use {'MattesGroeger/vim-bookmarks'}
 
+  -- jsdoc
+  use {'heavenshell/vim-jsdoc', run = {'make install'}}
+
   -- package information for npm packages
-  d = {':LspTroubleDocumentToggle<CR>', 'show all diagnostics'}, use {'vuki656/package-info.nvim'}
+  use {'vuki656/package-info.nvim'}
 end)

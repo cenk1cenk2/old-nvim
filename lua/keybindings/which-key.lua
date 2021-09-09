@@ -176,6 +176,7 @@ wk.register({
     h = {':Lspsaga signature_help<CR>', 'signature help'},
     g = {':LspOrganizeImports<CR>', 'organize imports'},
     i = {':LspImplementation<CR>', 'implementation'},
+    j = {'<Plug>(jsdoc)', 'create jsdoc'},
     I = {':LspInfo<CR>', 'lsp information'},
     l = {':Lspsaga show_line_diagnostics<CR>', 'line diagnostics'},
     L = {':Lspsaga lsp_finder<CR>', 'lsp finder'},
