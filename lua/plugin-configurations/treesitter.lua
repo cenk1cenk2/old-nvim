@@ -11,5 +11,6 @@ require('nvim-treesitter.configs').setup {
   },
   refactor = {highlight_current_scope = {enable = false}},
   rainbow = {enable = true},
-  autotag = {enable = true}
+  autotag = {enable = true},
+  context_commentstring = {enable = true}
 }

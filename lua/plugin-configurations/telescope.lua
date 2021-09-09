@@ -1,16 +1,18 @@
 local actions = require('telescope.actions')
 
+local rg_arguments = {'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '--hidden', '--ignore'}
+
 require('telescope').setup({
   defaults = {
-    find_command = {'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '--hidden', '--ignore'},
-    vimgrep_arguments = {'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '--hidden', '--ignore'},
+    find_command = rg_arguments,
+    vimgrep_arguments = rg_arguments,
     file_sorter = require('telescope.sorters').get_fzy_sorter,
     prompt_prefix = '🔍 ',
     selection_caret = ' ',
     entry_prefix = '  ',
     layout_config = {prompt_position = 'bottom', horizontal = {mirror = false, width = 0.9}, vertical = {mirror = false, width = 0.8}},
     file_ignore_patterns = {'**/yarn.lock', '**/node_modules/**', '**/package-lock.json', '**/.git'},
-    mappings = {i = {['<C-s>'] = actions.cycle_previewers_next, ['<C-a>'] = actions.cycle_previewers_prev}}
+    mappings = {i = {['<C-e>'] = actions.cycle_previewers_next, ['<C-r>'] = actions.cycle_previewers_prev}}
   },
   pickers = {
     -- Your special builtin config goes in here
@@ -55,16 +57,26 @@ telescope.load_extension('media_files')
 --
 M = {}
 
+local TELESCOPE_RG_INTERACTIVE_LAST_ARGS
+
 function M.TelescopeRipgrepInteractive()
   vim.call('inputsave')
 
-  local args = vim.fn.input('Pass in ripgrep arguments' .. ' ➜ ')
+  local args = vim.fn.input('Pass in ripgrep arguments' .. ' ➜  ', TELESCOPE_RG_INTERACTIVE_LAST_ARGS)
 
   vim.api.nvim_command('normal :esc<CR>')
 
-  vim.api.nvim_out_write('rg ➜ ' .. args .. '\n')
+  vim.api.nvim_out_write('rg ➜  ' .. args .. '\n')
 
-  vim.api.nvim_command(':Telescope live_grep find_command=rg,--ignore,--hidden,' .. args)
+  TELESCOPE_RG_INTERACTIVE_LAST_ARGS = args
+
+  local chunks = {}
+
+  for substring in args:gmatch('%S+') do table.insert(chunks, substring) end
+
+  local command = ':Telescope live_grep vimgrep_arguments=' .. table.concat(rg_arguments, ',') .. ',' .. table.concat(chunks, ',')
+
+  vim.api.nvim_command(command)
 
   vim.call('inputrestore')
 end

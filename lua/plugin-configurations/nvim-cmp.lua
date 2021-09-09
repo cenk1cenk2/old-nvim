@@ -12,7 +12,7 @@ cmp.setup({
       vim.fn['vsnip#anonymous'](args.body)
     end
   },
-  completion = {autocomplete = true, completeopt = 'menu,menuone,noselect'},
+  completion = {autocomplete = true, completeopt = 'menu,menuone,noinsert'},
   sources = {
     {name = 'nvim_lsp'},
     {name = 'nvim_lua'},
@@ -55,11 +55,11 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
     ['<S-CR>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Replace, select = true})
+    ['<CR>'] = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Insert, select = true})
   },
   formatting = {
     format = function(_, vim_item)
-      vim_item.kind = lspkind.presets.default[vim_item.kind] .. ' [' .. vim_item.kind .. ']'
+      vim_item.kind = lspkind.presets.default[vim_item.kind] .. ' [' .. string.lower(vim_item.kind) .. ']'
 
       return vim_item
     end

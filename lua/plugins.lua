@@ -34,179 +34,173 @@ return require('packer').startup(function(use)
   -- quick scope, t-f navigation
   use {'unblevable/quick-scope'}
 
-  if vim.g.vscode then
-    -- vscode easy motion
-    use {'ChristianChiarulli/vscode-easymotion'}
-  else
-    -- icons
-    use {'kyazdani42/nvim-web-devicons'}
-    use {'ryanoasis/vim-devicons'}
+  -- icons
+  use {'kyazdani42/nvim-web-devicons'}
+  use {'ryanoasis/vim-devicons'}
 
-    -- dashboard
-    use {'glepnir/dashboard-nvim'}
+  -- dashboard
+  use {'glepnir/dashboard-nvim'}
 
-    -- which key
-    use {'folke/which-key.nvim'}
+  -- which key
+  use {'folke/which-key.nvim'}
 
-    -- status line
-    use {'glepnir/galaxyline.nvim'}
+  -- status line
+  use {'glepnir/galaxyline.nvim'}
 
-    -- tab line
-    use {'romgrk/barbar.nvim'}
+  -- tab line
+  use {'romgrk/barbar.nvim'}
 
-    -- smooth scroll
-    use {'karb94/neoscroll.nvim'}
+  -- smooth scroll
+  use {'karb94/neoscroll.nvim'}
 
-    -- find and replace
-    use {'windwp/nvim-spectre'}
+  -- find and replace
+  use {'windwp/nvim-spectre'}
 
-    -- multiple cursors
-    use {'terryma/vim-multiple-cursors'}
+  -- multiple cursors
+  use {'mg979/vim-visual-multi'}
 
-    -- comments
-    use {'preservim/nerdcommenter'}
-    -- use {'b3nj5m1n/kommentary'}
-    use {'danymat/neogen', requires = 'nvim-treesitter/nvim-treesitter'}
+  -- comments
+  -- use {'preservim/nerdcommenter'}
+  use {'b3nj5m1n/kommentary'}
 
-    -- ranger
-    use {'kevinhwang91/rnvimr'}
+  -- ranger
+  use {'kevinhwang91/rnvimr'}
 
-    -- buffer close
-    use {'moll/vim-bbye'}
+  -- buffer close
+  use {'moll/vim-bbye'}
 
-    -- maximize windows temporararily
-    use {'szw/vim-maximizer'}
+  -- maximize windows temporararily
+  use {'szw/vim-maximizer'}
 
-    -- move windows with keybinds
-    use {'wesQ3/vim-windowswap'}
+  -- move windows with keybinds
+  use {'wesQ3/vim-windowswap'}
 
-    -- whitespace control
-    use {'ntpeters/vim-better-whitespace'}
+  -- whitespace control
+  use {'ntpeters/vim-better-whitespace'}
 
-    -- code folding
-    use {'pseewald/anyfold'}
+  -- code folding
+  use {'pseewald/anyfold'}
 
-    -- undo-tree
-    use {'mbbill/undotree'}
+  -- undo-tree
+  use {'mbbill/undotree'}
 
-    -- better quick fix window
-    use {'kevinhwang91/nvim-bqf'}
+  -- better quick fix window
+  use {'kevinhwang91/nvim-bqf'}
 
-    -- file explorer
-    use {'kyazdani42/nvim-tree.lua'}
+  -- file explorer
+  use {'kyazdani42/nvim-tree.lua'}
 
-    -- terminal
-    use {'voldikss/vim-floaterm'}
+  -- terminal
+  use {'voldikss/vim-floaterm'}
 
-    -- lsp
-    use {'neovim/nvim-lspconfig'}
+  -- lsp
+  use {'neovim/nvim-lspconfig'}
 
-    -- lsp completion
-    use {'hrsh7th/nvim-cmp', requires = {'hrsh7th/vim-vsnip', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-nvim-lua', 'hrsh7th/cmp-vsnip'}}
+  -- lsp completion
+  use {'hrsh7th/nvim-cmp', requires = {'hrsh7th/vim-vsnip', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-nvim-lua', 'hrsh7th/cmp-vsnip'}}
 
-    -- lsp extensions
-    use {'glepnir/lspsaga.nvim'}
-    use {'onsails/lspkind-nvim'}
-    use {'kosayoda/nvim-lightbulb'}
-    use {'folke/lsp-trouble.nvim'}
-    use {'simrat39/symbols-outline.nvim'}
+  -- lsp extensions
+  use {'glepnir/lspsaga.nvim'}
+  use {'onsails/lspkind-nvim'}
+  use {'kosayoda/nvim-lightbulb'}
+  use {'folke/lsp-trouble.nvim'}
+  use {'simrat39/symbols-outline.nvim'}
 
-    -- illumunate
-    use {'RRethy/vim-illuminate'}
+  -- illumunate
+  use {'RRethy/vim-illuminate'}
 
-    -- snippets
-    use {'hrsh7th/vim-vsnip'}
-    use {'hrsh7th/vim-vsnip-integ'}
-    use {'rafamadriz/friendly-snippets'}
-    use {'kitagry/vs-snippets'}
+  -- snippets
+  use {'hrsh7th/vim-vsnip'}
+  use {'hrsh7th/vim-vsnip-integ'}
+  use {'rafamadriz/friendly-snippets'}
+  use {'kitagry/vs-snippets'}
 
-    -- debug adapter
-    use {'puremourning/vimspector'}
+  -- debug adapter
+  use {'puremourning/vimspector'}
 
-    -- syntax highlighting for the rest
-    use {'sheerun/vim-polyglot'}
+  -- syntax highlighting for the rest
+  -- use {'sheerun/vim-polyglot'}
 
-    -- Treesitter
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-    use {'nvim-treesitter/playground', requires = {'nvim-treesitter/nvim-treesitter'}}
-    use {'p00f/nvim-ts-rainbow', run = ':TSUpdate', requires = {'nvim-treesitter/nvim-treesitter'}}
-    use {'windwp/nvim-ts-autotag', requires = {'nvim-treesitter/nvim-treesitter'}}
+  -- Treesitter
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use {'nvim-treesitter/playground', requires = {'nvim-treesitter/nvim-treesitter'}}
+  use {'p00f/nvim-ts-rainbow', run = ':TSUpdate', requires = {'nvim-treesitter/nvim-treesitter'}}
+  use {'windwp/nvim-ts-autotag', requires = {'nvim-treesitter/nvim-treesitter'}}
+  use {'JoosepAlviste/nvim-ts-context-commentstring', requires = {'nvim-treesitter/nvim-treesitter'}}
 
-    -- Colorized
-    use {'norcalli/nvim-colorizer.lua'}
+  -- Colorized
+  use {'norcalli/nvim-colorizer.lua'}
 
-    -- telescope
-    use {'nvim-lua/popup.nvim'}
-    use {'nvim-lua/plenary.nvim'}
-    use {'nvim-telescope/telescope.nvim'}
+  -- telescope
+  use {'nvim-lua/popup.nvim'}
+  use {'nvim-lua/plenary.nvim'}
+  use {'nvim-telescope/telescope.nvim'}
 
-    -- telescope extensions
-    use {'nvim-telescope/telescope-node-modules.nvim'}
-    use {'nvim-telescope/telescope-vimspector.nvim'}
-    use {'GustavoKatel/telescope-asynctasks.nvim'}
-    use {'nvim-telescope/telescope-media-files.nvim'}
-    use {'TC72/telescope-tele-tabby.nvim'}
-    use {'nvim-telescope/telescope-github.nvim'}
-    use {'gbrlsnchs/telescope-lsp-handlers.nvim'}
-    use {'folke/todo-comments.nvim'}
+  -- telescope extensions
+  -- use {'nvim-telescope/telescope-node-modules.nvim'}
+  use {'nvim-telescope/telescope-vimspector.nvim'}
+  use {'GustavoKatel/telescope-asynctasks.nvim'}
+  use {'nvim-telescope/telescope-media-files.nvim'}
+  use {'TC72/telescope-tele-tabby.nvim'}
+  use {'nvim-telescope/telescope-github.nvim'}
+  use {'gbrlsnchs/telescope-lsp-handlers.nvim'}
+  use {'folke/todo-comments.nvim'}
 
-    -- git related
-    use {'lewis6991/gitsigns.nvim'}
-    use {'tpope/vim-fugitive'}
-    use {'tpope/vim-rhubarb'}
-    use {'junegunn/gv.vim'}
-    use {'pwntester/octo.nvim'}
-    -- use {'sindrets/diffview.nvim'}
+  -- git related
+  use {'lewis6991/gitsigns.nvim'}
+  use {'tpope/vim-fugitive'}
+  use {'tpope/vim-rhubarb'}
+  use {'junegunn/gv.vim'}
+  use {'pwntester/octo.nvim'}
+  use {'sindrets/diffview.nvim'}
 
-    -- quick move commands
-    use {'tpope/vim-unimpaired'}
+  -- quick move commands
+  use {'tpope/vim-unimpaired'}
 
-    -- coc for now
-    use {'neoclide/coc.nvim', branch = 'release'}
+  -- coc for now
+  use {'neoclide/coc.nvim', branch = 'release'}
 
-    -- fzf
-    use {
-      'junegunn/fzf',
-      run = function()
-        vim.fn['fzf#install']()
-      end
-    }
-    use {'yuki-ycino/fzf-preview.vim', branch = 'main', run = ':UpdateRemotePlugins'}
-    use {'junegunn/fzf.vim'}
+  -- fzf
+  use {
+    'junegunn/fzf',
+    run = function()
+      vim.fn['fzf#install']()
+    end
+  }
+  use {'yuki-ycino/fzf-preview.vim', branch = 'main', run = ':UpdateRemotePlugins'}
+  use {'junegunn/fzf.vim'}
 
-    -- chdir, to working directory
-    use {'airblade/vim-rooter'}
+  -- chdir, to working directory
+  use {'airblade/vim-rooter'}
 
-    -- autopairing parenthesis
-    use {'windwp/nvim-autopairs'}
+  -- autopairing parenthesis
+  use {'windwp/nvim-autopairs'}
 
-    -- move stuff around with altjk
-    use {'matze/vim-move'}
+  -- move stuff around with altjk
+  use {'matze/vim-move'}
 
-    -- align around some anchor
-    use {'junegunn/vim-easy-align'}
+  -- align around some anchor
+  use {'junegunn/vim-easy-align'}
 
-    -- indent guidelines
-    use {'lukas-reineke/indent-blankline.nvim'}
+  -- indent guidelines
+  use {'lukas-reineke/indent-blankline.nvim'}
 
-    -- tasks
-    use {'skywind3000/asynctasks.vim'}
-    use {'skywind3000/asyncrun.vim'}
+  -- tasks
+  use {'skywind3000/asynctasks.vim'}
+  use {'skywind3000/asyncrun.vim'}
 
-    -- markdown previewer
-    use {'iamcco/markdown-preview.nvim', run = {'cd app & yarn & yarn add -D tslib', ':call mkdp#util#install()'}}
+  -- markdown previewer
+  use {'iamcco/markdown-preview.nvim', run = {'cd app & yarn & yarn add -D tslib', ':call mkdp#util#install()'}}
 
-    -- jinja syntax highlights
-    use {'lepture/vim-jinja'} -- (temp)
+  -- jinja syntax highlights
+  use {'lepture/vim-jinja'} -- (temp)
 
-    -- clipboard telescope
-    use {'AckslD/nvim-neoclip.lua'}
+  -- clipboard telescope
+  use {'AckslD/nvim-neoclip.lua'}
 
-    -- bookmarks
-    use {'MattesGroeger/vim-bookmarks'}
+  -- bookmarks
+  use {'MattesGroeger/vim-bookmarks'}
 
-    -- package information for npm packages
-    use {'vuki656/package-info.nvim'}
-  end
-
+  -- package information for npm packages
+  d = {':LspTroubleDocumentToggle<CR>', 'show all diagnostics'}, use {'vuki656/package-info.nvim'}
 end)
