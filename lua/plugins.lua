@@ -206,5 +206,5 @@ return require('packer').startup(function(use)
   use {'heavenshell/vim-jsdoc', run = {'make install'}}
 
   -- package information for npm packages
-  use {'vuki656/package-info.nvim'}
+  use {'vuki656/package-info.nvim', requires = 'MunifTanjim/nui.nvim'}
 end)
