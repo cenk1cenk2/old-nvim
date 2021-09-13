@@ -1,4 +1,6 @@
-require('todo-comments').setup {
+local c = require('themes.onedark.colors')
+
+require('todo-comments').setup({
   {
     signs = true, -- show icons in the signs column
     -- keywords recognized as todo comments
@@ -27,11 +29,11 @@ require('todo-comments').setup {
     -- list of named colors where we try to extract the guifg from the
     -- list of hilight groups or use the hex color if hl not found as a fallback
     colors = {
-      error = {'LspDiagnosticsDefaultError', 'ErrorMsg', '#DC2626'},
-      warning = {'LspDiagnosticsDefaultWarning', 'WarningMsg', '#FBBF24'},
-      info = {'LspDiagnosticsDefaultInformation', '#2563EB'},
-      hint = {'LspDiagnosticsDefaultHint', '#10B981'},
-      default = {'Identifier', '#7C3AED'}
+      error = {'LspDiagnosticsDefaultError', 'ErrorMsg', c.bright_red},
+      warning = {'LspDiagnosticsDefaultWarning', 'WarningMsg', c.bright_yellow},
+      info = {'LspDiagnosticsDefaultInformation', c.bright_cyan},
+      hint = {'LspDiagnosticsDefaultHint', c.bright_green},
+      default = {'Identifier', c.purple}
     },
     -- regex that will be used to match keywords.
     -- don't replace the (KEYWORDS) placeholder
@@ -39,4 +41,4 @@ require('todo-comments').setup {
     -- pattern = "(KEYWORDS)", -- match without the extra colon. You'll likely get false positives
     -- pattern = "-- (KEYWORDS):", -- only match in lua comments
   }
-}
+})

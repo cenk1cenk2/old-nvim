@@ -1,5 +1,5 @@
 -- general settings
-vim.g.lsp_servers_dir = os.getenv('HOME') .. '/.local/share/nvim/lsp-servers/'
+vim.g.lsp_servers_dir = vim.fn.stdpath('data') .. '/lsp-servers/'
 
 require('plugins')
 require('settings')

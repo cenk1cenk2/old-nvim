@@ -11,6 +11,7 @@ require('lsp-language-configurations.tsserver')
 require('lsp-language-configurations.vim')
 require('lsp-language-configurations.vue')
 require('lsp-language-configurations.yaml')
+require('lsp-language-configurations.ansible')
 
 -- extensions
 require('lsp-language-configurations.html')
@@ -26,3 +27,5 @@ require('lsp-language-configurations.efm')
 
 -- spellcheck, least priority
 -- require('lsp-language-configurations.grammarly')
+
+require('nlspsettings').setup({config_home = vim.fn.stdpath('config') .. '/lua/lsp-language-configurations/nlsp'})

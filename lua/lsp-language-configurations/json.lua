@@ -18,14 +18,14 @@ require('lspconfig').jsonls.setup({
   },
   settings = {
     json = {
-      schemas = {
-        {fileMatch = {'package.json'}, url = 'https://json.schemastore.org/package.json'},
-        {fileMatch = {'tsconfig*.json', 'tsconfig.json', 'tsconfig.build.json'}, url = 'https://json.schemastore.org/tsconfig.json'},
-        {fileMatch = {'.prettierrc', '.prettierrc.json'}, url = 'https://json.schemastore.org/prettierrc.json'},
-        {fileMatch = {'.eslintrc', '.eslintrc.json'}, url = 'https://json.schemastore.org/eslintrc.json'},
-        {fileMatch = {'.babelrc', '.babelrc.json'}, url = 'https://json.schemastore.org/babelrc.json'},
-        {fileMatch = {'lerna.json'}, url = 'https://json.schemastore.org/lerna.json'}
-      }
+      schemas = vim.tbl_extend('keep', {
+        {fileMatch = {'package.json'}, url = 'http://json.schemastore.org/package.json'},
+        {fileMatch = {'tsconfig*.json', 'tsconfig.json', 'tsconfig.build.json'}, url = 'http://json.schemastore.org/tsconfig.json'},
+        {fileMatch = {'.prettierrc', '.prettierrc.json'}, url = 'http://json.schemastore.org/prettierrc.json'},
+        {fileMatch = {'.eslintrc', '.eslintrc.json'}, url = 'http://json.schemastore.org/eslintrc.json'},
+        {fileMatch = {'.babelrc', '.babelrc.json'}, url = 'http://json.schemastore.org/babelrc.json'},
+        {fileMatch = {'lerna.json'}, url = 'http://json.schemastore.org/lerna.json'}
+      }, require('nlspsettings.jsonls').get_default_schemas())
     }
   }
 })

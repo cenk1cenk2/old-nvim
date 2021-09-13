@@ -67,6 +67,7 @@ NPM_EXTENSIONS=(
 	"markdown-toc"
 	"stylelint-lsp"
 	"@fsouza/prettierd;prettierd"
+	"ansible-language-server"
 )
 
 # format: [extensions-name];[binary-name]
@@ -155,7 +156,13 @@ function install_and_link_binaries() {
 	if [ ${#ALL_EXTENSIONS[@]} -gt 0 ]; then
 		log_this "${ALL_EXTENSIONS[*]}" "${CYAN}PACKAGE${RESET}" "INFO"
 
-		eval "${INSTALL_COMMAND} ${ALL_EXTENSIONS[*]}"
+		if [ "$TYPE" = "go" ]; then
+			for e in "${ALL_EXTENSIONS[@]}"; do
+				eval "${INSTALL_COMMAND} ${e}"
+			done
+		else
+			eval "${INSTALL_COMMAND} ${ALL_EXTENSIONS[*]}"
+		fi
 
 		if [ -n "${BASE_DIR}" ]; then
 			log_info "Linking binaries: ${ALL_BINARIES[*]}"
@@ -352,9 +359,7 @@ function pluck_v_from_release() {
 install_and_link_binaries "node" "${NPM_EXTENSIONS[*]}"
 
 ## for go based extensions
-for e in "${GO_EXTENSIONS[@]}"; do
-	install_and_link_binaries "go" "$e"
-done
+install_and_link_binaries "go" "${GO_EXTENSIONS[*]}"
 
 ## for python based extensions
 log_start "Initiating new python environment." "top"
@@ -396,7 +401,7 @@ download_binary "https://github.com/rust-analyzer/rust-analyzer/releases/downloa
 
 # downloading vscode internal extensions
 EXTENSIONS_BASE_PATH="VSCode-linux-x64/resources/app/extensions"
-download_extension "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64" "tar_gz" "vscode" "${EXTENSIONS_BASE_PATH}/node_modules ${EXTENSIONS_BASE_PATH}/json-language-features ${EXTENSIONS_BASE_PATH}/css-language-features ${EXTENSIONS_BASE_PATH}/html-language-features"
+download_extension "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64" "tar_gz" "vscode" "${EXTENSIONS_BASE_PATH}/json-language-features ${EXTENSIONS_BASE_PATH}/css-language-features ${EXTENSIONS_BASE_PATH}/html-language-features"
 
 log_finish "Installed custom assets and vscode-extensions." "top"
 
