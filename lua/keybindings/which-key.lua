@@ -181,7 +181,6 @@ wk.register({
     l = {':Lspsaga show_line_diagnostics<CR>', 'line diagnostics'},
     L = {':Lspsaga lsp_finder<CR>', 'lsp finder'},
     m = {':LspRenameFile<CR>', 'rename'},
-    M = {':Telescope node_modules list<CR>', 'node modules'},
     n = {':Lspsaga diagnostic_jump_next<CR>', 'next diagnostic'},
     p = {':Lspsaga diagnostic_jump_prev<CR>', 'prev diagnostic'},
     o = {':SymbolsOutline<CR>', 'outline'},
@@ -192,6 +191,19 @@ wk.register({
     Q = {':LspRestart<CR>', 'restart currently active lsps'},
     s = {':Telescope lsp_document_symbols --theme=get_dropdown<CR>', 'document symbols'},
     S = {':Telescope lsp_workspace_symbols --theme=get_dropdown<CR>', 'workspace symbols'}
+  },
+
+  -- node modules
+  m = {
+    name = 'node',
+    s = {':lua require("package-info").show()<CR>', 'show package-info'},
+    S = {':lua require("package-info").hide()<CR>', 'hide package-info'},
+    u = {':lua require("package-info").update()<CR>', 'update current package'},
+    d = {':lua require("package-info").delete()<CR>', 'delete current package'},
+    i = {':lua require("package-info").install()<CR>', 'install packages'},
+    r = {':lua require("package-info").reinstall()<CR>', 'reinstall packages'},
+    c = {':lua require("package-info").change_version()<CR>', 'change version of the package'},
+    m = {':Telescope node_modules list<CR>', 'node modules'}
   },
 
   -- terminal
@@ -232,5 +244,6 @@ wk.register({
     s = {':SessionSave<CR>', 'Save Session'},
     f = {':CocList sessions<CR>', 'List Session'}
   }
+
 }, {prefix = '<Leader>'})
 
