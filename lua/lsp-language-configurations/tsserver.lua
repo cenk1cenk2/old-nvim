@@ -27,6 +27,14 @@ require('lspconfig').tsserver.setup {
 
         vim.api.nvim_out_write(current .. ' ➜ ' .. rename .. '\n')
 
+        local stat = vim.loop.fs_stat(rename)
+
+        if stat.type then
+          error('File already exists: ' .. rename)
+
+          return
+        end
+
         vim.lsp.buf.execute_command({command = '_typescript.applyRenameFile', arguments = {{sourceUri = 'file://' .. current, targetUri = 'file://' .. rename}}, title = ''})
 
         vim.loop.fs_rename(current, rename)
