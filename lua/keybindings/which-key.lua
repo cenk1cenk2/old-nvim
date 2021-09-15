@@ -75,7 +75,7 @@ wk.register({
     C = {':BufferWipeout<CR>', 'close-all'},
     e = {':e<CR>', 're-open current buffer'},
     f = {':Telescope buffers<CR>', 'find buffer'},
-    E = {':E<CR>', 're-open current buffer force'},
+    E = {':e!<CR>', 're-open current buffer force'},
     X = {':BufferCloseAllButCurrent<CR>', 'close-all but current'},
     p = {':BufferPin<CR>', 'pin buffer'},
     P = {':BufferCloseAllButPinned<CR>', 'close-all but pinned'},
