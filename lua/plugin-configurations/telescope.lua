@@ -31,7 +31,7 @@ require('telescope').setup({
 local telescope = require('telescope')
 
 telescope.load_extension('gh')
--- telescope.load_extension('node_modules')
+telescope.load_extension('node_modules')
 telescope.load_extension('lsp_handlers')
 telescope.load_extension('media_files')
 
