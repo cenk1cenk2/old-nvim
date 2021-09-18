@@ -19,8 +19,8 @@ end
 
 helpers.command.wrap_to_command({{'GDiffCompare', 'lua require("plugin-configurations.fugitive").GDiffCompare()'}})
 
-vim.api.nvim_set_keymap('n', [[gy]], [[:diffget //3]], {silent = true, noremap = true})
-vim.api.nvim_set_keymap('n', [[gx]], [[:diffget //2]], {silent = true, noremap = true})
+vim.api.nvim_set_keymap('n', [[gy]], [[:diffget //3<CR>]], {silent = true, noremap = true})
+vim.api.nvim_set_keymap('n', [[gx]], [[:diffget //2<CR>]], {silent = true, noremap = true})
 
 return M
 
