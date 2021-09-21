@@ -12,11 +12,15 @@ cmp.setup({
       vim.fn['vsnip#anonymous'](args.body)
     end
   },
-  completion = {autocomplete = true, completeopt = 'menu,menuone,noinsert'},
+  completion = {
+    autocomplete = true,
+    -- completeopt = 'menu,menuone,noinsert',
+    keyword_length = 3
+  },
   sources = {
-    {name = 'nvim_lsp'},
-    {name = 'nvim_lua'},
-    {name = 'path'},
+    {name = 'nvim_lsp', priority = 9999},
+    {name = 'nvim_lua', priority = 9000},
+    {name = 'path', priority = 8000},
     {
       name = 'buffer',
       get_bufnrs = function()
