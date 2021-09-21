@@ -80,6 +80,7 @@ wk.register({
     X = {':BufferCloseAllButCurrent<CR>', 'close-all but current'},
     p = {':BufferPin<CR>', 'pin buffer'},
     P = {':BufferCloseAllButPinned<CR>', 'close-all but pinned'},
+    s = {':edit #', 'switch to last buffer'},
     y = {':BufferCloseBuffersLeft<CR>', 'close-all to left'},
     Y = {':BufferCloseBuffersRight<CR>', 'close-all to right'}
   },
