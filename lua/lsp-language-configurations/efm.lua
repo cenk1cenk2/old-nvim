@@ -21,7 +21,8 @@ local languages = {
   html = {efm.prettier},
   scss = {efm.prettier},
   css = {efm.prettier},
-  markdown = {efm.prettier, efm.markdownlint, efm.misspell}
+  markdown = {efm.prettier, efm.markdownlint, efm.misspell},
+  graphql = {efm.prettier}
 }
 
 -- https://github.com/mattn/efm-langserver
@@ -49,7 +50,9 @@ require('lspconfig').efm.setup {
       '*.html',
       '*.scss',
       '*.css',
-      '*.md'
+      '*.md',
+      '*.gql',
+      '*.graphql'
     })
   end,
   init_options = {documentFormatting = true, codeAction = true, completion = true},

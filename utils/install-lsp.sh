@@ -68,6 +68,7 @@ NPM_EXTENSIONS=(
 	"stylelint-lsp"
 	"@fsouza/prettierd;prettierd"
 	"ansible-language-server"
+	"graphql;false"
 )
 
 # format: [extensions-name];[binary-name]
