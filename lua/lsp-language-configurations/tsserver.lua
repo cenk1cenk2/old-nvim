@@ -29,7 +29,7 @@ require('lspconfig').tsserver.setup {
 
         local stat = vim.loop.fs_stat(rename)
 
-        if stat.type then
+        if stat and stat.type then
           error('File already exists: ' .. rename)
 
           return
