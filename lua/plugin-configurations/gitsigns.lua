@@ -28,11 +28,10 @@ require('gitsigns').setup {
     --[[ ['o ih'] = ':<C-U>lua require"gitsigns".text_object()<CR>',
     ['x ih'] = ':<C-U>lua require"gitsigns".text_object()<CR>' ]]
   },
-  watch_index = {interval = 1000},
+  watch_gitdir = {interval = 1000},
   sign_priority = 6,
   update_debounce = 200,
-  status_formatter = nil, -- Use default
-  use_decoration_api = false
+  status_formatter = nil -- Use default
 }
 
 helpers.command.wrap_to_command({
