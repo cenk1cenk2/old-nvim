@@ -12,7 +12,11 @@ cmp.setup({
       vim.fn['vsnip#anonymous'](args.body)
     end
   },
-  completion = {autocomplete = true, completeopt = 'menu,menuone,noinsert', keyword_length = 3},
+  completion = {
+    autocomplete = false,
+    -- completeopt = 'menu,menuone,noinsert',
+    keyword_length = 2
+  },
   sources = {
     {name = 'nvim_lsp', priority = 9999},
     {name = 'nvim_lua', priority = 9000},
