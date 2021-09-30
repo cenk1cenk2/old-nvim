@@ -102,7 +102,8 @@ return require('packer').startup(function(use)
   use {'hrsh7th/nvim-cmp', requires = {'hrsh7th/vim-vsnip', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-nvim-lua', 'hrsh7th/cmp-vsnip'}}
 
   -- lsp extensions
-  use {'glepnir/lspsaga.nvim'}
+  -- use {'glepnir/lspsaga.nvim'}
+  use {'tami5/lspsaga.nvim'}
   use {'onsails/lspkind-nvim'}
   use {'kosayoda/nvim-lightbulb'}
   use {'folke/lsp-trouble.nvim'}

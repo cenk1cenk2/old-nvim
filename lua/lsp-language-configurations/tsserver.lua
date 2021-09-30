@@ -1,5 +1,6 @@
 -- npm install -g typescript typescript-language-server
 local lsphelpers = require('helper-functions.lsp')
+local util = require('lspconfig.util')
 
 require('lspconfig').tsserver.setup {
   cmd = {vim.g.lsp_servers_dir .. 'typescript-language-server', '--stdio', '--log-level', '4'},

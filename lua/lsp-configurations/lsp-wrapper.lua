@@ -206,8 +206,8 @@ helpers.command.wrap_to_command({
   {'LspGotoNext', 'lua require("lsp-configurations.lsp-wrapper").goto_next()'},
   {'LspGotoPrev', 'lua require("lsp-configurations.lsp-wrapper").goto_prev()'},
   {'LspShowLineDiagnostics', 'lua require("lsp-configurations.lsp-wrapper").show_line_diagnostics()'},
-  {'LspLogLevelDebug', 'lua require("lsp-configurations.lsp-wrapper").enable_lsp_debug_logging("debug")'},
-  {'LspLogLevelInfo', 'lua require("lsp-configurations.lsp-wrapper").enable_lsp_debug_logging("info")'},
+  {'LspLogLevelDebug', 'lua require("lsp-configurations.lsp-wrapper").lsp_logging_level("debug")'},
+  {'LspLogLevelInfo', 'lua require("lsp-configurations.lsp-wrapper").lsp_logging_level("info")'},
   {'LspFixCurrent', 'lua require("lsp-configurations.lsp-wrapper").fix_current()'},
   {'LspOrganizeImports', 'lua require("lsp-configurations.lsp-wrapper").organize_imports()'}
 })
