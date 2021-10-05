@@ -1,7 +1,7 @@
 vim.g.kommentary_create_default_mappings = false
 
-vim.api.nvim_set_keymap('n', [[<C-\>]], '<Plug>kommentary_line_default', {})
-vim.api.nvim_set_keymap('x', [[<C-\>]], '<Plug>kommentary_visual_default', {})
+vim.api.nvim_set_keymap('n', [[<C-\>]], '<Plug>kommentary_line_default<ESC>', {})
+vim.api.nvim_set_keymap('x', [[<C-\>]], '<Plug>kommentary_visual_default<ESC>', {})
 
 require('kommentary.config').configure_language('default', {use_consistent_indentation = true, ignore_whitespace = true})
 
