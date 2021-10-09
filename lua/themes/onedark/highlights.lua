@@ -42,6 +42,7 @@ local colors = {
   Yellow = {fg = c.yellow},
   Orange = {fg = c.orange},
   Green = {fg = c.green},
+  DarkGreen = {fg = c.dark_green},
   Blue = {fg = c.blue},
   Purple = {fg = c.purple},
   BrightYellow = {fg = c.bright_yellow},
@@ -305,6 +306,14 @@ hl.plugins.dashboard = {DashboardShortcut = {fg = c.fg}, DashboardHeader = color
 
 hl.plugins.spectre = {SpectreChange = {fg = c.yellow}, SpectreDelete = {fg = c.red}}
 
+hl.plugins.nvim_cmp = {
+  CmpItemMenuDefault = colors.Fg,
+  CmpItemKindDefault = colors.Orange,
+  CmpItemAbbr = colors.Fg,
+  CmpItemAbbrMatch = colors.Green,
+  CmpItemAbbrMatchFuzzy = colors.Yellow
+}
+
 hl.langs.markdown = {
   markdownBlockquote = colors.Grey,
   markdownBold = {fg = c.none, bold = true},
@@ -379,9 +388,9 @@ hl.langs.ansible = {ansible_normal_keywords = colors.Blue}
 function M.setup()
   vim_highlights(hl.common)
   vim_highlights(hl.syntax)
-  -- local ns = create_namespace('onedark')
-  -- load_highlights(ns, hl.treesitter)
-  -- set_hl_ns(ns)
+  local ns = create_namespace('onedark')
+  load_highlights(ns, hl.treesitter)
+  set_hl_ns(ns)
   vim_highlights(hl.treesitter)
   for _, group in pairs(hl.langs) do vim_highlights(group) end
   for _, group in pairs(hl.plugins) do vim_highlights(group) end
